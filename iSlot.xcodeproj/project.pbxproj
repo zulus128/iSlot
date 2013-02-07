@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C0A47E716C3A37200B23B2C /* slotStilistik01-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47DC16C3A37200B23B2C /* slotStilistik01-0.png */; };
+		9C0A47E816C3A37200B23B2C /* slotStilistik01-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47DD16C3A37200B23B2C /* slotStilistik01-1.png */; };
+		9C0A47E916C3A37200B23B2C /* slotStilistik01-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47DE16C3A37200B23B2C /* slotStilistik01-2.png */; };
+		9C0A47EA16C3A37200B23B2C /* slotStilistik01-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47DF16C3A37200B23B2C /* slotStilistik01-3.png */; };
+		9C0A47EB16C3A37200B23B2C /* slotStilistik01-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E016C3A37200B23B2C /* slotStilistik01-4.png */; };
+		9C0A47EC16C3A37200B23B2C /* slotStilistik01-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E116C3A37200B23B2C /* slotStilistik01-5.png */; };
+		9C0A47ED16C3A37200B23B2C /* slotStilistik01-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E216C3A37200B23B2C /* slotStilistik01-6.png */; };
+		9C0A47EE16C3A37200B23B2C /* slotStilistik01-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E316C3A37200B23B2C /* slotStilistik01-7.png */; };
+		9C0A47EF16C3A37200B23B2C /* slotStilistik01-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E416C3A37200B23B2C /* slotStilistik01-8.png */; };
+		9C0A47F016C3A37200B23B2C /* slotStilistik01-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E516C3A37200B23B2C /* slotStilistik01-9.png */; };
+		9C0A47F116C3A37200B23B2C /* slotStilistik01-10.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E616C3A37200B23B2C /* slotStilistik01-10.png */; };
+		9C0A47F416C3A7CA00B23B2C /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0A47F316C3A7CA00B23B2C /* GameLayer.m */; };
 		9C70749916C375800053C3F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C70749816C375800053C3F0 /* QuartzCore.framework */; };
 		9C70749B16C375800053C3F0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C70749A16C375800053C3F0 /* OpenGLES.framework */; };
 		9C70749D16C375800053C3F0 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C70749C16C375800053C3F0 /* OpenAL.framework */; };
@@ -142,6 +154,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C0A47DC16C3A37200B23B2C /* slotStilistik01-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-0.png"; sourceTree = "<group>"; };
+		9C0A47DD16C3A37200B23B2C /* slotStilistik01-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-1.png"; sourceTree = "<group>"; };
+		9C0A47DE16C3A37200B23B2C /* slotStilistik01-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-2.png"; sourceTree = "<group>"; };
+		9C0A47DF16C3A37200B23B2C /* slotStilistik01-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-3.png"; sourceTree = "<group>"; };
+		9C0A47E016C3A37200B23B2C /* slotStilistik01-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-4.png"; sourceTree = "<group>"; };
+		9C0A47E116C3A37200B23B2C /* slotStilistik01-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-5.png"; sourceTree = "<group>"; };
+		9C0A47E216C3A37200B23B2C /* slotStilistik01-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-6.png"; sourceTree = "<group>"; };
+		9C0A47E316C3A37200B23B2C /* slotStilistik01-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-7.png"; sourceTree = "<group>"; };
+		9C0A47E416C3A37200B23B2C /* slotStilistik01-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-8.png"; sourceTree = "<group>"; };
+		9C0A47E516C3A37200B23B2C /* slotStilistik01-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-9.png"; sourceTree = "<group>"; };
+		9C0A47E616C3A37200B23B2C /* slotStilistik01-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-10.png"; sourceTree = "<group>"; };
+		9C0A47F216C3A7CA00B23B2C /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		9C0A47F316C3A7CA00B23B2C /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		9C70749516C375800053C3F0 /* iSlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C70749816C375800053C3F0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9C70749A16C375800053C3F0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -442,9 +467,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C0A47DB16C3A16400B23B2C /* Slots */ = {
+			isa = PBXGroup;
+			children = (
+				9C0A47DC16C3A37200B23B2C /* slotStilistik01-0.png */,
+				9C0A47DD16C3A37200B23B2C /* slotStilistik01-1.png */,
+				9C0A47DE16C3A37200B23B2C /* slotStilistik01-2.png */,
+				9C0A47DF16C3A37200B23B2C /* slotStilistik01-3.png */,
+				9C0A47E016C3A37200B23B2C /* slotStilistik01-4.png */,
+				9C0A47E116C3A37200B23B2C /* slotStilistik01-5.png */,
+				9C0A47E216C3A37200B23B2C /* slotStilistik01-6.png */,
+				9C0A47E316C3A37200B23B2C /* slotStilistik01-7.png */,
+				9C0A47E416C3A37200B23B2C /* slotStilistik01-8.png */,
+				9C0A47E516C3A37200B23B2C /* slotStilistik01-9.png */,
+				9C0A47E616C3A37200B23B2C /* slotStilistik01-10.png */,
+			);
+			name = Slots;
+			sourceTree = "<group>";
+		};
 		9C70748C16C375800053C3F0 = {
 			isa = PBXGroup;
 			children = (
+				9C0A47DB16C3A16400B23B2C /* Slots */,
 				9C7074AA16C375800053C3F0 /* iSlot */,
 				9C70749716C375800053C3F0 /* Frameworks */,
 				9C70749616C375800053C3F0 /* Products */,
@@ -484,6 +528,8 @@
 				9C70763C16C375830053C3F0 /* HelloWorldLayer.m */,
 				9C70763E16C375830053C3F0 /* IntroLayer.h */,
 				9C70763F16C375830053C3F0 /* IntroLayer.m */,
+				9C0A47F216C3A7CA00B23B2C /* GameLayer.h */,
+				9C0A47F316C3A7CA00B23B2C /* GameLayer.m */,
 				9C7074AB16C375800053C3F0 /* Resources */,
 				9C7074C316C375800053C3F0 /* libs */,
 				9C70763416C375830053C3F0 /* Supporting Files */,
@@ -933,6 +979,17 @@
 				9C7074BF16C375800053C3F0 /* Icon@2x.png in Resources */,
 				9C7074C216C375800053C3F0 /* iTunesArtwork in Resources */,
 				9C70761816C375830053C3F0 /* ChangeLog in Resources */,
+				9C0A47E716C3A37200B23B2C /* slotStilistik01-0.png in Resources */,
+				9C0A47E816C3A37200B23B2C /* slotStilistik01-1.png in Resources */,
+				9C0A47E916C3A37200B23B2C /* slotStilistik01-2.png in Resources */,
+				9C0A47EA16C3A37200B23B2C /* slotStilistik01-3.png in Resources */,
+				9C0A47EB16C3A37200B23B2C /* slotStilistik01-4.png in Resources */,
+				9C0A47EC16C3A37200B23B2C /* slotStilistik01-5.png in Resources */,
+				9C0A47ED16C3A37200B23B2C /* slotStilistik01-6.png in Resources */,
+				9C0A47EE16C3A37200B23B2C /* slotStilistik01-7.png in Resources */,
+				9C0A47EF16C3A37200B23B2C /* slotStilistik01-8.png in Resources */,
+				9C0A47F016C3A37200B23B2C /* slotStilistik01-9.png in Resources */,
+				9C0A47F116C3A37200B23B2C /* slotStilistik01-10.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1054,6 +1111,7 @@
 				9C70763A16C375830053C3F0 /* AppDelegate.m in Sources */,
 				9C70763D16C375830053C3F0 /* HelloWorldLayer.m in Sources */,
 				9C70764016C375830053C3F0 /* IntroLayer.m in Sources */,
+				9C0A47F416C3A7CA00B23B2C /* GameLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1159,6 +1217,7 @@
 				9C70764516C375830053C3F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
