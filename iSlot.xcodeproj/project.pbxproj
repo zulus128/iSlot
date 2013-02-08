@@ -7,17 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C0A47E716C3A37200B23B2C /* slotStilistik01-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47DC16C3A37200B23B2C /* slotStilistik01-0.png */; };
-		9C0A47E816C3A37200B23B2C /* slotStilistik01-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47DD16C3A37200B23B2C /* slotStilistik01-1.png */; };
-		9C0A47E916C3A37200B23B2C /* slotStilistik01-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47DE16C3A37200B23B2C /* slotStilistik01-2.png */; };
-		9C0A47EA16C3A37200B23B2C /* slotStilistik01-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47DF16C3A37200B23B2C /* slotStilistik01-3.png */; };
-		9C0A47EB16C3A37200B23B2C /* slotStilistik01-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E016C3A37200B23B2C /* slotStilistik01-4.png */; };
-		9C0A47EC16C3A37200B23B2C /* slotStilistik01-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E116C3A37200B23B2C /* slotStilistik01-5.png */; };
-		9C0A47ED16C3A37200B23B2C /* slotStilistik01-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E216C3A37200B23B2C /* slotStilistik01-6.png */; };
-		9C0A47EE16C3A37200B23B2C /* slotStilistik01-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E316C3A37200B23B2C /* slotStilistik01-7.png */; };
-		9C0A47EF16C3A37200B23B2C /* slotStilistik01-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E416C3A37200B23B2C /* slotStilistik01-8.png */; };
-		9C0A47F016C3A37200B23B2C /* slotStilistik01-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E516C3A37200B23B2C /* slotStilistik01-9.png */; };
-		9C0A47F116C3A37200B23B2C /* slotStilistik01-10.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A47E616C3A37200B23B2C /* slotStilistik01-10.png */; };
 		9C0A47F416C3A7CA00B23B2C /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0A47F316C3A7CA00B23B2C /* GameLayer.m */; };
 		9C70749916C375800053C3F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C70749816C375800053C3F0 /* QuartzCore.framework */; };
 		9C70749B16C375800053C3F0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C70749A16C375800053C3F0 /* OpenGLES.framework */; };
@@ -151,20 +140,31 @@
 		9C70763A16C375830053C3F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C70763916C375830053C3F0 /* AppDelegate.m */; };
 		9C70763D16C375830053C3F0 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C70763C16C375830053C3F0 /* HelloWorldLayer.m */; };
 		9C70764016C375830053C3F0 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C70763F16C375830053C3F0 /* IntroLayer.m */; };
+		9CAEC16416C4CB1300E5AAD6 /* slotStilistik01-0-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC15916C4CB1300E5AAD6 /* slotStilistik01-0-ipad.png */; };
+		9CAEC16516C4CB1300E5AAD6 /* slotStilistik01-1-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC15A16C4CB1300E5AAD6 /* slotStilistik01-1-ipad.png */; };
+		9CAEC16616C4CB1300E5AAD6 /* slotStilistik01-2-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC15B16C4CB1300E5AAD6 /* slotStilistik01-2-ipad.png */; };
+		9CAEC16716C4CB1300E5AAD6 /* slotStilistik01-3-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC15C16C4CB1300E5AAD6 /* slotStilistik01-3-ipad.png */; };
+		9CAEC16816C4CB1300E5AAD6 /* slotStilistik01-4-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC15D16C4CB1300E5AAD6 /* slotStilistik01-4-ipad.png */; };
+		9CAEC16916C4CB1300E5AAD6 /* slotStilistik01-5-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC15E16C4CB1300E5AAD6 /* slotStilistik01-5-ipad.png */; };
+		9CAEC16A16C4CB1300E5AAD6 /* slotStilistik01-6-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC15F16C4CB1300E5AAD6 /* slotStilistik01-6-ipad.png */; };
+		9CAEC16B16C4CB1300E5AAD6 /* slotStilistik01-7-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC16016C4CB1300E5AAD6 /* slotStilistik01-7-ipad.png */; };
+		9CAEC16C16C4CB1300E5AAD6 /* slotStilistik01-8-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC16116C4CB1300E5AAD6 /* slotStilistik01-8-ipad.png */; };
+		9CAEC16D16C4CB1300E5AAD6 /* slotStilistik01-9-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC16216C4CB1300E5AAD6 /* slotStilistik01-9-ipad.png */; };
+		9CAEC16E16C4CB1300E5AAD6 /* slotStilistik01-10-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC16316C4CB1300E5AAD6 /* slotStilistik01-10-ipad.png */; };
+		9CAEC17B16C4CB3D00E5AAD6 /* FonSlot01-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17016C4CB3D00E5AAD6 /* FonSlot01-ipad.png */; };
+		9CAEC17C16C4CB3D00E5AAD6 /* GameCenter-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17116C4CB3D00E5AAD6 /* GameCenter-ipad.png */; };
+		9CAEC17D16C4CB3D00E5AAD6 /* Info-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17216C4CB3D00E5AAD6 /* Info-ipad.png */; };
+		9CAEC17E16C4CB3D00E5AAD6 /* LineLock-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17316C4CB3D00E5AAD6 /* LineLock-ipad.png */; };
+		9CAEC17F16C4CB3D00E5AAD6 /* Luck-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17416C4CB3D00E5AAD6 /* Luck-ipad.png */; };
+		9CAEC18016C4CB3D00E5AAD6 /* Minus-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17516C4CB3D00E5AAD6 /* Minus-ipad.png */; };
+		9CAEC18116C4CB3D00E5AAD6 /* Plas-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17616C4CB3D00E5AAD6 /* Plas-ipad.png */; };
+		9CAEC18216C4CB3D00E5AAD6 /* Shop-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17716C4CB3D00E5AAD6 /* Shop-ipad.png */; };
+		9CAEC18316C4CB3D00E5AAD6 /* SlonInApp-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17816C4CB3D00E5AAD6 /* SlonInApp-ipad.png */; };
+		9CAEC18416C4CB3D00E5AAD6 /* SlotBack-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17916C4CB3D00E5AAD6 /* SlotBack-ipad.png */; };
+		9CAEC18516C4CB3D00E5AAD6 /* Spin-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17A16C4CB3D00E5AAD6 /* Spin-ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9C0A47DC16C3A37200B23B2C /* slotStilistik01-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-0.png"; sourceTree = "<group>"; };
-		9C0A47DD16C3A37200B23B2C /* slotStilistik01-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-1.png"; sourceTree = "<group>"; };
-		9C0A47DE16C3A37200B23B2C /* slotStilistik01-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-2.png"; sourceTree = "<group>"; };
-		9C0A47DF16C3A37200B23B2C /* slotStilistik01-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-3.png"; sourceTree = "<group>"; };
-		9C0A47E016C3A37200B23B2C /* slotStilistik01-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-4.png"; sourceTree = "<group>"; };
-		9C0A47E116C3A37200B23B2C /* slotStilistik01-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-5.png"; sourceTree = "<group>"; };
-		9C0A47E216C3A37200B23B2C /* slotStilistik01-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-6.png"; sourceTree = "<group>"; };
-		9C0A47E316C3A37200B23B2C /* slotStilistik01-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-7.png"; sourceTree = "<group>"; };
-		9C0A47E416C3A37200B23B2C /* slotStilistik01-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-8.png"; sourceTree = "<group>"; };
-		9C0A47E516C3A37200B23B2C /* slotStilistik01-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-9.png"; sourceTree = "<group>"; };
-		9C0A47E616C3A37200B23B2C /* slotStilistik01-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-10.png"; sourceTree = "<group>"; };
 		9C0A47F216C3A7CA00B23B2C /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		9C0A47F316C3A7CA00B23B2C /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		9C70749516C375800053C3F0 /* iSlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -445,6 +445,28 @@
 		9C70763C16C375830053C3F0 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		9C70763E16C375830053C3F0 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		9C70763F16C375830053C3F0 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		9CAEC15916C4CB1300E5AAD6 /* slotStilistik01-0-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-0-ipad.png"; sourceTree = "<group>"; };
+		9CAEC15A16C4CB1300E5AAD6 /* slotStilistik01-1-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-1-ipad.png"; sourceTree = "<group>"; };
+		9CAEC15B16C4CB1300E5AAD6 /* slotStilistik01-2-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-2-ipad.png"; sourceTree = "<group>"; };
+		9CAEC15C16C4CB1300E5AAD6 /* slotStilistik01-3-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-3-ipad.png"; sourceTree = "<group>"; };
+		9CAEC15D16C4CB1300E5AAD6 /* slotStilistik01-4-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-4-ipad.png"; sourceTree = "<group>"; };
+		9CAEC15E16C4CB1300E5AAD6 /* slotStilistik01-5-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-5-ipad.png"; sourceTree = "<group>"; };
+		9CAEC15F16C4CB1300E5AAD6 /* slotStilistik01-6-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-6-ipad.png"; sourceTree = "<group>"; };
+		9CAEC16016C4CB1300E5AAD6 /* slotStilistik01-7-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-7-ipad.png"; sourceTree = "<group>"; };
+		9CAEC16116C4CB1300E5AAD6 /* slotStilistik01-8-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-8-ipad.png"; sourceTree = "<group>"; };
+		9CAEC16216C4CB1300E5AAD6 /* slotStilistik01-9-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-9-ipad.png"; sourceTree = "<group>"; };
+		9CAEC16316C4CB1300E5AAD6 /* slotStilistik01-10-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-10-ipad.png"; sourceTree = "<group>"; };
+		9CAEC17016C4CB3D00E5AAD6 /* FonSlot01-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonSlot01-ipad.png"; sourceTree = "<group>"; };
+		9CAEC17116C4CB3D00E5AAD6 /* GameCenter-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GameCenter-ipad.png"; sourceTree = "<group>"; };
+		9CAEC17216C4CB3D00E5AAD6 /* Info-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-ipad.png"; sourceTree = "<group>"; };
+		9CAEC17316C4CB3D00E5AAD6 /* LineLock-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LineLock-ipad.png"; sourceTree = "<group>"; };
+		9CAEC17416C4CB3D00E5AAD6 /* Luck-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Luck-ipad.png"; sourceTree = "<group>"; };
+		9CAEC17516C4CB3D00E5AAD6 /* Minus-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Minus-ipad.png"; sourceTree = "<group>"; };
+		9CAEC17616C4CB3D00E5AAD6 /* Plas-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plas-ipad.png"; sourceTree = "<group>"; };
+		9CAEC17716C4CB3D00E5AAD6 /* Shop-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shop-ipad.png"; sourceTree = "<group>"; };
+		9CAEC17816C4CB3D00E5AAD6 /* SlonInApp-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SlonInApp-ipad.png"; sourceTree = "<group>"; };
+		9CAEC17916C4CB3D00E5AAD6 /* SlotBack-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SlotBack-ipad.png"; sourceTree = "<group>"; };
+		9CAEC17A16C4CB3D00E5AAD6 /* Spin-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Spin-ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -470,17 +492,17 @@
 		9C0A47DB16C3A16400B23B2C /* Slots */ = {
 			isa = PBXGroup;
 			children = (
-				9C0A47DC16C3A37200B23B2C /* slotStilistik01-0.png */,
-				9C0A47DD16C3A37200B23B2C /* slotStilistik01-1.png */,
-				9C0A47DE16C3A37200B23B2C /* slotStilistik01-2.png */,
-				9C0A47DF16C3A37200B23B2C /* slotStilistik01-3.png */,
-				9C0A47E016C3A37200B23B2C /* slotStilistik01-4.png */,
-				9C0A47E116C3A37200B23B2C /* slotStilistik01-5.png */,
-				9C0A47E216C3A37200B23B2C /* slotStilistik01-6.png */,
-				9C0A47E316C3A37200B23B2C /* slotStilistik01-7.png */,
-				9C0A47E416C3A37200B23B2C /* slotStilistik01-8.png */,
-				9C0A47E516C3A37200B23B2C /* slotStilistik01-9.png */,
-				9C0A47E616C3A37200B23B2C /* slotStilistik01-10.png */,
+				9CAEC15916C4CB1300E5AAD6 /* slotStilistik01-0-ipad.png */,
+				9CAEC15A16C4CB1300E5AAD6 /* slotStilistik01-1-ipad.png */,
+				9CAEC15B16C4CB1300E5AAD6 /* slotStilistik01-2-ipad.png */,
+				9CAEC15C16C4CB1300E5AAD6 /* slotStilistik01-3-ipad.png */,
+				9CAEC15D16C4CB1300E5AAD6 /* slotStilistik01-4-ipad.png */,
+				9CAEC15E16C4CB1300E5AAD6 /* slotStilistik01-5-ipad.png */,
+				9CAEC15F16C4CB1300E5AAD6 /* slotStilistik01-6-ipad.png */,
+				9CAEC16016C4CB1300E5AAD6 /* slotStilistik01-7-ipad.png */,
+				9CAEC16116C4CB1300E5AAD6 /* slotStilistik01-8-ipad.png */,
+				9CAEC16216C4CB1300E5AAD6 /* slotStilistik01-9-ipad.png */,
+				9CAEC16316C4CB1300E5AAD6 /* slotStilistik01-10-ipad.png */,
 			);
 			name = Slots;
 			sourceTree = "<group>";
@@ -488,6 +510,7 @@
 		9C70748C16C375800053C3F0 = {
 			isa = PBXGroup;
 			children = (
+				9CAEC16F16C4CB2500E5AAD6 /* Details */,
 				9C0A47DB16C3A16400B23B2C /* Slots */,
 				9C7074AA16C375800053C3F0 /* iSlot */,
 				9C70749716C375800053C3F0 /* Frameworks */,
@@ -916,6 +939,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9CAEC16F16C4CB2500E5AAD6 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				9CAEC17016C4CB3D00E5AAD6 /* FonSlot01-ipad.png */,
+				9CAEC17116C4CB3D00E5AAD6 /* GameCenter-ipad.png */,
+				9CAEC17216C4CB3D00E5AAD6 /* Info-ipad.png */,
+				9CAEC17316C4CB3D00E5AAD6 /* LineLock-ipad.png */,
+				9CAEC17416C4CB3D00E5AAD6 /* Luck-ipad.png */,
+				9CAEC17516C4CB3D00E5AAD6 /* Minus-ipad.png */,
+				9CAEC17616C4CB3D00E5AAD6 /* Plas-ipad.png */,
+				9CAEC17716C4CB3D00E5AAD6 /* Shop-ipad.png */,
+				9CAEC17816C4CB3D00E5AAD6 /* SlonInApp-ipad.png */,
+				9CAEC17916C4CB3D00E5AAD6 /* SlotBack-ipad.png */,
+				9CAEC17A16C4CB3D00E5AAD6 /* Spin-ipad.png */,
+			);
+			name = Details;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -979,17 +1020,28 @@
 				9C7074BF16C375800053C3F0 /* Icon@2x.png in Resources */,
 				9C7074C216C375800053C3F0 /* iTunesArtwork in Resources */,
 				9C70761816C375830053C3F0 /* ChangeLog in Resources */,
-				9C0A47E716C3A37200B23B2C /* slotStilistik01-0.png in Resources */,
-				9C0A47E816C3A37200B23B2C /* slotStilistik01-1.png in Resources */,
-				9C0A47E916C3A37200B23B2C /* slotStilistik01-2.png in Resources */,
-				9C0A47EA16C3A37200B23B2C /* slotStilistik01-3.png in Resources */,
-				9C0A47EB16C3A37200B23B2C /* slotStilistik01-4.png in Resources */,
-				9C0A47EC16C3A37200B23B2C /* slotStilistik01-5.png in Resources */,
-				9C0A47ED16C3A37200B23B2C /* slotStilistik01-6.png in Resources */,
-				9C0A47EE16C3A37200B23B2C /* slotStilistik01-7.png in Resources */,
-				9C0A47EF16C3A37200B23B2C /* slotStilistik01-8.png in Resources */,
-				9C0A47F016C3A37200B23B2C /* slotStilistik01-9.png in Resources */,
-				9C0A47F116C3A37200B23B2C /* slotStilistik01-10.png in Resources */,
+				9CAEC16416C4CB1300E5AAD6 /* slotStilistik01-0-ipad.png in Resources */,
+				9CAEC16516C4CB1300E5AAD6 /* slotStilistik01-1-ipad.png in Resources */,
+				9CAEC16616C4CB1300E5AAD6 /* slotStilistik01-2-ipad.png in Resources */,
+				9CAEC16716C4CB1300E5AAD6 /* slotStilistik01-3-ipad.png in Resources */,
+				9CAEC16816C4CB1300E5AAD6 /* slotStilistik01-4-ipad.png in Resources */,
+				9CAEC16916C4CB1300E5AAD6 /* slotStilistik01-5-ipad.png in Resources */,
+				9CAEC16A16C4CB1300E5AAD6 /* slotStilistik01-6-ipad.png in Resources */,
+				9CAEC16B16C4CB1300E5AAD6 /* slotStilistik01-7-ipad.png in Resources */,
+				9CAEC16C16C4CB1300E5AAD6 /* slotStilistik01-8-ipad.png in Resources */,
+				9CAEC16D16C4CB1300E5AAD6 /* slotStilistik01-9-ipad.png in Resources */,
+				9CAEC16E16C4CB1300E5AAD6 /* slotStilistik01-10-ipad.png in Resources */,
+				9CAEC17B16C4CB3D00E5AAD6 /* FonSlot01-ipad.png in Resources */,
+				9CAEC17C16C4CB3D00E5AAD6 /* GameCenter-ipad.png in Resources */,
+				9CAEC17D16C4CB3D00E5AAD6 /* Info-ipad.png in Resources */,
+				9CAEC17E16C4CB3D00E5AAD6 /* LineLock-ipad.png in Resources */,
+				9CAEC17F16C4CB3D00E5AAD6 /* Luck-ipad.png in Resources */,
+				9CAEC18016C4CB3D00E5AAD6 /* Minus-ipad.png in Resources */,
+				9CAEC18116C4CB3D00E5AAD6 /* Plas-ipad.png in Resources */,
+				9CAEC18216C4CB3D00E5AAD6 /* Shop-ipad.png in Resources */,
+				9CAEC18316C4CB3D00E5AAD6 /* SlonInApp-ipad.png in Resources */,
+				9CAEC18416C4CB3D00E5AAD6 /* SlotBack-ipad.png in Resources */,
+				9CAEC18516C4CB3D00E5AAD6 /* Spin-ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

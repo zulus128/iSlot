@@ -51,24 +51,37 @@
 	
         
         
-        CCSprite* s1 = [CCSprite spriteWithFile:[NSString stringWithFormat:@"slotStilistik01-%d.png", 2] rect:CGRectMake(0,0,156,144)];
-        s1.position = ccp(100, 100);
-        [self addChild:s1];
-        CCSprite* s2 = [CCSprite spriteWithFile:[NSString stringWithFormat:@"slotStilistik01-%d.png", 3]];
-        s2.position = ccp(100, 200);
-        [self addChild:s2];
+        int y = size.height / 2 - 300;
+        int x = size.width / 2 - 78;
+        for(int i = 0; i < CNT; i++) {
         
-//        int y = 100;//size.height / 2 - 300;
-//        int x = 100;//size.width / 2 - 78;
-//        for(int i = 0; i < CNT; i++) {
-//        
-//            slide[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"slotStilistik01-%d.png", i]];
-////            slide[i] = [CCSprite spriteWithFile:@"slotStilistik01-5.png"];
-//            slide[i].position = ccp(x, y);
-//            [self addChild:slide[i]];
-//            
-//            y += 144;
-//        }
+            slide[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"slotStilistik01-%d.png", i]];
+//            slide[i] = [CCSprite spriteWithFile:@"slotStilistik01-5.png"];
+            slide[i].position = ccp(x, y);
+//            slide[i].scale = 2;
+            [self addChild:slide[i]];
+            
+            y += 150;
+        }
+
+        
+        
+        CCSprite *spriteSpin = [CCSprite spriteWithFile:@"Spin.png"];
+        CCSprite *spriteSpinSelected = [CCSprite spriteWithFile:@"Spin.png"];
+		CCMenuItemSprite *item1 = [CCMenuItemSprite itemWithNormalSprite:spriteSpin selectedSprite:spriteSpinSelected block:^(id sender) {
+            
+            NSLog(@"Spin clicked!");
+            
+            for(int i = 0; i < CNT; i++) {
+            
+                
+            }
+            
+		}];
+        
+        CCMenu *menu = [CCMenu menuWithItems: item1, nil];
+        [self addChild: menu];
+		[menu setPosition:ccp(800, 500)];
         
 	}
 	return self;
