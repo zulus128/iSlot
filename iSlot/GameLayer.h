@@ -17,6 +17,16 @@
 @interface GameLayer : CCLayer {
     
     CCSprite* slide[CNT];
+
+    id move_ease;
+//    id move_ease_rev;
+    id move_forward;
+    id seq_forward;
+    id seq1;
+//    id seq2;
+    int Y;
+    int X;
+    BOOL stop1;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

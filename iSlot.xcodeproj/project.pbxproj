@@ -140,6 +140,7 @@
 		9C70763A16C375830053C3F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C70763916C375830053C3F0 /* AppDelegate.m */; };
 		9C70763D16C375830053C3F0 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C70763C16C375830053C3F0 /* HelloWorldLayer.m */; };
 		9C70764016C375830053C3F0 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C70763F16C375830053C3F0 /* IntroLayer.m */; };
+		9C9D6FD716C543F1004F5800 /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D6FD616C543F1004F5800 /* Bar.m */; };
 		9CAEC16416C4CB1300E5AAD6 /* slotStilistik01-0-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC15916C4CB1300E5AAD6 /* slotStilistik01-0-ipad.png */; };
 		9CAEC16516C4CB1300E5AAD6 /* slotStilistik01-1-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC15A16C4CB1300E5AAD6 /* slotStilistik01-1-ipad.png */; };
 		9CAEC16616C4CB1300E5AAD6 /* slotStilistik01-2-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC15B16C4CB1300E5AAD6 /* slotStilistik01-2-ipad.png */; };
@@ -445,6 +446,8 @@
 		9C70763C16C375830053C3F0 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		9C70763E16C375830053C3F0 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		9C70763F16C375830053C3F0 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		9C9D6FD516C543F1004F5800 /* Bar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
+		9C9D6FD616C543F1004F5800 /* Bar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
 		9CAEC15916C4CB1300E5AAD6 /* slotStilistik01-0-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-0-ipad.png"; sourceTree = "<group>"; };
 		9CAEC15A16C4CB1300E5AAD6 /* slotStilistik01-1-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-1-ipad.png"; sourceTree = "<group>"; };
 		9CAEC15B16C4CB1300E5AAD6 /* slotStilistik01-2-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slotStilistik01-2-ipad.png"; sourceTree = "<group>"; };
@@ -553,6 +556,8 @@
 				9C70763F16C375830053C3F0 /* IntroLayer.m */,
 				9C0A47F216C3A7CA00B23B2C /* GameLayer.h */,
 				9C0A47F316C3A7CA00B23B2C /* GameLayer.m */,
+				9C9D6FD516C543F1004F5800 /* Bar.h */,
+				9C9D6FD616C543F1004F5800 /* Bar.m */,
 				9C7074AB16C375800053C3F0 /* Resources */,
 				9C7074C316C375800053C3F0 /* libs */,
 				9C70763416C375830053C3F0 /* Supporting Files */,
@@ -1164,6 +1169,7 @@
 				9C70763D16C375830053C3F0 /* HelloWorldLayer.m in Sources */,
 				9C70764016C375830053C3F0 /* IntroLayer.m in Sources */,
 				9C0A47F416C3A7CA00B23B2C /* GameLayer.m in Sources */,
+				9C9D6FD716C543F1004F5800 /* Bar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
