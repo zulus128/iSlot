@@ -7,18 +7,8 @@
 //
 
 #import "GameLayer.h"
-
-
-#define SPEED 0.07f
-#define DELAY1 10.0f
-#define SLIDE_TYPES 11
-
-#define SLIDE_HEIGHT 144
-#define CCCA(x) [[x copy] autorelease]
-
-@interface GameLayer ()
-
-@end
+#import "Bar.h"
+#import "Common.h"
 
 @implementation GameLayer
 
@@ -62,152 +52,43 @@
         [self addChild:back z:5];
         back.position = ccp( size.width / 2, size.height / 2);
 
-        Y = size.height / 2 - 107;
-        X = size.width / 2 - 299;
+        int y = size.height / 2 - 107;
+        int x = size.width / 2 - 299;
 
-        int y = Y;
-        for(int i = 0; i < CNT; i++) {
-        
-            int j = CCRANDOM_0_1() * SLIDE_TYPES;
-
-            slide[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"slotStilistik01-%d.png", j]];
-//            slide[i] = [CCSprite spriteWithFile:@"slotStilistik01-5.png"];
-            slide[i].position = ccp(X, y);
-//            slide[i].scale = 2;
-            [self addChild:slide[i] z:2];
-            
-            y += (SLIDE_HEIGHT + 0);
-        }
-        
-        for(int i = 0; i < CNT; i++) {
-            
-            NSLog(@"slide %d : %f, %f", i, slide[i].position.x, slide[i].position.y);
-            
-        }
-        NSLog(@"------begin------------------------");
-        
-        id move = [CCMoveBy actionWithDuration:0.3f position:ccp(0, SLIDE_HEIGHT / 10)];
-        move_ease = [[CCEaseOut actionWithAction:[[move copy] autorelease] rate:1.7f] retain];
-
-        move_forward = [[CCMoveBy actionWithDuration:SPEED position:ccp(0, -SLIDE_HEIGHT)]retain];
-        seq_forward = [[CCSequence actions:
-                 move_forward,
-                 [CCCallFunc actionWithTarget:self selector:@selector(slideGone)],
-//                        [CCDelayTime actionWithDuration:3],
-//                        [CCCallFunc actionWithTarget:self selector:@selector(endForward)],
-                 nil]retain];
-        
-        seq1 = [[CCSequence actions:
-                 CCCA(move_ease),
-                 [move_ease reverse],
-                 [CCCallFunc actionWithTarget:self selector:@selector(callback1)],
-                 nil]retain];
+        Bar* bar1 = [[Bar alloc] initWithLayer:self X:x Y:y Delay:DELAY1];
+        Bar* bar2 = [[Bar alloc] initWithLayer:self X:(x + 150) Y:y Delay:DELAY2];
+        Bar* bar3 = [[Bar alloc] initWithLayer:self X:(x + 300) Y:y Delay:DELAY3];
+        Bar* bar4 = [[Bar alloc] initWithLayer:self X:(x + 450) Y:y Delay:DELAY4];
+        Bar* bar5 = [[Bar alloc] initWithLayer:self X:(x + 600) Y:y Delay:DELAY5];
         
         CCSprite *spriteSpin = [CCSprite spriteWithFile:@"Spin.png"];
-        CCSprite *spriteSpinSelected = [CCSprite spriteWithFile:@"Spin.png"];
+        CCSprite *spriteSpinSelected = [CCSprite spriteWithFile:@"TouchSpin.png"];
 		CCMenuItemSprite *item1 = [CCMenuItemSprite itemWithNormalSprite:spriteSpin selectedSprite:spriteSpinSelected block:^(id sender) {
             
-            NSLog(@"Spin clicked!");
+//            NSLog(@"Spin clicked! finished = %d", [Common instance].finished);
+            if([Common instance].finished == 0) {
 
-            stop1 = false;
-            [self performSelector:@selector(stop1) withObject:nil afterDelay:DELAY1];
-
-            [slide[0] runAction:seq1];
-            for(int i = 1; i < CNT; i++) {
-            
-                [slide[i] runAction:
-                 [CCSequence actions:
-                   CCCA(move_ease),
-                   [move_ease reverse],
-                   nil]
-                 ];
+                [Common instance].finished = 5 * CNT;
+                
+                [bar1 start];
+                [bar2 start];
+                [bar3 start];
+                [bar4 start];
+                [bar5 start];
             }
             
 		}];
+        
         [item1 setPosition:ccp(890, 90)];
-
+        
         CCMenu *menu = [CCMenu menuWithItems: item1, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
-        
+
 	}
 	return self;
 }
 
--(void) stop1 {
-
-    stop1 = true;
-}
-
--(void) callback1 {
-    
-    NSLog(@"callback1!");
-
-//    [slide[0] runAction:[CCRepeatForever actionWithAction:seq_forward]];
-//    [slide[0] stopAllActions];
-    [slide[0] runAction:seq_forward];
-    for(int i = 1; i < CNT; i++) {
-        
-        [slide[i] stopAllActions];
-        [slide[i] runAction:CCCA(move_forward)];
-    }
-}
-
--(void) slideGone {
-
-//    NSLog(@"slideGone! %d %d", X, Y);
-    
-//    for(int i = 0; i < CNT; i++) {
-//
-//        NSLog(@"slide %d : %f, %f", i, slide[i].position.x, slide[i].position.y);
-//
-//    }
-//    NSLog(@"------------------------------");
-
-    
-    [slide[0] removeFromParent];
-    int i = CCRANDOM_0_1() * SLIDE_TYPES;
-    slide[0] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"slotStilistik01-%d.png", i]];
-    slide[0].position = ccp(X, Y + (CNT - 1) * SLIDE_HEIGHT);
-    [self addChild:slide[0] z:2];
-
-    CCSprite* s = slide[0];
-    for(int i = 0; i < (CNT - 1); i++) {
-        
-        slide[i] = slide[i + 1];
-        slide[i].position = ccp(X, Y + i * SLIDE_HEIGHT);
-    }
-    slide[CNT - 1] = s;
-    
-    [self performSelector:@selector(endForward) withObject:nil afterDelay:0.0];
-
-}
-
--(void) endForward {
-
-    if(stop1) {
-        
-        for(int i = 0; i < CNT; i++) {
-            
-            [slide[i] runAction:
-             [CCSequence actions:
-//              [move_ease reverse],
-              CCCA(move_ease),
-              [move_ease reverse],
-              nil]
-             ];
-        }
-        return;
-    }
-
-    for(int i = 1; i < CNT; i++) {
-        
-//        [slide[i] stopAllActions];
-        [slide[i] runAction:CCCA(move_forward)];
-    }
-    [slide[0] runAction:seq_forward];
-
-}
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc {
@@ -218,13 +99,6 @@
 	
 	// don't forget to call "super dealloc"
     
-    
-    [move_ease release];
-    [seq1 release];
-//    [seq2 release];
-    [move_forward release];
-    [seq_forward release];
-//    [move_ease_rev release];
     
 	[super dealloc];
 }
