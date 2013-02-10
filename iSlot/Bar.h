@@ -14,6 +14,8 @@
     CCLayer * layer;
     
     CCSprite* slide[CNT];
+    int slide_num[CNT];
+    CCSprite* proto[SLIDE_TYPES];
     id move_ease;
     id move_forward;
     id seq_forward;
@@ -22,6 +24,7 @@
     int X;
     BOOL stop1;
     float delay;
+    BOOL finished;
 }
 
 - (id)initWithLayer:(CCLayer *)lay X:(int)xx Y:(int)yy Delay:(float)del;
