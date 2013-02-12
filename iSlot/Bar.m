@@ -47,10 +47,11 @@
         
         slide[CNT - 1].position = ccp(X, Y - SLIDE_HEIGHT);
         
-        id move = [CCMoveBy actionWithDuration:0.05f + CCRANDOM_0_1()/6 position:ccp(0, SLIDE_HEIGHT / 10 + CCRANDOM_0_1() * 5)];
+//        id move = [CCMoveBy actionWithDuration:0.05f + CCRANDOM_0_1()/6 position:ccp(0, SLIDE_HEIGHT / 10 + CCRANDOM_0_1() * 5)];
+        id move = [CCMoveBy actionWithDuration:0.05f position:ccp(0, SLIDE_HEIGHT / 10 + CCRANDOM_0_1() * 5)];
         move_ease = [[CCEaseOut actionWithAction:[[move copy] autorelease] rate:0.7f] retain];
         
-        move_forward = [[CCMoveBy actionWithDuration:SPEED position:ccp(0, -SLIDE_HEIGHT)]retain];
+        move_forward = [[CCMoveBy actionWithDuration:[Common instance].speed position:ccp(0, -SLIDE_HEIGHT)]retain];
 //        move_forward = [[CCMoveBy actionWithDuration:1.0f position:ccp(0, -SLIDE_HEIGHT)]retain];
         seq_forward = [[CCSequence actions:
                         move_forward,
@@ -101,6 +102,19 @@
 
 -(void) start {
 
+    
+    if(move_forward != nil) {
+     
+        [move_forward release];
+        [seq_forward release];
+        move_forward = [[CCMoveBy actionWithDuration:[Common instance].speed position:ccp(0, -SLIDE_HEIGHT)]retain];
+        seq_forward = [[CCSequence actions:
+                        move_forward,
+                        [CCCallFunc actionWithTarget:self selector:@selector(slideGone)],
+                        nil]retain];
+    }
+
+    
     stop1 = false;
     [self performSelector:@selector(stop1) withObject:nil afterDelay:delay];
     

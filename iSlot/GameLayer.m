@@ -35,19 +35,13 @@
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
 		
-//		// create and initialize a Label
-//		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-//        
-		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
-//
-//		// position the label on the center of the screen
-//		label.position =  ccp( size.width /2 , size.height/2 );
-//		
-//		// add the label as a child to this Layer
-//		[self addChild: label];
+
+        [Common instance].speed = SPEED1;
+		label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.2f", [Common instance].speed] fontName:@"Marker Felt" fontSize:24];
+		label.position =  ccp( size.width /2 , 40 );
+		[self addChild: label z:100];
 	
-        
         CCSprite* back = [CCSprite spriteWithFile:@"FonSlot01.png"];
         [self addChild:back z:5];
         back.position = ccp( size.width / 2, size.height / 2);
@@ -81,7 +75,15 @@
         
         [item1 setPosition:ccp(890, 90)];
         
-        CCMenu *menu = [CCMenu menuWithItems: item1, nil];
+        CCLabelTTF* labelplus = [CCLabelTTF labelWithString:@"+" fontName:@"Marker Felt" fontSize:25];
+        CCMenuItemLabel* item2 = [CCMenuItemLabel itemWithLabel:labelplus target:self selector:@selector(speedPlus)];
+        CCLabelTTF* labelminus = [CCLabelTTF labelWithString:@"-" fontName:@"Marker Felt" fontSize:25];
+        CCMenuItemLabel* item3 = [CCMenuItemLabel itemWithLabel:labelminus target:self selector:@selector(speedMinus)];
+
+        [item2 setPosition:ccp(size.width / 2 - 40, 40)];
+        [item3 setPosition:ccp(size.width / 2 + 40, 40)];
+
+        CCMenu *menu = [CCMenu menuWithItems: item1, item2, item3, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 
@@ -89,6 +91,23 @@
 	return self;
 }
 
+- (void) speedPlus {
+    
+    [Common instance].speed += 0.01;
+    if([Common instance].speed > 1)
+        [Common instance].speed = 1;
+    
+    [label setString:[NSString stringWithFormat:@"%.2f", [Common instance].speed]];
+}
+
+- (void) speedMinus {
+    
+    [Common instance].speed -= 0.01;
+    if([Common instance].speed < 0.01)
+        [Common instance].speed = 0.01f;
+    
+    [label setString:[NSString stringWithFormat:@"%.2f", [Common instance].speed]];
+}
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc {

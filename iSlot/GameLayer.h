@@ -16,6 +16,7 @@
 // HelloWorldLayer
 @interface GameLayer : CCLayer {
     
+    CCLabelTTF *label;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

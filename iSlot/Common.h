@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-#define SPEED 0.06f
+#define SPEED1 0.06f
 #define SLIDE_TYPES 11
 #define CNT 4
 #define SLIDE_HEIGHT 144
 
-#define DELAY1 5.5f
-#define DELAY2 3.0f
-#define DELAY3 5.0f
-#define DELAY4 4.0f
-#define DELAY5 4.5f
+#define DELAY1 2.0f
+#define DELAY2 2.5f
+#define DELAY3 3.0f
+#define DELAY4 3.5f
+#define DELAY5 4.0f
 
 
 #define CCCA(x) [[x copy] autorelease]
@@ -30,5 +30,6 @@
 + (Common*) instance;
 
 @property (readwrite, assign) int finished;
+@property (readwrite, assign) float speed;
 
 @end
