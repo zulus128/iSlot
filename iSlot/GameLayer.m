@@ -75,13 +75,13 @@
         
         [item1 setPosition:ccp(890, 90)];
         
-        CCLabelTTF* labelplus = [CCLabelTTF labelWithString:@"+" fontName:@"Marker Felt" fontSize:25];
+        CCLabelTTF* labelplus = [CCLabelTTF labelWithString:@"++++" fontName:@"Marker Felt" fontSize:35];
         CCMenuItemLabel* item2 = [CCMenuItemLabel itemWithLabel:labelplus target:self selector:@selector(speedPlus)];
-        CCLabelTTF* labelminus = [CCLabelTTF labelWithString:@"-" fontName:@"Marker Felt" fontSize:25];
+        CCLabelTTF* labelminus = [CCLabelTTF labelWithString:@"----" fontName:@"Marker Felt" fontSize:35];
         CCMenuItemLabel* item3 = [CCMenuItemLabel itemWithLabel:labelminus target:self selector:@selector(speedMinus)];
 
-        [item2 setPosition:ccp(size.width / 2 - 40, 40)];
-        [item3 setPosition:ccp(size.width / 2 + 40, 40)];
+        [item2 setPosition:ccp(size.width / 2 - 70, 40)];
+        [item3 setPosition:ccp(size.width / 2 + 70, 40)];
 
         CCMenu *menu = [CCMenu menuWithItems: item1, item2, item3, nil];
         [self addChild: menu z:7];
@@ -93,20 +93,20 @@
 
 - (void) speedPlus {
     
-    [Common instance].speed += 0.01;
-    if([Common instance].speed > 1)
-        [Common instance].speed = 1;
+    [Common instance].speed += 0.001;
+    if([Common instance].speed > 0.1)
+        [Common instance].speed = 0.1;
     
-    [label setString:[NSString stringWithFormat:@"%.2f", [Common instance].speed]];
+    [label setString:[NSString stringWithFormat:@"%.3f", [Common instance].speed]];
 }
 
 - (void) speedMinus {
     
-    [Common instance].speed -= 0.01;
+    [Common instance].speed -= 0.001;
     if([Common instance].speed < 0.01)
         [Common instance].speed = 0.01f;
     
-    [label setString:[NSString stringWithFormat:@"%.2f", [Common instance].speed]];
+    [label setString:[NSString stringWithFormat:@"%.3f", [Common instance].speed]];
 }
 
 // on "dealloc" you need to release all your retained objects
