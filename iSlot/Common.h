@@ -29,6 +29,9 @@
 
 + (Common*) instance;
 
+@property (readwrite, assign) int coins;
+@property (readwrite, assign) int lines;
+
 @property (readwrite, assign) int finished;
 @property (readwrite, assign) float speed;
 

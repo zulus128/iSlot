@@ -38,10 +38,24 @@
 		CGSize size = [[CCDirector sharedDirector] winSize];
 
         [Common instance].speed = SPEED1;
+        [Common instance].coins = 1;
+        [Common instance].lines = 3;
+
+        
 		label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.2f", [Common instance].speed] fontName:@"Marker Felt" fontSize:24];
 		label.position =  ccp( size.width /2 , 40 );
 		[self addChild: label z:100];
-	
+
+        labelCoins = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].coins] fontName:@"Marker Felt" fontSize:44];
+        labelCoins.color = ccc3(0, 0, 0);
+        labelCoins.position =  ccp( 320 , 90 );
+        [self addChild: labelCoins z:10];
+        
+        labelLines = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].lines] fontName:@"Marker Felt" fontSize:44];
+        labelLines.color = ccc3(0, 0, 0);
+        labelLines.position =  ccp( 710 , 90 );
+        [self addChild: labelLines z:10];
+
         CCSprite* back = [CCSprite spriteWithFile:@"FonSlot01.png"];
         [self addChild:back z:5];
         back.position = ccp( size.width / 2, size.height / 2);
@@ -82,13 +96,75 @@
 
         [item2 setPosition:ccp(size.width / 2 - 70, 40)];
         [item3 setPosition:ccp(size.width / 2 + 70, 40)];
+        
+        
+        CCSprite *spplus1 = [CCSprite spriteWithFile:@"Plas.png"];
+        CCSprite *spplus_t1 = [CCSprite spriteWithFile:@"TouchPlas.png"];
+		CCMenuItemSprite *itempl1 = [CCMenuItemSprite itemWithNormalSprite:spplus1 selectedSprite:spplus_t1 block:^(id sender) {
+            
+            if([Common instance].coins < 5)
+                [Common instance].coins ++;
+            
+            [self refreshLabels];
+            
+		}];
+        [itempl1 setPosition:ccp(318, 155)];
+        
+        CCSprite *spplus2 = [CCSprite spriteWithFile:@"Plas.png"];
+        CCSprite *spplus_t2 = [CCSprite spriteWithFile:@"TouchPlas.png"];
+		CCMenuItemSprite *itempl2 = [CCMenuItemSprite itemWithNormalSprite:spplus2 selectedSprite:spplus_t2 block:^(id sender) {
 
-        CCMenu *menu = [CCMenu menuWithItems: item1, item2, item3, nil];
+            if([Common instance].lines < 5)
+                [Common instance].lines ++;
+            
+            [self refreshLabels];
+            
+		}];
+        [itempl2 setPosition:ccp(706, 155)];
+        
+        CCSprite *spmnus1 = [CCSprite spriteWithFile:@"Minus.png"];
+        CCSprite *spmnus_t1 = [CCSprite spriteWithFile:@"TouchMinus.png"];
+		CCMenuItemSprite *itemmn1 = [CCMenuItemSprite itemWithNormalSprite:spmnus1 selectedSprite:spmnus_t1 block:^(id sender) {
+           
+            if([Common instance].coins > 1)
+                [Common instance].coins --;
+            
+            [self refreshLabels];
+            
+		}];
+        [itemmn1 setPosition:ccp(318, 20)];
+        
+        CCSprite *spmnus2 = [CCSprite spriteWithFile:@"Minus.png"];
+        CCSprite *spmnus_t2 = [CCSprite spriteWithFile:@"TouchMinus.png"];
+		CCMenuItemSprite *itemmn2 = [CCMenuItemSprite itemWithNormalSprite:spmnus2 selectedSprite:spmnus_t2 block:^(id sender) {
+        
+            if([Common instance].lines > 1)
+                [Common instance].lines --;
+            
+            [self refreshLabels];
+
+		}];
+        [itemmn2 setPosition:ccp(706, 20)];
+        
+        CCMenu *menu = [CCMenu menuWithItems: item1, item2, item3, itempl1, itempl2, itemmn1, itemmn2, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 
+        
+        [self refreshLabels];
 	}
 	return self;
+}
+
+- (void) refreshLabels {
+
+    [labelCoins setString:[NSString stringWithFormat:@"%d", [Common instance].coins]];
+    [labelLines setString:[NSString stringWithFormat:@"%d", [Common instance].lines]];
+
+}
+
+- (void) checkLines {
+
 }
 
 - (void) speedPlus {
