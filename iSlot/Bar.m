@@ -93,6 +93,12 @@
     return slide_num[1 + pos];
 }
 
+-(CCSprite*) getSprite: (int)pos {
+    
+    //    NSLog(@"pos = %d, slide = %d", pos, slide_num[1 + pos]);
+    return slide[1 + pos];
+}
+
 -(void) replaceTop {
 
     slide[SLIDE_CNT - 1].position = ccp(X, Y + SLIDE_HEIGHT * (SLIDE_CNT - 1));

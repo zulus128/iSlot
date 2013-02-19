@@ -10,7 +10,7 @@
 
 @implementation Combination
 
-- (id)initWithLayer:(CCLayer *)lay sprite:(CCSprite*)s line:(int)l count:(int)cn  linePos:(NSArray*)lpos {
+- (id)initWithLayer:(CCLayer *)lay sprite:(CCSprite*)s line:(int)l count:(int)cn  linePos:(NSArray*)lpos sprites:(NSArray*)sprs {
     
     self = [super init];
     if (self) {
@@ -20,6 +20,7 @@
         layer = lay;
         sprite = s;
         linepos = lpos;
+        sprites = sprs;
         
 //        CGSize size = [[CCDirector sharedDirector] winSize];
 //        int y = size.height / 2 - 107;
@@ -28,7 +29,7 @@
         for(int i = 0; i < cnt; i++) {
             
             cube[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"CubeLine%02d.png", (line + 1)]];
-            int p = [[linepos objectAtIndex:i] intValue];
+//            int p = [[linepos objectAtIndex:i] intValue];
 //            cube[i].position = ccp(x + (i * 150), y + ((p + 1) * 144));
             cube[i].position = ccp(-5000, -5000);
             [layer addChild:cube[i] z:8];
@@ -39,6 +40,12 @@
 }
 - (void) show {
     
+    for(int i = 0; i < cnt; i++) {
+     
+        CCSprite* s = (CCSprite*)[sprites objectAtIndex:i];
+        [s.parent reorderChild:s z:7];
+    }
+
     sprite.position = ccp(513, 418);
 
     CGSize size = [[CCDirector sharedDirector] winSize];
@@ -55,6 +62,8 @@
 
 - (void) hide {
 
+//    for(int i = 0; i < cnt; i++)
+//        [((CCSprite*)[sprites objectAtIndex:i]) setZOrder:2];
 
     for(int i = 0; i < cnt; i++) {
         

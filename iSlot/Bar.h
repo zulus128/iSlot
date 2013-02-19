@@ -31,6 +31,7 @@
 - (id)initWithLayer:(CCLayer *)lay X:(int)xx Y:(int)yy Delay:(float)del;
 -(void) start;
 -(int) getSlideNum: (int)pos;
+-(CCSprite*) getSprite: (int)pos;
 
 
 @end

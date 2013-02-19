@@ -261,6 +261,9 @@
             
             [self refreshLabels];
             
+            for(Combination* comb in combinations)
+                [comb release];
+            [combinations removeAllObjects];
             for(int i = 0; i < LINES_CNT; i++)
                 lineSprite[i].position = ccp(-5000, -5000);
             for(int i = 0; i < [Common instance].lines; i++)
@@ -292,6 +295,9 @@
             
             [self refreshLabels];
             
+            for(Combination* comb in combinations)
+                [comb release];
+            [combinations removeAllObjects];
             for(int i = 0; i < LINES_CNT; i++)
                 lineSprite[i].position = ccp(-5000, -5000);
             for(int i = 0; i < [Common instance].lines; i++)
@@ -351,16 +357,18 @@
 
     [Common instance].finished = 0;
     
+    NSMutableArray* arr = [NSMutableArray array];
+    
     for(int i = 0; i < [Common instance].lines; i++) {
     
         int first = [bar[0] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]];
-//        int digit = first;
-        
+        [arr addObject:[bar[0] getSprite:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]]];
         int cnt = 1;
 
         for(int j = 1; j < BARS_CNT; j++) {
         
         int slide = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j]intValue]];
+        [arr addObject:[bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]]];
 
         if((slide == first) || (slide == 0 /*WILD*/))
             cnt++;
@@ -375,7 +383,7 @@
         }
 //        NSLog(@"first = %d, cnt = %d", first, cnt);
 
-        int money = 0;
+        int money = 55;//0;
         if(cnt > 1)
             money = [[[values objectAtIndex:first]objectAtIndex:(cnt - 2)] intValue];
         
@@ -387,8 +395,8 @@
             
             NSLog(@"Coins = %d, money = %d, slide = %d", [Common instance].coins, money, first);
             NSLog(@"Bonus = %d", money * [Common instance].coins);
-//            cnt = 5;
-            [combinations addObject:[[Combination alloc]initWithLayer:self sprite:lineSprite[i] line:i count:cnt linePos:[lines objectAtIndex:i]]];
+            cnt = 3;
+            [combinations addObject:[[Combination alloc]initWithLayer:self sprite:lineSprite[i] line:i count:cnt linePos:[lines objectAtIndex:i] sprites:arr]];
         }
         
     
