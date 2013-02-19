@@ -261,6 +261,13 @@
             
             [self refreshLabels];
             
+            for(int i = 0; i < LINES_CNT; i++)
+                lineSprite[i].position = ccp(-5000, -5000);
+            for(int i = 0; i < [Common instance].lines; i++)
+                lineSprite[i].position = ccp(513, 418);
+
+
+            
 		}];
         [itempl2 setPosition:ccp(706, 155)];
         
@@ -284,6 +291,12 @@
                 [Common instance].lines --;
             
             [self refreshLabels];
+            
+            for(int i = 0; i < LINES_CNT; i++)
+                lineSprite[i].position = ccp(-5000, -5000);
+            for(int i = 0; i < [Common instance].lines; i++)
+                lineSprite[i].position = ccp(513, 418);
+
 
 		}];
         [itemmn2 setPosition:ccp(706, 20)];
