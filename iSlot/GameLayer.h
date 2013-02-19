@@ -7,19 +7,28 @@
 //
 
 #import <GameKit/GameKit.h>
-
-// When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
+#import "Bar.h"
+#import "Combination.h"
 
-
-
-// HelloWorldLayer
 @interface GameLayer : CCLayer {
     
     CCLabelTTF *label;
 
     CCLabelTTF *labelCoins;
     CCLabelTTF *labelLines;
+    CCLabelTTF *labelMoney;
+    
+    Bar* bar [BARS_CNT];
+
+    CCSprite* lineSprite[LINES_CNT];
+
+    NSArray* lines;
+    NSArray* values;
+    NSMutableArray* combinations;
+    Combination* prevComb;
+    
+    int combNum;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
