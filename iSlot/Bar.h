@@ -13,9 +13,10 @@
     
     CCLayer * layer;
     
-    CCSprite* slide[CNT];
-    int slide_num[CNT];
+    CCSprite* slide[SLIDE_CNT];
+    int slide_num[SLIDE_CNT];
     CCSprite* proto[SLIDE_TYPES];
+    CCSprite* blur[SLIDE_TYPES];
     id move_ease;
     id move_forward;
     id seq_forward;

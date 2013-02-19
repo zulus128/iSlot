@@ -76,13 +76,16 @@
 //            NSLog(@"Spin clicked! finished = %d", [Common instance].finished);
             if([Common instance].finished == 0) {
 
-                [Common instance].finished = 5 * CNT;
+                [Common instance].finished = 5 * SLIDE_CNT;
                 
                 [bar1 start];
                 [bar2 start];
                 [bar3 start];
                 [bar4 start];
                 [bar5 start];
+                
+                [self performSelector:@selector(checkLines) withObject:nil afterDelay:(DELAY5 + 0.5f)];
+
             }
             
 		}];
@@ -163,10 +166,6 @@
 
 }
 
-- (void) checkLines {
-
-}
-
 - (void) speedPlus {
     
     [Common instance].speed += 0.001;
@@ -183,6 +182,13 @@
         [Common instance].speed = 0.01f;
     
     [label setString:[NSString stringWithFormat:@"%.3f", [Common instance].speed]];
+}
+
+- (void) checkLines {
+    
+    NSLog(@"checkLines");
+
+    
 }
 
 // on "dealloc" you need to release all your retained objects

@@ -10,7 +10,7 @@
 
 #define SPEED1 0.06f
 #define SLIDE_TYPES 11
-#define CNT 4
+#define SLIDE_CNT 4
 #define SLIDE_HEIGHT 144
 
 #define DELAY1 2.0f
@@ -19,6 +19,7 @@
 #define DELAY4 3.5f
 #define DELAY5 4.0f
 
+#define LINES_CNT 21
 
 #define CCCA(x) [[x copy] autorelease]
 

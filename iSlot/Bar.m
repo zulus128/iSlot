@@ -20,7 +20,7 @@
         Y = yy;
         delay = del;
 
-        for(int i = 0; i < CNT; i++)
+        for(int i = 0; i < SLIDE_CNT; i++)
             slide_num[i] = -1;
 
         
@@ -29,35 +29,31 @@
             proto[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"slotStilistik01-%d.png", i]];
             proto[i].position = ccp(-5000, -5000);
             [layer addChild:proto[i] z:2];
-
+            
+            blur[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"BlurslotStilistik01-%d.png", i]];
+            blur[i].position = ccp(-5000, -5000);
+            [layer addChild:blur[i] z:2];
+            
         }
         
         int y = Y;
-        for(int i = 0; i < CNT; i++) {
+        for(int i = 0; i < SLIDE_CNT; i++) {
             
-//            int j = CCRANDOM_0_1() * SLIDE_TYPES;
             int j = [self getRandom:i];
-//            NSLog(@"start %d", j);
-            slide[i] = proto[j];//[CCSprite spriteWithFile:[NSString stringWithFormat:@"slotStilistik01-%d.png", j]];
+            slide[i] = proto[j];
             slide[i].position = ccp(X, y);
-//            [layer addChild:slide[i] z:2];
-
             y += (SLIDE_HEIGHT + 0);
         }
         
-        slide[CNT - 1].position = ccp(X, Y - SLIDE_HEIGHT);
+        slide[SLIDE_CNT - 1].position = ccp(X, Y - SLIDE_HEIGHT);
         
-//        id move = [CCMoveBy actionWithDuration:0.05f + CCRANDOM_0_1()/6 position:ccp(0, SLIDE_HEIGHT / 10 + CCRANDOM_0_1() * 5)];
         id move = [CCMoveBy actionWithDuration:0.18f position:ccp(0, SLIDE_HEIGHT / 9)];
         move_ease = [[CCEaseOut actionWithAction:[[move copy] autorelease] rate:0.7f] retain];
         
         move_forward = [[CCMoveBy actionWithDuration:[Common instance].speed position:ccp(0, -SLIDE_HEIGHT)]retain];
-//        move_forward = [[CCMoveBy actionWithDuration:1.0f position:ccp(0, -SLIDE_HEIGHT)]retain];
         seq_forward = [[CCSequence actions:
                         move_forward,
                         [CCCallFunc actionWithTarget:self selector:@selector(slideGone)],
-                        //                        [CCDelayTime actionWithDuration:3],
-                        //                        [CCCallFunc actionWithTarget:self selector:@selector(endForward)],
                         nil]retain];
         
         seq1 = [[CCSequence actions:
@@ -78,7 +74,7 @@
     do {
         b = YES;
         j = CCRANDOM_0_1() * SLIDE_TYPES;
-        for(int i = 0; i < CNT; i++) {
+        for(int i = 0; i < SLIDE_CNT; i++) {
             if(slide_num[i] == j) {
                 
                 b = NO;
@@ -93,7 +89,7 @@
 
 -(void) replaceTop {
 
-    slide[CNT - 1].position = ccp(X, Y + SLIDE_HEIGHT * (CNT - 1));
+    slide[SLIDE_CNT - 1].position = ccp(X, Y + SLIDE_HEIGHT * (SLIDE_CNT - 1));
 //    for(int i = 0; i < CNT; i++) {
 //        slide[i].position = ccp(X, Y + i * SLIDE_HEIGHT);
 //    }
@@ -119,7 +115,7 @@
     [self performSelector:@selector(stop1) withObject:nil afterDelay:delay];
     
     [slide[0] runAction:seq1];
-    for(int i = 1; i < CNT; i++) {
+    for(int i = 1; i < SLIDE_CNT; i++) {
         
         [slide[i] runAction:
          [CCSequence actions:
@@ -142,61 +138,41 @@
 
     [self replaceTop];
     finished = 0;
-    for(int i = 1; i < CNT; i++) {
+    
+    for(int i = 0; i < SLIDE_CNT; i++) {
         
-        
-//        id move_f = [CCMoveTo actionWithDuration:1.0f position:ccp(X, Y + (i - 1) * SLIDE_HEIGHT)];
-        
+        slide[i].position = ccp(-5000, -5000);
+        slide[i] = blur[slide_num[i]];
+        float yy = Y + i * SLIDE_HEIGHT;
+        slide[i].position = ccp(X, yy);
 
-        
+    }
+    
+    for(int i = 1; i < SLIDE_CNT; i++) {
         
         [slide[i] runAction:CCCA(move_forward)];
-//        [slide[i] runAction:move_f];
     }
-//    id seq_f = [CCSequence actions:
-//                [CCMoveTo actionWithDuration:1.0f position:ccp(X, Y - SLIDE_HEIGHT)],
-//                [CCCallFunc actionWithTarget:self selector:@selector(slideGone)],
-//                nil];
+    
     [slide[0] runAction:seq_forward];
+
 }
 
 -(void) slideGone {
     
-    //    NSLog(@"slideGone! %d %d", X, Y);
-    
-    
-    
-//    [slide[0] removeFromParent];
     slide[0].position = ccp(-5000, -5000);
-//    [layer addChild:s z:2];
-    
-//    CCSprite* s = slide[0];
-    for(int i = 0; i < (CNT - 1); i++) {
+
+    for(int i = 0; i < (SLIDE_CNT - 1); i++) {
         
         slide[i] = slide[i + 1];
         slide_num[i] = slide_num[i + 1];
 //        slide[i].position = ccp(X, Y + i * SLIDE_HEIGHT);
     }
 
-
-    
-    int i = [self getRandom:(CNT - 1)];// CCRANDOM_0_1() * SLIDE_TYPES;
-    CCSprite* s = proto[i];//[CCSprite spriteWithFile:[NSString stringWithFormat:@"slotStilistik01-%d.png", i]];
-//    s.position = ccp(X, Y + (CNT - 1) * SLIDE_HEIGHT );
-
-//    NSLog(@"--- %d, %f", Y + (CNT - 1) * SLIDE_HEIGHT, Y + slide[CNT - 2].position.y + SLIDE_HEIGHT);
-
-//    float yy = slide[CNT - 2].position.y + SLIDE_HEIGHT;
-    float yy = Y + (CNT - 1) * SLIDE_HEIGHT;
+    int i = [self getRandom:(SLIDE_CNT - 1)];// CCRANDOM_0_1() * SLIDE_TYPES;
+    CCSprite* s = blur[i];
+    float yy = Y + (SLIDE_CNT - 1) * SLIDE_HEIGHT;
     s.position = ccp(X, yy);
-    slide[CNT - 1] = s;
-
-//    for(int i = 0; i < CNT; i++) {
-//
-//        NSLog(@"slide %d :%f", i, slide[i].position.y);
-//
-//    }
-//    NSLog(@"------------------------------");
+    slide[SLIDE_CNT - 1] = s;
 
     [self performSelector:@selector(endForward) withObject:nil afterDelay:0.0];
     
@@ -208,17 +184,24 @@
     [Common instance].finished --;
     
     finished ++;
-    if(finished == CNT)
-        slide[CNT - 1].position = ccp(X, Y - SLIDE_HEIGHT);
+    if(finished == SLIDE_CNT)
+        slide[SLIDE_CNT - 1].position = ccp(X, Y - SLIDE_HEIGHT);
 
+//    if([Common instance].finished == 0)
+//        [self checkLines];
 }
 
 -(void) endForward {
     
     if(stop1) {
         
-        for(int i = 0; i < CNT; i++) {
+        for(int i = 0; i < SLIDE_CNT; i++) {
             
+            CGPoint p = slide[i].position;
+            slide[i].position = ccp(-5000, -5000);
+            slide[i] = proto[slide_num[i]];
+            slide[i].position = p;
+
             [slide[i] runAction:
              [CCSequence actions:
               [move_ease reverse],
@@ -232,11 +215,7 @@
         return;
     }
     
-//    for(int i = 0; i < CNT; i++) {
-//        slide[i].position = ccp(X, Y + i * SLIDE_HEIGHT);
-//    }
-
-    for(int i = 1; i < CNT; i++) {
+    for(int i = 1; i < SLIDE_CNT; i++) {
         
         //        [slide[i] stopAllActions];
         slide[i].position = ccp(X, Y + i * SLIDE_HEIGHT);
