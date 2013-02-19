@@ -16,10 +16,10 @@
     int line;
     int cnt;
     CCSprite* cube[BARS_CNT];
-
+    NSArray* linepos;
 }
 
-- (id)initWithLayer:(CCLayer *)lay sprite:(CCSprite*)s line:(int)l count:(int)cn;
+- (id)initWithLayer:(CCLayer *)lay sprite:(CCSprite*)s line:(int)l count:(int)cn linePos:(NSArray*)lpos;
 - (void) show;
 - (void) hide;
 

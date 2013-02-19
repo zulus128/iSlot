@@ -362,7 +362,7 @@
         }
 //        NSLog(@"first = %d, cnt = %d", first, cnt);
 
-        int money = 55;//0;
+        int money = 0;
         if(cnt > 1)
             money = [[[values objectAtIndex:first]objectAtIndex:(cnt - 2)] intValue];
         
@@ -374,8 +374,8 @@
             
             NSLog(@"Coins = %d, money = %d, slide = %d", [Common instance].coins, money, first);
             NSLog(@"Bonus = %d", money * [Common instance].coins);
-            
-            [combinations addObject:[[Combination alloc]initWithLayer:self sprite:lineSprite[i] line:i count:cnt]];
+//            cnt = 5;
+            [combinations addObject:[[Combination alloc]initWithLayer:self sprite:lineSprite[i] line:i count:cnt linePos:[lines objectAtIndex:i]]];
         }
         
     
