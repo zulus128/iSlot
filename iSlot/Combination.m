@@ -20,7 +20,7 @@
         layer = lay;
         sprite = s;
         linepos = lpos;
-        sprites = sprs;
+        sprites = [sprs copy];
         
 //        CGSize size = [[CCDirector sharedDirector] winSize];
 //        int y = size.height / 2 - 107;
@@ -43,7 +43,8 @@
     for(int i = 0; i < cnt; i++) {
      
         CCSprite* s = (CCSprite*)[sprites objectAtIndex:i];
-        [s.parent reorderChild:s z:7];
+//        [s.parent reorderChild:s z:7];
+        s.visible = NO;
     }
 
     sprite.position = ccp(513, 418);
@@ -62,8 +63,12 @@
 
 - (void) hide {
 
-//    for(int i = 0; i < cnt; i++)
-//        [((CCSprite*)[sprites objectAtIndex:i]) setZOrder:2];
+    for(int i = 0; i < cnt; i++) {
+        
+        CCSprite* s = (CCSprite*)[sprites objectAtIndex:i];
+//        [s.parent reorderChild:s z:2];
+        s.visible = YES;
+    }
 
     for(int i = 0; i < cnt; i++) {
         
@@ -77,7 +82,7 @@
 - (void) dealloc {
     
     [self hide];
-    
+    [sprites release];
     for(int i = 0; i < cnt; i++) {
         
         [cube[i] removeFromParent];

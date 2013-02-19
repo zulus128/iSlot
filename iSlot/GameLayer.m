@@ -316,7 +316,7 @@
             
             lineSprite[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"Line%02d.png", i + 1]];
             lineSprite[i].position = ccp(-5000, -5000);
-            [self addChild:lineSprite[i] z:7];
+            [self addChild:lineSprite[i] z:6];
         }
         
         [self refreshLabels];
@@ -363,6 +363,9 @@
     
         int first = [bar[0] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]];
         [arr addObject:[bar[0] getSprite:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]]];
+//        CCSprite* ss = [bar[0] getSprite:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]];
+//        ss.visible = NO;
+
         int cnt = 1;
 
         for(int j = 1; j < BARS_CNT; j++) {
@@ -377,13 +380,13 @@
                  cnt++;
                  first = slide;
              }
-            else
-                break;
+//v            else
+//v                break;
             
         }
 //        NSLog(@"first = %d, cnt = %d", first, cnt);
 
-        int money = 55;//0;
+        int money = 55;//v 0;
         if(cnt > 1)
             money = [[[values objectAtIndex:first]objectAtIndex:(cnt - 2)] intValue];
         
@@ -395,7 +398,7 @@
             
             NSLog(@"Coins = %d, money = %d, slide = %d", [Common instance].coins, money, first);
             NSLog(@"Bonus = %d", money * [Common instance].coins);
-            cnt = 3;
+            cnt = 3;//v
             [combinations addObject:[[Combination alloc]initWithLayer:self sprite:lineSprite[i] line:i count:cnt linePos:[lines objectAtIndex:i] sprites:arr]];
         }
         

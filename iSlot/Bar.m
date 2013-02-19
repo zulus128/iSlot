@@ -94,8 +94,8 @@
 }
 
 -(CCSprite*) getSprite: (int)pos {
-    
-    //    NSLog(@"pos = %d, slide = %d", pos, slide_num[1 + pos]);
+
+//    NSLog(@"pos = %d", pos);
     return slide[1 + pos];
 }
 
