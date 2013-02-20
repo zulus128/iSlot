@@ -40,12 +40,16 @@
 }
 - (void) show {
     
+//    NSLog(@"show -------------");
     for(int i = 0; i < cnt; i++) {
      
         CCSprite* s = (CCSprite*)[sprites objectAtIndex:i];
-//        [s.parent reorderChild:s z:7];
-        s.visible = NO;
+        [s.parent reorderChild:s z:7];
+//        s.visible = NO;
+//        NSLog(@"add: %d", s.tag);
+
     }
+//    NSLog(@"-------------");
 
     sprite.position = ccp(513, 418);
 
@@ -63,12 +67,17 @@
 
 - (void) hide {
 
+//    NSLog(@"hide -------------");
+
     for(int i = 0; i < cnt; i++) {
         
         CCSprite* s = (CCSprite*)[sprites objectAtIndex:i];
-//        [s.parent reorderChild:s z:2];
-        s.visible = YES;
+        [s.parent reorderChild:s z:2];
+//        s.visible = YES;
+//        NSLog(@"add: %d", s.tag);
+
     }
+//    NSLog(@"-------------");
 
     for(int i = 0; i < cnt; i++) {
         

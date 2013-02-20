@@ -357,21 +357,26 @@
 
     [Common instance].finished = 0;
     
-    NSMutableArray* arr = [NSMutableArray array];
     
     for(int i = 0; i < [Common instance].lines; i++) {
-    
+
+        NSMutableArray* arr = [NSMutableArray array];
+
         int first = [bar[0] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]];
-        [arr addObject:[bar[0] getSprite:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]]];
-//        CCSprite* ss = [bar[0] getSprite:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]];
-//        ss.visible = NO;
+//        [arr addObject:[bar[0] getSprite:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]]];
+        CCSprite* ss = [bar[0] getSprite:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]];
+//        NSLog(@"--- add: %d", ss.tag);
+        [arr addObject:ss];
 
         int cnt = 1;
 
         for(int j = 1; j < BARS_CNT; j++) {
         
         int slide = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j]intValue]];
-        [arr addObject:[bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]]];
+//        [arr addObject:[bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]]];
+        CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
+//        NSLog(@"add: %d", ss.tag);
+        [arr addObject:ss];
 
         if((slide == first) || (slide == 0 /*WILD*/))
             cnt++;
@@ -380,13 +385,13 @@
                  cnt++;
                  first = slide;
              }
-//v            else
-//v                break;
+            else
+                break;
             
         }
 //        NSLog(@"first = %d, cnt = %d", first, cnt);
 
-        int money = 55;//v 0;
+        int money = 0;
         if(cnt > 1)
             money = [[[values objectAtIndex:first]objectAtIndex:(cnt - 2)] intValue];
         
@@ -398,7 +403,7 @@
             
             NSLog(@"Coins = %d, money = %d, slide = %d", [Common instance].coins, money, first);
             NSLog(@"Bonus = %d", money * [Common instance].coins);
-            cnt = 3;//v
+//            cnt = 3;//v
             [combinations addObject:[[Combination alloc]initWithLayer:self sprite:lineSprite[i] line:i count:cnt linePos:[lines objectAtIndex:i] sprites:arr]];
         }
         

@@ -22,14 +22,28 @@
 
 #define LINES_CNT 5
 
+#define RND0 2 //%
+#define RND1 4 //%
+#define RND2 12 //%
+#define RND3 12 //%
+#define RND4 10 //%
+#define RND5 10 //%
+#define RND6 9 //%
+#define RND7 8 //%
+#define RND8 7 //%
+#define RND9 13 //%
+#define RND10 13 //%
+
 #define CCCA(x) [[x copy] autorelease]
 
 @interface Common : NSObject {
 
-
+    int rnd[SLIDE_TYPES];
 }
 
 + (Common*) instance;
+
+- (int) getRnd;
 
 @property (readwrite, assign) int coins;
 @property (readwrite, assign) int money;

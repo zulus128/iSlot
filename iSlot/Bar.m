@@ -28,10 +28,12 @@
 
             proto[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"slotStilistik01-%d.png", i]];
             proto[i].position = ccp(-5000, -5000);
+            proto[i].tag = 1000 + i;
             [layer addChild:proto[i] z:2];
             
             blur[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"BlurslotStilistik01-%d.png", i]];
             blur[i].position = ccp(-5000, -5000);
+            blur[i].tag = 2000 + i;
             [layer addChild:blur[i] z:2];
             
         }
@@ -73,7 +75,8 @@
     int j;
     do {
         b = YES;
-        j = CCRANDOM_0_1() * SLIDE_TYPES;
+//        j = CCRANDOM_0_1() * SLIDE_TYPES;
+        j = [[Common instance] getRnd];
         for(int i = 0; i < SLIDE_CNT; i++) {
             if(slide_num[i] == j) {
                 
