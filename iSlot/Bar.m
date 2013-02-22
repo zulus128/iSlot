@@ -213,10 +213,10 @@
         
         for(int i = 0; i < SLIDE_CNT; i++) {
             
-//            CGPoint p = slide[i].position;
-//            slide[i].position = ccp(-5000, -5000);
-//            slide[i] = proto[slide_num[i]];
-//            slide[i].position = p;
+            CGPoint p = slide[i].position;
+            slide[i].position = ccp(-5000, -5000);
+            slide[i] = proto[slide_num[i]];
+            slide[i].position = p;
 
             [slide[i] runAction:
              [CCSequence actions:
