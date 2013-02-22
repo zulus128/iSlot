@@ -31,7 +31,7 @@
             proto[i].tag = 1000 + i;
             [layer addChild:proto[i] z:2];
             
-            blur[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"BlurslotStilistik01-%d.png", i]];
+            blur[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"BlurslotStilistik001-%d.png", i]];
             blur[i].position = ccp(-5000, -5000);
             blur[i].tag = 2000 + i;
             [layer addChild:blur[i] z:2];
@@ -129,8 +129,8 @@
     stop1 = false;
     [self performSelector:@selector(stop1) withObject:nil afterDelay:delay];
     
-    [slide[0] runAction:seq1];
-    for(int i = 1; i < SLIDE_CNT; i++) {
+//    for(int i = 1; i < SLIDE_CNT; i++) {
+    for(int i = (SLIDE_CNT - 1); i > 0; i--) {
         
         [slide[i] runAction:
          [CCSequence actions:
@@ -139,6 +139,7 @@
           nil]
          ];
     }
+    [slide[0] runAction:seq1];
 
 }
 
@@ -212,10 +213,10 @@
         
         for(int i = 0; i < SLIDE_CNT; i++) {
             
-            CGPoint p = slide[i].position;
-            slide[i].position = ccp(-5000, -5000);
-            slide[i] = proto[slide_num[i]];
-            slide[i].position = p;
+//            CGPoint p = slide[i].position;
+//            slide[i].position = ccp(-5000, -5000);
+//            slide[i] = proto[slide_num[i]];
+//            slide[i].position = p;
 
             [slide[i] runAction:
              [CCSequence actions:
@@ -230,7 +231,8 @@
         return;
     }
     
-    for(int i = 1; i < SLIDE_CNT; i++) {
+//    for(int i = 1; i < SLIDE_CNT; i++) {
+   for(int i = (SLIDE_CNT - 1); i > 0; i--) {
         
         //        [slide[i] stopAllActions];
         slide[i].position = ccp(X, Y + i * SLIDE_HEIGHT);

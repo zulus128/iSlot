@@ -169,7 +169,7 @@
         [Common instance].lines = 5;
 
         
-		label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.2f", [Common instance].speed] fontName:@"Marker Felt" fontSize:24];
+		label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.3f", [Common instance].speed] fontName:@"Marker Felt" fontSize:24];
 		label.position =  ccp( size.width /2 , 40 );
 		[self addChild: label z:100];
 
