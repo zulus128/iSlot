@@ -45,8 +45,8 @@
         for(int i = 1; i < SLIDE_TYPES; i++)
             rnd[i] = rnd[i] + rnd[i - 1];
         
-        for(int i = 0; i < SLIDE_TYPES; i++)
-            NSLog(@"Random interval [%d] = %d", i, rnd[i]);
+//        for(int i = 0; i < SLIDE_TYPES; i++)
+//            NSLog(@"Random interval [%d] = %d", i, rnd[i]);
 
 	}
 	return self;	

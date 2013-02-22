@@ -180,7 +180,7 @@
         
         slide[i] = slide[i + 1];
         slide_num[i] = slide_num[i + 1];
-//        slide[i].position = ccp(X, Y + i * SLIDE_HEIGHT);
+        slide[i].position = ccp(X, Y + i * SLIDE_HEIGHT);
     }
 
     int i = [self getRandom:(SLIDE_CNT - 1)];// CCRANDOM_0_1() * SLIDE_TYPES;
