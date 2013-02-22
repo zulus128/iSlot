@@ -31,7 +31,7 @@
             proto[i].tag = 1000 + i;
             [layer addChild:proto[i] z:2];
             
-            blur[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"BlurslotStilistik001-%d.png", i]];
+            blur[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"BlurslotStilistik01-%d.png", i]];
             blur[i].position = ccp(-5000, -5000);
             blur[i].tag = 2000 + i;
             [layer addChild:blur[i] z:2];
