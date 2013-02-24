@@ -8,6 +8,7 @@
 
 #import "GameLayer.h"
 #import "Common.h"
+#import "InfoLayer.h"
 
 @implementation GameLayer
 
@@ -34,7 +35,8 @@
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
 		
-        
+        self.touchEnabled = YES;
+
         
         NSArray* line1 = [[NSArray alloc] initWithObjects:
                           [[NSNumber alloc] initWithInt:0],
@@ -175,12 +177,12 @@
 
         labelCoins = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].coins] fontName:@"Marker Felt" fontSize:44];
         labelCoins.color = ccc3(0, 0, 0);
-        labelCoins.position =  ccp( 320 , 90 );
+        labelCoins.position =  ccp( 320 , 80 );
         [self addChild: labelCoins z:10];
         
         labelLines = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].lines] fontName:@"Marker Felt" fontSize:44];
         labelLines.color = ccc3(0, 0, 0);
-        labelLines.position =  ccp( 710 , 90 );
+        labelLines.position =  ccp( 710 , 80 );
         [self addChild: labelLines z:10];
 
         labelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:@"Marker Felt" fontSize:44];
@@ -206,7 +208,7 @@
 		CCMenuItemSprite *item1 = [CCMenuItemSprite itemWithNormalSprite:spriteSpin selectedSprite:spriteSpinSelected block:^(id sender) {
             
 //            NSLog(@"Spin clicked! finished = %d", [Common instance].finished);
-            if([Common instance].finished <= 0) {
+            if(!info && [Common instance].finished <= 0) {
 
                 
                 
@@ -229,7 +231,7 @@
             
 		}];
         
-        [item1 setPosition:ccp(890, 90)];
+        [item1 setPosition:ccp(879.5f, 92.5f)];
         
         CCLabelTTF* labelplus = [CCLabelTTF labelWithString:@"++++" fontName:@"Marker Felt" fontSize:35];
         CCMenuItemLabel* item2 = [CCMenuItemLabel itemWithLabel:labelplus target:self selector:@selector(speedPlus)];
@@ -250,7 +252,7 @@
             [self refreshLabels];
             
 		}];
-        [itempl1 setPosition:ccp(318, 155)];
+        [itempl1 setPosition:ccp(317.5f, 132)];
         
         CCSprite *spplus2 = [CCSprite spriteWithFile:@"Plas.png"];
         CCSprite *spplus_t2 = [CCSprite spriteWithFile:@"TouchPlas.png"];
@@ -272,7 +274,7 @@
 
             
 		}];
-        [itempl2 setPosition:ccp(706, 155)];
+        [itempl2 setPosition:ccp(706.5f, 132)];
         
         CCSprite *spmnus1 = [CCSprite spriteWithFile:@"Minus.png"];
         CCSprite *spmnus_t1 = [CCSprite spriteWithFile:@"TouchMinus.png"];
@@ -284,7 +286,7 @@
             [self refreshLabels];
             
 		}];
-        [itemmn1 setPosition:ccp(318, 20)];
+        [itemmn1 setPosition:ccp(317.5f, 35)];
         
         CCSprite *spmnus2 = [CCSprite spriteWithFile:@"Minus.png"];
         CCSprite *spmnus_t2 = [CCSprite spriteWithFile:@"TouchMinus.png"];
@@ -305,9 +307,60 @@
 
 
 		}];
-        [itemmn2 setPosition:ccp(706, 20)];
+        [itemmn2 setPosition:ccp(706.5f, 35)];
+
+        infoscene = [CCSprite spriteWithFile:@"FonInfo.png"];
+        [infoscene setPosition:ccp(-512, 438)];
+        [self addChild: infoscene z:17];
+
+        for(int i = 0; i < SLIDE_TYPES; i++) {
+            
+            slide[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"slotStilistik01-%d.png", i] /*rect:CGRectMake(0, 0, 130, 110)*/];
+
+            int k = (i > 1)?108:130;
+            [slide[i] setScaleX: k/slide[0].contentSize.width];
+            [slide[i] setScaleY: k/slide[0].contentSize.height];
+            
+            [self addChild:slide[i] z:18];
+        }
+        slide[0].position = ccp(-889, 471);//WILD
+        slide[1].position = ccp(-889, 301);//SCATTER
+        slide[2].position = ccp(-184, 510);//J
+        slide[3].position = ccp(-404, 262);//Q
+        slide[4].position = ccp(-404, 386);//K
+        slide[5].position = ccp(-404, 510);//A
+        slide[6].position = ccp(-624, 510);//A
+        slide[7].position = ccp(-624, 386);//A
+        slide[8].position = ccp(-624, 262);//A
+        slide[9].position = ccp(-184, 262);//9
+        slide[10].position = ccp(-184, 386);//10
         
-        CCMenu *menu = [CCMenu menuWithItems: item1, item2, item3, itempl1, itempl2, itemmn1, itemmn2, nil];
+        CCSprite *spinfo = [CCSprite spriteWithFile:@"Info.png"];
+        CCSprite *spinfo_t1 = [CCSprite spriteWithFile:@"TouchInfo.png"];
+		CCMenuItemSprite *iteminfo = [CCMenuItemSprite itemWithNormalSprite:spinfo selectedSprite:spinfo_t1 block:^(id sender) {
+
+            if(!info) {
+   
+                info = YES;
+                [infoscene runAction:[CCMoveBy actionWithDuration:0.3f position:ccp(1024,0)]];
+                for(int i = 0; i < SLIDE_TYPES; i++)
+                    [slide[i] runAction:[CCMoveBy actionWithDuration:0.3f position:ccp(1024,0)]];
+
+            }
+            
+		}];
+        
+        [iteminfo setPosition:ccp(965, 623)];
+
+        CCSprite *spback = [CCSprite spriteWithFile:@"SlotBack.png"];
+        CCSprite *spback_t1 = [CCSprite spriteWithFile:@"TouchSlotBack.png"];
+		CCMenuItemSprite *itemback = [CCMenuItemSprite itemWithNormalSprite:spback selectedSprite:spback_t1 block:^(id sender) {
+            
+            
+		}];
+        [itemback setPosition:ccp(75, 730)];
+
+        CCMenu *menu = [CCMenu menuWithItems: item1, item2, item3, itempl1, itempl2, itemmn1, itemmn2, iteminfo, itemback, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 
@@ -443,6 +496,20 @@
         combNum = 0;
     [self performSelector:@selector(showComb) withObject:nil afterDelay:0.5f];
 
+}
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+
+    if(info) {
+       
+        info = NO;
+        [infoscene runAction:[CCMoveBy actionWithDuration:0.3f position:ccp(-1024,0)]];
+        
+        for(int i = 0; i < SLIDE_TYPES; i++)
+            [slide[i] runAction:[CCMoveBy actionWithDuration:0.3f position:ccp(-1024,0)]];
+
+    }
+//    return YES;
 }
 
 // on "dealloc" you need to release all your retained objects

@@ -29,6 +29,11 @@
     Combination* prevComb;
     
     int combNum;
+    BOOL info;
+    CCSprite *infoscene;
+    
+    CCSprite* slide[SLIDE_TYPES];
+
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

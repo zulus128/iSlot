@@ -311,6 +311,9 @@
 		DDC3409816C5ED7A00764535 /* TouchSlotBack-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC3408F16C5ED7A00764535 /* TouchSlotBack-ipadhd.png */; };
 		DDC3409916C5ED7A00764535 /* TouchSpin-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC3409016C5ED7A00764535 /* TouchSpin-ipadhd.png */; };
 		DDC3409C16C5F4CF00764535 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC3409B16C5F4CF00764535 /* Common.m */; };
+		DDCBFE0616D9EFE7004DBEF5 /* InfoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCBFE0516D9EFE7004DBEF5 /* InfoLayer.m */; };
+		DDCBFE0916D9FAF3004DBEF5 /* FonInfo-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DDCBFE0716D9FAF2004DBEF5 /* FonInfo-ipad.png */; };
+		DDCBFE0A16D9FAF3004DBEF5 /* FonInfo-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DDCBFE0816D9FAF2004DBEF5 /* FonInfo-ipadhd.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -768,6 +771,10 @@
 		DDC3409016C5ED7A00764535 /* TouchSpin-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TouchSpin-ipadhd.png"; sourceTree = "<group>"; };
 		DDC3409A16C5F4CF00764535 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		DDC3409B16C5F4CF00764535 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		DDCBFE0416D9EFE7004DBEF5 /* InfoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoLayer.h; sourceTree = "<group>"; };
+		DDCBFE0516D9EFE7004DBEF5 /* InfoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoLayer.m; sourceTree = "<group>"; };
+		DDCBFE0716D9FAF2004DBEF5 /* FonInfo-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonInfo-ipad.png"; sourceTree = "<group>"; };
+		DDCBFE0816D9FAF2004DBEF5 /* FonInfo-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonInfo-ipadhd.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -967,6 +974,8 @@
 				9C70763F16C375830053C3F0 /* IntroLayer.m */,
 				9C0A47F216C3A7CA00B23B2C /* GameLayer.h */,
 				9C0A47F316C3A7CA00B23B2C /* GameLayer.m */,
+				DDCBFE0416D9EFE7004DBEF5 /* InfoLayer.h */,
+				DDCBFE0516D9EFE7004DBEF5 /* InfoLayer.m */,
 				9C7FE26916D34BB0000ED31C /* Combination.h */,
 				9C7FE26A16D34BB0000ED31C /* Combination.m */,
 				9C9D6FD516C543F1004F5800 /* Bar.h */,
@@ -1362,6 +1371,8 @@
 		9CAEC16F16C4CB2500E5AAD6 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				DDCBFE0716D9FAF2004DBEF5 /* FonInfo-ipad.png */,
+				DDCBFE0816D9FAF2004DBEF5 /* FonInfo-ipadhd.png */,
 				DDC3405F16C5EAF900764535 /* FonSlot01-ipadhd.png */,
 				DDC3406016C5EAF900764535 /* GameCenter-ipadhd.png */,
 				DDC3406116C5EAF900764535 /* Info-ipadhd.png */,
@@ -1673,6 +1684,8 @@
 				9CE9511716D74E9200746DFF /* BlurslotStilistik01-8-ipadhd.png in Resources */,
 				9CE9511816D74E9200746DFF /* BlurslotStilistik01-9-ipadhd.png in Resources */,
 				9CE9511916D74E9200746DFF /* BlurslotStilistik01-10-ipadhd.png in Resources */,
+				DDCBFE0916D9FAF3004DBEF5 /* FonInfo-ipad.png in Resources */,
+				DDCBFE0A16D9FAF3004DBEF5 /* FonInfo-ipadhd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1798,6 +1811,7 @@
 				9C9D6FD716C543F1004F5800 /* Bar.m in Sources */,
 				DDC3409C16C5F4CF00764535 /* Common.m in Sources */,
 				9C7FE26B16D34BB0000ED31C /* Combination.m in Sources */,
+				DDCBFE0616D9EFE7004DBEF5 /* InfoLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
