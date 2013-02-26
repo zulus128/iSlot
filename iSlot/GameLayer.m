@@ -163,12 +163,22 @@
         
 		CGSize size = [[CCDirector sharedDirector] winSize];
 
+        
         combinations = [[NSMutableArray alloc] init];
         
         [Common instance].money = 1000;
         [Common instance].speed = SPEED1;
         [Common instance].coins = 1;
         [Common instance].lines = 5;
+
+//        [Common instance].yourluck = 50;
+        
+        
+        
+        
+		labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:@"Marker Felt" fontSize:24];
+		labelYourLuck.position =  ccp( 637 , 720 );
+		[self addChild: labelYourLuck z:100];
 
 		CCLabelTTF* lastwin = [CCLabelTTF labelWithString:@"LAST WIN" fontName:@"Marker Felt" fontSize:34];
 		lastwin.position =  ccp( 510 , 160 );
@@ -201,6 +211,34 @@
         [self addChild:back z:5];
         back.position = ccp( size.width / 2, size.height / 2);
 
+        CCSprite* levelback = [CCSprite spriteWithFile:@"WhileFonLevel.png"];
+        [self addChild:levelback z:3];
+        levelback.position = ccp(410, 678);
+
+        level = [CCSprite spriteWithFile:@"BlueFonLevel.png"];
+        [self addChild:level z:4];
+        level.position = ccp(-400, 678);
+
+        CCSprite* yluck = [CCSprite spriteWithFile:@"Luck.png"];
+        [self addChild:yluck z:7];
+        yluck.position = ccp(633, 730);
+        CCLabelTTF* luplus = [CCLabelTTF labelWithString:@"++" fontName:@"Marker Felt" fontSize:35];
+        CCMenuItemLabel* item_lu1 = [CCMenuItemLabel itemWithLabel:luplus target:self selector:@selector(luckPlus)];
+        CCLabelTTF* luminus = [CCLabelTTF labelWithString:@"--" fontName:@"Marker Felt" fontSize:35];
+        CCMenuItemLabel* item_lu2 = [CCMenuItemLabel itemWithLabel:luminus target:self selector:@selector(luckMinus)];
+        [item_lu1 setPosition:ccp(690, 725)];
+        [item_lu2 setPosition:ccp(580, 725)];
+
+        
+        
+        CCSprite* fameback = [CCSprite spriteWithFile:@"WhileFonFame.png"];
+        [self addChild:fameback z:3];
+        fameback.position = ccp(155, 95);
+        
+        fame = [CCSprite spriteWithFile:@"BlueFonFame.png"];
+        [self addChild:fame z:4];
+        fame.position = ccp(-5, 95);
+        
         int y = size.height / 2 - 107;
         int x = size.width / 2 - 299;
 
@@ -217,7 +255,7 @@
 //            NSLog(@"Spin clicked! finished = %d", [Common instance].finished);
             if(!info && [Common instance].finished <= 0) {
 
-                
+                [[Common instance] validateRnd];
                 
                 for(int i = 0; i < LINES_CNT; i++)
                     lineSprite[i].position = ccp(-5000, -5000);
@@ -232,6 +270,8 @@
                     [bar[i] start];
 
                 
+                [Common instance].levelfame ++;
+                
                 [self performSelector:@selector(checkLines) withObject:nil afterDelay:(DELAY5 + 0.5f)];
 
             }
@@ -244,10 +284,8 @@
         CCMenuItemLabel* item2 = [CCMenuItemLabel itemWithLabel:labelplus target:self selector:@selector(speedPlus)];
         CCLabelTTF* labelminus = [CCLabelTTF labelWithString:@"----" fontName:@"Marker Felt" fontSize:35];
         CCMenuItemLabel* item3 = [CCMenuItemLabel itemWithLabel:labelminus target:self selector:@selector(speedMinus)];
-
         [item2 setPosition:ccp(size.width / 2 - 70, 40)];
         [item3 setPosition:ccp(size.width / 2 + 70, 40)];
-        
         
         CCSprite *spplus1 = [CCSprite spriteWithFile:@"Plas.png"];
         CCSprite *spplus_t1 = [CCSprite spriteWithFile:@"TouchPlas.png"];
@@ -367,7 +405,7 @@
 		}];
         [itemback setPosition:ccp(75, 730)];
 
-        CCMenu *menu = [CCMenu menuWithItems: item1, item2, item3, itempl1, itempl2, itemmn1, itemmn2, iteminfo, itemback, nil];
+        CCMenu *menu = [CCMenu menuWithItems: item1, item2, item3, itempl1, itempl2, itemmn1, itemmn2, iteminfo, itemback, item_lu1, item_lu2, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 
@@ -390,6 +428,16 @@
     [labelLines setString:[NSString stringWithFormat:@"%d", [Common instance].lines]];
     [lastw setString:[NSString stringWithFormat:@"%d", [Common instance].lastwin]];
     [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
+    [labelYourLuck setString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck]];
+    
+    float p = [Common instance].levelwin > 100?100:[Common instance].levelwin;
+    float x = p * 810 / 100;
+    level.position = ccp(-400 + x, 678);
+
+    p = [Common instance].levelfame > 50?50:[Common instance].levelfame;
+    x = p * 160 / 50;
+    fame.position = ccp(-5 + x, 95);
+
 }
 
 - (void) speedPlus {
@@ -463,6 +511,8 @@
             NSLog(@"Coins = %d, money = %d, slide = %d", [Common instance].coins, money, first);
             NSLog(@"Bonus = %d", money * [Common instance].coins);
             winsum += money * [Common instance].coins;
+            
+            [Common instance].levelfame += cnt;
 //            cnt = 3;//v
             [combinations addObject:[[Combination alloc]initWithLayer:self sprite:lineSprite[i] line:i count:cnt linePos:[lines objectAtIndex:i] sprites:arr]];
             
@@ -474,6 +524,7 @@
     if(combinations.count > 0) {
 
         [Common instance].lastwin = winsum;
+        [Common instance].levelwin += winsum;
         [self refreshLabels];
         [self performSelector:@selector(showComb) withObject:nil afterDelay:0];
     }
@@ -508,6 +559,22 @@
         combNum = 0;
     [self performSelector:@selector(showComb) withObject:nil afterDelay:0.5f];
 
+}
+
+- (void) luckPlus {
+    
+    [Common instance].yourluck += 5;
+    if([Common instance].yourluck > 110)
+        [Common instance].yourluck = 110;
+    [self refreshLabels];
+}
+
+- (void) luckMinus {
+    
+    [Common instance].yourluck -= 5;
+    if([Common instance].yourluck < 50)
+        [Common instance].yourluck = 50;
+    [self refreshLabels];
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

@@ -19,10 +19,14 @@
     CCLabelTTF *labelCoins;
     CCLabelTTF *labelLines;
     CCLabelTTF *labelMoney;
+    CCLabelTTF *labelYourLuck;
     
     Bar* bar [BARS_CNT];
 
     CCSprite* lineSprite[LINES_CNT];
+
+    CCSprite* level;
+    CCSprite* fame;
 
     NSArray* lines;
     NSArray* values;

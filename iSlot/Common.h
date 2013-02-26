@@ -34,21 +34,39 @@
 #define RND9 13 //%
 #define RND10 13 //%
 
+#define RND110_0 4 //%
+#define RND110_1 6 //%
+#define RND110_2 11 //%
+#define RND110_3 11 //%
+#define RND110_4 9 //%
+#define RND110_5 9 //%
+#define RND110_6 9 //%
+#define RND110_7 9 //%
+#define RND110_8 8 //%
+#define RND110_9 12 //%
+#define RND110_10 12 //%
+
 #define CCCA(x) [[x copy] autorelease]
 
 @interface Common : NSObject {
 
-    int rnd[SLIDE_TYPES];
+    float rnd[SLIDE_TYPES];
+    float rnd50[SLIDE_TYPES];
+    float rnd110[SLIDE_TYPES];
 }
 
 + (Common*) instance;
 
+- (void) validateRnd;
 - (int) getRnd;
 
 @property (readwrite, assign) int coins;
 @property (readwrite, assign) int money;
 @property (readwrite, assign) int lines;
 @property (readwrite, assign) int lastwin;
+@property (readwrite, assign) int levelwin;
+@property (readwrite, assign) int levelfame;
+@property (readwrite, assign) int yourluck;
 
 @property (readwrite, assign) int finished;
 @property (readwrite, assign) float speed;
