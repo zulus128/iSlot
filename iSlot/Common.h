@@ -46,6 +46,18 @@
 #define RND110_9 12 //%
 #define RND110_10 12 //%
 
+#define FAME_LEVELS 10
+#define FAME_POINTS1 50
+#define FAME_POINTS2 150
+#define FAME_POINTS3 450
+#define FAME_POINTS4 600
+#define FAME_POINTS5 1000
+#define FAME_POINTS6 1700
+#define FAME_POINTS7 2300
+#define FAME_POINTS8 3200
+#define FAME_POINTS9 4500
+#define FAME_POINTS10 6000
+
 #define CCCA(x) [[x copy] autorelease]
 
 @interface Common : NSObject {
@@ -65,8 +77,9 @@
 @property (readwrite, assign) int lines;
 @property (readwrite, assign) int lastwin;
 @property (readwrite, assign) int levelwin;
-@property (readwrite, assign) int levelfame;
+@property (readwrite, assign) int famepoints;
 @property (readwrite, assign) int yourluck;
+@property (readwrite, assign) int famelevel1;
 
 @property (readwrite, assign) int finished;
 @property (readwrite, assign) float speed;

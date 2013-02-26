@@ -13,6 +13,8 @@
 
 @interface GameLayer : CCLayer {
     
+    int fames[FAME_LEVELS];
+
     CCLabelTTF *label;
     CCLabelTTF *lastw;
 
@@ -20,6 +22,7 @@
     CCLabelTTF *labelLines;
     CCLabelTTF *labelMoney;
     CCLabelTTF *labelYourLuck;
+    CCLabelTTF *labelFameLevel;
     
     Bar* bar [BARS_CNT];
 
