@@ -170,6 +170,13 @@
         [Common instance].coins = 1;
         [Common instance].lines = 5;
 
+		CCLabelTTF* lastwin = [CCLabelTTF labelWithString:@"LAST WIN" fontName:@"Marker Felt" fontSize:34];
+		lastwin.position =  ccp( 510 , 160 );
+		[self addChild: lastwin z:100];
+
+		lastw = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].lastwin] fontName:@"Marker Felt" fontSize:34];
+		lastw.position =  ccp( 510 , 110 );
+		[self addChild: lastw z:100];
         
 		label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.3f", [Common instance].speed] fontName:@"Marker Felt" fontSize:24];
 		label.position =  ccp( size.width /2 , 40 );
@@ -381,9 +388,8 @@
 
     [labelCoins setString:[NSString stringWithFormat:@"%d", [Common instance].coins]];
     [labelLines setString:[NSString stringWithFormat:@"%d", [Common instance].lines]];
-
+    [lastw setString:[NSString stringWithFormat:@"%d", [Common instance].lastwin]];
     [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
-
 }
 
 - (void) speedPlus {
@@ -409,7 +415,7 @@
 //    NSLog(@"---------checkLines");
 
     [Common instance].finished = 0;
-    
+    int winsum = 0;
     
     for(int i = 0; i < [Common instance].lines; i++) {
 
@@ -456,15 +462,21 @@
             
             NSLog(@"Coins = %d, money = %d, slide = %d", [Common instance].coins, money, first);
             NSLog(@"Bonus = %d", money * [Common instance].coins);
+            winsum += money * [Common instance].coins;
 //            cnt = 3;//v
             [combinations addObject:[[Combination alloc]initWithLayer:self sprite:lineSprite[i] line:i count:cnt linePos:[lines objectAtIndex:i] sprites:arr]];
+            
         }
         
     
     }
     
-    if(combinations.count > 0)
+    if(combinations.count > 0) {
+
+        [Common instance].lastwin = winsum;
+        [self refreshLabels];
         [self performSelector:@selector(showComb) withObject:nil afterDelay:0];
+    }
 
     
 }

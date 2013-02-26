@@ -14,6 +14,7 @@
 @interface GameLayer : CCLayer {
     
     CCLabelTTF *label;
+    CCLabelTTF *lastw;
 
     CCLabelTTF *labelCoins;
     CCLabelTTF *labelLines;
