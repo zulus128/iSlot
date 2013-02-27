@@ -29,7 +29,7 @@
     Bar* bar [BARS_CNT];
 
     CCSprite* lineSprite[LINES_CNT];
-
+    CCMenu *menu;
     CCSprite* level;
     CCSprite* fame;
 

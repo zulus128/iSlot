@@ -336,6 +336,14 @@
 		lastwin.position =  ccp( 510 , 160 );
 		[self addChild: lastwin z:100];
 
+		CCLabelTTF* coinslab = [CCLabelTTF labelWithString:@"Coins" fontName:@"Marker Felt" fontSize:20];
+		coinslab.position =  ccp( 315 , 170 );
+		[self addChild: coinslab z:100];
+        
+		CCLabelTTF* lineslab = [CCLabelTTF labelWithString:@"Lines" fontName:@"Marker Felt" fontSize:20];
+		lineslab.position =  ccp( 710 , 170 );
+		[self addChild: lineslab z:100];
+        
 		lastw = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].lastwin] fontName:@"Marker Felt" fontSize:34];
 		lastw.position =  ccp( 510 , 110 );
 		[self addChild: lastw z:100];
@@ -407,6 +415,8 @@
 //            NSLog(@"Spin clicked! finished = %d", [Common instance].finished);
             if(!info && [Common instance].finished <= 0) {
 
+                [menu setEnabled:NO];
+
                 [[Common instance] validateRnd];
                 for(Combination* comb in combinations)
                     [comb release];
@@ -447,7 +457,7 @@
         CCSprite *spplus_t1 = [CCSprite spriteWithFile:@"TouchPlas.png"];
 		CCMenuItemSprite *itempl1 = [CCMenuItemSprite itemWithNormalSprite:spplus1 selectedSprite:spplus_t1 block:^(id sender) {
             
-            if([Common instance].coins < 5)
+            if([Common instance].coins < ([Common instance].lines / 2))
                 [Common instance].coins ++;
             
             [self refreshLabels];
@@ -561,7 +571,7 @@
 		}];
         [itemback setPosition:ccp(75, 730)];
 
-        CCMenu *menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, itemback, item_lu1, item_lu2, nil];
+        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, itemback, item_lu1, item_lu2, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 
@@ -689,7 +699,9 @@
         
     
     }
-    
+
+    [menu setEnabled:YES];
+
     if(combinations.count > 0) {
 
         [Common instance].lastwin = winsum;
