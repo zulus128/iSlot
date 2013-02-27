@@ -23,6 +23,8 @@
     CCLabelTTF *labelMoney;
     CCLabelTTF *labelYourLuck;
     CCLabelTTF *labelFameLevel;
+    CCLabelTTF *labelBet;
+    CCLabelTTF *labelLevelMoney;
     
     Bar* bar [BARS_CNT];
 

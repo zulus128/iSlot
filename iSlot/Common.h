@@ -20,7 +20,7 @@
 #define DELAY4 3.5f
 #define DELAY5 4.0f
 
-#define LINES_CNT 5
+#define LINES_CNT 21
 
 #define RND0 2 //%
 #define RND1 4 //%
@@ -57,6 +57,8 @@
 #define FAME_POINTS8 3200
 #define FAME_POINTS9 4500
 #define FAME_POINTS10 6000
+
+#define LEVEL_MONEY1 100
 
 #define CCCA(x) [[x copy] autorelease]
 

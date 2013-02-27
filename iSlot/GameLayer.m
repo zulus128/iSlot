@@ -88,7 +88,136 @@
                           [[NSNumber alloc] initWithInt:-1],
                           nil];
         
-        lines = [[NSArray alloc] initWithObjects:line1, line2, line3, line4, line5, nil];
+        NSArray* line6 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:-1],
+                          [[NSNumber alloc] initWithInt:0],
+                          [[NSNumber alloc] initWithInt:0],
+                          [[NSNumber alloc] initWithInt:0],
+                          [[NSNumber alloc] initWithInt:-1],
+                          nil];
+        
+        NSArray* line7 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:1],
+                          [[NSNumber alloc] initWithInt:0],
+                          [[NSNumber alloc] initWithInt:0],
+                          [[NSNumber alloc] initWithInt:0],
+                          [[NSNumber alloc] initWithInt:1],
+                          nil];
+        
+        NSArray* line8 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:0],
+                          [[NSNumber alloc] initWithInt:1],
+                          [[NSNumber alloc] initWithInt:1],
+                          [[NSNumber alloc] initWithInt:1],
+                          [[NSNumber alloc] initWithInt:0],
+                          nil];
+        
+        NSArray* line9 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:0],
+                          [[NSNumber alloc] initWithInt:-1],
+                          [[NSNumber alloc] initWithInt:-1],
+                          [[NSNumber alloc] initWithInt:-1],
+                          [[NSNumber alloc] initWithInt:0],
+                          nil];
+        
+        NSArray* line10 = [[NSArray alloc] initWithObjects:
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:-1],
+                           nil];
+        
+        NSArray* line11 = [[NSArray alloc] initWithObjects:
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:1],
+                           nil];
+        
+        NSArray* line12 = [[NSArray alloc] initWithObjects:
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:1],
+                           nil];
+        
+        NSArray* line13 = [[NSArray alloc] initWithObjects:
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:-1],
+                           nil];
+        
+        NSArray* line14 = [[NSArray alloc] initWithObjects:
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:0],
+                           nil];
+        
+        NSArray* line15 = [[NSArray alloc] initWithObjects:
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:0],
+                           nil];
+        
+        NSArray* line16 = [[NSArray alloc] initWithObjects:
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:1],
+                           nil];
+        
+        NSArray* line17 = [[NSArray alloc] initWithObjects:
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:-1],
+                           nil];
+        
+        NSArray* line18 = [[NSArray alloc] initWithObjects:
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:0],
+                           nil];
+        
+        NSArray* line19 = [[NSArray alloc] initWithObjects:
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:0],
+                           [[NSNumber alloc] initWithInt:0],
+                           nil];
+        
+        NSArray* line20 = [[NSArray alloc] initWithObjects:
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:1],
+                           nil];
+        
+        NSArray* line21 = [[NSArray alloc] initWithObjects:
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:1],
+                           [[NSNumber alloc] initWithInt:-1],
+                           [[NSNumber alloc] initWithInt:-1],
+                           nil];
+        
+        
+        lines = [[NSArray alloc] initWithObjects:line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, nil];
         
 
         NSArray* values0 = [[NSArray alloc] initWithObjects: //WILD
@@ -190,7 +319,15 @@
 		labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:@"Marker Felt" fontSize:24];
 		labelYourLuck.position =  ccp( 637 , 720 );
 		[self addChild: labelYourLuck z:100];
+        
+        labelBet = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"BET: %d", [Common instance].coins * [Common instance].lines] fontName:@"Marker Felt" fontSize:34];
+		labelBet.position =  ccp( 510 , 37 );
+		[self addChild: labelBet z:100];
 
+        labelLevelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, LEVEL_MONEY1] fontName:@"Marker Felt" fontSize:24];
+		labelLevelMoney.position =  ccp( 910 , 677 );
+		[self addChild: labelLevelMoney z:100];
+        
 		labelFameLevel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints] fontName:@"Marker Felt" fontSize:18];
 		labelFameLevel.position =  ccp( 145 , 130 );
 		[self addChild: labelFameLevel z:100];
@@ -278,7 +415,7 @@
                 for(int i = 0; i < LINES_CNT; i++)
                     lineSprite[i].position = ccp(-5000, -5000);
 
-                [Common instance].money -= [Common instance].coins;
+                [Common instance].money -= ([Common instance].coins * [Common instance].lines);
                 [self refreshLabels];
 
                 
@@ -322,7 +459,7 @@
         CCSprite *spplus_t2 = [CCSprite spriteWithFile:@"TouchPlas.png"];
 		CCMenuItemSprite *itempl2 = [CCMenuItemSprite itemWithNormalSprite:spplus2 selectedSprite:spplus_t2 block:^(id sender) {
 
-            if([Common instance].lines < 5)
+            if([Common instance].lines < LINES_CNT)
                 [Common instance].lines ++;
             
             [self refreshLabels];
@@ -448,10 +585,11 @@
     [lastw setString:[NSString stringWithFormat:@"%d", [Common instance].lastwin]];
     [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
     [labelYourLuck setString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck]];
+    [labelBet setString:[NSString stringWithFormat:@"BET: %d", [Common instance].coins * [Common instance].lines]];
+    [labelLevelMoney setString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, LEVEL_MONEY1]];
     
-    
-    float p = [Common instance].levelwin > 100?100:[Common instance].levelwin;
-    float x = p * 810 / 100;
+    float p = [Common instance].levelwin > LEVEL_MONEY1?LEVEL_MONEY1:[Common instance].levelwin;
+    float x = p * 810 / LEVEL_MONEY1;
     level.position = ccp(-400 + x, 678);
 
     int k = 0;
