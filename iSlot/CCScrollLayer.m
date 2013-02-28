@@ -238,6 +238,9 @@ enum
 
 -(void) moveToPage:(int)page
 {
+    
+    NSLog(@"-- moveToPage %d", page);
+    
     if (page < 0 || page >= [layers_ count]) {
         CCLOGERROR(@"CCScrollLayer#moveToPage: %d - wrong page number, out of bounds. ", page);
 		return;
@@ -371,7 +374,9 @@ enum
 	if( scrollTouch_ != touch ) {
 		return;
 	}
-    
+
+//    NSLog(@"ccTouchMoved");
+
 	CGPoint touchPoint = [touch locationInView:[touch view]];
 	touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
     
