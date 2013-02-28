@@ -256,6 +256,8 @@
 		9CAEC18316C4CB3D00E5AAD6 /* SlonInApp-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17816C4CB3D00E5AAD6 /* SlonInApp-ipad.png */; };
 		9CAEC18416C4CB3D00E5AAD6 /* SlotBack-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17916C4CB3D00E5AAD6 /* SlotBack-ipad.png */; };
 		9CAEC18516C4CB3D00E5AAD6 /* Spin-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEC17A16C4CB3D00E5AAD6 /* Spin-ipad.png */; };
+		9CD1704A16DF15ED00B33099 /* CCMenuAdvanced.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1704916DF15ED00B33099 /* CCMenuAdvanced.m */; };
+		9CD1704D16DF2C6A00B33099 /* CCScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1704C16DF2C6A00B33099 /* CCScrollLayer.m */; };
 		9CE950F916D74E8300746DFF /* BlurslotStilistik01-0-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE950EE16D74E8300746DFF /* BlurslotStilistik01-0-ipad.png */; };
 		9CE950FA16D74E8300746DFF /* BlurslotStilistik01-1-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE950EF16D74E8300746DFF /* BlurslotStilistik01-1-ipad.png */; };
 		9CE950FB16D74E8300746DFF /* BlurslotStilistik01-2-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE950F016D74E8300746DFF /* BlurslotStilistik01-2-ipad.png */; };
@@ -747,6 +749,10 @@
 		9CAEC17816C4CB3D00E5AAD6 /* SlonInApp-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SlonInApp-ipad.png"; sourceTree = "<group>"; };
 		9CAEC17916C4CB3D00E5AAD6 /* SlotBack-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SlotBack-ipad.png"; sourceTree = "<group>"; };
 		9CAEC17A16C4CB3D00E5AAD6 /* Spin-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Spin-ipad.png"; sourceTree = "<group>"; };
+		9CD1704816DF15ED00B33099 /* CCMenuAdvanced.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuAdvanced.h; sourceTree = "<group>"; };
+		9CD1704916DF15ED00B33099 /* CCMenuAdvanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenuAdvanced.m; sourceTree = "<group>"; };
+		9CD1704B16DF2C6900B33099 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
+		9CD1704C16DF2C6A00B33099 /* CCScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScrollLayer.m; sourceTree = "<group>"; };
 		9CE950EE16D74E8300746DFF /* BlurslotStilistik01-0-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlurslotStilistik01-0-ipad.png"; sourceTree = "<group>"; };
 		9CE950EF16D74E8300746DFF /* BlurslotStilistik01-1-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlurslotStilistik01-1-ipad.png"; sourceTree = "<group>"; };
 		9CE950F016D74E8300746DFF /* BlurslotStilistik01-2-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlurslotStilistik01-2-ipad.png"; sourceTree = "<group>"; };
@@ -1047,6 +1053,10 @@
 				9C9D6FD616C543F1004F5800 /* Bar.m */,
 				DDC3409A16C5F4CF00764535 /* Common.h */,
 				DDC3409B16C5F4CF00764535 /* Common.m */,
+				9CD1704816DF15ED00B33099 /* CCMenuAdvanced.h */,
+				9CD1704916DF15ED00B33099 /* CCMenuAdvanced.m */,
+				9CD1704B16DF2C6900B33099 /* CCScrollLayer.h */,
+				9CD1704C16DF2C6A00B33099 /* CCScrollLayer.m */,
 				9C7074AB16C375800053C3F0 /* Resources */,
 				9C7074C316C375800053C3F0 /* libs */,
 				9C70763416C375830053C3F0 /* Supporting Files */,
@@ -1948,6 +1958,8 @@
 				DDC3409C16C5F4CF00764535 /* Common.m in Sources */,
 				9C7FE26B16D34BB0000ED31C /* Combination.m in Sources */,
 				DDCBFE0616D9EFE7004DBEF5 /* InfoLayer.m in Sources */,
+				9CD1704A16DF15ED00B33099 /* CCMenuAdvanced.m in Sources */,
+				9CD1704D16DF2C6A00B33099 /* CCScrollLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,8 @@
 // Import the interfaces
 #import "IntroLayer.h"
 #import "GameLayer.h"
+//#import "CCMenuAdvanced.h"
+#import "CCScrollLayer.h"
 
 #pragma mark - IntroLayer
 
@@ -37,55 +39,63 @@
 {
 	if( (self=[super init])) {
 
-		// ask director for the window size
-		CGSize size = [[CCDirector sharedDirector] winSize];
+//		CGSize size = [[CCDirector sharedDirector] winSize];
 
-//		CCSprite *background;
-//		
-//		if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-//			background = [CCSprite spriteWithFile:@"Default.png"];
-//			background.rotation = 90;
-//		} else {
-//			background = [CCSprite spriteWithFile:@"Default-Landscape~ipad.png"];
-//		}
-//		background.position = ccp(size.width/2, size.height/2);
-//
-//		// add the label as a child to this Layer
-//		[self addChild: background];
+        CGSize screenSize = [CCDirector sharedDirector].winSize;
         
-/*		CCMenuItemSprite *horizontalTestItem =
-		[CCMenuItemSprite itemFromNormalSprite: [CCSprite spriteWithFile: @"PresentButton.png"]
-								selectedSprite: [CCSprite spriteWithFile: @"PresentButton.png"]
-										target: self
-									  selector: @selector(itemPressed:)];
-		
-		CCMenuItemSprite *priorityTestItem =
-		[CCMenuItemSprite itemFromNormalSprite: [CCSprite spriteWithFile: @"FutureButton.png"]
-								selectedSprite: [CCSprite spriteWithFile: @"FutureButton.png"]
-										target: self
-									  selector: @selector(itemPressed:)];
-		
-		// Distinguish Normal/Selected State of Menu Items.
-		[horizontalTestItem.selectedImage setColor:ccGRAY];
-		[priorityTestItem.selectedImage setColor:ccGRAY];
+        
+        
+        CCSprite* back = [CCSprite spriteWithFile:@"FonMainMenu.png"];
+        back.position = ccp( screenSize.width / 2, screenSize.height / 2);
+        [self addChild:back];
 
         
+        NSMutableArray *layers = [NSMutableArray new];
+        CCLayer *layer = [self layerWithChapterNumber:0 screenSize:screenSize];
+        [layers addObject:layer];
+        CCLayer *layer1 = [self layerWithChapterNumber:1 screenSize:screenSize];
+        [layers addObject:layer1];
+        CCScrollLayer *scroller = [[CCScrollLayer alloc] initWithLayers:layers
+                                                            widthOffset:500];
+        [scroller selectPage:0];
+        scroller.showPagesIndicator = NO;
+//        scroller.pagesWidthOffset = 10;
+//        scroller.marginOffset = 100;
+//        scroller.minimumTouchLengthToChangePage = 50;
+//        scroller.minimumTouchLengthToSlide = 50;
+        [self addChild:scroller];
+        [scroller release];
+        [layers release];
         
         
-        CCMenuAdvanced *menu = [CCMenuAdvanced menuWithItems:horizontalTestItem, priorityTestItem, nil];
-//		[menu alignItemsHorizontallyWithPadding: 0.33 * horizontalTestItem.contentSize.width ];
-        [menu alignItemsHorizontally]; //< also sets contentSize and keyBindings on Mac
-
-		[self addChild: menu z:30];
- */
+        
+        
 	}
 	
 	return self;
 }
+- (CCLayer*)layerWithChapterNumber:(int)chapterNumber
+                      screenSize:(CGSize)screenSize {
+    
+    CCLayer *layer = [[CCLayer alloc] init];
+//    [layer setScaleX:0.3f];
+    NSString *s = chapterNumber == 0?@"PresentButton.png":@"FutureButton.png";
+        CCMenuItemImage *image = [CCMenuItemImage itemFromNormalImage:s
+                                                        selectedImage:s
+                                                               target:self
+                                                             selector:@selector(onSelectChapter:)];
+        image.tag = chapterNumber;
+        CCMenu *menu = [CCMenu menuWithItems: image, nil];
+//        [menu alignItemsVertically];
+        [layer addChild: menu];
+    
+    return layer;
+}
 
-//-(void) onEnter
-//{
-//	[super onEnter];
-//	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameLayer scene] ]];
-//}
+- (void)onSelectChapter:(CCMenuItemImage *)sender {
+    
+   [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+
+}
+
 @end

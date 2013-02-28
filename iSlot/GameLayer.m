@@ -567,7 +567,8 @@
         CCSprite *spback_t1 = [CCSprite spriteWithFile:@"TouchSlotBack.png"];
 		CCMenuItemSprite *itemback = [CCMenuItemSprite itemWithNormalSprite:spback selectedSprite:spback_t1 block:^(id sender) {
             
-            
+            [[CCDirector sharedDirector] popScene];
+
 		}];
         [itemback setPosition:ccp(75, 730)];
 
