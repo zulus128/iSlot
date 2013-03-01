@@ -55,6 +55,8 @@
         [layers addObject:layer];
         CCLayer *layer1 = [self layerWithChapterNumber:1 screenSize:screenSize];
         [layers addObject:layer1];
+        CCLayer *layer2 = [self layerWithChapterNumber:2 screenSize:screenSize];
+        [layers addObject:layer2];
         CCScrollLayer *scroller = [[CCScrollLayer alloc] initWithLayers:layers
                                                             widthOffset:500];
         [scroller selectPage:0];

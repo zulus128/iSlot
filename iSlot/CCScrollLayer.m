@@ -375,8 +375,12 @@ enum
 		return;
 	}
 
-//    NSLog(@"ccTouchMoved");
-
+    NSLog(@"ccTouchMoved");
+//	for (CCLayer *l in layers_)
+//        NSLog(@"Layer pos = %f, %f", l.position.x, l.position.y);
+    NSLog(@"self pos = %f, %f", self.position.x, self.position.y);
+    
+        
 	CGPoint touchPoint = [touch locationInView:[touch view]];
 	touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
     
@@ -413,6 +417,12 @@ enum
 			offset = 0;
 		self.position = ccp(desiredX - offset, 0);
 	}
+    
+//    for (CCLayer *l in layers_) {
+////          NSLog(@"Layer pos = %f, %f", l.position.x, l.position.y);
+//        l.scale = (self.position.x == 0)?0:(100/self.position.x);
+//    }
+
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
