@@ -146,7 +146,7 @@ enum
 	int i = 0;
 	for (CCLayer *l in layers_)
 	{
-		l.anchorPoint = ccp(0,0);
+//		l.anchorPoint = ccp(0,0);
 		l.contentSize = [CCDirector sharedDirector].winSize;
 		l.position = ccp(  (i * (self.contentSize.width - self.pagesWidthOffset)), 0  );
 		if (!l.parent)
@@ -375,10 +375,10 @@ enum
 		return;
 	}
 
-    NSLog(@"ccTouchMoved");
+//    NSLog(@"ccTouchMoved");
 //	for (CCLayer *l in layers_)
 //        NSLog(@"Layer pos = %f, %f", l.position.x, l.position.y);
-    NSLog(@"self pos = %f, %f", self.position.x, self.position.y);
+//    NSLog(@"self pos = %f, %f", self.position.x, self.position.y);
     
         
 	CGPoint touchPoint = [touch locationInView:[touch view]];
@@ -419,10 +419,24 @@ enum
 	}
     
 //    for (CCLayer *l in layers_) {
-////          NSLog(@"Layer pos = %f, %f", l.position.x, l.position.y);
-//        l.scale = (self.position.x == 0)?0:(100/self.position.x);
+//        l.scale = 1 - self.position.x * 0.3f / 500;
 //    }
 
+    for(int i = 0; i < layers_.count; i++) {
+        
+        int x = 524 * i;
+        CCLayer* l = [layers_ objectAtIndex:i];
+//        if(i == 0) {
+//            
+//            l.scale = 1 - fabs(x - self.position.x) * 0.3f / 500;
+//            
+//        }
+//        if(i == 1) {
+//            
+            l.scale = 1 - fabs(x - fabs(self.position.x)) * 0.3f / 500;
+//            NSLog(@"i = %d, pos = %f, scale = %f", i, self.position.x, l.scale);
+//        }
+    }
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
