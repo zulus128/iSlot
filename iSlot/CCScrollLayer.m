@@ -151,8 +151,21 @@ enum
 		l.position = ccp(  (i * (self.contentSize.width - self.pagesWidthOffset)), 0  );
 		if (!l.parent)
 			[self addChild:l];
+
+        int x = 524 * i;
+        l.scale = 1 - fabs(x - fabs(self.position.x)) * 0.2f / 500;
+        
 		i++;
 	}
+    
+//    for(int i = 0; i < layers_.count; i++) {
+//        
+//        int x = 524 * i;
+//        CCLayer* l = [layers_ objectAtIndex:i];
+//        l.scale = 1 - fabs(x - fabs(self.position.x)) * 0.2f / 500;
+//        //            NSLog(@"i = %d, pos = %f, scale = %f", i, self.position.x, l.scale);
+//    }
+
 }
 
 #pragma mark CCLayer Methods ReImpl
@@ -239,17 +252,33 @@ enum
 -(void) moveToPage:(int)page
 {
     
-    NSLog(@"-- moveToPage %d", page);
+//    NSLog(@"-- moveToPage %d", page);
     
     if (page < 0 || page >= [layers_ count]) {
         CCLOGERROR(@"CCScrollLayer#moveToPage: %d - wrong page number, out of bounds. ", page);
 		return;
     }
     
+    
+    CGPoint pos = [self positionForPageWithNumber: page];
+    for(int i = 0; i < layers_.count; i++) {
+
+        int x = 524 * i;
+        CCLayer* l = [layers_ objectAtIndex:i];
+//        l.scale = 1 - fabs(x - fabs(self.position.x)) * 0.2f / 500;
+        id scalePage = [CCScaleTo actionWithDuration:0.3 scale:(1 - fabs(x - fabs(pos.x)) * 0.2f / 500)];
+        [l runAction:scalePage];
+        //            NSLog(@"i = %d, pos = %f, scale = %f", i, self.position.x, l.scale);
+    }
+
+    
 	id changePage = [CCMoveTo actionWithDuration:0.3 position: [self positionForPageWithNumber: page]];
+//	id scalePage = [CCScaleTo actionWithDuration:0.3 scale:2.0];
 	changePage = [CCSequence actions: changePage,[CCCallFunc actionWithTarget:self selector:@selector(moveToPageEnded)], nil];
+//    [self runAction:scalePage];
     [self runAction:changePage];
     currentScreen_ = page;
+    
     
 }
 
@@ -426,16 +455,8 @@ enum
         
         int x = 524 * i;
         CCLayer* l = [layers_ objectAtIndex:i];
-//        if(i == 0) {
-//            
-//            l.scale = 1 - fabs(x - self.position.x) * 0.3f / 500;
-//            
-//        }
-//        if(i == 1) {
-//            
-            l.scale = 1 - fabs(x - fabs(self.position.x)) * 0.3f / 500;
+        l.scale = 1 - fabs(x - fabs(self.position.x)) * 0.2f / 500;
 //            NSLog(@"i = %d, pos = %f, scale = %f", i, self.position.x, l.scale);
-//        }
     }
 }
 
