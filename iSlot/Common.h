@@ -67,12 +67,17 @@
     float rnd[SLIDE_TYPES];
     float rnd50[SLIDE_TYPES];
     float rnd110[SLIDE_TYPES];
+
+    int fames[FAME_LEVELS];
+
 }
 
 + (Common*) instance;
 
 - (void) validateRnd;
 - (int) getRnd;
+- (int) getFames:(int) t;
+
 
 @property (readwrite, assign) int coins;
 @property (readwrite, assign) int money;

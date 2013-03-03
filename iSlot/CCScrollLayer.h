@@ -31,6 +31,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+#define DISTANCE 458
+
 @class CCScrollLayer;
 @protocol CCScrollLayerDelegate
 
@@ -54,9 +56,13 @@
  * of layers and it will then create a smooth scroller.
  * Complete with the "snapping" effect. You can create screens with anything that can be added to a CCLayer.
  */
-@interface CCScrollLayer : CCLayer
-{
-	NSObject <CCScrollLayerDelegate> *delegate_;
+@interface CCScrollLayer : CCLayer {
+	
+    
+    CCSprite* polosa;
+    CCLayer* lay;
+    
+    NSObject <CCScrollLayerDelegate> *delegate_;
     
 	// Holds the current page being displayed.
 	int currentScreen_;

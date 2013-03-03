@@ -13,7 +13,7 @@
 
 @interface GameLayer : CCLayer {
     
-    int fames[FAME_LEVELS];
+//    int fames[FAME_LEVELS];
 
     CCLabelTTF *label;
     CCLabelTTF *lastw;

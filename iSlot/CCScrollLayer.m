@@ -101,6 +101,27 @@ enum
         self.mouseEnabled = YES;
 #endif
         
+        
+        lay = [[CCLayer alloc] init];
+        [self addChild:lay z:11];
+        
+        polosa = [CCSprite spriteWithFile:@"TimeName.png"];
+        [lay addChild:polosa z:6];
+        polosa.position = ccp(848.5, 70.5);
+        
+        CCSprite* back = [CCSprite spriteWithFile:@"FonMainMenu.png"];
+        back.position = ccp( 512, 384);
+        [self addChild:back z:10];
+        
+//        CCSprite* back1 = [CCSprite spriteWithFile:@"BottomLine.png"];
+//        back1.position = ccp( 512, 63);
+//        [self addChild:back1 z:12];
+
+//        CCSprite* back1 = [CCSprite spriteWithFile:@"FonBack.png"];
+//        //        back1.position = ccp( 512, 70.5);
+//        back1.position = ccp( 544, 70.5);
+//        [self addChild:back1 z:5];
+
 		self.stealTouches = YES;
         
 		// Set default minimum touch length to scroll.
@@ -137,6 +158,7 @@ enum
 	[layers_ release];
 	layers_ = nil;
     
+    [lay release];
 	[super dealloc];
 }
 
@@ -149,23 +171,22 @@ enum
 //		l.anchorPoint = ccp(0,0);
 		l.contentSize = [CCDirector sharedDirector].winSize;
 		l.position = ccp(  (i * (self.contentSize.width - self.pagesWidthOffset)), 0  );
-		if (!l.parent)
-			[self addChild:l];
+        
+        
+        CCSprite* stars = [CCSprite spriteWithFile:@"StarNone.png"];
+        stars.position = ccp( 975 - DISTANCE, 170);
+        [l addChild:stars z:12];
 
-        int x = 524 * i;
+		if (!l.parent)
+//			[self addChild:l z:11];
+            [lay addChild:l z:11];
+
+        int x = DISTANCE * i;
         l.scale = 1 - fabs(x - fabs(self.position.x)) * 0.2f / 500;
         
 		i++;
 	}
     
-//    for(int i = 0; i < layers_.count; i++) {
-//        
-//        int x = 524 * i;
-//        CCLayer* l = [layers_ objectAtIndex:i];
-//        l.scale = 1 - fabs(x - fabs(self.position.x)) * 0.2f / 500;
-//        //            NSLog(@"i = %d, pos = %f, scale = %f", i, self.position.x, l.scale);
-//    }
-
 }
 
 #pragma mark CCLayer Methods ReImpl
@@ -226,12 +247,14 @@ enum
             [self.delegate scrollLayer: self scrolledToPageNumber: currentScreen_];
     }
     
-    prevScreen_ = currentScreen_ = [self pageNumberForPosition:self.position];
+//    prevScreen_ = currentScreen_ = [self pageNumberForPosition:self.position];
+    prevScreen_ = currentScreen_ = [self pageNumberForPosition:lay.position];
 }
 
 - (int) pageNumberForPosition: (CGPoint) position
 {
-	CGFloat pageFloat = - self.position.x / (self.contentSize.width - self.pagesWidthOffset);
+//	CGFloat pageFloat = - self.position.x / (self.contentSize.width - self.pagesWidthOffset);
+	CGFloat pageFloat = - lay.position.x / (self.contentSize.width - self.pagesWidthOffset);
 	int pageNumber = ceilf(pageFloat);
 	if ( (CGFloat)pageNumber - pageFloat  >= 0.5f)
 		pageNumber--;
@@ -263,7 +286,7 @@ enum
     CGPoint pos = [self positionForPageWithNumber: page];
     for(int i = 0; i < layers_.count; i++) {
 
-        int x = 524 * i;
+        int x = DISTANCE * i;
         CCLayer* l = [layers_ objectAtIndex:i];
 //        l.scale = 1 - fabs(x - fabs(self.position.x)) * 0.2f / 500;
         id scalePage = [CCScaleTo actionWithDuration:0.3 scale:(1 - fabs(x - fabs(pos.x)) * 0.2f / 500)];
@@ -273,10 +296,9 @@ enum
 
     
 	id changePage = [CCMoveTo actionWithDuration:0.3 position: [self positionForPageWithNumber: page]];
-//	id scalePage = [CCScaleTo actionWithDuration:0.3 scale:2.0];
 	changePage = [CCSequence actions: changePage,[CCCallFunc actionWithTarget:self selector:@selector(moveToPageEnded)], nil];
-//    [self runAction:scalePage];
-    [self runAction:changePage];
+//    [self runAction:changePage];
+    [lay runAction:changePage];
     currentScreen_ = page;
     
     
@@ -289,7 +311,8 @@ enum
 		return;
     }
     
-    self.position = [self positionForPageWithNumber: page];
+//    self.position = [self positionForPageWithNumber: page];
+    lay.position = [self positionForPageWithNumber: page];
     prevScreen_ = currentScreen_;
     currentScreen_ = page;
     
@@ -409,7 +432,7 @@ enum
 //        NSLog(@"Layer pos = %f, %f", l.position.x, l.position.y);
 //    NSLog(@"self pos = %f, %f", self.position.x, self.position.y);
     
-        
+    
 	CGPoint touchPoint = [touch locationInView:[touch view]];
 	touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
     
@@ -444,7 +467,8 @@ enum
 			offset -= marginOffset_ * offset / [[CCDirector sharedDirector] winSize].width;
 		else
 			offset = 0;
-		self.position = ccp(desiredX - offset, 0);
+		lay.position = ccp(desiredX - offset, 0);
+//		self.position = ccp(desiredX - offset, 0);
 	}
     
 //    for (CCLayer *l in layers_) {
@@ -453,9 +477,10 @@ enum
 
     for(int i = 0; i < layers_.count; i++) {
         
-        int x = 524 * i;
+        int x = DISTANCE * i;
         CCLayer* l = [layers_ objectAtIndex:i];
-        l.scale = 1 - fabs(x - fabs(self.position.x)) * 0.2f / 500;
+//        l.scale = 1 - fabs(x - fabs(self.position.x)) * 0.2f / 500;
+        l.scale = 1 - fabs(x - fabs(lay.position.x)) * 0.2f / 500;
 //            NSLog(@"i = %d, pos = %f, scale = %f", i, self.position.x, l.scale);
     }
 }
@@ -473,7 +498,8 @@ enum
 	CGFloat delta = touchPoint.x - startSwipe_;
 	if (fabsf(delta) >= self.minimumTouchLengthToChangePage)
 	{
-		selectedPage = [self pageNumberForPosition:self.position];
+//		selectedPage = [self pageNumberForPosition:self.position];
+		selectedPage = [self pageNumberForPosition:lay.position];
 		if (selectedPage == currentScreen_)
 		{
 			if (delta < 0.f && selectedPage < [layers_ count] - 1)
@@ -534,7 +560,8 @@ enum
         else
             offset = 0;
  		
-        self.position = ccp(desiredX - offset, 0);
+//        self.position = ccp(desiredX - offset, 0);
+        lay.position = ccp(desiredX - offset, 0);
     }
     
 	return NO;

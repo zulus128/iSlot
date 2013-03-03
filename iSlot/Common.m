@@ -54,13 +54,36 @@
         rnd110[9] = RND110_9;
         rnd110[10] = RND110_10;
 
+        fames[0] = FAME_POINTS1;
+        fames[1] = FAME_POINTS2;
+        fames[2] = FAME_POINTS3;
+        fames[3] = FAME_POINTS4;
+        fames[4] = FAME_POINTS5;
+        fames[5] = FAME_POINTS6;
+        fames[6] = FAME_POINTS7;
+        fames[7] = FAME_POINTS8;
+        fames[8] = FAME_POINTS9;
+        fames[9] = FAME_POINTS10;
+
+        
         self.yourluck = 50;
+
+        self.money = 1000;
+        self.speed = SPEED1;
+        self.coins = 1;
+        self.lines = 5;
+        self.famelevel1 = 1;
 
         [self validateRnd];
         
 
 	}
 	return self;	
+}
+
+- (int) getFames:(int) t {
+    
+    return fames[t];
 }
 
 - (void) validateRnd {

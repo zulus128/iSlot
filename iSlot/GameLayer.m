@@ -37,16 +37,16 @@
 		
         self.touchEnabled = YES;
 
-        fames[0] = FAME_POINTS1;
-        fames[1] = FAME_POINTS2;
-        fames[2] = FAME_POINTS3;
-        fames[3] = FAME_POINTS4;
-        fames[4] = FAME_POINTS5;
-        fames[5] = FAME_POINTS6;
-        fames[6] = FAME_POINTS7;
-        fames[7] = FAME_POINTS8;
-        fames[8] = FAME_POINTS9;
-        fames[9] = FAME_POINTS10;
+//        fames[0] = FAME_POINTS1;
+//        fames[1] = FAME_POINTS2;
+//        fames[2] = FAME_POINTS3;
+//        fames[3] = FAME_POINTS4;
+//        fames[4] = FAME_POINTS5;
+//        fames[5] = FAME_POINTS6;
+//        fames[6] = FAME_POINTS7;
+//        fames[7] = FAME_POINTS8;
+//        fames[8] = FAME_POINTS9;
+//        fames[9] = FAME_POINTS10;
 
         NSArray* line1 = [[NSArray alloc] initWithObjects:
                           [[NSNumber alloc] initWithInt:0],
@@ -305,16 +305,6 @@
         
         combinations = [[NSMutableArray alloc] init];
         
-        [Common instance].money = 1000;
-        [Common instance].speed = SPEED1;
-        [Common instance].coins = 1;
-        [Common instance].lines = 5;
-        [Common instance].famelevel1 = 1;
-//        [Common instance].famepoints = 418;
-//        [Common instance].yourluck = 50;
-        
-        
-        
         
 		labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:@"Marker Felt" fontSize:24];
 		labelYourLuck.position =  ccp( 637 , 720 );
@@ -382,6 +372,7 @@
         CCSprite* yluck = [CCSprite spriteWithFile:@"Luck.png"];
         [self addChild:yluck z:7];
         yluck.position = ccp(633, 730);
+        
         CCLabelTTF* luplus = [CCLabelTTF labelWithString:@"++" fontName:@"Marker Felt" fontSize:35];
         CCMenuItemLabel* item_lu1 = [CCMenuItemLabel itemWithLabel:luplus target:self selector:@selector(luckPlus)];
         CCLabelTTF* luminus = [CCLabelTTF labelWithString:@"--" fontName:@"Marker Felt" fontSize:35];
@@ -605,15 +596,15 @@
 
     int k = 0;
     for(int i = 0; i < FAME_LEVELS; i++)
-        if([Common instance].famepoints < fames[i]) {
+        if([Common instance].famepoints < [[Common instance] getFames:i]) {
             k = i;
             break;
         }
 
     [Common instance].famelevel1 = (k + 1);
     
-    p = /*[Common instance].famepoints > 50?50:*/[Common instance].famepoints - (k>0?fames[k-1]:0);
-    x = p * 160 / (fames[k] - (k>0?fames[k-1]:0));
+    p = /*[Common instance].famepoints > 50?50:*/[Common instance].famepoints - (k>0?[[Common instance] getFames:(k-1)]:0);
+    x = p * 160 / ([[Common instance] getFames:k] - (k>0?[[Common instance] getFames:(k-1)]:0));
     fame.position = ccp(-5 + x, 95);
     [labelFameLevel setString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints]];
 
