@@ -9,11 +9,12 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
+#import "CCLayerPanZoom.h"
 
 // HelloWorldLayer
-@interface MapLayer : CCLayer {
+@interface MapLayer : CCLayer <CCLayerPanZoomClickDelegate> {
     
-    
+    CCLayerPanZoom* _panZoomLayer;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

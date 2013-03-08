@@ -12,6 +12,7 @@
 #import "GameLayer.h"
 //#import "CCMenuAdvanced.h"
 #import "CCScrollLayer.h"
+#import "MapLayer.h"
 
 #pragma mark - IntroLayer
 
@@ -180,7 +181,8 @@
 
 - (void)onSelectChapter:(CCMenuItemImage *)sender {
     
-   [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+//    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+    [[CCDirector sharedDirector] pushScene:[MapLayer scene]];
 
 }
 
