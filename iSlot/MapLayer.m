@@ -10,7 +10,7 @@
 // Import the interfaces
 #import "MapLayer.h"
 
-//#import "CCScrollLayer.h"
+#import "CCScrollLayer.h"
 
 @implementation MapLayer
 
@@ -53,8 +53,8 @@
         CCMenu* menu = [CCMenu menuWithItems: itemback, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
-        
-/*        NSMutableArray *layers = [NSMutableArray new];
+     /*
+        NSMutableArray *layers = [NSMutableArray new];
         CCLayer *layer = [[CCLayer alloc] init];
         CCSprite *fon = [CCSprite spriteWithFile:@"FonMapLevel01.png"];
         [layer addChild: fon];
@@ -65,9 +65,9 @@
         
         [scroller release];
         [layers release];
- */
+ 
         
-        
+    */
         _panZoomLayer = [[CCLayerPanZoom node] retain];
         [self addChild: _panZoomLayer];
 		_panZoomLayer.delegate = self;
@@ -97,6 +97,7 @@
 //        _panZoomLayer.rubberEffectRecoveryTime = 1.1f;
         
 		[self updateForScreenReshape];
+    
 	}
 	
 	return self;

@@ -249,6 +249,7 @@ enum
     
 //    prevScreen_ = currentScreen_ = [self pageNumberForPosition:self.position];
     prevScreen_ = currentScreen_ = [self pageNumberForPosition:lay.position];
+  
 }
 
 - (int) pageNumberForPosition: (CGPoint) position
