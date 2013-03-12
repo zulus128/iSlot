@@ -37,6 +37,8 @@
         
 //        CGSize screenSize = [CCDirector sharedDirector].winSize;
 
+        self.touchEnabled = YES;
+        
         CCSprite* top = [CCSprite spriteWithFile:@"UpBar.png"];
         top.position = ccp( 512, 730.5);
         [self addChild:top z:5];
@@ -50,24 +52,33 @@
 		}];
         [itemback setPosition:ccp(75, 730)];
         
+        
+        CCSprite *fon = [CCSprite spriteWithFile:@"FonMapLevel01.png"];
+        fon.position = ccp(512, 384);
+        [self addChild:fon z:6];
+
+        
+        
+        
+        /*
         CCMenu* menu = [CCMenu menuWithItems: itemback, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
-     /*
+     
         NSMutableArray *layers = [NSMutableArray new];
         CCLayer *layer = [[CCLayer alloc] init];
         CCSprite *fon = [CCSprite spriteWithFile:@"FonMapLevel01.png"];
         [layer addChild: fon];
         [layers addObject:layer];
         CCScrollLayer *scroller = [[CCScrollLayer alloc] initWithLayers:layers
-                                                            widthOffset:0];
+                                                            widthOffset:10000];
         [self addChild:scroller z:6];
         
         [scroller release];
         [layers release];
- 
+ */
         
-    */
+    /*
         _panZoomLayer = [[CCLayerPanZoom node] retain];
         [self addChild: _panZoomLayer];
 		_panZoomLayer.delegate = self;
@@ -97,7 +108,7 @@
 //        _panZoomLayer.rubberEffectRecoveryTime = 1.1f;
         
 		[self updateForScreenReshape];
-    
+    */
 	}
 	
 	return self;
@@ -142,5 +153,31 @@
 {
     NSLog(@"CCLayerPanZoomTestLayer#layerPanZoom: %@ touchMoveBeganAtPosition: { %f, %f }", sender, aPoint.x, aPoint.y);
 }
+
+-(void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+
+    UITouch *touch =[touches anyObject];
+    CGPoint point = [touch locationInView:[touch view]];
+    point = [[CCDirector sharedDirector]convertToGL:point];
+    point.y = 0;
+//    [self stopAllActions];
+//    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.02f position:point];
+//    [self runAction:[CCEaseOut actionWithAction:moveTo rate:1]];
+    self.position = point;
+}
+
+-(void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    NSLog(@"ccTouchesEnded");
+    UITouch *touch =[touches anyObject];
+    CGPoint point = [touch locationInView:[touch view]];
+    point = [[CCDirector sharedDirector]convertToGL:point];
+    point.y = 0;
+    [self stopAllActions];
+    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.2f position:point];
+    [self runAction:[CCEaseOut actionWithAction:moveTo rate:1]];
+
+}
+
 
 @end

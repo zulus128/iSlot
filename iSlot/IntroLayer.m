@@ -182,8 +182,9 @@
 - (void)onSelectChapter:(CCMenuItemImage *)sender {
     
 //    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-    [[CCDirector sharedDirector] pushScene:[MapLayer scene]];
 
+    [[CCDirector sharedDirector] pushScene:[MapLayer scene]];
+    
 }
 
 - (void) onEnter {

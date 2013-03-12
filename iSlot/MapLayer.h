@@ -12,7 +12,8 @@
 #import "CCLayerPanZoom.h"
 
 // HelloWorldLayer
-@interface MapLayer : CCLayer <CCLayerPanZoomClickDelegate> {
+//@interface MapLayer : CCLayer <CCLayerPanZoomClickDelegate> {
+@interface MapLayer : CCLayer {
     
     CCLayerPanZoom* _panZoomLayer;
 }
