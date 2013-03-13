@@ -9,8 +9,7 @@
 
 // Import the interfaces
 #import "MapLayer.h"
-
-#import "CCScrollLayer.h"
+#import "GameLayer.h"
 
 @implementation MapLayer
 
@@ -20,6 +19,24 @@
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
+    
+    CCSprite* top = [CCSprite spriteWithFile:@"UpBar.png"];
+    top.position = ccp( 512, 730.5);
+    [scene addChild:top z:5];
+    
+    CCSprite *spback = [CCSprite spriteWithFile:@"SlotBack.png"];
+    CCSprite *spback_t1 = [CCSprite spriteWithFile:@"TouchSlotBack.png"];
+    CCMenuItemSprite *itemback = [CCMenuItemSprite itemWithNormalSprite:spback selectedSprite:spback_t1 block:^(id sender) {
+        
+        [[CCDirector sharedDirector] popScene];
+        
+    }];
+    [itemback setPosition:ccp(75, 730)];
+
+    CCMenu* menu = [CCMenu menuWithItems: itemback, nil];
+    [scene addChild: menu z:107];
+    [menu setPosition:ccp(0, 0)];
+    
 	// 'layer' is an autorelease object.
 	MapLayer *layer = [MapLayer node];
 	
@@ -39,119 +56,60 @@
 
         self.touchEnabled = YES;
         
-        CCSprite* top = [CCSprite spriteWithFile:@"UpBar.png"];
-        top.position = ccp( 512, 730.5);
-        [self addChild:top z:5];
-        
-        CCSprite *spback = [CCSprite spriteWithFile:@"SlotBack.png"];
-        CCSprite *spback_t1 = [CCSprite spriteWithFile:@"TouchSlotBack.png"];
-		CCMenuItemSprite *itemback = [CCMenuItemSprite itemWithNormalSprite:spback selectedSprite:spback_t1 block:^(id sender) {
-            
-            [[CCDirector sharedDirector] popScene];
-            
-		}];
-        [itemback setPosition:ccp(75, 730)];
         
         
-        CCSprite *fon = [CCSprite spriteWithFile:@"FonMapLevel01.png"];
-        fon.position = ccp(512, 384);
+        CCSprite *fon = [CCSprite spriteWithFile:@"FonMapLevel01_1.png"];
+        fon.position = ccp(1024, 346);
         [self addChild:fon z:6];
+        
+        CCSprite *fon1 = [CCSprite spriteWithFile:@"FonMapLevel01_2.png"];
+        fon1.position = ccp(3072, 346);
+        [self addChild:fon1 z:6];
+        
+        
+        CCSprite *l1_1= [CCSprite spriteWithFile:@"Level01.png"];
+        CCSprite *l1_t1 = [CCSprite spriteWithFile:@"Level01.png"];
+        CCSprite *l1_2= [CCSprite spriteWithFile:@"Level01.png"];
+        CCSprite *l1_t2 = [CCSprite spriteWithFile:@"Level01.png"];
+        CCSprite *l1_3= [CCSprite spriteWithFile:@"Level01.png"];
+        CCSprite *l1_t3 = [CCSprite spriteWithFile:@"Level01.png"];
+        CCSprite *l1_4= [CCSprite spriteWithFile:@"Level01.png"];
+        CCSprite *l1_t4 = [CCSprite spriteWithFile:@"Level01.png"];
+        
+        CCMenuItemSprite *item1_1= [CCMenuItemSprite itemWithNormalSprite:l1_1 selectedSprite:l1_t1 block:^(id sender) { [self level1]; }];
+        [item1_1 setPosition:ccp(234.5, 457.5)];
+        CCMenuItemSprite *item1_2= [CCMenuItemSprite itemWithNormalSprite:l1_2 selectedSprite:l1_t2 block:^(id sender) { [self level1]; }];
+        [item1_2 setPosition:ccp(1187.5, 197.5)];
+        CCMenuItemSprite *item1_3= [CCMenuItemSprite itemWithNormalSprite:l1_3 selectedSprite:l1_t3 block:^(id sender) { [self level1]; }];
+        [item1_3 setPosition:ccp(2628.5, 614.5)];
+        CCMenuItemSprite *item1_4= [CCMenuItemSprite itemWithNormalSprite:l1_4 selectedSprite:l1_t4 block:^(id sender) { [self level1]; }];
+        [item1_4 setPosition:ccp(3224.5, 406.5)];
+        
+        CCMenu* menu = [CCMenu menuWithItems: item1_1, item1_2, item1_3, item1_4, nil];
+        [self addChild: menu z:300];
+        [menu setPosition:ccp(0, -74)];
 
         
-        
-        
-        /*
-        CCMenu* menu = [CCMenu menuWithItems: itemback, nil];
-        [self addChild: menu z:7];
-		[menu setPosition:ccp(0, 0)];
-     
-        NSMutableArray *layers = [NSMutableArray new];
-        CCLayer *layer = [[CCLayer alloc] init];
-        CCSprite *fon = [CCSprite spriteWithFile:@"FonMapLevel01.png"];
-        [layer addChild: fon];
-        [layers addObject:layer];
-        CCScrollLayer *scroller = [[CCScrollLayer alloc] initWithLayers:layers
-                                                            widthOffset:10000];
-        [self addChild:scroller z:6];
-        
-        [scroller release];
-        [layers release];
- */
-        
-    /*
-        _panZoomLayer = [[CCLayerPanZoom node] retain];
-        [self addChild: _panZoomLayer];
-		_panZoomLayer.delegate = self;
-        
-        // background
-        CCSprite *background = [CCSprite spriteWithFile: @"FonMapLevel01.png"];
-        background.anchorPoint = ccp(0,0);
-		background.scale = CC_CONTENT_SCALE_FACTOR();
-        [_panZoomLayer addChild: background
-                             z :0
-                            tag: 111];
-//		// create and initialize a Label
-//		CCLabelTTF *label = [CCLabelTTF labelWithString: @"Try panning and zooming using drag and pinch"
-//                                               fontName: @"Marker Felt"
-//                                               fontSize: 24];
-////		label.scale = 0.7f; //< to be visible on iPod Touch screen.
-//		label.color = ccWHITE;
-//		// add the label as a child to this Layer
-//		
-//        [_panZoomLayer addChild: label
-//                              z: 1
-//                            tag: 112];
-        
-        _panZoomLayer.mode = kCCLayerPanZoomModeSheet;
-//        _panZoomLayer.minScale = 1.0f;
-        _panZoomLayer.rubberEffectRatio = 0.0f;
-//        _panZoomLayer.rubberEffectRecoveryTime = 1.1f;
-        
-		[self updateForScreenReshape];
-    */
 	}
 	
 	return self;
 }
 
-- (void) updateForScreenReshape
-{
-	CGSize winSize = [[CCDirector sharedDirector] winSize];
-	CCNode *background = [_panZoomLayer getChildByTag: 111];
-	// our bounding rect
-	CGRect boundingRect = CGRectMake(0, 0, 0, 0);
-	boundingRect.size = [background boundingBox].size;
-	[_panZoomLayer setContentSize: boundingRect.size];
-    
-	_panZoomLayer.anchorPoint = ccp(0.5f, 0.5f);
-//	_panZoomLayer.position = ccp(0.5f * winSize.width, 0.5f * winSize.height);
-	_panZoomLayer.position = ccp(boundingRect.size.width, 0);
-    
-    _panZoomLayer.panBoundsRect = CGRectMake(0, 0, winSize.width, winSize.height);
-//    _panZoomLayer.panBoundsRect = CGRectMake(0, 0, 500, winSize.height);
-    
-	// position the label on the center of the bounds
-//	CCNode *label = [_panZoomLayer getChildByTag: 112];
-//	label.position =  ccp(boundingRect.size.width * 0.5f, boundingRect.size.height * 0.5f);
+-(void) level1 {
+
+
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+ 
 }
 
-- (void) layerPanZoom: (CCLayerPanZoom *) sender
-	   clickedAtPoint: (CGPoint) point
-             tapCount: (NSUInteger) tapCount
-{
-	NSLog(@"CCLayerPanZoomTestLayer#layerPanZoom: %@ clickedAtPoint: { %f, %f }", sender, point.x, point.y);
-	NSLog(@"CCLayerPanZoomTestLayer#layerPanZoom: %f", _panZoomLayer.position.x);
-}
+-(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 
-- (void) layerPanZoom: (CCLayerPanZoom *) sender
- touchPositionUpdated: (CGPoint) newPos
-{
-    NSLog(@"CCLayerPanZoomTestLayer#layerPanZoom: %@ touchPositionUpdated: { %f, %f }", sender, newPos.x, newPos.y);
-}
+    UITouch *touch =[touches anyObject];
+    CGPoint point = [touch locationInView:[touch view]];
+    point = [[CCDirector sharedDirector]convertToGL:point];
 
-- (void) layerPanZoom: (CCLayerPanZoom *) sender touchMoveBeganAtPosition: (CGPoint) aPoint
-{
-    NSLog(@"CCLayerPanZoomTestLayer#layerPanZoom: %@ touchMoveBeganAtPosition: { %f, %f }", sender, aPoint.x, aPoint.y);
+    x0 = point.x;
+    xl0 = self.position.x;
 }
 
 -(void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -159,23 +117,38 @@
     UITouch *touch =[touches anyObject];
     CGPoint point = [touch locationInView:[touch view]];
     point = [[CCDirector sharedDirector]convertToGL:point];
-    point.y = 0;
-//    [self stopAllActions];
-//    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.02f position:point];
-//    [self runAction:[CCEaseOut actionWithAction:moveTo rate:1]];
-    self.position = point;
+    
+//    NSLog(@"moved x = %f, y = %f", point.x, point.y);
+
+    float delta = point.x - x0;
+    float xx = xl0 + delta;
+    if(xx > 0)
+        xx = 0;
+    if(xx < -3072)
+        xx = -3072;
+//    NSLog(@"xx = %f", xx);
+    self.position = ccp(xx, 0);
 }
 
 -(void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     
-    NSLog(@"ccTouchesEnded");
+//    NSLog(@"ccTouchesEnded");
     UITouch *touch =[touches anyObject];
     CGPoint point = [touch locationInView:[touch view]];
     point = [[CCDirector sharedDirector]convertToGL:point];
-    point.y = 0;
+
+    float delta = (point.x - x0) * 2;
+    float xx = xl0 + delta;
+    if(xx > 0)
+        xx = 0;
+    if(xx < -3072)
+        xx = -3072;
+    //    NSLog(@"xx = %f", xx);
+//    self.position = ccp(xx, 0);
+   
     [self stopAllActions];
-    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.2f position:point];
-    [self runAction:[CCEaseOut actionWithAction:moveTo rate:1]];
+    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.3f position:ccp(xx, 0)];
+    [self runAction:[CCEaseOut actionWithAction:moveTo rate:1.5f]];
 
 }
 
