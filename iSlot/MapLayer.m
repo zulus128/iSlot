@@ -265,8 +265,8 @@
 //    self.position = ccp(xx, 0);
    
     [self stopAllActions];
-    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.5f position:ccp(xx, 0)];
-    [self runAction:[CCEaseOut actionWithAction:moveTo rate:1.5f]];
+    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.6f position:ccp(xx, 0)];
+    [self runAction:[CCEaseOut actionWithAction:moveTo rate:1.7f]];
 
 }
 
