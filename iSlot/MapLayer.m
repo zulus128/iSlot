@@ -37,6 +37,22 @@
     [scene addChild: menu z:107];
     [menu setPosition:ccp(0, 0)];
     
+    CCSprite* yluck = [CCSprite spriteWithFile:@"Luck.png"];
+    [scene addChild:yluck z:100];
+    yluck.position = ccp(633, 730);
+
+    
+    labelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:@"Marker Felt" fontSize:44];
+    labelMoney.color = ccc3(0, 0, 0);
+    labelMoney.position =  ccp( 300 , 730 );
+    [scene addChild: labelMoney z:413];
+    
+    labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:@"Marker Felt" fontSize:24];
+    labelYourLuck.position =  ccp( 637 , 720 );
+    [scene addChild: labelYourLuck z:413];
+
+    
+    
 	// 'layer' is an autorelease object.
 	MapLayer *layer = [MapLayer node];
 	
@@ -125,9 +141,56 @@
         [self addChild: menu z:300];
         [menu setPosition:ccp(0, -74)];
 
-        l1 = @"StarLevelNone";
+        l1 = @"StarLevelNone.png";
+        CCSprite *star1_1 = [CCSprite spriteWithFile:l1];
+        star1_1.position = ccpstar(165, 325);
+        [self addChild:star1_1 z:302];
+//        CCSprite *star1_2 = [CCSprite spriteWithFile:l1];
+//        star1_2.position = ccpstar(1118, 585);
+//        [self addChild:star1_2 z:302];
+//        CCSprite *star1_3 = [CCSprite spriteWithFile:l1];
+//        star1_3.position = ccpstar(2559, 168);
+//        [self addChild:star1_3 z:302];
+//        CCSprite *star1_4 = [CCSprite spriteWithFile:l1];
+//        star1_4.position = ccpstar(3155, 376);
+//        [self addChild:star1_4 z:302];
+
+        CCSprite *star2_1 = [CCSprite spriteWithFile:l1];
+        star2_1.position = ccpstar(11, 445);
+        [self addChild:star2_1 z:302];
+        
+        CCSprite *star3_1 = [CCSprite spriteWithFile:l1];
+        star3_1.position = ccpstar(378, 560);
+        [self addChild:star3_1 z:302];
+        
+        CCSprite *star4_1 = [CCSprite spriteWithFile:l1];
+        star4_1.position = ccpstar(775, 598);
+        [self addChild:star4_1 z:302];
+       
+        CCSprite *star5_1 = [CCSprite spriteWithFile:l1];
+        star5_1.position = ccpstar(663, 333);
+        [self addChild:star5_1 z:302];
+        
+        l1 = @"LockLevel.png";
+        CCSprite *lock2_1 = [CCSprite spriteWithFile:l1];
+        lock2_1.position = ccplock(23, 375);
+        [self addChild:lock2_1 z:309];
+        CCSprite *lock3_1 = [CCSprite spriteWithFile:l1];
+        lock3_1.position = ccplock(390, 490);
+        [self addChild:lock3_1 z:309];
+        CCSprite *lock4_1 = [CCSprite spriteWithFile:l1];
+        lock4_1.position = ccplock(785, 528);
+        [self addChild:lock4_1 z:309];
+        CCSprite *lock5_1 = [CCSprite spriteWithFile:l1];
+        lock5_1.position = ccplock(675, 263);
+        [self addChild:lock5_1 z:309];
+        
+
+
         
         
+        
+
 	}
 	
 	return self;
@@ -148,6 +211,13 @@
 -(void) level5 {
 }
 -(void) level6 {
+}
+
+- (void) refreshLabels {
+    
+    [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
+    [labelYourLuck setString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck]];
+    
 }
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -200,5 +270,11 @@
 
 }
 
+- (void) onEnter {
+    
+    [super onEnter];
+    
+    [self refreshLabels];
+}
 
 @end
