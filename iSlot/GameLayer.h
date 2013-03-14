@@ -46,6 +46,7 @@
     CCSprite* slide[SLIDE_TYPES];
 
     CCSprite* complete;
+    CCLabelTTF *ygift;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

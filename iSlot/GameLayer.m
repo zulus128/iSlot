@@ -314,7 +314,25 @@
 		labelBet.position =  ccp( 510 , 37 );
 		[self addChild: labelBet z:100];
 
-        labelLevelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, LEVEL_MONEY1] fontName:@"Marker Felt" fontSize:24];
+        [Common instance].levelwin = 0;
+        int lmoney;
+        int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
+        switch (t1) {
+            case 0:
+                lmoney = LEVEL_MONEY1;
+                break;
+            case 1:
+                lmoney = LEVEL_MONEY2;
+                break;
+            case 2:
+                lmoney = LEVEL_MONEY3;
+                break;
+            default:
+                lmoney = LEVEL_MONEY3;
+                break;
+        }
+
+        labelLevelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney] fontName:@"Marker Felt" fontSize:24];
 		labelLevelMoney.position =  ccp( 910 , 677 );
 		[self addChild: labelLevelMoney z:100];
         
@@ -595,7 +613,11 @@
         [self addChild:complete z:300];
         complete.position = ccp(512, 384);
 
-        
+        ygift = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", 0] fontName:@"Marker Felt" fontSize:48];
+		ygift.position =  ccp( 512 , 340 );
+        ygift.visible = NO;
+		[self addChild: ygift z:400];
+
         [menu setEnabled:YES];
         [menu1 setEnabled:NO];
         [menu setVisible:YES];
@@ -614,7 +636,6 @@
     [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
     [labelYourLuck setString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck]];
     [labelBet setString:[NSString stringWithFormat:@"BET: %d", [Common instance].coins * [Common instance].lines]];
-    [labelLevelMoney setString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, LEVEL_MONEY1]];
     
     int lmoney;
     int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
@@ -632,6 +653,8 @@
             lmoney = LEVEL_MONEY3;
             break;
     }
+
+    [labelLevelMoney setString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney]];
     
     
     float p = [Common instance].levelwin > lmoney?lmoney:[Common instance].levelwin;
@@ -655,11 +678,21 @@
     
     if([Common instance].levelwin >= lmoney) {
         
+        
+        int j = CCRANDOM_0_1() * 7;
+        j = 250 + 50*j;
+
+        [ygift setString:[NSString stringWithFormat:@"%d", j]];
+        
+        [Common instance].money += j;
+        [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
+
         complete.visible = YES;
         
         [menu1 setEnabled:YES];
         [menu setEnabled:NO];
         [menu1 setVisible:YES];
+        ygift.visible = YES;
 //        [menu setVisible:NO];
 
     }

@@ -32,7 +32,7 @@
         
         NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString* docpath = [sp objectAtIndex: 0];
-        prof_file = [docpath stringByAppendingPathComponent:@"levels.plist"];
+        prof_file = [[docpath stringByAppendingPathComponent:@"levels.plist"] retain];
         BOOL fe = [[NSFileManager defaultManager] fileExistsAtPath:prof_file];
         if(!fe) {
             
@@ -152,4 +152,10 @@
 
 }
 
+- (void) dealloc {
+
+    [prof_file release];
+    
+	[super dealloc];
+}
 @end
