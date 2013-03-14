@@ -567,6 +567,19 @@
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 
+        CCSprite *spmenu = [CCSprite spriteWithFile:@"ButtonMenu.png"];
+        CCSprite *spmenu_t1 = [CCSprite spriteWithFile:@"TouchButtonMenu.png"];
+		CCMenuItemSprite *itemMenu = [CCMenuItemSprite itemWithNormalSprite:spmenu selectedSprite:spmenu_t1 block:^(id sender) {
+            
+            [[Common instance] increaseStarsForCurrentLevel];
+            [[CCDirector sharedDirector] popScene];
+            
+		}];
+        [itemMenu setPosition:ccp(510, 210)];
+        
+        menu1 = [CCMenu menuWithItems: itemMenu, nil];
+        [self addChild: menu1 z:301];
+		[menu1 setPosition:ccp(0, 0)];
         
         for(int i = 0; i < LINES_CNT; i++) {
             
@@ -574,7 +587,20 @@
             lineSprite[i].position = ccp(-5000, -5000);
             [self addChild:lineSprite[i] z:6];
         }
+
         
+        
+        complete = [CCSprite spriteWithFile:@"WinView.png"];
+        complete.visible = NO;
+        [self addChild:complete z:300];
+        complete.position = ccp(512, 384);
+
+        
+        [menu setEnabled:YES];
+        [menu1 setEnabled:NO];
+        [menu setVisible:YES];
+        [menu1 setVisible:NO];
+
         [self refreshLabels];
 	}
 	return self;
@@ -590,8 +616,26 @@
     [labelBet setString:[NSString stringWithFormat:@"BET: %d", [Common instance].coins * [Common instance].lines]];
     [labelLevelMoney setString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, LEVEL_MONEY1]];
     
-    float p = [Common instance].levelwin > LEVEL_MONEY1?LEVEL_MONEY1:[Common instance].levelwin;
-    float x = p * 810 / LEVEL_MONEY1;
+    int lmoney;
+    int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
+    switch (t1) {
+        case 0:
+            lmoney = LEVEL_MONEY1;
+            break;
+        case 1:
+            lmoney = LEVEL_MONEY2;
+            break;
+        case 2:
+            lmoney = LEVEL_MONEY3;
+            break;
+        default:
+            lmoney = LEVEL_MONEY3;
+            break;
+    }
+    
+    
+    float p = [Common instance].levelwin > lmoney?lmoney:[Common instance].levelwin;
+    float x = p * 810 / lmoney;
     level.position = ccp(-400 + x, 678);
 
     int k = 0;
@@ -608,6 +652,17 @@
     fame.position = ccp(-5 + x, 95);
     [labelFameLevel setString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints]];
 
+    
+    if([Common instance].levelwin >= lmoney) {
+        
+        complete.visible = YES;
+        
+        [menu1 setEnabled:YES];
+        [menu setEnabled:NO];
+        [menu1 setVisible:YES];
+//        [menu setVisible:NO];
+
+    }
 }
 
 - (void) speedPlus {
@@ -693,6 +748,7 @@
     }
 
     [menu setEnabled:YES];
+    [menu1 setEnabled:NO];
 
     if(combinations.count > 0) {
 

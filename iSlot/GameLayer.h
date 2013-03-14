@@ -30,6 +30,7 @@
 
     CCSprite* lineSprite[LINES_CNT];
     CCMenu *menu;
+    CCMenu *menu1;
     CCSprite* level;
     CCSprite* fame;
 
@@ -44,6 +45,7 @@
     
     CCSprite* slide[SLIDE_TYPES];
 
+    CCSprite* complete;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

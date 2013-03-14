@@ -59,6 +59,8 @@
 #define FAME_POINTS10 6000
 
 #define LEVEL_MONEY1 100
+#define LEVEL_MONEY2 250
+#define LEVEL_MONEY3 500
 
 #define CCCA(x) [[x copy] autorelease]
 
@@ -70,6 +72,8 @@
 
     int fames[FAME_LEVELS];
 
+    NSString* prof_file;
+    NSMutableDictionary* levels;
 }
 
 + (Common*) instance;
@@ -77,7 +81,10 @@
 - (void) validateRnd;
 - (int) getRnd;
 - (int) getFames:(int) t;
+- (int) getStarsForLevel:(int) t;
+- (void) increaseStarsForCurrentLevel;
 
+@property (readwrite, assign) int curlevel;
 
 @property (readwrite, assign) int coins;
 @property (readwrite, assign) int money;

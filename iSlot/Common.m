@@ -30,6 +30,22 @@
 	self = [super init];
 	if(self !=nil) {
         
+        NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString* docpath = [sp objectAtIndex: 0];
+        prof_file = [docpath stringByAppendingPathComponent:@"levels.plist"];
+        BOOL fe = [[NSFileManager defaultManager] fileExistsAtPath:prof_file];
+        if(!fe) {
+            
+            NSLog(@"NO levels.plist FILE !!! Creating...");
+            NSString *appFile = [[NSBundle mainBundle] pathForResource:@"levels" ofType:@"plist"];
+            NSError *error;
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            [fileManager copyItemAtPath:appFile toPath:prof_file error:&error];
+            
+        }
+        levels = [[NSMutableDictionary alloc] initWithContentsOfFile:prof_file];
+
+        
         rnd50[0] = RND0;
         rnd50[1] = RND1;
         rnd50[2] = RND2;
@@ -115,6 +131,25 @@
 
     NSLog(@"No random interval found!!!!");
     return 0;
+}
+
+- (int) getStarsForLevel:(int) t {
+
+    NSDictionary* d = [levels objectForKey:[NSString stringWithFormat:@"level%d", t]];
+    NSNumber* n = [d objectForKey:@"stars"];
+    return [n intValue];
+}
+
+- (void) increaseStarsForCurrentLevel {
+
+    NSDictionary* d = [levels objectForKey:[NSString stringWithFormat:@"level%d", self.curlevel]];
+    NSNumber* n = [d objectForKey:@"stars"];
+    int r = [n intValue];
+    if(r < 3)
+        r++;
+    [d setValue:[NSNumber numberWithInt:r] forKey:@"stars"];
+    [levels writeToFile:prof_file atomically:YES];
+
 }
 
 @end
