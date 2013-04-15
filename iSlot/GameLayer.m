@@ -581,7 +581,21 @@
 		}];
         [itemback setPosition:ccp(75, 730)];
 
-        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, itemback, item_lu1, item_lu2, nil];
+        CCSprite *spinapp = [CCSprite spriteWithFile:@"SlonInApp.png"];
+        CCSprite *spinapp_t1 = [CCSprite spriteWithFile:@"TouchSlonInApp.png"];
+		CCMenuItemSprite *iteminapp = [CCMenuItemSprite itemWithNormalSprite:spinapp selectedSprite:spinapp_t1 block:^(id sender) {
+            
+		}];
+        [iteminapp setPosition:ccp(443.5, 730)];
+        
+        CCSprite *spinapp1 = [CCSprite spriteWithFile:@"SlonInApp.png"];
+        CCSprite *spinapp1_t1 = [CCSprite spriteWithFile:@"TouchSlonInApp.png"];
+		CCMenuItemSprite *iteminapp1 = [CCMenuItemSprite itemWithNormalSprite:spinapp1 selectedSprite:spinapp1_t1 block:^(id sender) {
+            
+		}];
+        [iteminapp1 setPosition:ccp(975.5, 730)];
+        
+        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, itemback, item_lu1, item_lu2, iteminapp, iteminapp1, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 

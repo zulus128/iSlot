@@ -33,8 +33,22 @@
         
     }];
     [itemback setPosition:ccp(75, 730)];
-
-    CCMenu* menu = [CCMenu menuWithItems: itemback, nil];
+    
+    CCSprite *spinapp = [CCSprite spriteWithFile:@"SlonInApp.png"];
+    CCSprite *spinapp_t1 = [CCSprite spriteWithFile:@"TouchSlonInApp.png"];
+    CCMenuItemSprite *iteminapp = [CCMenuItemSprite itemWithNormalSprite:spinapp selectedSprite:spinapp_t1 block:^(id sender) {
+        
+    }];
+    [iteminapp setPosition:ccp(443.5, 730)];
+    
+    CCSprite *spinapp1 = [CCSprite spriteWithFile:@"SlonInApp.png"];
+    CCSprite *spinapp1_t1 = [CCSprite spriteWithFile:@"TouchSlonInApp.png"];
+    CCMenuItemSprite *iteminapp1 = [CCMenuItemSprite itemWithNormalSprite:spinapp1 selectedSprite:spinapp1_t1 block:^(id sender) {
+        
+    }];
+    [iteminapp1 setPosition:ccp(975.5, 730)];
+    
+    CCMenu* menu = [CCMenu menuWithItems: itemback, iteminapp, iteminapp1, nil];
     [scene addChild: menu z:107];
     [menu setPosition:ccp(0, 0)];
     
