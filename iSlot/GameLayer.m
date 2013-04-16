@@ -8,7 +8,7 @@
 
 #import "GameLayer.h"
 #import "Common.h"
-#import "InfoLayer.h"
+//#import "InfoLayer.h"
 
 @implementation GameLayer
 
