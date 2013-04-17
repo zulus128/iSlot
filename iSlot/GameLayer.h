@@ -15,6 +15,7 @@
     
 //    int fames[FAME_LEVELS];
 
+    
     CCLabelTTF *label;
     CCLabelTTF *lastw;
 

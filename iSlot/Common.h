@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+//#import "InappLayer.h"
 
 #define SPEED1 0.062f
 #define SLIDE_TYPES 11
@@ -64,6 +64,7 @@
 
 #define CCCA(x) [[x copy] autorelease]
 
+
 @interface Common : NSObject {
 
     float rnd[SLIDE_TYPES];
@@ -97,5 +98,7 @@
 
 @property (readwrite, assign) int finished;
 @property (readwrite, assign) float speed;
+
+//@property (nonatomic, retain) InappLayer* inlay;
 
 @end

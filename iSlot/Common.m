@@ -20,6 +20,7 @@
 		if(!instance) {
 			
 			instance = [[Common alloc] init];
+
 		}
 	}
 	return instance;
@@ -30,6 +31,9 @@
 	self = [super init];
 	if(self !=nil) {
         
+//        self.inlay = [InappLayer node];
+//        self.inlay.position = ccp(1024, 0);
+
         NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString* docpath = [sp objectAtIndex: 0];
         prof_file = [[docpath stringByAppendingPathComponent:@"levels.plist"] retain];

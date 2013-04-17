@@ -12,6 +12,10 @@
 #import "GameLayer.h"
 #import "Common.h"
 
+#import "InappLayer.h"
+
+static InappLayer* inlay;
+
 @implementation MapLayer
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
@@ -37,14 +41,20 @@
     CCSprite *spinapp = [CCSprite spriteWithFile:@"SlonInApp.png"];
     CCSprite *spinapp_t1 = [CCSprite spriteWithFile:@"TouchSlonInApp.png"];
     CCMenuItemSprite *iteminapp = [CCMenuItemSprite itemWithNormalSprite:spinapp selectedSprite:spinapp_t1 block:^(id sender) {
-        
+    
+        [inlay setTab:0];
+        [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
+
     }];
     [iteminapp setPosition:ccp(443.5, 730)];
     
     CCSprite *spinapp1 = [CCSprite spriteWithFile:@"SlonInApp.png"];
     CCSprite *spinapp1_t1 = [CCSprite spriteWithFile:@"TouchSlonInApp.png"];
     CCMenuItemSprite *iteminapp1 = [CCMenuItemSprite itemWithNormalSprite:spinapp1 selectedSprite:spinapp1_t1 block:^(id sender) {
-        
+
+        [inlay setTab:1];
+        [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
+
     }];
     [iteminapp1 setPosition:ccp(975.5, 730)];
     
@@ -68,13 +78,13 @@
 
     
     
-	// 'layer' is an autorelease object.
 	MapLayer *layer = [MapLayer node];
-	
-	// add layer as a child to scene
 	[scene addChild: layer];
 	
-	// return the scene
+    inlay = [InappLayer node];
+    inlay.position = ccp(1024, 0);
+    [scene addChild: inlay];
+
 	return scene;
 }
 
