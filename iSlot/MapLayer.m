@@ -15,6 +15,9 @@
 #import "InappLayer.h"
 
 static InappLayer* inlay;
+static CCLayerColor* colorLayer;
+static CCMenu* menu1;
+static MapLayer *layer;
 
 @implementation MapLayer
 
@@ -24,6 +27,9 @@ static InappLayer* inlay;
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
+    colorLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 0)];
+    [scene addChild:colorLayer z:555];
+
     
     CCSprite* top = [CCSprite spriteWithFile:@"UpBar.png"];
     top.position = ccp( 512, 730.5);
@@ -44,6 +50,15 @@ static InappLayer* inlay;
     
         [inlay setTab:0];
         [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
+        colorLayer.opacity = 0;
+        CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+        [colorLayer runAction:action];
+        menu1.enabled = NO;
+        CCNode* result = [layer getChildByTag:MENU_TAG];
+        if(result != nil) {
+            ((CCMenu*)result).enabled = NO;
+        }
+
 
     }];
     [iteminapp setPosition:ccp(443.5, 730)];
@@ -54,13 +69,22 @@ static InappLayer* inlay;
 
         [inlay setTab:1];
         [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
+        colorLayer.opacity = 0;
+        CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+        [colorLayer runAction:action];
+        menu1.enabled = NO;
+        CCNode* result = [layer getChildByTag:MENU_TAG];
+        if(result != nil) {
+            ((CCMenu*)result).enabled = NO;
+        }
+
 
     }];
     [iteminapp1 setPosition:ccp(975.5, 730)];
     
-    CCMenu* menu = [CCMenu menuWithItems: itemback, iteminapp, iteminapp1, nil];
-    [scene addChild: menu z:107];
-    [menu setPosition:ccp(0, 0)];
+    menu1 = [CCMenu menuWithItems: itemback, iteminapp, iteminapp1, nil];
+    [scene addChild: menu1 z:107];
+    [menu1 setPosition:ccp(0, 0)];
     
     CCSprite* yluck = [CCSprite spriteWithFile:@"Luck.png"];
     [scene addChild:yluck z:100];
@@ -77,13 +101,13 @@ static InappLayer* inlay;
     [scene addChild: labelYourLuck z:413];
 
     
-    
-	MapLayer *layer = [MapLayer node];
-	[scene addChild: layer];
-	
     inlay = [InappLayer node];
     inlay.position = ccp(1024, 0);
-    [scene addChild: inlay];
+    
+	layer = [MapLayer node];
+	[scene addChild: layer];
+	
+    [scene addChild: inlay z:556];
 
 	return scene;
 }
@@ -98,6 +122,8 @@ static InappLayer* inlay;
         self.touchEnabled = YES;
         
         
+        inlay.player = self;
+
         
         CCSprite *fon = [CCSprite spriteWithFile:@"FonMapLevel01_1.png"];
         fon.position = ccp(1024, 346);
@@ -156,7 +182,7 @@ static InappLayer* inlay;
         CCMenuItemSprite *item6_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level6]; }];
         [item6_1 setPosition:ccplevel(2870, 324)];
 
-        CCMenu* menu = [CCMenu menuWithItems: item1_1, item1_2, item1_3, item1_4,
+        menu = [CCMenu menuWithItems: item1_1, item1_2, item1_3, item1_4,
                         item2_1, item2_2, item2_3, item2_4,
                         item3_1, item3_2, item3_3, item3_4,
                         item4_1, item4_2, item4_3,
@@ -164,6 +190,7 @@ static InappLayer* inlay;
                         item6_1,
                         nil];
         [self addChild: menu z:300];
+        menu.tag = MENU_TAG;
         [menu setPosition:ccp(0, -74)];
 
 
@@ -172,6 +199,19 @@ static InappLayer* inlay;
 	}
 	
 	return self;
+}
+
+-(void) toTop {
+    
+    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
+    [colorLayer runAction:action];
+    [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(1024,0)]];
+    menu1.enabled = YES;
+    CCNode* result = [layer getChildByTag:MENU_TAG];
+    if(result != nil) {
+        ((CCMenu*)result).enabled = YES;
+    }
+
 }
 
 -(void) level1 {

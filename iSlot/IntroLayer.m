@@ -14,6 +14,7 @@
 
 #import "InappLayer.h"
 
+
 static InappLayer* inlay;
 
 #pragma mark - IntroLayer
@@ -24,11 +25,12 @@ static InappLayer* inlay;
 {
 	CCScene *scene = [CCScene node];
 	
+    inlay = [InappLayer node];
+    inlay.position = ccp(1024, 0);
+
 	IntroLayer *layer = [IntroLayer node];
 	[scene addChild: layer];
 	
-    inlay = [InappLayer node];
-    inlay.position = ccp(1024, 0);
     [scene addChild: inlay];
     
 	return scene;
@@ -43,7 +45,10 @@ static InappLayer* inlay;
 
         CGSize screenSize = [CCDirector sharedDirector].winSize;
         
-        
+        colorLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 0)];
+        [self addChild:colorLayer z:555];
+
+        inlay.player = self;
         
 //        CCSprite* back = [CCSprite spriteWithFile:@"FonMainMenu.png"];
 //        back.position = ccp( screenSize.width / 2, screenSize.height / 2);
@@ -58,7 +63,8 @@ static InappLayer* inlay;
 //        [self addChild:polosa z:6];
 //        polosa.position = ccp(848.5, 70.5);
         
-        NSMutableArray *layers = [NSMutableArray new];
+        //NSMutableArray *layers = [NSMutableArray new];
+        layers = [[NSMutableArray alloc] init];
         CCLayer *layer = [self layerWithChapterNumber:0 screenSize:screenSize];
         [layers addObject:layer];
         CCLayer *layer1 = [self layerWithChapterNumber:1 screenSize:screenSize];
@@ -75,7 +81,7 @@ static InappLayer* inlay;
 //        scroller.minimumTouchLengthToSlide = 50;
         [self addChild:scroller z:12];
         [scroller release];
-        [layers release];
+//        [layers release];
         
         labelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:@"Marker Felt" fontSize:44];
         labelMoney.color = ccc3(0, 0, 0);
@@ -136,7 +142,17 @@ static InappLayer* inlay;
             
             [inlay setTab:0];
             [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
+            colorLayer.opacity = 0;
+            CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+            [colorLayer runAction:action];
+            menu.enabled = NO;
+            for(CCLayer* l in layers) {
 
+                CCNode* result = [l getChildByTag:MENU_TAG];
+                if(result != nil) {
+                    ((CCMenu*)result).enabled = NO;
+                }
+            }
             
 		}];
         [iteminapp setPosition:ccp(443.5, 730)];
@@ -147,11 +163,22 @@ static InappLayer* inlay;
 
             [inlay setTab:1];
             [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
+            colorLayer.opacity = 0;
+            CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+            [colorLayer runAction:action];
+            menu.enabled = NO;
+            for(CCLayer* l in layers) {
+                
+                CCNode* result = [l getChildByTag:MENU_TAG];
+                if(result != nil) {
+                    ((CCMenu*)result).enabled = NO;
+                }
+            }
             
 		}];
         [iteminapp1 setPosition:ccp(975.5, 730)];
         
-        CCMenu* menu = [CCMenu menuWithItems: itemsett, itemfb, itemtwit, iteminapp, iteminapp1, nil];
+        menu = [CCMenu menuWithItems: itemsett, itemfb, itemtwit, iteminapp, iteminapp1, nil];
         [self addChild: menu z:107];
 		[menu setPosition:ccp(0, 0)];
 
@@ -159,6 +186,24 @@ static InappLayer* inlay;
 	
 	return self;
 }
+
+-(void) toTop {
+
+    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
+    [colorLayer runAction:action];
+    menu.enabled = YES;
+    [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(1024,0)]];
+    for(CCLayer* l in layers) {
+        
+        CCNode* result = [l getChildByTag:MENU_TAG];
+        if(result != nil) {
+            ((CCMenu*)result).enabled = YES;
+        }
+    }
+
+
+}
+
 - (CCLayer*)layerWithChapterNumber:(int)chapterNumber
                       screenSize:(CGSize)screenSize {
     
@@ -171,7 +216,7 @@ static InappLayer* inlay;
                                                              selector:@selector(onSelectChapter:)];
         image.tag = chapterNumber;
         CCMenu *menu = [CCMenu menuWithItems: image, nil];
-//        [menu alignItemsVertically];
+        menu.tag = MENU_TAG;
         [layer addChild: menu];
     
     return layer;
@@ -207,11 +252,19 @@ static InappLayer* inlay;
     
 }
 
+
 - (void) onEnter {
     
     [super onEnter];
     
     [self refreshLabels];
+}
+
+- (void) dealloc {
+    
+    [layers release];
+    
+	[super dealloc];
 }
 
 @end

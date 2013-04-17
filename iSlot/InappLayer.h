@@ -21,6 +21,8 @@
 
 //@property (nonatomic,readwrite) BOOL isKeys;
 
+@property (nonatomic, retain) CCLayer* player;
+
 -(void) setTab:(int) t;
 
 @end

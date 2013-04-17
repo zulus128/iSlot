@@ -8,8 +8,8 @@
 
 #import "InappLayer.h"
 
-@interface InappLayer ()
-
+@interface CCLayer (toTop)
+-(void) toTop;
 @end
 
 @implementation InappLayer
@@ -20,7 +20,8 @@
         
 		// ask director for the window size
 		//CGSize size = [[CCDirector sharedDirector] winSize];
-        
+        self.touchEnabled = YES;
+
 		background = [[CCSprite spriteWithFile:@"CoinsFon.png"] retain];
 		background.position = ccp(Xin, Yin);
         background.visible = NO;
@@ -35,7 +36,7 @@
         CCSprite *spclo_t1 = [CCSprite spriteWithFile:@"TouchCloseinApp.png"];
 		CCMenuItemSprite *itemclo = [CCMenuItemSprite itemWithNormalSprite:spclo selectedSprite:spclo_t1 block:^(id sender) {
             
-            [self runAction:[CCMoveBy actionWithDuration:0.3f position:ccp(1024,0)]];
+            [self.player toTop];
             
 		}];
         [itemclo setPosition:ccpina(932, 50, 40, 40)];
@@ -44,7 +45,6 @@
         CCSprite *spbuy_t1 = [CCSprite spriteWithFile:@"TouchBuyNow.png"];
 		CCMenuItemSprite *itembuy = [CCMenuItemSprite itemWithNormalSprite:spbuy selectedSprite:spbuy_t1 block:^(id sender) {
             
-            [self runAction:[CCMoveBy actionWithDuration:0.3f position:ccp(1024,0)]];
             
 		}];
         [itembuy setPosition:ccpina(430, 425, 162, 54)];
@@ -64,6 +64,15 @@
     background.visible = (t == 0);
     background1.visible = (t == 1);
 
+}
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:[touch view]];
+    NSLog(@"y = %f", point.y);
+    if((point.y < (Yin - 255 - 108)) || (point.y > (Yin + 255 - 108)))
+        [self.player toTop];
 }
 
 - (void) dealloc {

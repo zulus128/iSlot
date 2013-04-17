@@ -10,6 +10,8 @@
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
 
+#define MENU_TAG 111
+
 // HelloWorldLayer
 @interface IntroLayer : CCLayer {
     
@@ -19,9 +21,13 @@
     CCLabelTTF *labelFameLevel;
     CCSprite* fame;
 
+    CCLayerColor* colorLayer;
+    CCMenu* menu;
+    NSMutableArray *layers;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
+-(void) toTop;
 
 @end

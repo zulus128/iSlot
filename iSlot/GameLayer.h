@@ -15,6 +15,8 @@
     
 //    int fames[FAME_LEVELS];
 
+    CCLayerColor* colorLayer;
+
     
     CCLabelTTF *label;
     CCLabelTTF *lastw;
@@ -49,6 +51,7 @@
     CCSprite* complete;
     CCLabelTTF *ygift;
 }
+-(void) toTop;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;

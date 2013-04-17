@@ -12,6 +12,7 @@
 
 #import "InappLayer.h"
 
+
 static InappLayer* inlay;
 
 
@@ -24,14 +25,13 @@ static InappLayer* inlay;
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	GameLayer *layer = [GameLayer node];
 	
-	// add layer as a child to scene
-	[scene addChild: layer];
-	
-    
     inlay = [InappLayer node];
     inlay.position = ccp(1024, 0);
+
+	GameLayer *layer = [GameLayer node];
+	[scene addChild: layer];
+    
     [scene addChild: inlay];
     
 	return scene;
@@ -45,6 +45,11 @@ static InappLayer* inlay;
 	if( (self=[super init]) ) {
 		
         self.touchEnabled = YES;
+
+        colorLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 0)];
+        [self addChild:colorLayer z:555];
+        
+        inlay.player = self;
 
 //        fames[0] = FAME_POINTS1;
 //        fames[1] = FAME_POINTS2;
@@ -597,6 +602,10 @@ static InappLayer* inlay;
             
             [inlay setTab:0];
             [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
+            colorLayer.opacity = 0;
+            CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+            [colorLayer runAction:action];
+            menu.enabled = NO;
 
             
 		}];
@@ -608,6 +617,10 @@ static InappLayer* inlay;
 
             [inlay setTab:1];
             [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
+            colorLayer.opacity = 0;
+            CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+            [colorLayer runAction:action];
+            menu.enabled = NO;
 
 		}];
         [iteminapp1 setPosition:ccp(975.5, 730)];
@@ -657,6 +670,14 @@ static InappLayer* inlay;
         [self refreshLabels];
 	}
 	return self;
+}
+
+-(void) toTop {
+    
+    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
+    [colorLayer runAction:action];
+    menu.enabled = YES;
+    [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(1024,0)]];
 }
 
 - (void) refreshLabels {
