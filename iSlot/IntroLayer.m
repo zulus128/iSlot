@@ -41,8 +41,6 @@ static InappLayer* inlay;
 {
 	if( (self=[super init])) {
 
-//		CGSize size = [[CCDirector sharedDirector] winSize];
-
         CGSize screenSize = [CCDirector sharedDirector].winSize;
         
         colorLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 0)];
@@ -50,35 +48,20 @@ static InappLayer* inlay;
 
         inlay.player = self;
         
-//        CCSprite* back = [CCSprite spriteWithFile:@"FonMainMenu.png"];
-//        back.position = ccp( screenSize.width / 2, screenSize.height / 2);
-//        [self addChild:back z:10];
-        
         CCSprite* back1 = [CCSprite spriteWithFile:@"FonBack.png"];
-//        back1.position = ccp( 512, 70.5);
         back1.position = ccp( 544, 70.5);
         [self addChild:back1 z:5];
 
-//        polosa = [CCSprite spriteWithFile:@"TimeName.png"];
-//        [self addChild:polosa z:6];
-//        polosa.position = ccp(848.5, 70.5);
-        
-        //NSMutableArray *layers = [NSMutableArray new];
         layers = [[NSMutableArray alloc] init];
         CCLayer *layer = [self layerWithChapterNumber:0 screenSize:screenSize];
         [layers addObject:layer];
         CCLayer *layer1 = [self layerWithChapterNumber:1 screenSize:screenSize];
         [layers addObject:layer1];
-//        CCLayer *layer2 = [self layerWithChapterNumber:2 screenSize:screenSize];
-//        [layers addObject:layer2];
+
         CCScrollLayer *scroller = [[CCScrollLayer alloc] initWithLayers:layers
                                                             widthOffset:570];
         [scroller selectPage:0];
         scroller.showPagesIndicator = NO;
-//        scroller.pagesWidthOffset = 10;
-//        scroller.marginOffset = 100;
-//        scroller.minimumTouchLengthToChangePage = 50;
-//        scroller.minimumTouchLengthToSlide = 50;
         [self addChild:scroller z:12];
         [scroller release];
 //        [layers release];
@@ -87,7 +70,12 @@ static InappLayer* inlay;
         labelMoney.color = ccc3(0, 0, 0);
         labelMoney.position =  ccp( 300 , 730 );
         [self addChild: labelMoney z:13];
-
+        
+        labelKeys = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:@"Marker Felt" fontSize:44];
+        labelKeys.color = ccc3(0, 0, 0);
+        labelKeys.position =  ccp( 900 , 730 );
+        [self addChild: labelKeys z:13];
+        
         labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:@"Marker Felt" fontSize:24];
 		labelYourLuck.position =  ccp( 637 , 720 );
 		[self addChild: labelYourLuck z:101];
@@ -225,6 +213,7 @@ static InappLayer* inlay;
 - (void) refreshLabels {
     
     [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
+    [labelKeys setString:[NSString stringWithFormat:@"%d", [Common instance].keys]];
     [labelYourLuck setString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck]];
 
     float p, x;

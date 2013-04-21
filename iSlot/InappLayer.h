@@ -36,6 +36,8 @@
     CCSprite *kcheck6;
     CCSprite *kcheck7;
     
+    int inapp;
+    
 }
 
 //@property (nonatomic,readwrite) BOOL isKeys;

@@ -389,6 +389,11 @@ static InappLayer* inlay;
         labelMoney.position =  ccp( 300 , 730 );
         [self addChild: labelMoney z:10];
 
+        labelKeys = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:@"Marker Felt" fontSize:44];
+        labelKeys.color = ccc3(0, 0, 0);
+        labelKeys.position =  ccp( 900 , 730 );
+        [self addChild: labelKeys z:13];
+
         CCSprite* back = [CCSprite spriteWithFile:@"FonSlot01.png"];
         [self addChild:back z:5];
         back.position = ccp( size.width / 2, size.height / 2);
@@ -492,7 +497,7 @@ static InappLayer* inlay;
         CCSprite *spplus_t2 = [CCSprite spriteWithFile:@"TouchPlas.png"];
 		CCMenuItemSprite *itempl2 = [CCMenuItemSprite itemWithNormalSprite:spplus2 selectedSprite:spplus_t2 block:^(id sender) {
 
-            if([Common instance].lines < LINES_CNT)
+            if([Common instance].lines < 3/*LINES_CNT*/)
                 [Common instance].lines ++;
             
             [self refreshLabels];
@@ -686,6 +691,7 @@ static InappLayer* inlay;
     [labelLines setString:[NSString stringWithFormat:@"%d", [Common instance].lines]];
     [lastw setString:[NSString stringWithFormat:@"%d", [Common instance].lastwin]];
     [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
+    [labelKeys setString:[NSString stringWithFormat:@"%d", [Common instance].keys]];
     [labelYourLuck setString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck]];
     [labelBet setString:[NSString stringWithFormat:@"BET: %d", [Common instance].coins * [Common instance].lines]];
     

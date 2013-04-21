@@ -91,7 +91,7 @@
         self.money = 1000;
         self.speed = SPEED1;
         self.coins = 1;
-        self.lines = 5;
+        self.lines = 3;
         self.famelevel1 = 1;
 
         [self validateRnd];

@@ -17,6 +17,7 @@
 
 static CCLabelTTF *labelMoney = nil;
 static CCLabelTTF *labelYourLuck = nil;
+static CCLabelTTF *labelKeys = nil;
 
 @interface MapLayer : CCLayer {
     

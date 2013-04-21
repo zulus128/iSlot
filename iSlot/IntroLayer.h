@@ -15,8 +15,8 @@
 // HelloWorldLayer
 @interface IntroLayer : CCLayer {
     
-//    CCSprite* polosa;
     CCLabelTTF *labelMoney;
+    CCLabelTTF *labelKeys;
     CCLabelTTF *labelYourLuck;
     CCLabelTTF *labelFameLevel;
     CCSprite* fame;
@@ -28,6 +28,7 @@
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
--(void) toTop;
+- (void) toTop;
+- (void) refreshLabels;
 
 @end

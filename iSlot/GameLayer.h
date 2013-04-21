@@ -24,6 +24,7 @@
     CCLabelTTF *labelCoins;
     CCLabelTTF *labelLines;
     CCLabelTTF *labelMoney;
+    CCLabelTTF *labelKeys;
     CCLabelTTF *labelYourLuck;
     CCLabelTTF *labelFameLevel;
     CCLabelTTF *labelBet;

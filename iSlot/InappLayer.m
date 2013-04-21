@@ -7,9 +7,13 @@
 //
 
 #import "InappLayer.h"
+#import "Common.h"
 
 @interface CCLayer (toTop)
--(void) toTop;
+
+- (void) toTop;
+- (void) refreshLabels;
+
 @end
 
 @implementation InappLayer
@@ -99,6 +103,8 @@
         CCSprite *spbuy_t1 = [CCSprite spriteWithFile:@"TouchBuyNow.png"];
 		CCMenuItemSprite *itembuy = [CCMenuItemSprite itemWithNormalSprite:spbuy selectedSprite:spbuy_t1 block:^(id sender) {
             
+            [self buy];
+            [self.player refreshLabels];
             
 		}];
         [itembuy setPosition:ccpina(430, 425, 162, 54)];
@@ -141,6 +147,8 @@
             ccheck4.visible = NO;
             ccheck5.visible = NO;
             ccheck6.visible = NO;
+            inapp = 1;
+//            [self buy];
 
 		}];
         [icin1 setPosition:ccpina(430, 80 + 0*h, 162, 54)];
@@ -157,6 +165,8 @@
             ccheck4.visible = NO;
             ccheck5.visible = NO;
             ccheck6.visible = NO;
+            inapp = 2;
+//            [self buy];
             
 		}];
         [icin2 setPosition:ccpina(430, 80 + 1*h, 162, 54)];
@@ -173,6 +183,8 @@
             ccheck4.visible = NO;
             ccheck5.visible = NO;
             ccheck6.visible = NO;
+            inapp = 3;
+//            [self buy];
 
 		}];
         [icin3 setPosition:ccpina(430, 80 + 2*h, 162, 54)];
@@ -189,6 +201,8 @@
             ccheck4.visible = YES;
             ccheck5.visible = NO;
             ccheck6.visible = NO;
+            inapp = 4;
+//            [self buy];
 
 		}];
         [icin4 setPosition:ccpina(430, 80 + 3*h, 162, 54)];
@@ -205,6 +219,8 @@
             ccheck4.visible = NO;
             ccheck5.visible = YES;
             ccheck6.visible = NO;
+            inapp = 5;
+//            [self buy];
 
 		}];
         [icin5 setPosition:ccpina(430, 80 + 4*h, 162, 54)];
@@ -221,6 +237,8 @@
             ccheck4.visible = NO;
             ccheck5.visible = NO;
             ccheck6.visible = YES;
+            inapp = 6;
+//            [self buy];
             
 		}];
         [icin6 setPosition:ccpina(430, 80 + 5*h, 162, 54)];
@@ -242,13 +260,129 @@
             kcheck5.visible = NO;
             kcheck6.visible = NO;
             kcheck7.visible = NO;
+            inapp = 7;
+//            [self buy];
             
 		}];
         [ikin1 setPosition:ccpina(120, 134, 162, 54)];
         ikin1.scaleY = 2.5f;
-        ikin1.opacity = 60;
+        ikin1.opacity = 0;
         
-        menukeys = [CCMenu menuWithItems: ikin1, /*ikin2, ikin3, ikin4, ikin5, ikin6, ikin7,*/ nil];
+        CCSprite *spkin2 = [CCSprite spriteWithFile:@"BuyNow.png"];
+        CCSprite *spkin2_t1 = [CCSprite spriteWithFile:@"TouchBuyNow.png"];
+		CCMenuItemSprite *ikin2 = [CCMenuItemSprite itemWithNormalSprite:spkin2 selectedSprite:spkin2_t1 block:^(id sender) {
+            
+            kcheck1.visible = NO;
+            kcheck2.visible = YES;
+            kcheck3.visible = NO;
+            kcheck4.visible = NO;
+            kcheck5.visible = NO;
+            kcheck6.visible = NO;
+            kcheck7.visible = NO;
+            inapp = 8;
+//            [self buy];
+            
+		}];
+        [ikin2 setPosition:ccpina(328, 134, 162, 54)];
+        ikin2.scaleY = 2.5f;
+        ikin2.opacity = 0;
+        
+        CCSprite *spkin3 = [CCSprite spriteWithFile:@"BuyNow.png"];
+        CCSprite *spkin3_t1 = [CCSprite spriteWithFile:@"TouchBuyNow.png"];
+		CCMenuItemSprite *ikin3 = [CCMenuItemSprite itemWithNormalSprite:spkin3 selectedSprite:spkin3_t1 block:^(id sender) {
+            
+            kcheck1.visible = NO;
+            kcheck2.visible = NO;
+            kcheck3.visible = YES;
+            kcheck4.visible = NO;
+            kcheck5.visible = NO;
+            kcheck6.visible = NO;
+            kcheck7.visible = NO;
+            inapp = 9;
+//            [self buy];
+
+		}];
+        [ikin3 setPosition:ccpina(535, 134, 162, 54)];
+        ikin3.scaleY = 2.5f;
+        ikin3.opacity = 0;
+        
+        CCSprite *spkin4 = [CCSprite spriteWithFile:@"BuyNow.png"];
+        CCSprite *spkin4_t1 = [CCSprite spriteWithFile:@"TouchBuyNow.png"];
+		CCMenuItemSprite *ikin4 = [CCMenuItemSprite itemWithNormalSprite:spkin4 selectedSprite:spkin4_t1 block:^(id sender) {
+            
+            kcheck1.visible = NO;
+            kcheck2.visible = NO;
+            kcheck3.visible = NO;
+            kcheck4.visible = YES;
+            kcheck5.visible = NO;
+            kcheck6.visible = NO;
+            kcheck7.visible = NO;
+            inapp = 10;
+//            [self buy];
+
+		}];
+        [ikin4 setPosition:ccpina(742, 134, 162, 54)];
+        ikin4.scaleY = 2.5f;
+        ikin4.opacity = 0;
+        
+        CCSprite *spkin5 = [CCSprite spriteWithFile:@"BuyNow.png"];
+        CCSprite *spkin5_t1 = [CCSprite spriteWithFile:@"TouchBuyNow.png"];
+		CCMenuItemSprite *ikin5 = [CCMenuItemSprite itemWithNormalSprite:spkin5 selectedSprite:spkin5_t1 block:^(id sender) {
+            
+            kcheck1.visible = NO;
+            kcheck2.visible = NO;
+            kcheck3.visible = NO;
+            kcheck4.visible = NO;
+            kcheck5.visible = YES;
+            kcheck6.visible = NO;
+            kcheck7.visible = NO;
+            inapp = 11;
+//            [self buy];
+
+		}];
+        [ikin5 setPosition:ccpina(223, 295, 162, 54)];
+        ikin5.scaleY = 2.5f;
+        ikin5.opacity = 0;
+        
+        CCSprite *spkin6 = [CCSprite spriteWithFile:@"BuyNow.png"];
+        CCSprite *spkin6_t1 = [CCSprite spriteWithFile:@"TouchBuyNow.png"];
+		CCMenuItemSprite *ikin6 = [CCMenuItemSprite itemWithNormalSprite:spkin6 selectedSprite:spkin6_t1 block:^(id sender) {
+            
+            kcheck1.visible = NO;
+            kcheck2.visible = NO;
+            kcheck3.visible = NO;
+            kcheck4.visible = NO;
+            kcheck5.visible = NO;
+            kcheck6.visible = YES;
+            kcheck7.visible = NO;
+            inapp = 12;
+//            [self buy];
+
+		}];
+        [ikin6 setPosition:ccpina(430, 295, 162, 54)];
+        ikin6.scaleY = 2.5f;
+        ikin6.opacity = 0;
+        
+        CCSprite *spkin7 = [CCSprite spriteWithFile:@"BuyNow.png"];
+        CCSprite *spkin7_t1 = [CCSprite spriteWithFile:@"TouchBuyNow.png"];
+		CCMenuItemSprite *ikin7 = [CCMenuItemSprite itemWithNormalSprite:spkin7 selectedSprite:spkin7_t1 block:^(id sender) {
+            
+            kcheck1.visible = NO;
+            kcheck2.visible = NO;
+            kcheck3.visible = NO;
+            kcheck4.visible = NO;
+            kcheck5.visible = NO;
+            kcheck6.visible = NO;
+            kcheck7.visible = YES;
+            inapp = 13;
+//            [self buy];
+
+		}];
+        [ikin7 setPosition:ccpina(637, 295, 162, 54)];
+        ikin7.scaleY = 2.5f;
+        ikin7.opacity = 0;
+        
+        menukeys = [CCMenu menuWithItems: ikin1, ikin2, ikin3, ikin4, ikin5, ikin6, ikin7, nil];
         [self addChild: menukeys z:8];
 		[menukeys setPosition:ccp(0, 0)];
         
@@ -259,35 +393,96 @@
 	return self;
 }
 
+-(void) buy {
+
+    switch (inapp) {
+        case 1:
+            [Common instance].money += 210000;
+            break;
+        case 2:
+            [Common instance].money += 84000;
+            break;
+        case 3:
+            [Common instance].money += 34000;
+            break;
+        case 4:
+            [Common instance].money += 18000;
+            break;
+        case 5:
+            [Common instance].money += 4400;
+            break;
+        case 6:
+            [Common instance].money += 1000;
+            break;
+
+        case 7:
+            [Common instance].keys += 9;
+            break;
+        case 8:
+            [Common instance].keys += 20;
+            break;
+        case 9:
+            [Common instance].keys += 45;
+            break;
+        case 10:
+            [Common instance].keys += 150;
+            break;
+        case 11:
+            [Common instance].keys += 270;
+            break;
+        case 12:
+            [Common instance].keys += 600;
+            break;
+        case 13:
+            [Common instance].keys += 1500;
+            break;
+            
+        default:
+            break;
+    }
+
+    kcheck1.visible = NO;
+    kcheck2.visible = NO;
+    kcheck3.visible = NO;
+    kcheck4.visible = NO;
+    kcheck5.visible = NO;
+    kcheck6.visible = NO;
+    kcheck7.visible = NO;
+    ccheck1.visible = NO;
+    ccheck2.visible = NO;
+    ccheck3.visible = NO;
+    ccheck4.visible = NO;
+    ccheck5.visible = NO;
+    ccheck6.visible = NO;
+    inapp = 0;
+}
+
 -(void) setTab:(int) t {
     
     background.visible = (t == 0);
     background1.visible = (t == 1);
-    
+
+    kcheck1.visible = NO;
+    kcheck2.visible = NO;
+    kcheck3.visible = NO;
+    kcheck4.visible = NO;
+    kcheck5.visible = NO;
+    kcheck6.visible = NO;
+    kcheck7.visible = NO;
+    ccheck1.visible = NO;
+    ccheck2.visible = NO;
+    ccheck3.visible = NO;
+    ccheck4.visible = NO;
+    ccheck5.visible = NO;
+    ccheck6.visible = NO;
+
     if(t == 0) {
         menucoins.enabled = YES;
         menukeys.enabled = NO;
-        
-        kcheck1.visible = NO;
-        kcheck2.visible = NO;
-        kcheck3.visible = NO;
-        kcheck4.visible = NO;
-        kcheck5.visible = NO;
-        kcheck6.visible = NO;
-        kcheck7.visible = NO;
-
     }
     else {
         menucoins.enabled = NO;
         menukeys.enabled = YES;
-
-        ccheck1.visible = NO;
-        ccheck2.visible = NO;
-        ccheck3.visible = NO;
-        ccheck4.visible = NO;
-        ccheck5.visible = NO;
-        ccheck6.visible = NO;
-
     }
 
 }

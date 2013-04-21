@@ -96,6 +96,11 @@ static MapLayer *layer;
     labelMoney.position =  ccp( 300 , 730 );
     [scene addChild: labelMoney z:413];
     
+    labelKeys = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:@"Marker Felt" fontSize:44];
+    labelKeys.color = ccc3(0, 0, 0);
+    labelKeys.position =  ccp( 900 , 730 );
+    [scene addChild: labelKeys z:413];
+
     labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:@"Marker Felt" fontSize:24];
     labelYourLuck.position =  ccp( 637 , 720 );
     [scene addChild: labelYourLuck z:413];
@@ -234,6 +239,7 @@ static MapLayer *layer;
 - (void) refreshLabels {
     
     [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
+    [labelKeys setString:[NSString stringWithFormat:@"%d", [Common instance].keys]];
     [labelYourLuck setString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck]];
  
     NSString* l1 = @"StarLevelNone.png";

@@ -89,6 +89,7 @@
 
 @property (readwrite, assign) int coins;
 @property (readwrite, assign) int money;
+@property (readwrite, assign) int keys;
 @property (readwrite, assign) int lines;
 @property (readwrite, assign) int lastwin;
 @property (readwrite, assign) int levelwin;
