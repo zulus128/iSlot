@@ -11,7 +11,7 @@
 #import "Bar.h"
 #import "Combination.h"
 
-@interface GameLayer : CCLayer {
+@interface GameLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate> {
     
 //    int fames[FAME_LEVELS];
 

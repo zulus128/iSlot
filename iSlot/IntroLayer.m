@@ -14,6 +14,7 @@
 
 #import "InappLayer.h"
 
+#import "AppDelegate.h"
 
 static InappLayer* inlay;
 
@@ -148,7 +149,7 @@ static InappLayer* inlay;
         CCSprite *spinapp1 = [CCSprite spriteWithFile:@"SlonInApp.png"];
         CCSprite *spinapp1_t1 = [CCSprite spriteWithFile:@"TouchSlonInApp.png"];
 		CCMenuItemSprite *iteminapp1 = [CCMenuItemSprite itemWithNormalSprite:spinapp1 selectedSprite:spinapp1_t1 block:^(id sender) {
-
+            
             [inlay setTab:1];
             [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
             colorLayer.opacity = 0;
@@ -166,13 +167,50 @@ static InappLayer* inlay;
 		}];
         [iteminapp1 setPosition:ccp(975.5, 730)];
         
-        menu = [CCMenu menuWithItems: itemsett, itemfb, itemtwit, iteminapp, iteminapp1, nil];
+        CCSprite *spgc = [CCSprite spriteWithFile:@"GameCenter.png"];
+        CCSprite *spgc_t1 = [CCSprite spriteWithFile:@"TouchGameCenter.png"];
+		CCMenuItemSprite *itemgc = [CCMenuItemSprite itemWithNormalSprite:spgc selectedSprite:spgc_t1 block:^(id sender) {
+            
+//            GKGameCenterViewController *leaderboardViewController = [[GKGameCenterViewController alloc] init];
+//            leaderboardViewController.gameCenterDelegate = self;
+
+            GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
+			leaderboardViewController.leaderboardDelegate = self;
+			
+			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+			
+			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
+			
+			[leaderboardViewController release];
+		}];
+        [itemgc setPosition:ccp(525, 730)];
+        
+        menu = [CCMenu menuWithItems: itemsett, itemfb, itemtwit, iteminapp, iteminapp1, itemgc, nil];
         [self addChild: menu z:107];
 		[menu setPosition:ccp(0, 0)];
 
 	}
 	
 	return self;
+}
+
+-(void) gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController {
+
+    AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
+
+}
+
+-(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
+{
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
+}
+
+-(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
 }
 
 -(void) toTop {

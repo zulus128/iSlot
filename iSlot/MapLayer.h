@@ -6,6 +6,7 @@
 //  Copyright Zul 2013. All rights reserved.
 //
 
+#import <GameKit/GameKit.h>
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
@@ -19,7 +20,7 @@ static CCLabelTTF *labelMoney = nil;
 static CCLabelTTF *labelYourLuck = nil;
 static CCLabelTTF *labelKeys = nil;
 
-@interface MapLayer : CCLayer {
+@interface MapLayer : CCLayer  <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate> {
     
     float x0;
     float xl0;

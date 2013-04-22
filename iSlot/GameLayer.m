@@ -12,6 +12,8 @@
 
 #import "InappLayer.h"
 
+#import "AppDelegate.h"
+
 
 static InappLayer* inlay;
 
@@ -630,7 +632,22 @@ static InappLayer* inlay;
 		}];
         [iteminapp1 setPosition:ccp(975.5, 730)];
         
-        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, itemback, item_lu1, item_lu2, iteminapp, iteminapp1, nil];
+        CCSprite *spgc = [CCSprite spriteWithFile:@"GameCenter.png"];
+        CCSprite *spgc_t1 = [CCSprite spriteWithFile:@"TouchGameCenter.png"];
+        CCMenuItemSprite *itemgc = [CCMenuItemSprite itemWithNormalSprite:spgc selectedSprite:spgc_t1 block:^(id sender) {
+            
+            GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
+            leaderboardViewController.leaderboardDelegate = self;
+            
+            AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+            
+            [[app navController] presentModalViewController:leaderboardViewController animated:YES];
+            
+            [leaderboardViewController release];
+        }];
+        [itemgc setPosition:ccp(525, 730)];
+
+        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, itemback, item_lu1, item_lu2, iteminapp, iteminapp1, itemgc, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 
@@ -675,6 +692,12 @@ static InappLayer* inlay;
         [self refreshLabels];
 	}
 	return self;
+}
+
+-(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
 }
 
 -(void) toTop {

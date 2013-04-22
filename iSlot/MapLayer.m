@@ -13,6 +13,7 @@
 #import "Common.h"
 
 #import "InappLayer.h"
+#import "AppDelegate.h"
 
 static InappLayer* inlay;
 static CCLayerColor* colorLayer;
@@ -29,6 +30,10 @@ static MapLayer *layer;
 	
     colorLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 0)];
     [scene addChild:colorLayer z:555];
+
+    inlay = [InappLayer node];
+    inlay.position = ccp(1024, 0);
+	layer = [MapLayer node];
 
     
     CCSprite* top = [CCSprite spriteWithFile:@"UpBar.png"];
@@ -82,7 +87,22 @@ static MapLayer *layer;
     }];
     [iteminapp1 setPosition:ccp(975.5, 730)];
     
-    menu1 = [CCMenu menuWithItems: itemback, iteminapp, iteminapp1, nil];
+    CCSprite *spgc = [CCSprite spriteWithFile:@"GameCenter.png"];
+    CCSprite *spgc_t1 = [CCSprite spriteWithFile:@"TouchGameCenter.png"];
+    CCMenuItemSprite *itemgc = [CCMenuItemSprite itemWithNormalSprite:spgc selectedSprite:spgc_t1 block:^(id sender) {
+        
+        GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
+        leaderboardViewController.leaderboardDelegate = layer;
+        
+        AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+        
+        [[app navController] presentModalViewController:leaderboardViewController animated:YES];
+        
+        [leaderboardViewController release];
+    }];
+    [itemgc setPosition:ccp(525, 730)];
+
+    menu1 = [CCMenu menuWithItems: itemback, iteminapp, iteminapp1, itemgc, nil];
     [scene addChild: menu1 z:107];
     [menu1 setPosition:ccp(0, 0)];
     
@@ -91,30 +111,33 @@ static MapLayer *layer;
     yluck.position = ccp(633, 730);
 
     
-    labelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:@"Marker Felt" fontSize:44];
+    labelMoney = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:@"Marker Felt" fontSize:44] retain];
     labelMoney.color = ccc3(0, 0, 0);
     labelMoney.position =  ccp( 300 , 730 );
     [scene addChild: labelMoney z:413];
     
-    labelKeys = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:@"Marker Felt" fontSize:44];
+    labelKeys = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:@"Marker Felt" fontSize:44]retain];
     labelKeys.color = ccc3(0, 0, 0);
     labelKeys.position =  ccp( 900 , 730 );
     [scene addChild: labelKeys z:413];
 
-    labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:@"Marker Felt" fontSize:24];
+    labelYourLuck = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:@"Marker Felt" fontSize:24]retain];
     labelYourLuck.position =  ccp( 637 , 720 );
     [scene addChild: labelYourLuck z:413];
 
     
-    inlay = [InappLayer node];
-    inlay.position = ccp(1024, 0);
-    
-	layer = [MapLayer node];
-	[scene addChild: layer];
 	
+    [scene addChild: layer];
+
     [scene addChild: inlay z:556];
 
 	return scene;
+}
+
+-(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
 }
 
 //
@@ -436,4 +459,12 @@ static MapLayer *layer;
     [self refreshLabels];
 }
 
+- (void) dealloc {
+    
+    [labelMoney release];
+    [labelKeys release];
+    [labelYourLuck release];
+    
+	[super dealloc];
+}
 @end
