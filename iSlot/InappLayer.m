@@ -37,27 +37,27 @@
 		[self addChild: background1];
         
         ccheck1 = [[CCSprite spriteWithFile:@"Check.png"] retain];
-		ccheck1.position = ccpina1(116, 138, 60, 60);
+		ccheck1.position = ccpina1(116, 132, 60, 60);
         ccheck1.visible = NO;
 		[self addChild: ccheck1];
         ccheck2 = [[CCSprite spriteWithFile:@"Check.png"] retain];
-		ccheck2.position = ccpina1(116, 190, 60, 60);
+		ccheck2.position = ccpina1(116, 184, 60, 60);
         ccheck2.visible = NO;
 		[self addChild: ccheck2];
         ccheck3 = [[CCSprite spriteWithFile:@"Check.png"] retain];
-		ccheck3.position = ccpina1(116, 242, 60, 60);
+		ccheck3.position = ccpina1(116, 236, 60, 60);
         ccheck3.visible = NO;
 		[self addChild: ccheck3];
         ccheck4 = [[CCSprite spriteWithFile:@"Check.png"] retain];
-		ccheck4.position = ccpina1(116, 294, 60, 60);
+		ccheck4.position = ccpina1(116, 288, 60, 60);
         ccheck4.visible = NO;
 		[self addChild: ccheck4];
         ccheck5 = [[CCSprite spriteWithFile:@"Check.png"] retain];
-		ccheck5.position = ccpina1(116, 346, 60, 60);
+		ccheck5.position = ccpina1(116, 340, 60, 60);
         ccheck5.visible = NO;
 		[self addChild: ccheck5];
         ccheck6 = [[CCSprite spriteWithFile:@"Check.png"] retain];
-		ccheck6.position = ccpina1(116, 398, 60, 60);
+		ccheck6.position = ccpina1(116, 392, 60, 60);
         ccheck6.visible = NO;
 		[self addChild: ccheck6];
         
