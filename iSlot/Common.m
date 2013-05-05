@@ -34,6 +34,8 @@
 //        self.inlay = [InappLayer node];
 //        self.inlay.position = ccp(1024, 0);
 
+        srand(time(NULL));
+        
         NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString* docpath = [sp objectAtIndex: 0];
         prof_file = [[docpath stringByAppendingPathComponent:@"levels.plist"] retain];

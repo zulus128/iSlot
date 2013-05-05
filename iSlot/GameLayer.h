@@ -51,6 +51,12 @@
 
     CCSprite* complete;
     CCLabelTTF *ygift;
+    
+    CCSprite* droppedcomp;
+    CCLabelTTF *dropped_lab;
+    
+    CCSprite* bigwin;
+
 }
 -(void) toTop;
 

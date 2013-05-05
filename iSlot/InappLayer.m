@@ -62,31 +62,31 @@
 		[self addChild: ccheck6];
         
         kcheck1 = [[CCSprite spriteWithFile:@"Check.png"] retain];
-		kcheck1.position = ccpina1(226, 223, 60, 60);
+		kcheck1.position = ccpina1(226, 217, 60, 60);
         kcheck1.visible = NO;
 		[self addChild: kcheck1];
         kcheck2 = [[CCSprite spriteWithFile:@"Check.png"] retain];
-		kcheck2.position = ccpina1(432, 223, 60, 60);
+		kcheck2.position = ccpina1(432, 217, 60, 60);
         kcheck2.visible = NO;
 		[self addChild: kcheck2];
         kcheck3 = [[CCSprite spriteWithFile:@"Check.png"] retain];
-		kcheck3.position = ccpina1(640, 223, 60, 60);
+		kcheck3.position = ccpina1(640, 217, 60, 60);
         kcheck3.visible = NO;
 		[self addChild: kcheck3];
         kcheck4 = [[CCSprite spriteWithFile:@"Check.png"] retain];
-		kcheck4.position = ccpina1(847, 223, 60, 60);
+		kcheck4.position = ccpina1(847, 217, 60, 60);
         kcheck4.visible = NO;
 		[self addChild: kcheck4];
         kcheck5 = [[CCSprite spriteWithFile:@"Check.png"] retain];
-		kcheck5.position = ccpina1(330, 384, 60, 60);
+		kcheck5.position = ccpina1(330, 378, 60, 60);
         kcheck5.visible = NO;
 		[self addChild: kcheck5];
         kcheck6 = [[CCSprite spriteWithFile:@"Check.png"] retain];
-		kcheck6.position = ccpina1(536, 384, 60, 60);
+		kcheck6.position = ccpina1(536, 378, 60, 60);
         kcheck6.visible = NO;
 		[self addChild: kcheck6];
         kcheck7 = [[CCSprite spriteWithFile:@"Check.png"] retain];
-		kcheck7.position = ccpina1(745, 384, 60, 60);
+		kcheck7.position = ccpina1(745, 378, 60, 60);
         kcheck7.visible = NO;
 		[self addChild: kcheck7];
         
@@ -491,7 +491,7 @@
     
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:[touch view]];
-    NSLog(@"y = %f", point.y);
+//    NSLog(@"y = %f", point.y);
     if((point.y < (Yin - 255 - 108)) || (point.y > (Yin + 255 - 108)))
         [self.player toTop];
 }

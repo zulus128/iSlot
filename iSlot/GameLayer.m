@@ -447,6 +447,11 @@ static InappLayer* inlay;
 
                 [menu setEnabled:NO];
 
+                dropped_lab.visible = NO;
+                droppedcomp.visible = NO;
+
+                bigwin.visible = NO;
+
                 [[Common instance] validateRnd];
                 for(Combination* comb in combinations)
                     [comb release];
@@ -499,7 +504,7 @@ static InappLayer* inlay;
         CCSprite *spplus_t2 = [CCSprite spriteWithFile:@"TouchPlas.png"];
 		CCMenuItemSprite *itempl2 = [CCMenuItemSprite itemWithNormalSprite:spplus2 selectedSprite:spplus_t2 block:^(id sender) {
 
-            if([Common instance].lines < 3/*LINES_CNT*/)
+            if([Common instance].lines < LINES_CNT)
                 [Common instance].lines ++;
             
             [self refreshLabels];
@@ -689,6 +694,22 @@ static InappLayer* inlay;
         [menu setVisible:YES];
         [menu1 setVisible:NO];
 
+        
+        droppedcomp = [CCSprite spriteWithFile:@"LineCombination.png"];
+        droppedcomp.visible = NO;
+        [self addChild:droppedcomp z:700];
+        droppedcomp.position = ccp(514.5, 219);
+        
+        dropped_lab = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Dropped %d Combinations", 0] fontName:@"Marker Felt" fontSize:30];
+		dropped_lab.position =  ccp( 514.5 , 219 );
+        dropped_lab.visible = NO;
+		[self addChild: dropped_lab z:701];
+
+        bigwin = [CCSprite spriteWithFile:@"BigWin.png"];
+        bigwin.visible = NO;
+        [self addChild:bigwin z:750];
+        bigwin.position = ccp(512, 416.5);
+
         [self refreshLabels];
 	}
 	return self;
@@ -865,14 +886,23 @@ static InappLayer* inlay;
     [menu1 setEnabled:NO];
 
     if(combinations.count > 0) {
-
+        
         [Common instance].lastwin = winsum;
         [Common instance].levelwin += winsum;
         [self refreshLabels];
         [self performSelector:@selector(showComb) withObject:nil afterDelay:0];
     }
-
     
+    if(combinations.count > 0) {
+
+        [dropped_lab setString:[NSString stringWithFormat:@"Dropped %d Combinations", combinations.count]];
+        dropped_lab.visible = YES;
+        droppedcomp.visible = YES;
+    }
+    
+    bigwin.opacity = 0;
+    bigwin.visible = YES;
+    [bigwin runAction:[CCFadeIn actionWithDuration:0.5f]];
 }
 
 - (void) showComb {
@@ -931,7 +961,12 @@ static InappLayer* inlay;
             [slide[i] runAction:[CCMoveBy actionWithDuration:0.3f position:ccp(-1024,0)]];
 
     }
-//    return YES;
+
+if(droppedcomp.visible) {
+    dropped_lab.visible = NO;
+    droppedcomp.visible = NO;
+}
+
 }
 
 // on "dealloc" you need to release all your retained objects
