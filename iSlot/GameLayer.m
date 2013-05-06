@@ -11,11 +11,12 @@
 #import "InappLayer.h"
 
 #import "InappLayer.h"
-
+#import "BonusLayer.h"
 #import "AppDelegate.h"
 
 
 static InappLayer* inlay;
+static BonusLayer* bonlay;
 
 
 @implementation GameLayer
@@ -30,11 +31,16 @@ static InappLayer* inlay;
 	
     inlay = [InappLayer node];
     inlay.position = ccp(1024, 0);
-
+    
+    bonlay = [BonusLayer node];
+    bonlay.position = ccp(1024, 0);
+    
 	GameLayer *layer = [GameLayer node];
 	[scene addChild: layer];
     
     [scene addChild: inlay];
+    
+    [scene addChild: bonlay];
     
 	return scene;
 }
@@ -903,6 +909,16 @@ static InappLayer* inlay;
     bigwin.opacity = 0;
     bigwin.visible = YES;
     [bigwin runAction:[CCFadeIn actionWithDuration:0.5f]];
+    
+    colorLayer.opacity = 0;
+    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+    [colorLayer runAction:action];
+    menu.enabled = NO;
+    
+    bonlay.position = ccp(0, 0);
+    bonlay.
+
+    
 }
 
 - (void) showComb {

@@ -25,6 +25,12 @@
     CCLayerColor* colorLayer;
     CCMenu* menu;
     NSMutableArray *layers;
+    
+    CCSprite* sett1;
+    CCSprite* sett2;
+    CCSprite* sett3;
+    CCMenu* settmenu;
+
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

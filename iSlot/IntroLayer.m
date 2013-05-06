@@ -44,6 +44,8 @@ static InappLayer* inlay;
 
         CGSize screenSize = [CCDirector sharedDirector].winSize;
         
+        self.touchEnabled = YES;
+        
         colorLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 0)];
         [self addChild:colorLayer z:555];
 
@@ -101,12 +103,45 @@ static InappLayer* inlay;
         back2.position = ccp( 512, 63);
         [self addChild:back2 z:15];
 
+        sett1 = [CCSprite spriteWithFile:@"SettingWindow.png"];
+        sett1.position = ccp(772.5, 223);
+        sett1.opacity = 0;
+        [self addChild:sett1 z:150];
+        
+        CCMenuItem *enableMusic = [CCMenuItemImage itemFromNormalImage:@"SettingOn.png"
+                                                         selectedImage:@"SettingOn.png" target:nil selector:nil];
+        CCMenuItem *disableMusic = [CCMenuItemImage itemFromNormalImage:@"SettingOff.png"
+                                                          selectedImage:@"SettingOff.png" target:nil selector:nil];
+        CCMenuItemToggle *musicToggle = [CCMenuItemToggle itemWithTarget:self
+                                                                selector:@selector(musicMute:) items:enableMusic, disableMusic, nil];
+        [musicToggle setPosition:ccp(836, 264.5)];
+        
+        CCMenuItem *enableMusic1 = [CCMenuItemImage itemFromNormalImage:@"SettingOn.png"
+                                                         selectedImage:@"SettingOn.png" target:nil selector:nil];
+        CCMenuItem *disableMusic1 = [CCMenuItemImage itemFromNormalImage:@"SettingOff.png"
+                                                          selectedImage:@"SettingOff.png" target:nil selector:nil];
+        CCMenuItemToggle *soundToggle = [CCMenuItemToggle itemWithTarget:self
+                                                                selector:@selector(soundMute:) items:enableMusic1, disableMusic1, nil];
+        [soundToggle setPosition:ccp(836, 196.5)];
+        
+        settmenu = [CCMenu menuWithItems: musicToggle, soundToggle, nil];
+        settmenu.opacity = 0;
+        settmenu.enabled = NO;
+        [self addChild: settmenu z:707];
+		[settmenu setPosition:ccp(0, 0)];
+
+        
         [self refreshLabels];
         
         
         CCSprite *spsett = [CCSprite spriteWithFile:@"Setting.png"];
         CCSprite *spsett_t1 = [CCSprite spriteWithFile:@"Setting.png"];
 		CCMenuItemSprite *itemsett = [CCMenuItemSprite itemWithNormalSprite:spsett selectedSprite:spsett_t1 block:^(id sender) {
+            NSLog(@"settings");
+            
+            [sett1 runAction:[CCFadeIn actionWithDuration:0.5f]];
+            [settmenu runAction:[CCFadeIn actionWithDuration:0.5f]];
+            settmenu.enabled = YES;
             
 		}];
         [itemsett setPosition:ccp(868, 71)];
@@ -192,6 +227,34 @@ static InappLayer* inlay;
 	}
 	
 	return self;
+}
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+
+    UITouch *touch =[touches anyObject];
+    CGPoint point = [touch locationInView:[touch view]];
+    point = [[CCDirector sharedDirector]convertToGL:point];
+
+//    NSLog(@"touch %f, %f", point.x, point.y);
+    float x = point.x;
+    float y = point.y;
+    
+    if(settmenu.enabled)
+    if((x < 610) || (x > 927) || (y < 114) || (y > 350)) {
+        
+        [sett1 runAction:[CCFadeOut actionWithDuration:0.5f]];
+        [settmenu runAction:[CCFadeOut actionWithDuration:0.5f]];
+        settmenu.enabled = NO;
+
+    }
+}
+
+-(void)musicMute:(id)sender {
+    
+}
+
+-(void)soundMute:(id)sender {
+    
 }
 
 -(void) gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController {
