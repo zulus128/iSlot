@@ -7,6 +7,7 @@
 //
 
 //#import "InappLayer.h"
+#import "cocos2d.h"
 
 #define SPEED1 0.062f
 #define SLIDE_TYPES 11
@@ -64,6 +65,14 @@
 
 #define CCCA(x) [[x copy] autorelease]
 
+@interface CCLayer (toTop)
+
+- (void) toTop;
+- (void) afterBonus;
+- (void) afterShop;
+- (void) refreshLabels;
+
+@end
 
 @interface Common : NSObject {
 

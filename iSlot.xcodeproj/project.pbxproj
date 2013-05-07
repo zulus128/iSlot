@@ -380,6 +380,55 @@
 		DD4A870016EFFBB700E72FDA /* FonMapLevel01_1-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4A86FE16EFFBB700E72FDA /* FonMapLevel01_1-ipadhd.png */; };
 		DD4A870116EFFBB700E72FDA /* FonMapLevel01_2-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4A86FF16EFFBB700E72FDA /* FonMapLevel01_2-ipadhd.png */; };
 		DD4C42D416E9CDE600FA4756 /* CCLayerPanZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4C42D316E9CDE600FA4756 /* CCLayerPanZoom.m */; };
+		DD9709CD173967560078FDC4 /* FonPrice-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709CA173967560078FDC4 /* FonPrice-ipad.png */; };
+		DD9709CE173967560078FDC4 /* FonShopLine-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709CB173967560078FDC4 /* FonShopLine-ipad.png */; };
+		DD9709CF173967560078FDC4 /* LockShop-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709CC173967560078FDC4 /* LockShop-ipad.png */; };
+		DD9709D3173967700078FDC4 /* FonPrice-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709D0173967700078FDC4 /* FonPrice-ipadhd.png */; };
+		DD9709D4173967700078FDC4 /* FonShopLine-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709D1173967700078FDC4 /* FonShopLine-ipadhd.png */; };
+		DD9709D5173967700078FDC4 /* LockShop-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709D2173967700078FDC4 /* LockShop-ipadhd.png */; };
+		DD9709EC1739679E0078FDC4 /* ShopLine01-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709D71739679E0078FDC4 /* ShopLine01-ipadhd.png */; };
+		DD9709ED1739679E0078FDC4 /* ShopLine02-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709D81739679E0078FDC4 /* ShopLine02-ipadhd.png */; };
+		DD9709EE1739679E0078FDC4 /* ShopLine03-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709D91739679E0078FDC4 /* ShopLine03-ipadhd.png */; };
+		DD9709EF1739679E0078FDC4 /* ShopLine04-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709DA1739679E0078FDC4 /* ShopLine04-ipadhd.png */; };
+		DD9709F01739679E0078FDC4 /* ShopLine05-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709DB1739679E0078FDC4 /* ShopLine05-ipadhd.png */; };
+		DD9709F11739679E0078FDC4 /* ShopLine06-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709DC1739679E0078FDC4 /* ShopLine06-ipadhd.png */; };
+		DD9709F21739679E0078FDC4 /* ShopLine07-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709DD1739679E0078FDC4 /* ShopLine07-ipadhd.png */; };
+		DD9709F31739679E0078FDC4 /* ShopLine08-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709DE1739679E0078FDC4 /* ShopLine08-ipadhd.png */; };
+		DD9709F41739679E0078FDC4 /* ShopLine09-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709DF1739679E0078FDC4 /* ShopLine09-ipadhd.png */; };
+		DD9709F51739679E0078FDC4 /* ShopLine10-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709E01739679E0078FDC4 /* ShopLine10-ipadhd.png */; };
+		DD9709F61739679E0078FDC4 /* ShopLine11-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709E11739679E0078FDC4 /* ShopLine11-ipadhd.png */; };
+		DD9709F71739679E0078FDC4 /* ShopLine12-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709E21739679E0078FDC4 /* ShopLine12-ipadhd.png */; };
+		DD9709F81739679E0078FDC4 /* ShopLine13-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709E31739679E0078FDC4 /* ShopLine13-ipadhd.png */; };
+		DD9709F91739679E0078FDC4 /* ShopLine14-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709E41739679E0078FDC4 /* ShopLine14-ipadhd.png */; };
+		DD9709FA1739679E0078FDC4 /* ShopLine15-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709E51739679E0078FDC4 /* ShopLine15-ipadhd.png */; };
+		DD9709FB1739679E0078FDC4 /* ShopLine16-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709E61739679E0078FDC4 /* ShopLine16-ipadhd.png */; };
+		DD9709FC1739679E0078FDC4 /* ShopLine17-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709E71739679E0078FDC4 /* ShopLine17-ipadhd.png */; };
+		DD9709FD1739679E0078FDC4 /* ShopLine18-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709E81739679E0078FDC4 /* ShopLine18-ipadhd.png */; };
+		DD9709FE1739679E0078FDC4 /* ShopLine19-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709E91739679E0078FDC4 /* ShopLine19-ipadhd.png */; };
+		DD9709FF1739679E0078FDC4 /* ShopLine20-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709EA1739679E0078FDC4 /* ShopLine20-ipadhd.png */; };
+		DD970A001739679E0078FDC4 /* ShopLine21-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709EB1739679E0078FDC4 /* ShopLine21-ipadhd.png */; };
+		DD970A16173967B40078FDC4 /* ShopLine01-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A01173967B40078FDC4 /* ShopLine01-ipad.png */; };
+		DD970A17173967B40078FDC4 /* ShopLine02-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A02173967B40078FDC4 /* ShopLine02-ipad.png */; };
+		DD970A18173967B40078FDC4 /* ShopLine03-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A03173967B40078FDC4 /* ShopLine03-ipad.png */; };
+		DD970A19173967B40078FDC4 /* ShopLine04-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A04173967B40078FDC4 /* ShopLine04-ipad.png */; };
+		DD970A1A173967B40078FDC4 /* ShopLine05-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A05173967B40078FDC4 /* ShopLine05-ipad.png */; };
+		DD970A1B173967B40078FDC4 /* ShopLine06-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A06173967B40078FDC4 /* ShopLine06-ipad.png */; };
+		DD970A1C173967B40078FDC4 /* ShopLine07-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A07173967B40078FDC4 /* ShopLine07-ipad.png */; };
+		DD970A1D173967B40078FDC4 /* ShopLine08-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A08173967B40078FDC4 /* ShopLine08-ipad.png */; };
+		DD970A1E173967B40078FDC4 /* ShopLine09-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A09173967B40078FDC4 /* ShopLine09-ipad.png */; };
+		DD970A1F173967B40078FDC4 /* ShopLine10-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A0A173967B40078FDC4 /* ShopLine10-ipad.png */; };
+		DD970A20173967B40078FDC4 /* ShopLine11-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A0B173967B40078FDC4 /* ShopLine11-ipad.png */; };
+		DD970A21173967B40078FDC4 /* ShopLine12-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A0C173967B40078FDC4 /* ShopLine12-ipad.png */; };
+		DD970A22173967B40078FDC4 /* ShopLine13-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A0D173967B40078FDC4 /* ShopLine13-ipad.png */; };
+		DD970A23173967B40078FDC4 /* ShopLine14-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A0E173967B40078FDC4 /* ShopLine14-ipad.png */; };
+		DD970A24173967B40078FDC4 /* ShopLine15-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A0F173967B40078FDC4 /* ShopLine15-ipad.png */; };
+		DD970A25173967B40078FDC4 /* ShopLine16-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A10173967B40078FDC4 /* ShopLine16-ipad.png */; };
+		DD970A26173967B40078FDC4 /* ShopLine17-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A11173967B40078FDC4 /* ShopLine17-ipad.png */; };
+		DD970A27173967B40078FDC4 /* ShopLine18-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A12173967B40078FDC4 /* ShopLine18-ipad.png */; };
+		DD970A28173967B40078FDC4 /* ShopLine19-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A13173967B40078FDC4 /* ShopLine19-ipad.png */; };
+		DD970A29173967B40078FDC4 /* ShopLine20-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A14173967B40078FDC4 /* ShopLine20-ipad.png */; };
+		DD970A2A173967B40078FDC4 /* ShopLine21-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD970A15173967B40078FDC4 /* ShopLine21-ipad.png */; };
+		DD970A2D17396A680078FDC4 /* ShopLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD970A2C17396A670078FDC4 /* ShopLayer.m */; };
 		DD9A29EC1735F45E00B1E9C0 /* LineCombination-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9A29EB1735F45E00B1E9C0 /* LineCombination-ipad.png */; };
 		DD9A29EE1735F46E00B1E9C0 /* LineCombination-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9A29ED1735F46E00B1E9C0 /* LineCombination-ipadhd.png */; };
 		DD9A29F01735FA3800B1E9C0 /* BigWin-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9A29EF1735FA3800B1E9C0 /* BigWin-ipad.png */; };
@@ -960,6 +1009,56 @@
 		DD4A86FF16EFFBB700E72FDA /* FonMapLevel01_2-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonMapLevel01_2-ipadhd.png"; sourceTree = "<group>"; };
 		DD4C42D216E9CDE600FA4756 /* CCLayerPanZoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLayerPanZoom.h; sourceTree = "<group>"; };
 		DD4C42D316E9CDE600FA4756 /* CCLayerPanZoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLayerPanZoom.m; sourceTree = "<group>"; };
+		DD9709CA173967560078FDC4 /* FonPrice-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonPrice-ipad.png"; sourceTree = "<group>"; };
+		DD9709CB173967560078FDC4 /* FonShopLine-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonShopLine-ipad.png"; sourceTree = "<group>"; };
+		DD9709CC173967560078FDC4 /* LockShop-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LockShop-ipad.png"; sourceTree = "<group>"; };
+		DD9709D0173967700078FDC4 /* FonPrice-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonPrice-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709D1173967700078FDC4 /* FonShopLine-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonShopLine-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709D2173967700078FDC4 /* LockShop-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LockShop-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709D71739679E0078FDC4 /* ShopLine01-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine01-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709D81739679E0078FDC4 /* ShopLine02-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine02-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709D91739679E0078FDC4 /* ShopLine03-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine03-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709DA1739679E0078FDC4 /* ShopLine04-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine04-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709DB1739679E0078FDC4 /* ShopLine05-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine05-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709DC1739679E0078FDC4 /* ShopLine06-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine06-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709DD1739679E0078FDC4 /* ShopLine07-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine07-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709DE1739679E0078FDC4 /* ShopLine08-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine08-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709DF1739679E0078FDC4 /* ShopLine09-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine09-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709E01739679E0078FDC4 /* ShopLine10-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine10-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709E11739679E0078FDC4 /* ShopLine11-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine11-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709E21739679E0078FDC4 /* ShopLine12-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine12-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709E31739679E0078FDC4 /* ShopLine13-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine13-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709E41739679E0078FDC4 /* ShopLine14-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine14-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709E51739679E0078FDC4 /* ShopLine15-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine15-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709E61739679E0078FDC4 /* ShopLine16-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine16-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709E71739679E0078FDC4 /* ShopLine17-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine17-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709E81739679E0078FDC4 /* ShopLine18-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine18-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709E91739679E0078FDC4 /* ShopLine19-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine19-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709EA1739679E0078FDC4 /* ShopLine20-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine20-ipadhd.png"; sourceTree = "<group>"; };
+		DD9709EB1739679E0078FDC4 /* ShopLine21-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine21-ipadhd.png"; sourceTree = "<group>"; };
+		DD970A01173967B40078FDC4 /* ShopLine01-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine01-ipad.png"; sourceTree = "<group>"; };
+		DD970A02173967B40078FDC4 /* ShopLine02-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine02-ipad.png"; sourceTree = "<group>"; };
+		DD970A03173967B40078FDC4 /* ShopLine03-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine03-ipad.png"; sourceTree = "<group>"; };
+		DD970A04173967B40078FDC4 /* ShopLine04-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine04-ipad.png"; sourceTree = "<group>"; };
+		DD970A05173967B40078FDC4 /* ShopLine05-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine05-ipad.png"; sourceTree = "<group>"; };
+		DD970A06173967B40078FDC4 /* ShopLine06-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine06-ipad.png"; sourceTree = "<group>"; };
+		DD970A07173967B40078FDC4 /* ShopLine07-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine07-ipad.png"; sourceTree = "<group>"; };
+		DD970A08173967B40078FDC4 /* ShopLine08-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine08-ipad.png"; sourceTree = "<group>"; };
+		DD970A09173967B40078FDC4 /* ShopLine09-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine09-ipad.png"; sourceTree = "<group>"; };
+		DD970A0A173967B40078FDC4 /* ShopLine10-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine10-ipad.png"; sourceTree = "<group>"; };
+		DD970A0B173967B40078FDC4 /* ShopLine11-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine11-ipad.png"; sourceTree = "<group>"; };
+		DD970A0C173967B40078FDC4 /* ShopLine12-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine12-ipad.png"; sourceTree = "<group>"; };
+		DD970A0D173967B40078FDC4 /* ShopLine13-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine13-ipad.png"; sourceTree = "<group>"; };
+		DD970A0E173967B40078FDC4 /* ShopLine14-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine14-ipad.png"; sourceTree = "<group>"; };
+		DD970A0F173967B40078FDC4 /* ShopLine15-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine15-ipad.png"; sourceTree = "<group>"; };
+		DD970A10173967B40078FDC4 /* ShopLine16-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine16-ipad.png"; sourceTree = "<group>"; };
+		DD970A11173967B40078FDC4 /* ShopLine17-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine17-ipad.png"; sourceTree = "<group>"; };
+		DD970A12173967B40078FDC4 /* ShopLine18-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine18-ipad.png"; sourceTree = "<group>"; };
+		DD970A13173967B40078FDC4 /* ShopLine19-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine19-ipad.png"; sourceTree = "<group>"; };
+		DD970A14173967B40078FDC4 /* ShopLine20-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine20-ipad.png"; sourceTree = "<group>"; };
+		DD970A15173967B40078FDC4 /* ShopLine21-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShopLine21-ipad.png"; sourceTree = "<group>"; };
+		DD970A2B17396A670078FDC4 /* ShopLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopLayer.h; sourceTree = "<group>"; };
+		DD970A2C17396A670078FDC4 /* ShopLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopLayer.m; sourceTree = "<group>"; };
 		DD9A29EB1735F45E00B1E9C0 /* LineCombination-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LineCombination-ipad.png"; sourceTree = "<group>"; };
 		DD9A29ED1735F46E00B1E9C0 /* LineCombination-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LineCombination-ipadhd.png"; sourceTree = "<group>"; };
 		DD9A29EF1735FA3800B1E9C0 /* BigWin-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BigWin-ipad.png"; sourceTree = "<group>"; };
@@ -1242,6 +1341,7 @@
 		9C70748C16C375800053C3F0 = {
 			isa = PBXGroup;
 			children = (
+				DD9709C91739673F0078FDC4 /* Shop */,
 				9C3877731737AB6B0004BCC7 /* Bonus */,
 				DD9A29EA1735F44500B1E9C0 /* add_tz */,
 				9C04675A171D41A100BAC30D /* inapp */,
@@ -1302,6 +1402,8 @@
 				9C0A47F316C3A7CA00B23B2C /* GameLayer.m */,
 				9C1C2A87171D0E830053038E /* InappLayer.h */,
 				9C1C2A88171D0E830053038E /* InappLayer.m */,
+				DD970A2B17396A670078FDC4 /* ShopLayer.h */,
+				DD970A2C17396A670078FDC4 /* ShopLayer.m */,
 				9C7FE26916D34BB0000ED31C /* Combination.h */,
 				9C7FE26A16D34BB0000ED31C /* Combination.m */,
 				9C9D6FD516C543F1004F5800 /* Bar.h */,
@@ -1822,6 +1924,69 @@
 			name = Blur;
 			sourceTree = "<group>";
 		};
+		DD9709C91739673F0078FDC4 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				DD9709D61739677F0078FDC4 /* ShopLine */,
+				DD9709CA173967560078FDC4 /* FonPrice-ipad.png */,
+				DD9709CB173967560078FDC4 /* FonShopLine-ipad.png */,
+				DD9709CC173967560078FDC4 /* LockShop-ipad.png */,
+				DD9709D0173967700078FDC4 /* FonPrice-ipadhd.png */,
+				DD9709D1173967700078FDC4 /* FonShopLine-ipadhd.png */,
+				DD9709D2173967700078FDC4 /* LockShop-ipadhd.png */,
+			);
+			name = Shop;
+			sourceTree = "<group>";
+		};
+		DD9709D61739677F0078FDC4 /* ShopLine */ = {
+			isa = PBXGroup;
+			children = (
+				DD970A01173967B40078FDC4 /* ShopLine01-ipad.png */,
+				DD970A02173967B40078FDC4 /* ShopLine02-ipad.png */,
+				DD970A03173967B40078FDC4 /* ShopLine03-ipad.png */,
+				DD970A04173967B40078FDC4 /* ShopLine04-ipad.png */,
+				DD970A05173967B40078FDC4 /* ShopLine05-ipad.png */,
+				DD970A06173967B40078FDC4 /* ShopLine06-ipad.png */,
+				DD970A07173967B40078FDC4 /* ShopLine07-ipad.png */,
+				DD970A08173967B40078FDC4 /* ShopLine08-ipad.png */,
+				DD970A09173967B40078FDC4 /* ShopLine09-ipad.png */,
+				DD970A0A173967B40078FDC4 /* ShopLine10-ipad.png */,
+				DD970A0B173967B40078FDC4 /* ShopLine11-ipad.png */,
+				DD970A0C173967B40078FDC4 /* ShopLine12-ipad.png */,
+				DD970A0D173967B40078FDC4 /* ShopLine13-ipad.png */,
+				DD970A0E173967B40078FDC4 /* ShopLine14-ipad.png */,
+				DD970A0F173967B40078FDC4 /* ShopLine15-ipad.png */,
+				DD970A10173967B40078FDC4 /* ShopLine16-ipad.png */,
+				DD970A11173967B40078FDC4 /* ShopLine17-ipad.png */,
+				DD970A12173967B40078FDC4 /* ShopLine18-ipad.png */,
+				DD970A13173967B40078FDC4 /* ShopLine19-ipad.png */,
+				DD970A14173967B40078FDC4 /* ShopLine20-ipad.png */,
+				DD970A15173967B40078FDC4 /* ShopLine21-ipad.png */,
+				DD9709D71739679E0078FDC4 /* ShopLine01-ipadhd.png */,
+				DD9709D81739679E0078FDC4 /* ShopLine02-ipadhd.png */,
+				DD9709D91739679E0078FDC4 /* ShopLine03-ipadhd.png */,
+				DD9709DA1739679E0078FDC4 /* ShopLine04-ipadhd.png */,
+				DD9709DB1739679E0078FDC4 /* ShopLine05-ipadhd.png */,
+				DD9709DC1739679E0078FDC4 /* ShopLine06-ipadhd.png */,
+				DD9709DD1739679E0078FDC4 /* ShopLine07-ipadhd.png */,
+				DD9709DE1739679E0078FDC4 /* ShopLine08-ipadhd.png */,
+				DD9709DF1739679E0078FDC4 /* ShopLine09-ipadhd.png */,
+				DD9709E01739679E0078FDC4 /* ShopLine10-ipadhd.png */,
+				DD9709E11739679E0078FDC4 /* ShopLine11-ipadhd.png */,
+				DD9709E21739679E0078FDC4 /* ShopLine12-ipadhd.png */,
+				DD9709E31739679E0078FDC4 /* ShopLine13-ipadhd.png */,
+				DD9709E41739679E0078FDC4 /* ShopLine14-ipadhd.png */,
+				DD9709E51739679E0078FDC4 /* ShopLine15-ipadhd.png */,
+				DD9709E61739679E0078FDC4 /* ShopLine16-ipadhd.png */,
+				DD9709E71739679E0078FDC4 /* ShopLine17-ipadhd.png */,
+				DD9709E81739679E0078FDC4 /* ShopLine18-ipadhd.png */,
+				DD9709E91739679E0078FDC4 /* ShopLine19-ipadhd.png */,
+				DD9709EA1739679E0078FDC4 /* ShopLine20-ipadhd.png */,
+				DD9709EB1739679E0078FDC4 /* ShopLine21-ipadhd.png */,
+			);
+			name = ShopLine;
+			sourceTree = "<group>";
+		};
 		DD9A29EA1735F44500B1E9C0 /* add_tz */ = {
 			isa = PBXGroup;
 			children = (
@@ -2207,6 +2372,54 @@
 				9C3877811737D7920004BCC7 /* ChestOpen-ipadhd.png in Resources */,
 				9C3877821737D7920004BCC7 /* FonBonus-ipadhd.png in Resources */,
 				9C3877831737D7920004BCC7 /* Key-ipadhd.png in Resources */,
+				DD9709CD173967560078FDC4 /* FonPrice-ipad.png in Resources */,
+				DD9709CE173967560078FDC4 /* FonShopLine-ipad.png in Resources */,
+				DD9709CF173967560078FDC4 /* LockShop-ipad.png in Resources */,
+				DD9709D3173967700078FDC4 /* FonPrice-ipadhd.png in Resources */,
+				DD9709D4173967700078FDC4 /* FonShopLine-ipadhd.png in Resources */,
+				DD9709D5173967700078FDC4 /* LockShop-ipadhd.png in Resources */,
+				DD9709EC1739679E0078FDC4 /* ShopLine01-ipadhd.png in Resources */,
+				DD9709ED1739679E0078FDC4 /* ShopLine02-ipadhd.png in Resources */,
+				DD9709EE1739679E0078FDC4 /* ShopLine03-ipadhd.png in Resources */,
+				DD9709EF1739679E0078FDC4 /* ShopLine04-ipadhd.png in Resources */,
+				DD9709F01739679E0078FDC4 /* ShopLine05-ipadhd.png in Resources */,
+				DD9709F11739679E0078FDC4 /* ShopLine06-ipadhd.png in Resources */,
+				DD9709F21739679E0078FDC4 /* ShopLine07-ipadhd.png in Resources */,
+				DD9709F31739679E0078FDC4 /* ShopLine08-ipadhd.png in Resources */,
+				DD9709F41739679E0078FDC4 /* ShopLine09-ipadhd.png in Resources */,
+				DD9709F51739679E0078FDC4 /* ShopLine10-ipadhd.png in Resources */,
+				DD9709F61739679E0078FDC4 /* ShopLine11-ipadhd.png in Resources */,
+				DD9709F71739679E0078FDC4 /* ShopLine12-ipadhd.png in Resources */,
+				DD9709F81739679E0078FDC4 /* ShopLine13-ipadhd.png in Resources */,
+				DD9709F91739679E0078FDC4 /* ShopLine14-ipadhd.png in Resources */,
+				DD9709FA1739679E0078FDC4 /* ShopLine15-ipadhd.png in Resources */,
+				DD9709FB1739679E0078FDC4 /* ShopLine16-ipadhd.png in Resources */,
+				DD9709FC1739679E0078FDC4 /* ShopLine17-ipadhd.png in Resources */,
+				DD9709FD1739679E0078FDC4 /* ShopLine18-ipadhd.png in Resources */,
+				DD9709FE1739679E0078FDC4 /* ShopLine19-ipadhd.png in Resources */,
+				DD9709FF1739679E0078FDC4 /* ShopLine20-ipadhd.png in Resources */,
+				DD970A001739679E0078FDC4 /* ShopLine21-ipadhd.png in Resources */,
+				DD970A16173967B40078FDC4 /* ShopLine01-ipad.png in Resources */,
+				DD970A17173967B40078FDC4 /* ShopLine02-ipad.png in Resources */,
+				DD970A18173967B40078FDC4 /* ShopLine03-ipad.png in Resources */,
+				DD970A19173967B40078FDC4 /* ShopLine04-ipad.png in Resources */,
+				DD970A1A173967B40078FDC4 /* ShopLine05-ipad.png in Resources */,
+				DD970A1B173967B40078FDC4 /* ShopLine06-ipad.png in Resources */,
+				DD970A1C173967B40078FDC4 /* ShopLine07-ipad.png in Resources */,
+				DD970A1D173967B40078FDC4 /* ShopLine08-ipad.png in Resources */,
+				DD970A1E173967B40078FDC4 /* ShopLine09-ipad.png in Resources */,
+				DD970A1F173967B40078FDC4 /* ShopLine10-ipad.png in Resources */,
+				DD970A20173967B40078FDC4 /* ShopLine11-ipad.png in Resources */,
+				DD970A21173967B40078FDC4 /* ShopLine12-ipad.png in Resources */,
+				DD970A22173967B40078FDC4 /* ShopLine13-ipad.png in Resources */,
+				DD970A23173967B40078FDC4 /* ShopLine14-ipad.png in Resources */,
+				DD970A24173967B40078FDC4 /* ShopLine15-ipad.png in Resources */,
+				DD970A25173967B40078FDC4 /* ShopLine16-ipad.png in Resources */,
+				DD970A26173967B40078FDC4 /* ShopLine17-ipad.png in Resources */,
+				DD970A27173967B40078FDC4 /* ShopLine18-ipad.png in Resources */,
+				DD970A28173967B40078FDC4 /* ShopLine19-ipad.png in Resources */,
+				DD970A29173967B40078FDC4 /* ShopLine20-ipad.png in Resources */,
+				DD970A2A173967B40078FDC4 /* ShopLine21-ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2338,6 +2551,7 @@
 				DD4C42D416E9CDE600FA4756 /* CCLayerPanZoom.m in Sources */,
 				9C1C2A89171D0E830053038E /* InappLayer.m in Sources */,
 				9CA945FF1737F21F00141E01 /* BonusLayer.m in Sources */,
+				DD970A2D17396A680078FDC4 /* ShopLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,8 +12,11 @@
 
 #import "InappLayer.h"
 #import "BonusLayer.h"
+#import "ShopLayer.h"
+
 #import "AppDelegate.h"
 
+static ShopLayer* shoplay;
 
 static InappLayer* inlay;
 static BonusLayer* bonlay;
@@ -34,6 +37,11 @@ static BonusLayer* bonlay;
     
     bonlay = [BonusLayer node];
     bonlay.position = ccp(1024, 0);
+    bonlay.opacity = 0;
+    
+    shoplay = [ShopLayer node];
+    shoplay.position = ccp(0, 0);
+    shoplay.opacity = 0;
     
 	GameLayer *layer = [GameLayer node];
 	[scene addChild: layer];
@@ -41,6 +49,8 @@ static BonusLayer* bonlay;
     [scene addChild: inlay];
     
     [scene addChild: bonlay];
+
+    [scene addChild: shoplay];
     
 	return scene;
 }
@@ -58,7 +68,8 @@ static BonusLayer* bonlay;
         [self addChild:colorLayer z:555];
         
         inlay.player = self;
-
+        bonlay.player = self;
+        
 //        fames[0] = FAME_POINTS1;
 //        fames[1] = FAME_POINTS2;
 //        fames[2] = FAME_POINTS3;
@@ -658,7 +669,21 @@ static BonusLayer* bonlay;
         }];
         [itemgc setPosition:ccp(525, 730)];
 
-        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, itemback, item_lu1, item_lu2, iteminapp, iteminapp1, itemgc, nil];
+        CCSprite *spshop = [CCSprite spriteWithFile:@"Shop.png"];
+        CCSprite *spshop_t1 = [CCSprite spriteWithFile:@"TouchShop.png"];
+		CCMenuItemSprite *itemshop = [CCMenuItemSprite itemWithNormalSprite:spshop selectedSprite:spshop_t1 block:^(id sender) {
+            
+            colorLayer.opacity = 0;
+            CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+            [colorLayer runAction:action];
+            menu.enabled = NO;
+            
+            [shoplay show];
+
+		}];
+        [itemshop setPosition:ccp(740, 730)];
+
+        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, itemback, item_lu1, item_lu2, iteminapp, iteminapp1, itemgc, itemshop, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 
@@ -727,8 +752,35 @@ static BonusLayer* bonlay;
 	[[app navController] dismissModalViewControllerAnimated:YES];
 }
 
+-(void) afterBonus {
+    
+    NSLog(@"afterBonus");
+
+    CCAction* action = [CCFadeTo actionWithDuration:0.1f opacity:0];
+    [colorLayer runAction:action];
+    menu.enabled = YES;
+    [bonlay hide];
+    bonus = NO;
+
+}
+
+- (void) afterShop {
+    
+    NSLog(@"afterShop");
+    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
+    [colorLayer runAction:action];
+    menu.enabled = YES;
+    
+}
+
 -(void) toTop {
     
+    NSLog(@"toTop");
+    if (bonus) {
+        
+        [self afterBonus];
+        return;
+    }
     CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
     [colorLayer runAction:action];
     menu.enabled = YES;
@@ -906,18 +958,27 @@ static BonusLayer* bonlay;
         droppedcomp.visible = YES;
     }
     
-    bigwin.opacity = 0;
-    bigwin.visible = YES;
-    [bigwin runAction:[CCFadeIn actionWithDuration:0.5f]];
-    
-    colorLayer.opacity = 0;
-    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
-    [colorLayer runAction:action];
-    menu.enabled = NO;
-    
-    bonlay.position = ccp(0, 0);
-    bonlay.
 
+    bon = !bon;
+    
+    if(bon) {
+        colorLayer.opacity = 0;
+        CCAction* action = [CCFadeTo actionWithDuration:0.1f opacity:180];
+        [colorLayer runAction:action];
+
+        menu.enabled = NO;
+        
+        bonlay.position = ccp(0, 0);
+        [bonlay show];
+        bonus = YES;
+    }
+    else {
+
+        bigwin.opacity = 0;
+        bigwin.visible = YES;
+        [bigwin runAction:[CCFadeIn actionWithDuration:0.5f]];
+        
+    }
     
 }
 

@@ -56,6 +56,10 @@
     CCLabelTTF *dropped_lab;
     
     CCSprite* bigwin;
+    
+    BOOL bonus;
+    
+    BOOL bon;
 
 }
 -(void) toTop;

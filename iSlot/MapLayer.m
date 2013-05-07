@@ -13,9 +13,12 @@
 #import "Common.h"
 
 #import "InappLayer.h"
+#import "ShopLayer.h"
+
 #import "AppDelegate.h"
 
 static InappLayer* inlay;
+static ShopLayer* shoplay;
 static CCLayerColor* colorLayer;
 static CCMenu* menu1;
 static MapLayer *layer;
@@ -33,7 +36,13 @@ static MapLayer *layer;
 
     inlay = [InappLayer node];
     inlay.position = ccp(1024, 0);
-	layer = [MapLayer node];
+
+    shoplay = [ShopLayer node];
+    shoplay.position = ccp(0, 0);
+    shoplay.opacity = 0;
+
+	
+    layer = [MapLayer node];
 
     
     CCSprite* top = [CCSprite spriteWithFile:@"UpBar.png"];
@@ -102,7 +111,21 @@ static MapLayer *layer;
     }];
     [itemgc setPosition:ccp(525, 730)];
 
-    menu1 = [CCMenu menuWithItems: itemback, iteminapp, iteminapp1, itemgc, nil];
+    CCSprite *spshop = [CCSprite spriteWithFile:@"Shop.png"];
+    CCSprite *spshop_t1 = [CCSprite spriteWithFile:@"TouchShop.png"];
+    CCMenuItemSprite *itemshop = [CCMenuItemSprite itemWithNormalSprite:spshop selectedSprite:spshop_t1 block:^(id sender) {
+        
+        colorLayer.opacity = 0;
+        CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+        [colorLayer runAction:action];
+        menu1.enabled = NO;
+        
+        [shoplay show];
+
+    }];
+    [itemshop setPosition:ccp(740, 730)];
+
+    menu1 = [CCMenu menuWithItems: itemback, iteminapp, iteminapp1, itemgc, itemshop, nil];
     [scene addChild: menu1 z:107];
     [menu1 setPosition:ccp(0, 0)];
     
@@ -130,6 +153,7 @@ static MapLayer *layer;
     [scene addChild: layer];
 
     [scene addChild: inlay z:556];
+    [scene addChild: shoplay z:556];
 
 	return scene;
 }
@@ -227,6 +251,15 @@ static MapLayer *layer;
 	}
 	
 	return self;
+}
+
+- (void) afterShop {
+    
+    NSLog(@"afterShop");
+    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
+    [colorLayer runAction:action];
+    menu.enabled = YES;
+    
 }
 
 -(void) toTop {

@@ -9,12 +9,6 @@
 #import "InappLayer.h"
 #import "Common.h"
 
-@interface CCLayer (toTop)
-
-- (void) toTop;
-- (void) refreshLabels;
-
-@end
 
 @implementation InappLayer
 

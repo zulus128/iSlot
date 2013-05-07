@@ -13,10 +13,12 @@
 #import "MapLayer.h"
 
 #import "InappLayer.h"
+#import "ShopLayer.h"
 
 #import "AppDelegate.h"
 
 static InappLayer* inlay;
+static ShopLayer* shoplay;
 
 #pragma mark - IntroLayer
 
@@ -28,11 +30,17 @@ static InappLayer* inlay;
 	
     inlay = [InappLayer node];
     inlay.position = ccp(1024, 0);
-
+    
+    shoplay = [ShopLayer node];
+    shoplay.position = ccp(0, 0);
+    shoplay.opacity = 0;
+    
 	IntroLayer *layer = [IntroLayer node];
 	[scene addChild: layer];
 	
     [scene addChild: inlay];
+    
+    [scene addChild: shoplay];
     
 	return scene;
 }
@@ -50,6 +58,7 @@ static InappLayer* inlay;
         [self addChild:colorLayer z:555];
 
         inlay.player = self;
+        shoplay.player = self;
         
         CCSprite* back1 = [CCSprite spriteWithFile:@"FonBack.png"];
         back1.position = ccp( 544, 70.5);
@@ -206,9 +215,9 @@ static InappLayer* inlay;
         CCSprite *spgc_t1 = [CCSprite spriteWithFile:@"TouchGameCenter.png"];
 		CCMenuItemSprite *itemgc = [CCMenuItemSprite itemWithNormalSprite:spgc selectedSprite:spgc_t1 block:^(id sender) {
             
-//            GKGameCenterViewController *leaderboardViewController = [[GKGameCenterViewController alloc] init];
-//            leaderboardViewController.gameCenterDelegate = self;
-
+            //            GKGameCenterViewController *leaderboardViewController = [[GKGameCenterViewController alloc] init];
+            //            leaderboardViewController.gameCenterDelegate = self;
+            
             GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
 			leaderboardViewController.leaderboardDelegate = self;
 			
@@ -220,7 +229,21 @@ static InappLayer* inlay;
 		}];
         [itemgc setPosition:ccp(525, 730)];
         
-        menu = [CCMenu menuWithItems: itemsett, itemfb, itemtwit, iteminapp, iteminapp1, itemgc, nil];
+        CCSprite *spshop = [CCSprite spriteWithFile:@"Shop.png"];
+        CCSprite *spshop_t1 = [CCSprite spriteWithFile:@"TouchShop.png"];
+		CCMenuItemSprite *itemshop = [CCMenuItemSprite itemWithNormalSprite:spshop selectedSprite:spshop_t1 block:^(id sender) {
+            
+            colorLayer.opacity = 0;
+            CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+            [colorLayer runAction:action];
+            menu.enabled = NO;
+
+            [shoplay show];
+
+		}];
+        [itemshop setPosition:ccp(740, 730)];
+        
+        menu = [CCMenu menuWithItems: itemsett, itemfb, itemtwit, iteminapp, iteminapp1, itemgc, itemshop, nil];
         [self addChild: menu z:107];
 		[menu setPosition:ccp(0, 0)];
 
@@ -276,8 +299,19 @@ static InappLayer* inlay;
 	[[app navController] dismissModalViewControllerAnimated:YES];
 }
 
+- (void) afterShop {
+    
+    NSLog(@"afterShop");
+    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
+    [colorLayer runAction:action];
+    menu.enabled = YES;
+
+}
+
 -(void) toTop {
 
+    NSLog(@"toTop intro");
+    
     CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
     [colorLayer runAction:action];
     menu.enabled = YES;

@@ -9,12 +9,44 @@
 #import "cocos2d.h"
 
 #define Xbn 1024 / 2.0f
-#define Ybn 768 / 2.0f + 54
+#define Ybn 768
 
-#define ccpbon(__X__, __Y__, sizeX, sizeY)   CGPointMake(__X__ + sizeX / 2.0f, Ybn + 510 / 2.0f - (__Y__ + sizeY / 2.0f))
+#define ccpbon(__X__, __Y__, sizeX, sizeY)   CGPointMake(__X__ + sizeX / 2.0f, Ybn - (__Y__ + sizeY / 2.0f))
 
-@interface BonusLayer : CCLayer  {
+#define Ddelay 0.5f
+#define fsize 50
+
+@interface BonusLayer : CCLayerColor  {
     
+    CCSprite *fon;
+    
+    CCSprite *k1;
+    CCSprite *k2;
+    CCSprite *k3;
+    CCSprite *k4;
+    CCSprite *k5;
+    CCSprite *k6;
+    CCMenuItemToggle* it1;
+    CCMenuItemToggle* it2;
+    CCMenuItemToggle* it3;
+    CCMenuItemToggle* it4;
+    CCMenuItemToggle* it5;
+    CCMenuItemToggle* it6;
+    CCLabelTTF* l1;
+    CCLabelTTF* l2;
+    CCLabelTTF* l3;
+    CCLabelTTF* l4;
+    CCLabelTTF* l5;
+    CCLabelTTF* l6;
+    
+    int opened;
+    
+    CCMenu* menukeys;
 }
+
+-(void)show;
+-(void)hide;
+
+@property (nonatomic, retain) CCLayer* player;
 
 @end
