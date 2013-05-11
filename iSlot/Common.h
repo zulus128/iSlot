@@ -106,6 +106,8 @@
 @property (readwrite, assign) int yourluck;
 @property (readwrite, assign) int famelevel1;
 
+@property (readwrite, assign) int linesBought;
+
 @property (readwrite, assign) int finished;
 @property (readwrite, assign) float speed;
 

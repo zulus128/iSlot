@@ -40,7 +40,7 @@ static BonusLayer* bonlay;
     bonlay.opacity = 0;
     
     shoplay = [ShopLayer node];
-    shoplay.position = ccp(0, 0);
+//    shoplay.position = ccp(5000, 0);
     shoplay.opacity = 0;
     
 	GameLayer *layer = [GameLayer node];
@@ -521,7 +521,7 @@ static BonusLayer* bonlay;
         CCSprite *spplus_t2 = [CCSprite spriteWithFile:@"TouchPlas.png"];
 		CCMenuItemSprite *itempl2 = [CCMenuItemSprite itemWithNormalSprite:spplus2 selectedSprite:spplus_t2 block:^(id sender) {
 
-            if([Common instance].lines < LINES_CNT)
+            if([Common instance].lines < /*LINES_CNT*/[Common instance].linesBought)
                 [Common instance].lines ++;
             
             [self refreshLabels];
@@ -678,6 +678,7 @@ static BonusLayer* bonlay;
             [colorLayer runAction:action];
             menu.enabled = NO;
             
+//            shoplay.position = ccp(0, 0);
             [shoplay show];
 
 		}];

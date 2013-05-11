@@ -476,6 +476,7 @@
 		DDC3409816C5ED7A00764535 /* TouchSlotBack-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC3408F16C5ED7A00764535 /* TouchSlotBack-ipadhd.png */; };
 		DDC3409916C5ED7A00764535 /* TouchSpin-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC3409016C5ED7A00764535 /* TouchSpin-ipadhd.png */; };
 		DDC3409C16C5F4CF00764535 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC3409B16C5F4CF00764535 /* Common.m */; };
+		DDC5F6E8173B7707008BBD2F /* ShopSubLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC5F6E7173B7707008BBD2F /* ShopSubLayer.m */; };
 		DDCBFE0916D9FAF3004DBEF5 /* FonInfo-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DDCBFE0716D9FAF2004DBEF5 /* FonInfo-ipad.png */; };
 		DDCBFE0A16D9FAF3004DBEF5 /* FonInfo-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DDCBFE0816D9FAF2004DBEF5 /* FonInfo-ipadhd.png */; };
 /* End PBXBuildFile section */
@@ -1107,6 +1108,8 @@
 		DDC3409016C5ED7A00764535 /* TouchSpin-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TouchSpin-ipadhd.png"; sourceTree = "<group>"; };
 		DDC3409A16C5F4CF00764535 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		DDC3409B16C5F4CF00764535 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		DDC5F6E6173B7707008BBD2F /* ShopSubLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopSubLayer.h; sourceTree = "<group>"; };
+		DDC5F6E7173B7707008BBD2F /* ShopSubLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopSubLayer.m; sourceTree = "<group>"; };
 		DDCBFE0716D9FAF2004DBEF5 /* FonInfo-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonInfo-ipad.png"; sourceTree = "<group>"; };
 		DDCBFE0816D9FAF2004DBEF5 /* FonInfo-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonInfo-ipadhd.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1404,6 +1407,8 @@
 				9C1C2A88171D0E830053038E /* InappLayer.m */,
 				DD970A2B17396A670078FDC4 /* ShopLayer.h */,
 				DD970A2C17396A670078FDC4 /* ShopLayer.m */,
+				DDC5F6E6173B7707008BBD2F /* ShopSubLayer.h */,
+				DDC5F6E7173B7707008BBD2F /* ShopSubLayer.m */,
 				9C7FE26916D34BB0000ED31C /* Combination.h */,
 				9C7FE26A16D34BB0000ED31C /* Combination.m */,
 				9C9D6FD516C543F1004F5800 /* Bar.h */,
@@ -2552,6 +2557,7 @@
 				9C1C2A89171D0E830053038E /* InappLayer.m in Sources */,
 				9CA945FF1737F21F00141E01 /* BonusLayer.m in Sources */,
 				DD970A2D17396A680078FDC4 /* ShopLayer.m in Sources */,
+				DDC5F6E8173B7707008BBD2F /* ShopSubLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

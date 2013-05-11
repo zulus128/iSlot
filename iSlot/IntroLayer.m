@@ -237,6 +237,13 @@ static ShopLayer* shoplay;
             CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
             [colorLayer runAction:action];
             menu.enabled = NO;
+            for(CCLayer* l in layers) {
+                
+                CCNode* result = [l getChildByTag:MENU_TAG];
+                if(result != nil) {
+                    ((CCMenu*)result).enabled = NO;
+                }
+            }
 
             [shoplay show];
 

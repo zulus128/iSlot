@@ -99,6 +99,10 @@
         [self validateRnd];
         
 
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSNumber* n = [userDefaults valueForKey:@"linesBought"];
+        self.linesBought = (n.intValue > 0)?n.intValue:3;
+
 	}
 	return self;	
 }

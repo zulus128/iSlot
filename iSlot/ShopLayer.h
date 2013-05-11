@@ -7,11 +7,12 @@
 //
 
 #import "cocos2d.h"
+#import "ShopSubLayer.h"
 
 #define Xsh 1024 / 2.0f
 #define Ysh 768 / 2.0f + 54
 
-#define ccpina(__X__, __Y__, sizeX, sizeY)   CGPointMake(__X__ + sizeX / 2.0f, Ysh + 510 / 2.0f - (__Y__ + sizeY / 2.0f))
+#define ccpshop(__X__, __Y__, sizeX, sizeY)   CGPointMake(__X__ + sizeX / 2.0f, Ysh + 510 / 2.0f - (__Y__ + sizeY / 2.0f))
 
 #define DSdelay 0.5f
 
@@ -20,10 +21,7 @@
     CCSprite *background;
     
     CCMenu* menukeys;
-
-    float y0;
-    float yl0;
-
+    ShopSubLayer* ssl;
 }
 
 -(void)show;
