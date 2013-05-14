@@ -62,6 +62,8 @@
 //    [ssl runAction:[CCFadeIn actionWithDuration:DSdelay]];
     
     [ssl show];
+    
+    ssl.player = self.player;
 }
 
 -(void)hide {

@@ -23,25 +23,50 @@
         int lines = [Common instance].linesBought;
         int price = (lines - 2) * 250;
 
+        [Common instance].money -= price;
+        [self.player refreshLabels];
+        
         if(lines < LINES_CNT) {
 
             lines++;
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-            [userDefaults setObject:[NSNumber numberWithInt:li] forKey:@"linesBought"];
+            [userDefaults setObject:[NSNumber numberWithInt:lines] forKey:@"linesBought"];
             [userDefaults synchronize];
+            
+            [Common instance].linesBought = lines;
+            
+            int x = XXX + (lines % 3) * 237;
+            int y = YYY - (lines / 3) * 127;
+
+            ll2.position = ccp(x - 18, y - 50);
+            
+            [lab1 setString:[NSString stringWithFormat:@"%d", (lines - 2) * 250]];
+
+            lab1.position =  ccp(x - 18, y - 50);
+
+            [itemshop setPosition:ccp(x, y)];
+
+            int t = SHOPSUB_TAG + ((lines - 1) << 8);
+            CCSprite* s = (CCSprite*)[self getChildByTag:t];
+            if(s != nil)
+                s.visible = YES;
+            t = SHOPSUB_TAG + (lines << 16);
+            s = (CCSprite*)[self getChildByTag:t];
+            if(s != nil)
+                s.visible = NO;
+
+            
         }
 
     }];
     itemshop.opacity = 0;
 
-    int X = 160;
-    int Y = 1260;
     int lines = [Common instance].linesBought;
     
     for(int i = 0; i < LINES_CNT; i++) {
     
-        int x = X + (i % 3) * 237;
-        int y = Y - (i / 3) * 127;
+        int x = XXX + (i % 3) * 237;
+        int y = YYY - (i / 3) * 127;
 //        y = 1200 - y;
         
 		CCSprite* l1 = [CCSprite spriteWithFile:[NSString stringWithFormat:@"ShopLine%02d.png", i + 1]];
@@ -50,39 +75,44 @@
         l1.tag = SHOPSUB_TAG;
 		[self addChild: l1];
         
+        CCSprite* l2 = [CCSprite spriteWithFile:@"Check.png"];
+        l2.position = ccp(x + 94, y - 14);
+        l2.opacity = 0;
+        l2.visible = NO;
+        l2.tag = SHOPSUB_TAG + (i << 8);
+        [self addChild: l2];
+
+        CCSprite* l22 = [CCSprite spriteWithFile:@"LockShop.png"];
+        l22.position = ccp(x + 86, y - 25);
+        l22.opacity = 0;
+        l22.visible = NO;
+        l22.tag = SHOPSUB_TAG + (i << 16);
+        [self addChild: l22];
+
         if (i <= (lines - 1)) {
             
-            CCSprite* l2 = [CCSprite spriteWithFile:@"Check.png"];
-            l2.position = ccp(x + 94, y - 14);
-            l2.opacity = 0;
-            l2.tag = SHOPSUB_TAG;
-            [self addChild: l2];
-            
+            l2.visible = YES;
         }
         
         if (i > lines ) {
             
-            CCSprite* l2 = [CCSprite spriteWithFile:@"LockShop.png"];
-            l2.position = ccp(x + 86, y - 25);
-            l2.opacity = 0;
-            l2.tag = SHOPSUB_TAG;
-            [self addChild: l2];
-            
+            l22.visible = YES;
+
         }
         
         if (i == lines ) {
             
-            CCSprite* l2 = [CCSprite spriteWithFile:@"FonPrice.png"];
-            l2.position = ccp(x - 18, y - 50);
-            l2.opacity = 0;
-            l2.tag = SHOPSUB_TAG;
-            [self addChild: l2];
+            ll2 = [CCSprite spriteWithFile:@"FonPrice.png"];
+            ll2.position = ccp(x - 18, y - 50);
+            ll2.opacity = 0;
+            ll2.tag = SHOPSUB_TAG;
+            [self addChild: ll2 z:5];
             
             lab1 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", (lines - 2) * 250] fontName:@"Marker Felt" fontSize:40];
             lab1.position =  ccp(x - 18, y - 50);
             lab1.opacity = 0;
             lab1.tag = SHOPSUB_TAG;
-            [self addChild: lab1];
+            [self addChild: lab1 z:6];
 
             [itemshop setPosition:ccp(x, y)];
             
@@ -111,9 +141,12 @@
 }
 
 - (void) show {
+
+//    for(CCNode *aChildNode in self.children)
+//        NSLog(@"tag %d, %d", aChildNode.tag, aChildNode.tag & 0xFF);
     
     for(CCNode *aChildNode in self.children)
-        if(aChildNode.tag == SHOPSUB_TAG) {
+        if((aChildNode.tag & 0xF) == SHOPSUB_TAG) {
         
         ((CCSprite*)aChildNode).opacity = 0;
         [aChildNode runAction:[CCFadeIn actionWithDuration:DSLdelay]];
@@ -125,7 +158,7 @@
 - (void) hide {
     
     for(CCNode *aChildNode in self.children)
-        if(aChildNode.tag == SHOPSUB_TAG) {
+        if((aChildNode.tag & 0xF) == SHOPSUB_TAG) {
         
         [aChildNode runAction:[CCFadeOut actionWithDuration:DSLdelay]];
         

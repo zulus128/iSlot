@@ -69,6 +69,7 @@ static BonusLayer* bonlay;
         
         inlay.player = self;
         bonlay.player = self;
+        shoplay.player = self;
         
 //        fames[0] = FAME_POINTS1;
 //        fames[1] = FAME_POINTS2;

@@ -60,6 +60,7 @@
     BOOL bonus;
     
     BOOL bon;
+    
 
 }
 -(void) toTop;
