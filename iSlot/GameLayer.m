@@ -768,10 +768,13 @@ static BonusLayer* bonlay;
 
 - (void) afterShop {
     
-    NSLog(@"afterShop");
-    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
-    [colorLayer runAction:action];
-    menu.enabled = YES;
+    if(!menu.enabled) {
+
+        NSLog(@"afterShop");
+        CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
+        [colorLayer runAction:action];
+        menu.enabled = YES;
+    }
     
 }
 

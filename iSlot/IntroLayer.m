@@ -148,9 +148,19 @@ static ShopLayer* shoplay;
 		CCMenuItemSprite *itemsett = [CCMenuItemSprite itemWithNormalSprite:spsett selectedSprite:spsett_t1 block:^(id sender) {
             NSLog(@"settings");
             
+            if(settmenu.enabled) {
+                
+                    [sett1 runAction:[CCFadeOut actionWithDuration:0.5f]];
+                    [settmenu runAction:[CCFadeOut actionWithDuration:0.5f]];
+                    settmenu.enabled = NO;
+                    
+                }
+            else {
+                
             [sett1 runAction:[CCFadeIn actionWithDuration:0.5f]];
             [settmenu runAction:[CCFadeIn actionWithDuration:0.5f]];
             settmenu.enabled = YES;
+            }
             
 		}];
         [itemsett setPosition:ccp(868, 71)];
@@ -308,16 +318,19 @@ static ShopLayer* shoplay;
 
 - (void) afterShop {
     
-    NSLog(@"afterShop");
-    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
-    [colorLayer runAction:action];
-    menu.enabled = YES;
+    if(!menu.enabled) {
+        
+        NSLog(@"afterShop");
+        CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
+        [colorLayer runAction:action];
+        menu.enabled = YES;
+    }
 
 }
 
 -(void) toTop {
 
-    NSLog(@"toTop intro");
+    NSLog(@"toTop intro1");
     
     CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
     [colorLayer runAction:action];
