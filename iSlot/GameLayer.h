@@ -39,6 +39,7 @@
     CCSprite* fame;
 
     CCSprite* star;
+    CCSprite* stars[BARS_CNT];
 
     NSArray* lines;
     NSArray* values;

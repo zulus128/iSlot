@@ -38,6 +38,20 @@
     return self;
 
 }
+
+- (NSArray*) getComb {
+    
+    if(sent)
+        return nil;
+    
+    sent = YES;
+    
+    NSMutableArray* a = [NSMutableArray array];
+    for(int i = 0; i < cnt; i++)
+        [a addObject:cube[i]];
+    return a;
+}
+
 - (void) show {
     
 //    NSLog(@"show -------------");

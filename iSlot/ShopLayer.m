@@ -90,11 +90,21 @@
     CGPoint point = [touch locationInView:[touch view]];
     //    NSLog(@"y = %f", point.y);
 
-    if((point.y < (Ysh - 255 - 108)) || (point.y > (Ysh + 255 - 108))) {
-
+//    if((point.y < (Ysh - 255 - 108)) || (point.y > (Ysh + 255 - 108))) {
+//
+//        [self.player afterShop];
+//        [self hide];
+//    }
+    
+//    NSLog(@"y = %f, x = %f", point.y, point.x);
+    
+    if((point.y < 111) || (point.y > 584) || (point.x < 79) || (point.x > 949)) {
+        
         [self.player afterShop];
         [self hide];
+
     }
+
 }
 
 

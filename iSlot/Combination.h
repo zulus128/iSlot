@@ -18,10 +18,11 @@
     CCSprite* cube[BARS_CNT];
     NSArray* linepos;
     NSArray* sprites;
+    BOOL sent;
 }
 
 - (id)initWithLayer:(CCLayer *)lay sprite:(CCSprite*)s line:(int)l count:(int)cn linePos:(NSArray*)lpos sprites:(NSArray*)sprs;
 - (void) show;
 - (void) hide;
-
+- (NSArray*) getComb;
 @end

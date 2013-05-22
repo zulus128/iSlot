@@ -425,7 +425,14 @@ static BonusLayer* bonlay;
         star = [CCSprite spriteWithFile:@"Star.png"];
         [self addChild:star z:333];
         star.opacity = 0;
-        
+
+        for(int i = 0; i < BARS_CNT; i++) {
+
+            stars[i] = [CCSprite spriteWithFile:@"Star.png"];
+            [self addChild:stars[i] z:333];
+            stars[i].opacity = 0;
+
+        }
 
         level = [CCSprite spriteWithFile:@"BlueFonLevel.png"];
         [self addChild:level z:4];
@@ -1045,7 +1052,7 @@ static BonusLayer* bonlay;
     }
     
 
-    bon = YES;//!bon;
+    bon = !bon;
     
     if(bon) {
         colorLayer.opacity = 0;
@@ -1060,9 +1067,9 @@ static BonusLayer* bonlay;
     }
     else {
 
-        bigwin.opacity = 0;
-        bigwin.visible = YES;
-        [bigwin runAction:[CCFadeIn actionWithDuration:0.5f]];
+//        bigwin.opacity = 0;
+//        bigwin.visible = YES;
+//        [bigwin runAction:[CCFadeIn actionWithDuration:0.5f]];
         
     }
     
@@ -1084,11 +1091,33 @@ static BonusLayer* bonlay;
         return;
     }
     
+    
     if (combNum < combinations.count) {
         if(prevComb != nil)
            [prevComb hide];
         prevComb = [combinations objectAtIndex:combNum];
         [prevComb show];
+
+        if(combNum == 0) {
+            NSArray* a = [prevComb getComb];
+//            NSLog(@"array comb = %@", a);
+            int c = 0;
+            if(a != nil)
+                for(CCSprite* spr in a) {
+                
+                    stars[c].position = spr.position;
+                    stars[c].opacity = 0;
+                    stars[c].scale = 0.77f;
+                    id jump = [CCJumpTo actionWithDuration:1.0f position:ccp(52, 126) height:300 jumps:1];
+                    id op = [CCSequence actions:[CCFadeIn actionWithDuration:0.05f], [CCDelayTime actionWithDuration:0.8f], [CCFadeOut actionWithDuration:0.15f], nil];
+                    id zoom = [CCSequence actions:[CCScaleTo actionWithDuration:0.5f scale:1.0f], [CCScaleTo actionWithDuration:0.5f scale:0.77f], [CCCallFunc actionWithTarget:self selector:@selector(starFinished)], nil];
+                    [stars[c] runAction:jump];
+                    [stars[c] runAction:op];
+                    [stars[c] runAction:zoom];
+                    c++;
+                }
+        }
+
     }
     combNum++;
     if(combNum >= combinations.count)
