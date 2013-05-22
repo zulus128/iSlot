@@ -55,12 +55,15 @@
         k6.opacity = 0;
         [self addChild: k6 z:9];
         
-        CCMenuItem *i1 = [CCMenuItemImage itemFromNormalImage:@"ChestClosed.png" selectedImage:@"ChestClosed.png" target:nil selector:nil];
-        CCMenuItem *ii1 = [CCMenuItemImage itemFromNormalImage:@"ChestOpen.png" selectedImage:@"ChestOpen.png" target:nil selector:nil];
+//        CCMenuItem *i1 = [CCMenuItemImage itemFromNormalImage:@"ChestClosed.png" selectedImage:@"ChestClosed.png" target:nil selector:nil];
+//        CCMenuItem *ii1 = [CCMenuItemImage itemFromNormalImage:@"ChestOpen.png" selectedImage:@"ChestOpen.png" target:nil selector:nil];
+        i1 = [CCMenuItemImage itemWithNormalImage:@"ChestClosed.png" selectedImage:@"ChestClosed.png"];
+        ii1 = [CCMenuItemImage itemWithNormalImage:@"ChestOpen.png" selectedImage:@"ChestOpen.png"];
         it1 = [CCMenuItemToggle itemWithTarget:self selector:@selector(chest:) items:i1, ii1, nil];
         [it1 setPosition:ccpbon(453, 179, 119, 125)];
-        it1.opacity = 0;
+//        it1.opacity = 0;
         it1.tag = 3;
+//        [it1 retain];
         l1 = [CCLabelTTF labelWithString:@"3" fontName:@"Marker Felt" fontSize:fsize];
 		l1.position =  ccpbon( 515, 281, 60, 38 );
 		[self addChild: l1 z:10];
@@ -181,7 +184,9 @@
     [k4 runAction:[CCFadeIn actionWithDuration:Ddelay]];
     [k5 runAction:[CCFadeIn actionWithDuration:Ddelay]];
     [k6 runAction:[CCFadeIn actionWithDuration:Ddelay]];
-    it1.opacity = 0;
+//    it1.opacity = 0;
+    i1.opacity = 0;
+    ii1.opacity = 0;
     it2.opacity = 0;
     it3.opacity = 0;
     it4.opacity = 0;
@@ -193,7 +198,10 @@
     it4.selectedIndex = 0;
     it5.selectedIndex = 0;
     it6.selectedIndex = 0;
-    [it1 runAction:[CCFadeIn actionWithDuration:Ddelay]];
+//    [it1 runAction:[CCFadeIn actionWithDuration:Ddelay]];
+    [i1 runAction:[CCFadeIn actionWithDuration:Ddelay]];
+    [ii1 runAction:[CCFadeIn actionWithDuration:Ddelay]];
+    
     [it2 runAction:[CCFadeIn actionWithDuration:Ddelay]];
     [it3 runAction:[CCFadeIn actionWithDuration:Ddelay]];
     [it4 runAction:[CCFadeIn actionWithDuration:Ddelay]];
@@ -235,7 +243,9 @@
     [k4 runAction:[CCFadeOut actionWithDuration:Ddelay]];
     [k5 runAction:[CCFadeOut actionWithDuration:Ddelay]];
     [k6 runAction:[CCFadeOut actionWithDuration:Ddelay]];
-    [it1 runAction:[CCFadeOut actionWithDuration:Ddelay]];
+//    [it1 runAction:[CCFadeOut actionWithDuration:Ddelay]];
+    [i1 runAction:[CCFadeOut actionWithDuration:Ddelay]];
+    [ii1 runAction:[CCFadeOut actionWithDuration:Ddelay]];
     [it2 runAction:[CCFadeOut actionWithDuration:Ddelay]];
     [it3 runAction:[CCFadeOut actionWithDuration:Ddelay]];
     [it4 runAction:[CCFadeOut actionWithDuration:Ddelay]];

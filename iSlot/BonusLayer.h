@@ -39,6 +39,9 @@
     CCLabelTTF* l5;
     CCLabelTTF* l6;
     
+    CCMenuItem *i1;
+    CCMenuItem *ii1;
+    
     int opened;
     
     CCMenu* menukeys;
