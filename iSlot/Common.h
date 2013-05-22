@@ -111,6 +111,9 @@
 @property (readwrite, assign) int finished;
 @property (readwrite, assign) float speed;
 
+@property (readwrite, assign) BOOL shopVisible;
+
+
 //@property (nonatomic, retain) InappLayer* inlay;
 
 @end

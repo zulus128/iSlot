@@ -55,6 +55,8 @@
     
     menukeys.enabled = YES;
     
+    [Common instance].shopVisible = YES;
+
     background.opacity = 0;
     [background runAction:[CCFadeIn actionWithDuration:DSdelay]];
 
@@ -67,6 +69,11 @@
 }
 
 -(void)hide {
+    
+    if(![Common instance].shopVisible)
+        return;
+    
+    [Common instance].shopVisible = NO;
     
     menukeys.enabled = NO;
     

@@ -18,7 +18,7 @@
 		// ask director for the window size
 		//CGSize size = [[CCDirector sharedDirector] winSize];
 
-        //        self.touchEnabled = YES;
+        self.touchEnabled = YES;
         
         fon = [CCSprite spriteWithFile:@"FonBonus.png"];
         [self addChild:fon z:0];
@@ -165,6 +165,7 @@
     
     opened = 0;
     menukeys.enabled = YES;
+    self.touchEnabled = YES;
 
     fon.opacity = 0;
     [fon runAction:[CCFadeIn actionWithDuration:Ddelay]];
@@ -225,6 +226,8 @@
     
     menukeys.enabled = NO;
 
+    self.touchEnabled = NO;
+    
     [fon runAction:[CCFadeOut actionWithDuration:Ddelay]];
     [k1 runAction:[CCFadeOut actionWithDuration:Ddelay]];
     [k2 runAction:[CCFadeOut actionWithDuration:Ddelay]];
@@ -245,6 +248,17 @@
     [l5 runAction:[CCFadeOut actionWithDuration:Ddelay]];
     [l6 runAction:[CCFadeOut actionWithDuration:Ddelay]];
     
+}
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:[touch view]];
+    
+    NSLog(@"y = %f, x = %f", point.y, point.x);
+    
+    if((point.y < 144) || (point.y > 553) || (point.x < 182) || (point.x > 846))
+        [self.player toTop];
 }
 
 @end

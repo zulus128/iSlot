@@ -18,7 +18,7 @@
         
 		// ask director for the window size
 		//CGSize size = [[CCDirector sharedDirector] winSize];
-        self.touchEnabled = YES;
+//        self.touchEnabled = YES;
 
 		background = [[CCSprite spriteWithFile:@"CoinsFon.png"] retain];
 		background.position = ccp(Xin, Yin);
@@ -479,7 +479,22 @@
         menukeys.enabled = YES;
     }
 
+    [self show];
 }
+
+-(void)show {
+    
+    self.touchEnabled = YES;
+    NSLog(@"inlay show");
+
+}
+-(void)hide {
+
+    self.touchEnabled = NO;
+    NSLog(@"inlay hide");
+
+}
+
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     

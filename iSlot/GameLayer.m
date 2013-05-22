@@ -421,6 +421,11 @@ static BonusLayer* bonlay;
         CCSprite* levelback = [CCSprite spriteWithFile:@"WhileFonLevel.png"];
         [self addChild:levelback z:3];
         levelback.position = ccp(410, 678);
+        
+        star = [CCSprite spriteWithFile:@"Star.png"];
+        [self addChild:star z:333];
+        star.opacity = 0;
+        
 
         level = [CCSprite spriteWithFile:@"BlueFonLevel.png"];
         [self addChild:level z:4];
@@ -493,6 +498,15 @@ static BonusLayer* bonlay;
                 
                 [self performSelector:@selector(checkLines) withObject:nil afterDelay:(DELAY5 + 0.5f)];
 
+                star.position = ccp(814, 156);
+                star.opacity = 0;
+                star.scale = 0.77f;
+                id jump = [CCJumpTo actionWithDuration:1.0f position:ccp(52, 126) height:130 jumps:1];
+                id op = [CCSequence actions:[CCFadeIn actionWithDuration:0.05f], [CCDelayTime actionWithDuration:0.8f], [CCFadeOut actionWithDuration:0.15f], nil];
+                id zoom = [CCSequence actions:[CCScaleTo actionWithDuration:0.5f scale:1.0f], [CCScaleTo actionWithDuration:0.5f scale:0.77f], [CCCallFunc actionWithTarget:self selector:@selector(starFinished)], nil];
+                [star runAction:jump];
+                [star runAction:op];
+                [star runAction:zoom];
             }
             
 		}];
@@ -748,6 +762,72 @@ static BonusLayer* bonlay;
 	return self;
 }
 
+-(void)starFinished {
+    
+    NSLog(@"starFinished");
+    
+    int lmoney;
+    int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
+    switch (t1) {
+        case 0:
+            lmoney = LEVEL_MONEY1;
+            break;
+        case 1:
+            lmoney = LEVEL_MONEY2;
+            break;
+        case 2:
+            lmoney = LEVEL_MONEY3;
+            break;
+        default:
+            lmoney = LEVEL_MONEY3;
+            break;
+    }
+
+    [labelLevelMoney setString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney]];
+
+    float p = [Common instance].levelwin > lmoney?lmoney:[Common instance].levelwin;
+    float x = p * 810 / lmoney;
+    level.position = ccp(-400 + x, 678);
+    
+
+    int k = 0;
+    for(int i = 0; i < FAME_LEVELS; i++)
+        if([Common instance].famepoints < [[Common instance] getFames:i]) {
+            k = i;
+            break;
+        }
+
+    [Common instance].famelevel1 = (k + 1);
+    
+    p = /*[Common instance].famepoints > 50?50:*/[Common instance].famepoints - (k>0?[[Common instance] getFames:(k-1)]:0);
+    x = p * 160 / ([[Common instance] getFames:k] - (k>0?[[Common instance] getFames:(k-1)]:0));
+//    fame.position = ccp(-5 + x, 95);
+    [fame runAction:[CCMoveTo actionWithDuration:0.7f position:ccp(-5 + x, 95)]];
+    [labelFameLevel setString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints]];
+
+    if([Common instance].levelwin >= lmoney) {
+        
+        
+        int j = CCRANDOM_0_1() * 7;
+        j = 250 + 50*j;
+        
+        [ygift setString:[NSString stringWithFormat:@"%d", j]];
+        
+        [Common instance].money += j;
+        [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
+        
+        complete.visible = YES;
+        
+        [menu1 setEnabled:YES];
+        [menu setEnabled:NO];
+        [menu1 setVisible:YES];
+        ygift.visible = YES;
+        //        [menu setVisible:NO];
+        
+    }
+
+}
+
 -(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
 {
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
@@ -790,6 +870,7 @@ static BonusLayer* bonlay;
     [colorLayer runAction:action];
     menu.enabled = YES;
     [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(1024,0)]];
+    [inlay hide];
 }
 
 - (void) refreshLabels {
@@ -802,65 +883,65 @@ static BonusLayer* bonlay;
     [labelYourLuck setString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck]];
     [labelBet setString:[NSString stringWithFormat:@"BET: %d", [Common instance].coins * [Common instance].lines]];
     
-    int lmoney;
-    int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
-    switch (t1) {
-        case 0:
-            lmoney = LEVEL_MONEY1;
-            break;
-        case 1:
-            lmoney = LEVEL_MONEY2;
-            break;
-        case 2:
-            lmoney = LEVEL_MONEY3;
-            break;
-        default:
-            lmoney = LEVEL_MONEY3;
-            break;
-    }
+//    int lmoney;
+//    int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
+//    switch (t1) {
+//        case 0:
+//            lmoney = LEVEL_MONEY1;
+//            break;
+//        case 1:
+//            lmoney = LEVEL_MONEY2;
+//            break;
+//        case 2:
+//            lmoney = LEVEL_MONEY3;
+//            break;
+//        default:
+//            lmoney = LEVEL_MONEY3;
+//            break;
+//    }
+//
+//    [labelLevelMoney setString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney]];
+//    
+//    
+//    float p = [Common instance].levelwin > lmoney?lmoney:[Common instance].levelwin;
+//    float x = p * 810 / lmoney;
+//    level.position = ccp(-400 + x, 678);
+//
+//    int k = 0;
+//    for(int i = 0; i < FAME_LEVELS; i++)
+//        if([Common instance].famepoints < [[Common instance] getFames:i]) {
+//            k = i;
+//            break;
+//        }
+//
+//    [Common instance].famelevel1 = (k + 1);
+//    
+//    p = /*[Common instance].famepoints > 50?50:*/[Common instance].famepoints - (k>0?[[Common instance] getFames:(k-1)]:0);
+//    x = p * 160 / ([[Common instance] getFames:k] - (k>0?[[Common instance] getFames:(k-1)]:0));
+//    fame.position = ccp(-5 + x, 95);
+//    [labelFameLevel setString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints]];
 
-    [labelLevelMoney setString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney]];
     
-    
-    float p = [Common instance].levelwin > lmoney?lmoney:[Common instance].levelwin;
-    float x = p * 810 / lmoney;
-    level.position = ccp(-400 + x, 678);
-
-    int k = 0;
-    for(int i = 0; i < FAME_LEVELS; i++)
-        if([Common instance].famepoints < [[Common instance] getFames:i]) {
-            k = i;
-            break;
-        }
-
-    [Common instance].famelevel1 = (k + 1);
-    
-    p = /*[Common instance].famepoints > 50?50:*/[Common instance].famepoints - (k>0?[[Common instance] getFames:(k-1)]:0);
-    x = p * 160 / ([[Common instance] getFames:k] - (k>0?[[Common instance] getFames:(k-1)]:0));
-    fame.position = ccp(-5 + x, 95);
-    [labelFameLevel setString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints]];
-
-    
-    if([Common instance].levelwin >= lmoney) {
-        
-        
-        int j = CCRANDOM_0_1() * 7;
-        j = 250 + 50*j;
-
-        [ygift setString:[NSString stringWithFormat:@"%d", j]];
-        
-        [Common instance].money += j;
-        [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
-
-        complete.visible = YES;
-        
-        [menu1 setEnabled:YES];
-        [menu setEnabled:NO];
-        [menu1 setVisible:YES];
-        ygift.visible = YES;
-//        [menu setVisible:NO];
-
-    }
+//    if([Common instance].levelwin >= lmoney) {
+//        
+//        
+//        int j = CCRANDOM_0_1() * 7;
+//        j = 250 + 50*j;
+//
+//        [ygift setString:[NSString stringWithFormat:@"%d", j]];
+//        
+//        [Common instance].money += j;
+//        [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
+//
+//        complete.visible = YES;
+//        
+//        [menu1 setEnabled:YES];
+//        [menu setEnabled:NO];
+//        [menu1 setVisible:YES];
+//        ygift.visible = YES;
+////        [menu setVisible:NO];
+//
+//    }
 }
 
 - (void) speedPlus {
@@ -964,7 +1045,7 @@ static BonusLayer* bonlay;
     }
     
 
-    bon = !bon;
+    bon = YES;//!bon;
     
     if(bon) {
         colorLayer.opacity = 0;
@@ -1012,7 +1093,7 @@ static BonusLayer* bonlay;
     combNum++;
     if(combNum >= combinations.count)
         combNum = 0;
-    [self performSelector:@selector(showComb) withObject:nil afterDelay:0.5f];
+    [self performSelector:@selector(showComb) withObject:nil afterDelay:1.0f];
 
 }
 

@@ -380,6 +380,8 @@
 		DD4A870016EFFBB700E72FDA /* FonMapLevel01_1-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4A86FE16EFFBB700E72FDA /* FonMapLevel01_1-ipadhd.png */; };
 		DD4A870116EFFBB700E72FDA /* FonMapLevel01_2-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4A86FF16EFFBB700E72FDA /* FonMapLevel01_2-ipadhd.png */; };
 		DD4C42D416E9CDE600FA4756 /* CCLayerPanZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4C42D316E9CDE600FA4756 /* CCLayerPanZoom.m */; };
+		DD84E94E174C45220009EB16 /* Star-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD84E94D174C45220009EB16 /* Star-ipad.png */; };
+		DD84E950174C45330009EB16 /* Star-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD84E94F174C45330009EB16 /* Star-ipadhd.png */; };
 		DD9709CD173967560078FDC4 /* FonPrice-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709CA173967560078FDC4 /* FonPrice-ipad.png */; };
 		DD9709CE173967560078FDC4 /* FonShopLine-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709CB173967560078FDC4 /* FonShopLine-ipad.png */; };
 		DD9709CF173967560078FDC4 /* LockShop-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709CC173967560078FDC4 /* LockShop-ipad.png */; };
@@ -1010,6 +1012,8 @@
 		DD4A86FF16EFFBB700E72FDA /* FonMapLevel01_2-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonMapLevel01_2-ipadhd.png"; sourceTree = "<group>"; };
 		DD4C42D216E9CDE600FA4756 /* CCLayerPanZoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLayerPanZoom.h; sourceTree = "<group>"; };
 		DD4C42D316E9CDE600FA4756 /* CCLayerPanZoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLayerPanZoom.m; sourceTree = "<group>"; };
+		DD84E94D174C45220009EB16 /* Star-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star-ipad.png"; sourceTree = "<group>"; };
+		DD84E94F174C45330009EB16 /* Star-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star-ipadhd.png"; sourceTree = "<group>"; };
 		DD9709CA173967560078FDC4 /* FonPrice-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonPrice-ipad.png"; sourceTree = "<group>"; };
 		DD9709CB173967560078FDC4 /* FonShopLine-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonShopLine-ipad.png"; sourceTree = "<group>"; };
 		DD9709CC173967560078FDC4 /* LockShop-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LockShop-ipad.png"; sourceTree = "<group>"; };
@@ -1344,6 +1348,7 @@
 		9C70748C16C375800053C3F0 = {
 			isa = PBXGroup;
 			children = (
+				DD84E94C174C450F0009EB16 /* Star */,
 				DD9709C91739673F0078FDC4 /* Shop */,
 				9C3877731737AB6B0004BCC7 /* Bonus */,
 				DD9A29EA1735F44500B1E9C0 /* add_tz */,
@@ -1929,6 +1934,15 @@
 			name = Blur;
 			sourceTree = "<group>";
 		};
+		DD84E94C174C450F0009EB16 /* Star */ = {
+			isa = PBXGroup;
+			children = (
+				DD84E94D174C45220009EB16 /* Star-ipad.png */,
+				DD84E94F174C45330009EB16 /* Star-ipadhd.png */,
+			);
+			name = Star;
+			sourceTree = "<group>";
+		};
 		DD9709C91739673F0078FDC4 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
@@ -2425,6 +2439,8 @@
 				DD970A28173967B40078FDC4 /* ShopLine19-ipad.png in Resources */,
 				DD970A29173967B40078FDC4 /* ShopLine20-ipad.png in Resources */,
 				DD970A2A173967B40078FDC4 /* ShopLine21-ipad.png in Resources */,
+				DD84E94E174C45220009EB16 /* Star-ipad.png in Resources */,
+				DD84E950174C45330009EB16 /* Star-ipadhd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

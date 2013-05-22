@@ -38,6 +38,8 @@
     CCSprite* level;
     CCSprite* fame;
 
+    CCSprite* star;
+
     NSArray* lines;
     NSArray* values;
     NSMutableArray* combinations;
