@@ -175,6 +175,7 @@ static MapLayer *layer;
         
         
         inlay.player = self;
+        shoplay.player = self;
 
         
         CCSprite *fon = [CCSprite spriteWithFile:@"FonMapLevel01_1.png"];
@@ -255,12 +256,12 @@ static MapLayer *layer;
 
 - (void) afterShop {
     
-    if(!menu.enabled) {
+    if(!menu1.enabled) {
         
         NSLog(@"afterShop");
         CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:0];
         [colorLayer runAction:action];
-        menu.enabled = YES;
+        menu1.enabled = YES;
     }
     
 }
