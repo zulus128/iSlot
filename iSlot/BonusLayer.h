@@ -41,6 +41,16 @@
     
     CCMenuItem *i1;
     CCMenuItem *ii1;
+    CCMenuItem *i2;
+    CCMenuItem *ii2;
+    CCMenuItem *i3;
+    CCMenuItem *ii3;
+    CCMenuItem *i4;
+    CCMenuItem *ii4;
+    CCMenuItem *i5;
+    CCMenuItem *ii5;
+    CCMenuItem *i6;
+    CCMenuItem *ii6;
     
     int opened;
     
