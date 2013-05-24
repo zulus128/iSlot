@@ -507,10 +507,10 @@ static BonusLayer* bonlay;
 
                 star.position = ccp(814, 156);
                 star.opacity = 0;
-                star.scale = 0.77f;
+                star.scale = STAR_STARTSCALE;
                 id jump = [CCJumpTo actionWithDuration:1.0f position:ccp(52, 126) height:130 jumps:1];
                 id op = [CCSequence actions:[CCFadeIn actionWithDuration:0.05f], [CCDelayTime actionWithDuration:0.8f], [CCFadeOut actionWithDuration:0.15f], nil];
-                id zoom = [CCSequence actions:[CCScaleTo actionWithDuration:0.5f scale:1.0f], [CCScaleTo actionWithDuration:0.5f scale:0.77f], [CCCallFunc actionWithTarget:self selector:@selector(starFinished)], nil];
+                id zoom = [CCSequence actions:[CCScaleTo actionWithDuration:0.5f scale:STAR_ENDSCALE], [CCScaleTo actionWithDuration:0.5f scale:STAR_STARTSCALE], [CCCallFunc actionWithTarget:self selector:@selector(starFinished)], nil];
                 [star runAction:jump];
                 [star runAction:op];
                 [star runAction:zoom];
@@ -751,13 +751,13 @@ static BonusLayer* bonlay;
         
         droppedcomp = [CCSprite spriteWithFile:@"LineCombination.png"];
         droppedcomp.visible = NO;
-        [self addChild:droppedcomp z:700];
+        [self addChild:droppedcomp z:500];
         droppedcomp.position = ccp(514.5, 219);
         
         dropped_lab = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Dropped %d Combinations", 0] fontName:@"Marker Felt" fontSize:30];
 		dropped_lab.position =  ccp( 514.5 , 219 );
         dropped_lab.visible = NO;
-		[self addChild: dropped_lab z:701];
+		[self addChild: dropped_lab z:501];
 
         bigwin = [CCSprite spriteWithFile:@"BigWin.png"];
         bigwin.visible = NO;
@@ -771,7 +771,7 @@ static BonusLayer* bonlay;
 
 -(void)starFinished {
     
-    NSLog(@"starFinished");
+    NSLog(@"starFinished %d", [Common instance].famepoints);
     
     int lmoney;
     int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
@@ -808,8 +808,11 @@ static BonusLayer* bonlay;
     
     p = /*[Common instance].famepoints > 50?50:*/[Common instance].famepoints - (k>0?[[Common instance] getFames:(k-1)]:0);
     x = p * 160 / ([[Common instance] getFames:k] - (k>0?[[Common instance] getFames:(k-1)]:0));
-//    fame.position = ccp(-5 + x, 95);
+    
+//    NSLog(@"x = %f, p = %f", x, p);
+    [fame stopAllActions];
     [fame runAction:[CCMoveTo actionWithDuration:0.7f position:ccp(-5 + x, 95)]];
+//    fame.position = ccp(-5 + x, 95);
     [labelFameLevel setString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints]];
 
     if([Common instance].levelwin >= lmoney) {
@@ -1044,7 +1047,7 @@ static BonusLayer* bonlay;
         [self performSelector:@selector(showComb) withObject:nil afterDelay:0];
     }
     
-    if(combinations.count > 0) {
+    if(combinations.count > 3) {
 
         [dropped_lab setString:[NSString stringWithFormat:@"Dropped %d Combinations", combinations.count]];
         dropped_lab.visible = YES;
@@ -1107,10 +1110,10 @@ static BonusLayer* bonlay;
                 
                     stars[c].position = spr.position;
                     stars[c].opacity = 0;
-                    stars[c].scale = 0.77f;
+                    stars[c].scale = STAR_STARTSCALE;
                     id jump = [CCJumpTo actionWithDuration:1.0f position:ccp(52, 126) height:300 jumps:1];
                     id op = [CCSequence actions:[CCFadeIn actionWithDuration:0.05f], [CCDelayTime actionWithDuration:0.8f], [CCFadeOut actionWithDuration:0.15f], nil];
-                    id zoom = [CCSequence actions:[CCScaleTo actionWithDuration:0.5f scale:1.0f], [CCScaleTo actionWithDuration:0.5f scale:0.77f], [CCCallFunc actionWithTarget:self selector:@selector(starFinished)], nil];
+                    id zoom = [CCSequence actions:[CCScaleTo actionWithDuration:0.5f scale:STAR_ENDSCALE], [CCScaleTo actionWithDuration:0.5f scale:STAR_STARTSCALE], [CCCallFunc actionWithTarget:self selector:@selector(starFinished)], nil];
                     [stars[c] runAction:jump];
                     [stars[c] runAction:op];
                     [stars[c] runAction:zoom];

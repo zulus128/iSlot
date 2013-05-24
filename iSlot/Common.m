@@ -34,7 +34,7 @@
 //        self.inlay = [InappLayer node];
 //        self.inlay.position = ccp(1024, 0);
 
-        srand(time(NULL));
+//        srand(time(NULL));
         
         NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString* docpath = [sp objectAtIndex: 0];

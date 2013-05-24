@@ -11,6 +11,9 @@
 #import "Bar.h"
 #import "Combination.h"
 
+#define STAR_STARTSCALE 0.5f
+#define STAR_ENDSCALE 1.5f
+
 @interface GameLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate> {
     
 //    int fames[FAME_LEVELS];
