@@ -46,6 +46,7 @@
 
     NSArray* lines;
     NSArray* values;
+    NSMutableDictionary* money;
     NSMutableArray* combinations;
     Combination* prevComb;
     

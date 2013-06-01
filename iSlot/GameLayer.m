@@ -55,6 +55,15 @@ static BonusLayer* bonlay;
 	return scene;
 }
 
+-(int) getLmoney {
+
+    int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
+    if(t1 > 2)
+        t1 = 2;
+    NSArray* a = (NSArray*)[money objectForKey:[NSNumber numberWithInt:[Common instance].curlevel]];
+    return ((NSNumber*)[a objectAtIndex:t1]).intValue;
+}
+
 // on "init" you need to initialize your instance
 -(id) init
 {
@@ -325,14 +334,128 @@ static BonusLayer* bonlay;
                             nil];
         
         NSArray* values10 = [[NSArray alloc] initWithObjects: //10
-                            [[NSNumber alloc] initWithInt:0], //for 2
-                            [[NSNumber alloc] initWithInt:5], //for 3
-                            [[NSNumber alloc] initWithInt:15], //for 4
-                            [[NSNumber alloc] initWithInt:25], //for 5
-                            nil];
+                             [[NSNumber alloc] initWithInt:0], //for 2
+                             [[NSNumber alloc] initWithInt:5], //for 3
+                             [[NSNumber alloc] initWithInt:15], //for 4
+                             [[NSNumber alloc] initWithInt:25], //for 5
+                             nil];
         
         values = [[NSArray alloc] initWithObjects:values0, values1, values2, values3, values4, values5, values6, values7, values8, values9, values10, nil];
         
+
+        money = [[NSMutableDictionary alloc] init];
+        NSArray* mon11 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:50], //for first game
+                          [[NSNumber alloc] initWithInt:80], //for second game
+                          [[NSNumber alloc] initWithInt:170], //for third game
+                          nil];
+        [money setObject:mon11 forKey:[NSNumber numberWithInt:11]];
+        NSArray* mon12 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:90], //for first game
+                          [[NSNumber alloc] initWithInt:140], //for second game
+                          [[NSNumber alloc] initWithInt:290], //for third game
+                          nil];
+        [money setObject:mon12 forKey:[NSNumber numberWithInt:12]];
+        NSArray* mon13 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:80], //for first game
+                          [[NSNumber alloc] initWithInt:130], //for second game
+                          [[NSNumber alloc] initWithInt:270], //for third game
+                          nil];
+        [money setObject:mon13 forKey:[NSNumber numberWithInt:13]];
+        NSArray* mon14 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:100], //for first game
+                          [[NSNumber alloc] initWithInt:160], //for second game
+                          [[NSNumber alloc] initWithInt:340], //for third game
+                          nil];
+        [money setObject:mon14 forKey:[NSNumber numberWithInt:14]];
+        NSArray* mon15 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:120], //for first game
+                          [[NSNumber alloc] initWithInt:190], //for second game
+                          [[NSNumber alloc] initWithInt:400], //for third game
+                          nil];
+        [money setObject:mon15 forKey:[NSNumber numberWithInt:15]];
+
+        NSArray* mon21 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:100], //for first game
+                          [[NSNumber alloc] initWithInt:160], //for second game
+                          [[NSNumber alloc] initWithInt:340], //for third game
+                          nil];
+        [money setObject:mon21 forKey:[NSNumber numberWithInt:21]];
+        NSArray* mon22 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:160], //for first game
+                          [[NSNumber alloc] initWithInt:260], //for second game
+                          [[NSNumber alloc] initWithInt:550], //for third game
+                          nil];
+        [money setObject:mon22 forKey:[NSNumber numberWithInt:22]];
+        NSArray* mon23 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:230], //for first game
+                          [[NSNumber alloc] initWithInt:370], //for second game
+                          [[NSNumber alloc] initWithInt:780], //for third game
+                          nil];
+        [money setObject:mon23 forKey:[NSNumber numberWithInt:23]];
+        NSArray* mon24 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:400], //for first game
+                          [[NSNumber alloc] initWithInt:640], //for second game
+                          [[NSNumber alloc] initWithInt:1340], //for third game
+                          nil];
+        [money setObject:mon24 forKey:[NSNumber numberWithInt:24]];
+        
+        NSArray* mon31 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:750], //for first game
+                          [[NSNumber alloc] initWithInt:1200], //for second game
+                          [[NSNumber alloc] initWithInt:2500], //for third game
+                          nil];
+        [money setObject:mon31 forKey:[NSNumber numberWithInt:31]];
+        NSArray* mon32 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:1250], //for first game
+                          [[NSNumber alloc] initWithInt:2000], //for second game
+                          [[NSNumber alloc] initWithInt:4200], //for third game
+                          nil];
+        [money setObject:mon32 forKey:[NSNumber numberWithInt:32]];
+        NSArray* mon33 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:2250], //for first game
+                          [[NSNumber alloc] initWithInt:3600], //for second game
+                          [[NSNumber alloc] initWithInt:7550], //for third game
+                          nil];
+        [money setObject:mon33 forKey:[NSNumber numberWithInt:33]];
+        NSArray* mon34 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:3750], //for first game
+                          [[NSNumber alloc] initWithInt:6000], //for second game
+                          [[NSNumber alloc] initWithInt:12600], //for third game
+                          nil];
+        [money setObject:mon34 forKey:[NSNumber numberWithInt:34]];
+        NSArray* mon35 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:4950], //for first game
+                          [[NSNumber alloc] initWithInt:7900], //for second game
+                          [[NSNumber alloc] initWithInt:16500], //for third game
+                          nil];
+        [money setObject:mon35 forKey:[NSNumber numberWithInt:35]];
+        NSArray* mon36 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:5200], //for first game
+                          [[NSNumber alloc] initWithInt:8300], //for second game
+                          [[NSNumber alloc] initWithInt:17000], //for third game
+                          nil];
+        [money setObject:mon36 forKey:[NSNumber numberWithInt:36]];
+        
+        NSArray* mon41 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:6100], //for first game
+                          [[NSNumber alloc] initWithInt:9750], //for second game
+                          [[NSNumber alloc] initWithInt:20000], //for third game
+                          nil];
+        [money setObject:mon41 forKey:[NSNumber numberWithInt:41]];
+        NSArray* mon42 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:7500], //for first game
+                          [[NSNumber alloc] initWithInt:12000], //for second game
+                          [[NSNumber alloc] initWithInt:25000], //for third game
+                          nil];
+        [money setObject:mon42 forKey:[NSNumber numberWithInt:42]];
+        NSArray* mon43 = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithInt:9990], //for first game
+                          [[NSNumber alloc] initWithInt:16000], //for second game
+                          [[NSNumber alloc] initWithInt:30000], //for third game
+                          nil];
+        [money setObject:mon43 forKey:[NSNumber numberWithInt:43]];
+
         
 		CGSize size = [[CCDirector sharedDirector] winSize];
 
@@ -349,22 +472,24 @@ static BonusLayer* bonlay;
 		[self addChild: labelBet z:100];
 
         [Common instance].levelwin = 0;
-        int lmoney;
-        int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
-        switch (t1) {
-            case 0:
-                lmoney = LEVEL_MONEY1;
-                break;
-            case 1:
-                lmoney = LEVEL_MONEY2;
-                break;
-            case 2:
-                lmoney = LEVEL_MONEY3;
-                break;
-            default:
-                lmoney = LEVEL_MONEY3;
-                break;
-        }
+//        int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
+        
+        int lmoney = [self getLmoney];
+        
+//        switch (t1) {
+//            case 0:
+//                lmoney = LEVEL_MONEY1;
+//                break;
+//            case 1:
+//                lmoney = LEVEL_MONEY2;
+//                break;
+//            case 2:
+//                lmoney = LEVEL_MONEY3;
+//                break;
+//            default:
+//                lmoney = LEVEL_MONEY3;
+//                break;
+//        }
 
         labelLevelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney] fontName:@"Marker Felt" fontSize:24];
 		labelLevelMoney.position =  ccp( 910 , 677 );
@@ -765,6 +890,12 @@ static BonusLayer* bonlay;
         [self addChild:bigwin z:750];
         bigwin.position = ccp(512, 416.5);
 
+        int n1 = [Common instance].curlevel / 10;
+        int n2 = [Common instance].curlevel - n1 * 10;
+        CCLabelTTF* title = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Level %d-%d", n1, n2] fontName:@"Marker Felt" fontSize:28];
+        [self addChild:title z:350];
+        title.position = ccp(512, 650);
+
         [self refreshLabels];
 	}
 	return self;
@@ -774,22 +905,22 @@ static BonusLayer* bonlay;
     
 //    NSLog(@"starFinished %d", [Common instance].famepoints);
     
-    int lmoney;
-    int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
-    switch (t1) {
-        case 0:
-            lmoney = LEVEL_MONEY1;
-            break;
-        case 1:
-            lmoney = LEVEL_MONEY2;
-            break;
-        case 2:
-            lmoney = LEVEL_MONEY3;
-            break;
-        default:
-            lmoney = LEVEL_MONEY3;
-            break;
-    }
+    int lmoney = [self getLmoney];
+//    int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
+//    switch (t1) {
+//        case 0:
+//            lmoney = LEVEL_MONEY1;
+//            break;
+//        case 1:
+//            lmoney = LEVEL_MONEY2;
+//            break;
+//        case 2:
+//            lmoney = LEVEL_MONEY3;
+//            break;
+//        default:
+//            lmoney = LEVEL_MONEY3;
+//            break;
+//    }
 
     [labelLevelMoney setString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney]];
 
@@ -997,8 +1128,8 @@ static BonusLayer* bonlay;
         
     }
     
-    
-    if(1/*[Common instance].levelwin >= lmoney*/) {
+    int lmoney = [self getLmoney];
+    if([Common instance].levelwin >= lmoney) {
         
         
         int j = CCRANDOM_0_1() * 7;

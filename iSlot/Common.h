@@ -59,9 +59,9 @@
 #define FAME_POINTS9 4500
 #define FAME_POINTS10 6000
 
-#define LEVEL_MONEY1 100
-#define LEVEL_MONEY2 250
-#define LEVEL_MONEY3 500
+//#define LEVE1_MONEY1 100
+//#define LEVE1_MONEY2 250
+//#define LEVE1_MONEY3 500
 
 #define CCCA(x) [[x copy] autorelease]
 

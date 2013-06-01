@@ -195,7 +195,7 @@
 
     float yy = yl0 + delta;
     
-    NSLog(@"yy = %f", yy);
+//    NSLog(@"yy = %f", yy);
 
     if(yy > -184)
         yy = -184;

@@ -68,7 +68,7 @@ static MapLayer *layer;
         CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
         [colorLayer runAction:action];
         menu1.enabled = NO;
-        CCNode* result = [layer getChildByTag:MENU_TAG];
+        CCNode* result = [layer getChildByTag:MENU_TAG1];
         if(result != nil) {
             ((CCMenu*)result).enabled = NO;
         }
@@ -87,7 +87,7 @@ static MapLayer *layer;
         CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
         [colorLayer runAction:action];
         menu1.enabled = NO;
-        CCNode* result = [layer getChildByTag:MENU_TAG];
+        CCNode* result = [layer getChildByTag:MENU_TAG1];
         if(result != nil) {
             ((CCMenu*)result).enabled = NO;
         }
@@ -272,9 +272,150 @@ static MapLayer *layer;
                         item6_3,
                         nil];
         [self addChild: menu z:300];
-        menu.tag = MENU_TAG;
+        menu.tag = MENU_TAG1;
         [menu setPosition:ccp(0, -74)];
 
+        l1 = @"LockLevel.png";
+        CCSprite *lock2_1 = [CCSprite spriteWithFile:l1];
+        lock2_1.position = ccplock(23, 375);
+        lock2_1.tag = LOCK_TAG + 12;
+        [self addChild:lock2_1 z:309];
+        CCSprite *lock3_1 = [CCSprite spriteWithFile:l1];
+        lock3_1.position = ccplock(390, 490);
+        lock3_1.tag = LOCK_TAG + 13;
+        [self addChild:lock3_1 z:309];
+        CCSprite *lock4_1 = [CCSprite spriteWithFile:l1];
+        lock4_1.position = ccplock(785, 528);
+        lock4_1.tag = LOCK_TAG + 14;
+        [self addChild:lock4_1 z:309];
+        CCSprite *lock5_1 = [CCSprite spriteWithFile:l1];
+        lock5_1.position = ccplock(675, 263);
+        lock5_1.tag = LOCK_TAG + 15;
+        [self addChild:lock5_1 z:309];
+
+        CCSprite *lock2_2 = [CCSprite spriteWithFile:l1];
+        lock2_2.position = ccplock(1348, 228);
+        lock2_2.tag = LOCK_TAG + 22;
+        [self addChild:lock2_2 z:309];
+        CCSprite *lock3_2 = [CCSprite spriteWithFile:l1];
+        lock3_2.position = ccplock(1888, 170);
+        lock3_2.tag = LOCK_TAG + 23;
+        [self addChild:lock3_2 z:309];
+        CCSprite *lock4_2 = [CCSprite spriteWithFile:l1];
+        lock4_2.position = ccplock(1787, 470);
+        lock4_2.tag = LOCK_TAG + 24;
+        [self addChild:lock4_2 z:309];
+        
+        CCSprite *lock2_3 = [CCSprite spriteWithFile:l1];
+        lock2_3.position = ccplock(2303, 233);
+        lock2_3.tag = LOCK_TAG + 32;
+        [self addChild:lock2_3 z:309];
+        CCSprite *lock3_3 = [CCSprite spriteWithFile:l1];
+        lock3_3.position = ccplock(2538, 306);
+        lock3_3.tag = LOCK_TAG + 33;
+        [self addChild:lock3_3 z:309];
+        CCSprite *lock4_3 = [CCSprite spriteWithFile:l1];
+        lock4_3.position = ccplock(2149, 507);
+        lock4_3.tag = LOCK_TAG + 34;
+        [self addChild:lock4_3 z:309];
+        CCSprite *lock5_3 = [CCSprite spriteWithFile:l1];
+        lock5_3.position = ccplock(2641, 543);
+        lock5_3.tag = LOCK_TAG + 35;
+        [self addChild:lock5_3 z:309];
+        CCSprite *lock6_3 = [CCSprite spriteWithFile:l1];
+        lock6_3.position = ccplock(2870, 324);
+        lock6_3.tag = LOCK_TAG + 36;
+        [self addChild:lock6_3 z:309];
+        
+        CCSprite *lock2_4 = [CCSprite spriteWithFile:l1];
+        lock2_4.position = ccplock(3505, 215);
+        lock2_4.tag = LOCK_TAG + 42;
+        [self addChild:lock2_4 z:309];
+        CCSprite *lock3_4 = [CCSprite spriteWithFile:l1];
+        lock3_4.position = ccplock(3844, 463);
+        lock3_4.tag = LOCK_TAG + 43;
+        [self addChild:lock3_4 z:309];
+
+        
+        l1 = @"StarLevelNone.png";
+        CCSprite *star1_1 = [CCSprite spriteWithFile:l1];
+        star1_1.position = ccpstar(165, 325);
+        star1_1.tag = STARS_TAG + 11;
+        [self addChild:star1_1 z:302];
+        CCSprite *star1_2 = [CCSprite spriteWithFile:l1];
+        star1_2.position = ccpstar(1118, 585);
+        star1_2.tag = STARS_TAG + 21;
+        [self addChild:star1_2 z:302];
+        CCSprite *star1_3 = [CCSprite spriteWithFile:l1];
+        star1_3.position = ccpstar(2559, 168);
+        star1_3.tag = STARS_TAG + 31;
+        [self addChild:star1_3 z:302];
+        CCSprite *star1_4 = [CCSprite spriteWithFile:l1];
+        star1_4.position = ccpstar(3155, 376);
+        star1_4.tag = STARS_TAG + 41;
+        [self addChild:star1_4 z:302];
+        
+        CCSprite *star2_1 = [CCSprite spriteWithFile:l1];
+        star2_1.position = ccpstar(11, 445);
+        star2_1.tag = STARS_TAG + 12;
+        [self addChild:star2_1 z:302];
+        CCSprite *star2_2 = [CCSprite spriteWithFile:l1];
+        star2_2.position = ccpstar(1336, 298);
+        star2_2.tag = STARS_TAG + 22;
+        [self addChild:star2_2 z:302];
+        CCSprite *star2_3 = [CCSprite spriteWithFile:l1];
+        star2_3.position = ccpstar(2291, 303);
+        star2_3.tag = STARS_TAG + 32;
+        [self addChild:star2_3 z:302];
+        CCSprite *star2_4 = [CCSprite spriteWithFile:l1];
+        star2_4.position = ccpstar(3493, 285);
+        star2_4.tag = STARS_TAG + 42;
+        [self addChild:star2_4 z:302];
+        
+        CCSprite *star3_1 = [CCSprite spriteWithFile:l1];
+        star3_1.position = ccpstar(378, 560);
+        star3_1.tag = STARS_TAG + 13;
+        [self addChild:star3_1 z:302];
+        CCSprite *star3_2 = [CCSprite spriteWithFile:l1];
+        star3_2.position = ccpstar(1876, 240);
+        star3_2.tag = STARS_TAG + 23;
+        [self addChild:star3_2 z:302];
+        CCSprite *star3_3 = [CCSprite spriteWithFile:l1];
+        star3_3.position = ccpstar(2526, 376);
+        star3_3.tag = STARS_TAG + 33;
+        [self addChild:star3_3 z:302];
+        CCSprite *star3_4 = [CCSprite spriteWithFile:l1];
+        star3_4.position = ccpstar(3831, 533);
+        star3_4.tag = STARS_TAG + 43;
+        [self addChild:star3_4 z:302];
+        
+        CCSprite *star4_1 = [CCSprite spriteWithFile:l1];
+        star4_1.position = ccpstar(775, 598);
+        star4_1.tag = STARS_TAG + 14;
+        [self addChild:star4_1 z:302];
+        CCSprite *star4_2 = [CCSprite spriteWithFile:l1];
+        star4_2.position = ccpstar(1775, 540);
+        star4_2.tag = STARS_TAG + 24;
+        [self addChild:star4_2 z:302];
+        CCSprite *star4_3 = [CCSprite spriteWithFile:l1];
+        star4_3.position = ccpstar(2137, 577);
+        star4_3.tag = STARS_TAG + 34;
+        [self addChild:star4_3 z:302];
+        
+        CCSprite *star5_1 = [CCSprite spriteWithFile:l1];
+        star5_1.position = ccpstar(663, 333);
+        star5_1.tag = STARS_TAG + 15;
+        [self addChild:star5_1 z:302];
+        CCSprite *star5_3 = [CCSprite spriteWithFile:l1];
+        star5_3.position = ccpstar(2629, 613);
+        star5_3.tag = STARS_TAG + 35;
+        [self addChild:star5_3 z:302];
+        
+        CCSprite *star6_3 = [CCSprite spriteWithFile:l1];
+        star6_3.position = ccpstar(2858, 394);
+        star6_3.tag = STARS_TAG + 36;
+        [self addChild:star6_3 z:302];
+        
 
         [self refreshLabels];
 
@@ -285,108 +426,12 @@ static MapLayer *layer;
 
 -(void)level:(CCMenuItemSprite*)sender {
 
+    
+    NSLog(@"level pressed %d", sender.tag);
     [Common instance].curlevel = sender.tag;
     [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
 
 }
-
-/*
--(void) level11 {
-    
-    [Common instance].curlevel = 11;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
--(void) level21 {
-    
-    [Common instance].curlevel = 21;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
--(void) level31 {
-    
-    [Common instance].curlevel = 31;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
--(void) level41 {
-    
-    [Common instance].curlevel = 41;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
-
--(void) level12 {
-    
-    [Common instance].curlevel = 12;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
--(void) level22 {
-    
-    [Common instance].curlevel = 22;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
--(void) level32 {
-    
-    [Common instance].curlevel = 32;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
--(void) level42 {
-    
-    [Common instance].curlevel = 42;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
-
--(void) level13 {
-    
-    [Common instance].curlevel = 13;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
--(void) level23 {
-    
-    [Common instance].curlevel = 23;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
--(void) level33 {
-    
-    [Common instance].curlevel = 33;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
--(void) level43 {
-    
-    [Common instance].curlevel = 43;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
-
--(void) level14 {
-    
-    [Common instance].curlevel = 14;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
--(void) level24 {
-    
-    [Common instance].curlevel = 24;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
--(void) level34 {
-    
-    [Common instance].curlevel = 34;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
-
--(void) level15 {
-    
-    [Common instance].curlevel = 15;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
--(void) level35 {
-    
-    [Common instance].curlevel = 35;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
-
--(void) level36 {
-    
-    [Common instance].curlevel = 36;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-}
-*/
 
 - (void) afterShop {
     
@@ -397,7 +442,6 @@ static MapLayer *layer;
         [colorLayer runAction:action];
         menu1.enabled = YES;
     }
-    
 }
 
 -(void) toTop {
@@ -406,11 +450,10 @@ static MapLayer *layer;
     [colorLayer runAction:action];
     [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(1024,0)]];
     menu1.enabled = YES;
-    CCNode* result = [layer getChildByTag:MENU_TAG];
+    CCNode* result = [layer getChildByTag:MENU_TAG1];
     if(result != nil) {
         ((CCMenu*)result).enabled = YES;
     }
-    
 }
 
 - (void) refreshLabels {
@@ -419,141 +462,67 @@ static MapLayer *layer;
     [labelKeys setString:[NSString stringWithFormat:@"%d", [Common instance].keys]];
     [labelYourLuck setString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck]];
  
-    NSString* l1 = @"StarLevelNone.png";
-    int t1 = [[Common instance] getStarsForLevel:1];
-    switch (t1) {
-        case 0:
-            l1 = @"StarLevelNone.png";
-            break;
-        case 1:
-            l1 = @"StarLevelOne.png";
-            break;
-        case 2:
-            l1 = @"StarLevelTwo.png";
-            break;
-        case 3:
-            l1 = @"StarLevelTree.png";
-            break;
-        default:
-            l1 = @"StarLevelNone.png";
-            break;
-    }
-    CCSprite *star1_1 = [CCSprite spriteWithFile:l1];
-    star1_1.position = ccpstar(165, 325);
-    [self addChild:star1_1 z:302];
-    //        CCSprite *star1_2 = [CCSprite spriteWithFile:l1];
-    //        star1_2.position = ccpstar(1118, 585);
-    //        [self addChild:star1_2 z:302];
-    //        CCSprite *star1_3 = [CCSprite spriteWithFile:l1];
-    //        star1_3.position = ccpstar(2559, 168);
-    //        [self addChild:star1_3 z:302];
-    //        CCSprite *star1_4 = [CCSprite spriteWithFile:l1];
-    //        star1_4.position = ccpstar(3155, 376);
-    //        [self addChild:star1_4 z:302];
     
-    t1 = [[Common instance] getStarsForLevel:2];
-    switch (t1) {
-        case 0:
-            l1 = @"StarLevelNone.png";
-            break;
-        case 1:
-            l1 = @"StarLevelOne.png";
-            break;
-        case 2:
-            l1 = @"StarLevelTwo.png";
-            break;
-        case 3:
-            l1 = @"StarLevelTree.png";
-            break;
-        default:
-            l1 = @"StarLevelNone.png";
-            break;
-    }
-    CCSprite *star2_1 = [CCSprite spriteWithFile:l1];
-    star2_1.position = ccpstar(11, 445);
-    [self addChild:star2_1 z:302];
     
-    t1 = [[Common instance] getStarsForLevel:3];
-    switch (t1) {
-        case 0:
-            l1 = @"StarLevelNone.png";
-            break;
-        case 1:
-            l1 = @"StarLevelOne.png";
-            break;
-        case 2:
-            l1 = @"StarLevelTwo.png";
-            break;
-        case 3:
-            l1 = @"StarLevelTree.png";
-            break;
-        default:
-            l1 = @"StarLevelNone.png";
-            break;
-    }
-    CCSprite *star3_1 = [CCSprite spriteWithFile:l1];
-    star3_1.position = ccpstar(378, 560);
-    [self addChild:star3_1 z:302];
+    int n = [Common instance].lastLevelPassed + 1;
+    int next = n;
+    if(n > 44)
+        next = 44;
+    if((n > 36) && (n < 41))
+        next = 41;
+    if((n > 24) && (n < 31))
+        next = 31;
+    if((n > 15) && (n < 21))
+        next = 21;
+    if((n > 0) && (n < 11))
+        next = 11;
     
-    t1 = [[Common instance] getStarsForLevel:4];
-    switch (t1) {
-        case 0:
-            l1 = @"StarLevelNone.png";
-            break;
-        case 1:
-            l1 = @"StarLevelOne.png";
-            break;
-        case 2:
-            l1 = @"StarLevelTwo.png";
-            break;
-        case 3:
-            l1 = @"StarLevelTree.png";
-            break;
-        default:
-            l1 = @"StarLevelNone.png";
-            break;
-    }
-    CCSprite *star4_1 = [CCSprite spriteWithFile:l1];
-    star4_1.position = ccpstar(775, 598);
-    [self addChild:star4_1 z:302];
-    
-    t1 = [[Common instance] getStarsForLevel:5];
-    switch (t1) {
-        case 0:
-            l1 = @"StarLevelNone.png";
-            break;
-        case 1:
-            l1 = @"StarLevelOne.png";
-            break;
-        case 2:
-            l1 = @"StarLevelTwo.png";
-            break;
-        case 3:
-            l1 = @"StarLevelTree.png";
-            break;
-        default:
-            l1 = @"StarLevelNone.png";
-            break;
-    }
-    CCSprite *star5_1 = [CCSprite spriteWithFile:l1];
-    star5_1.position = ccpstar(663, 333);
-    [self addChild:star5_1 z:302];
-    
-    l1 = @"LockLevel.png";
-    CCSprite *lock2_1 = [CCSprite spriteWithFile:l1];
-    lock2_1.position = ccplock(23, 375);
-    [self addChild:lock2_1 z:309];
-    CCSprite *lock3_1 = [CCSprite spriteWithFile:l1];
-    lock3_1.position = ccplock(390, 490);
-    [self addChild:lock3_1 z:309];
-    CCSprite *lock4_1 = [CCSprite spriteWithFile:l1];
-    lock4_1.position = ccplock(785, 528);
-    [self addChild:lock4_1 z:309];
-    CCSprite *lock5_1 = [CCSprite spriteWithFile:l1];
-    lock5_1.position = ccplock(675, 263);
-    [self addChild:lock5_1 z:309];
-    
+    NSLog(@"[Common instance].lastLevelPassed = %d, next = %d", [Common instance].lastLevelPassed, next);
 
+    arealock1.visible = !(next > 20);
+    arealock2.visible = !(next > 30);
+    arealock3.visible = !(next > 40);
+    
+//    arealock1.visible = NO;
+//    arealock2.visible = NO;
+//    arealock3.visible = NO;
+
+    for(CCMenuItemSprite *aChildNode in menu.children)
+        if(aChildNode.tag > 10) {
+
+            aChildNode.isEnabled = (aChildNode.tag <= next);
+            
+            CCNode* llock = [self getChildByTag:(aChildNode.tag + LOCK_TAG)];
+            llock.visible = !aChildNode.isEnabled;
+            
+            NSString* l1 = @"StarLevelNone.png";
+            int t1 = [[Common instance] getStarsForLevel:aChildNode.tag];
+            switch (t1) {
+                case 0:
+                    l1 = @"StarLevelNone.png";
+                    break;
+                case 1:
+                    l1 = @"StarLevelOne.png";
+                    break;
+                case 2:
+                    l1 = @"StarLevelTwo.png";
+                    break;
+                case 3:
+                    l1 = @"StarLevelTree.png";
+                    break;
+                default:
+                    l1 = @"StarLevelNone.png";
+                    break;
+            }
+            CCSprite* stars = (CCSprite*)[self getChildByTag:(aChildNode.tag + STARS_TAG)];
+            CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:l1];
+            [stars setTexture: tex];
+        }
+
+//    for(CCMenuItemSprite *aChildNode in menu.children)
+//        NSLog(@"menu item enabled = %d, tag = %d", aChildNode.isEnabled, aChildNode.tag);
+
+    
 }
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
