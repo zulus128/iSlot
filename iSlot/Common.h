@@ -93,9 +93,10 @@
 - (int) getFames:(int) t;
 - (int) getStarsForLevel:(int) t;
 - (void) increaseStarsForCurrentLevel;
+- (void) increaseLevel;
 
 @property (readwrite, assign) int curlevel;
-
+//@property (readwrite, assign) int curarea;
 @property (readwrite, assign) int coins;
 @property (readwrite, assign) int money;
 @property (readwrite, assign) int keys;
@@ -105,15 +106,12 @@
 @property (readwrite, assign) int famepoints;
 @property (readwrite, assign) int yourluck;
 @property (readwrite, assign) int famelevel1;
-
 @property (readwrite, assign) int linesBought;
-
 @property (readwrite, assign) int finished;
 @property (readwrite, assign) float speed;
-
 @property (readwrite, assign) BOOL shopVisible;
+@property (readwrite, assign) int lastLevelPassed;
 
-
-//@property (nonatomic, retain) InappLayer* inlay;
+//@property (readwrite, assign) int mapAreaUnlocked;
 
 @end

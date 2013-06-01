@@ -14,7 +14,7 @@
 #define     ccpstar(__X__, __Y__)   CGPointMake(__X__ + 139/2.f, 768 - (__Y__ + 64/2.f) - 74)
 #define     ccplock(__X__, __Y__)   CGPointMake(__X__ + 115/2.f, 768 - (__Y__ + 111/2.f) - 74)
 
-#define MENU_TAG 111
+#define MENU_TAG 5111
 
 static CCLabelTTF *labelMoney = nil;
 static CCLabelTTF *labelYourLuck = nil;
@@ -27,13 +27,12 @@ static CCLabelTTF *labelKeys = nil;
 
     CCMenu* menu;
     
-//    CCLabelTTF *labelMoney;
-//    CCLabelTTF *labelYourLuck;
-
+    CCSprite *arealock1;
+    CCSprite *arealock2;
+    CCSprite *arealock3;
 }
 -(void) toTop;
 
-// returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
 
 @end

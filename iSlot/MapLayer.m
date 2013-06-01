@@ -186,61 +186,90 @@ static MapLayer *layer;
         fon1.position = ccp(3072, 346);
         [self addChild:fon1 z:6];
         
+        arealock1 = [CCSprite spriteWithFile:@"LockArea01.png"];
+        arealock1.position = ccp(1526, 346);
+        [self addChild:arealock1 z:316];
+        arealock2 = [CCSprite spriteWithFile:@"LockArea02.png"];
+        arealock2.position = ccp(2603.5, 346);
+        [self addChild:arealock2 z:316];
+        arealock3 = [CCSprite spriteWithFile:@"LockArea03.png"];
+        arealock3.position = ccp(3544.5, 346);
+        [self addChild:arealock3 z:316];
+        
         
         NSString* l1 = @"Level01.png";
-        CCMenuItemSprite *item1_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level1]; }];
+//        CCMenuItemSprite *item1_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level]; }];
+        CCMenuItemSprite *item1_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item1_1.tag = 11;
         [item1_1 setPosition:ccplevel(177, 255)];
-        CCMenuItemSprite *item1_2= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level1]; }];
+        CCMenuItemSprite *item1_2= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item1_2.tag = 21;
         [item1_2 setPosition:ccplevel(1130, 515)];
-        CCMenuItemSprite *item1_3= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level1]; }];
+        CCMenuItemSprite *item1_3= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item1_3.tag = 31;
         [item1_3 setPosition:ccplevel(2571, 98)];
-        CCMenuItemSprite *item1_4= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level1]; }];
+        CCMenuItemSprite *item1_4= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item1_4.tag = 41;
         [item1_4 setPosition:ccplevel(3167, 306)];
         
         l1 = @"Level02.png";
-        CCMenuItemSprite *item2_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level2]; }];
+        CCMenuItemSprite *item2_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item2_1.tag = 12;
         [item2_1 setPosition:ccplevel(23, 375)];
-        CCMenuItemSprite *item2_2= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level2]; }];
+        CCMenuItemSprite *item2_2= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item2_2.tag = 22;
         [item2_2 setPosition:ccplevel(1348, 228)];
-        CCMenuItemSprite *item2_3= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level2]; }];
+        CCMenuItemSprite *item2_3= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item2_3.tag = 32;
         [item2_3 setPosition:ccplevel(2303, 233)];
-        CCMenuItemSprite *item2_4= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level2]; }];
+        CCMenuItemSprite *item2_4= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item2_4.tag = 42;
         [item2_4 setPosition:ccplevel(3505, 215)];
         
         l1 = @"Level03.png";
-        CCMenuItemSprite *item3_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level3]; }];
+        CCMenuItemSprite *item3_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item3_1.tag = 13;
         [item3_1 setPosition:ccplevel(390, 490)];
-        CCMenuItemSprite *item3_2= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level3]; }];
+        CCMenuItemSprite *item3_2= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item3_2.tag = 23;
         [item3_2 setPosition:ccplevel(1888, 170)];
-        CCMenuItemSprite *item3_3= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level3]; }];
+        CCMenuItemSprite *item3_3= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item3_3.tag = 33;
         [item3_3 setPosition:ccplevel(2538, 306)];
-        CCMenuItemSprite *item3_4= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level3]; }];
+        CCMenuItemSprite *item3_4= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item3_4.tag = 43;
         [item3_4 setPosition:ccplevel(3844, 463)];
         
         l1 = @"Level04.png";
-        CCMenuItemSprite *item4_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level4]; }];
+        CCMenuItemSprite *item4_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item4_1.tag = 14;
         [item4_1 setPosition:ccplevel(785, 528)];
-        CCMenuItemSprite *item4_2= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level4]; }];
+        CCMenuItemSprite *item4_2= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item4_2.tag = 24;
         [item4_2 setPosition:ccplevel(1787, 470)];
-        CCMenuItemSprite *item4_3= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level4]; }];
+        CCMenuItemSprite *item4_3= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item4_3.tag = 34;
         [item4_3 setPosition:ccplevel(2149, 507)];
         
         l1 = @"Level05.png";
-        CCMenuItemSprite *item5_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level5]; }];
+        CCMenuItemSprite *item5_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item5_1.tag = 15;
         [item5_1 setPosition:ccplevel(675, 263)];
-        CCMenuItemSprite *item5_2= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level5]; }];
-        [item5_2 setPosition:ccplevel(2641, 543)];
+        CCMenuItemSprite *item5_3= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item5_3.tag = 35;
+        [item5_3 setPosition:ccplevel(2641, 543)];
 
         l1 = @"Level06.png";
-        CCMenuItemSprite *item6_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level6]; }];
-        [item6_1 setPosition:ccplevel(2870, 324)];
+        CCMenuItemSprite *item6_3= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
+        item6_3.tag = 36;
+        [item6_3 setPosition:ccplevel(2870, 324)];
 
         menu = [CCMenu menuWithItems: item1_1, item1_2, item1_3, item1_4,
                         item2_1, item2_2, item2_3, item2_4,
                         item3_1, item3_2, item3_3, item3_4,
                         item4_1, item4_2, item4_3,
-                        item5_1, item5_2,
-                        item6_1,
+                        item5_1, item5_3,
+                        item6_3,
                         nil];
         [self addChild: menu z:300];
         menu.tag = MENU_TAG;
@@ -253,6 +282,111 @@ static MapLayer *layer;
 	
 	return self;
 }
+
+-(void)level:(CCMenuItemSprite*)sender {
+
+    [Common instance].curlevel = sender.tag;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+
+}
+
+/*
+-(void) level11 {
+    
+    [Common instance].curlevel = 11;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+-(void) level21 {
+    
+    [Common instance].curlevel = 21;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+-(void) level31 {
+    
+    [Common instance].curlevel = 31;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+-(void) level41 {
+    
+    [Common instance].curlevel = 41;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+
+-(void) level12 {
+    
+    [Common instance].curlevel = 12;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+-(void) level22 {
+    
+    [Common instance].curlevel = 22;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+-(void) level32 {
+    
+    [Common instance].curlevel = 32;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+-(void) level42 {
+    
+    [Common instance].curlevel = 42;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+
+-(void) level13 {
+    
+    [Common instance].curlevel = 13;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+-(void) level23 {
+    
+    [Common instance].curlevel = 23;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+-(void) level33 {
+    
+    [Common instance].curlevel = 33;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+-(void) level43 {
+    
+    [Common instance].curlevel = 43;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+
+-(void) level14 {
+    
+    [Common instance].curlevel = 14;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+-(void) level24 {
+    
+    [Common instance].curlevel = 24;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+-(void) level34 {
+    
+    [Common instance].curlevel = 34;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+
+-(void) level15 {
+    
+    [Common instance].curlevel = 15;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+-(void) level35 {
+    
+    [Common instance].curlevel = 35;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+
+-(void) level36 {
+    
+    [Common instance].curlevel = 36;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+}
+*/
 
 - (void) afterShop {
     
@@ -276,24 +410,7 @@ static MapLayer *layer;
     if(result != nil) {
         ((CCMenu*)result).enabled = YES;
     }
-
-}
-
--(void) level1 {
     
-    [Common instance].curlevel = 1;
-    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
-    
-}
--(void) level2 {
-}
--(void) level3 {
-}
--(void) level4 {
-}
--(void) level5 {
-}
--(void) level6 {
 }
 
 - (void) refreshLabels {
@@ -484,8 +601,8 @@ static MapLayer *layer;
 //    self.position = ccp(xx, 0);
    
     [self stopAllActions];
-    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.6f position:ccp(xx, 0)];
-    [self runAction:[CCEaseOut actionWithAction:moveTo rate:1.7f]];
+    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.9f position:ccp(xx, 0)];
+    [self runAction:[CCEaseOut actionWithAction:moveTo rate:1.8f]];
 
 }
 

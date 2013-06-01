@@ -2,32 +2,92 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>level1</key>
+	<key>level11</key>
 	<dict>
 		<key>stars</key>
 		<integer>0</integer>
 	</dict>
-	<key>level2</key>
+	<key>level12</key>
 	<dict>
 		<key>stars</key>
 		<integer>0</integer>
 	</dict>
-	<key>level3</key>
+	<key>level13</key>
 	<dict>
 		<key>stars</key>
 		<integer>0</integer>
 	</dict>
-	<key>level4</key>
+	<key>level14</key>
 	<dict>
 		<key>stars</key>
 		<integer>0</integer>
 	</dict>
-	<key>level5</key>
+	<key>level15</key>
 	<dict>
 		<key>stars</key>
 		<integer>0</integer>
 	</dict>
-	<key>level6</key>
+	<key>level21</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level22</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level23</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level24</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level31</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level32</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level33</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level34</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level35</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level36</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level41</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level42</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level43</key>
 	<dict>
 		<key>stars</key>
 		<integer>0</integer>

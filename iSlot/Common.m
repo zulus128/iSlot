@@ -102,6 +102,9 @@
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         NSNumber* n = [userDefaults valueForKey:@"linesBought"];
         self.linesBought = (n.intValue > 0)?n.intValue:3;
+       
+        NSNumber* n1 = [userDefaults valueForKey:@"lastLevelPassed"];
+        self.lastLevelPassed = n1.intValue;
 
 	}
 	return self;	
@@ -159,6 +162,15 @@
         r++;
     [d setValue:[NSNumber numberWithInt:r] forKey:@"stars"];
     [levels writeToFile:prof_file atomically:YES];
+
+}
+
+- (void) increaseLevel {
+    
+    self.lastLevelPassed = self.curlevel;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:[NSNumber numberWithInt:self.lastLevelPassed] forKey:@"lastLevelPassed"];
+    [userDefaults synchronize];
 
 }
 

@@ -715,13 +715,14 @@ static BonusLayer* bonlay;
 		CCMenuItemSprite *itemMenu = [CCMenuItemSprite itemWithNormalSprite:spmenu selectedSprite:spmenu_t1 block:^(id sender) {
             
             [[Common instance] increaseStarsForCurrentLevel];
+            [[Common instance] increaseLevel];
             [[CCDirector sharedDirector] popScene];
             
 		}];
         [itemMenu setPosition:ccp(510, 210)];
         
         menu1 = [CCMenu menuWithItems: itemMenu, nil];
-        [self addChild: menu1 z:301];
+        [self addChild: menu1 z:1301];
 		[menu1 setPosition:ccp(0, 0)];
         
         for(int i = 0; i < LINES_CNT; i++) {
@@ -735,13 +736,13 @@ static BonusLayer* bonlay;
         
         complete = [CCSprite spriteWithFile:@"WinView.png"];
         complete.visible = NO;
-        [self addChild:complete z:300];
+        [self addChild:complete z:1300];
         complete.position = ccp(512, 384);
 
         ygift = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", 0] fontName:@"Marker Felt" fontSize:48];
 		ygift.position =  ccp( 512 , 340 );
         ygift.visible = NO;
-		[self addChild: ygift z:400];
+		[self addChild: ygift z:1400];
 
         [menu setEnabled:YES];
         [menu1 setEnabled:NO];
@@ -771,7 +772,7 @@ static BonusLayer* bonlay;
 
 -(void)starFinished {
     
-    NSLog(@"starFinished %d", [Common instance].famepoints);
+//    NSLog(@"starFinished %d", [Common instance].famepoints);
     
     int lmoney;
     int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
@@ -806,35 +807,14 @@ static BonusLayer* bonlay;
 
     [Common instance].famelevel1 = (k + 1);
     
-    p = /*[Common instance].famepoints > 50?50:*/[Common instance].famepoints - (k>0?[[Common instance] getFames:(k-1)]:0);
+    p = [Common instance].famepoints - (k>0?[[Common instance] getFames:(k-1)]:0);
     x = p * 160 / ([[Common instance] getFames:k] - (k>0?[[Common instance] getFames:(k-1)]:0));
     
 //    NSLog(@"x = %f, p = %f", x, p);
     [fame stopAllActions];
     [fame runAction:[CCMoveTo actionWithDuration:0.7f position:ccp(-5 + x, 95)]];
-//    fame.position = ccp(-5 + x, 95);
     [labelFameLevel setString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints]];
 
-    if([Common instance].levelwin >= lmoney) {
-        
-        
-        int j = CCRANDOM_0_1() * 7;
-        j = 250 + 50*j;
-        
-        [ygift setString:[NSString stringWithFormat:@"%d", j]];
-        
-        [Common instance].money += j;
-        [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
-        
-        complete.visible = YES;
-        
-        [menu1 setEnabled:YES];
-        [menu setEnabled:NO];
-        [menu1 setVisible:YES];
-        ygift.visible = YES;
-        //        [menu setVisible:NO];
-        
-    }
 
 }
 
@@ -893,65 +873,6 @@ static BonusLayer* bonlay;
     [labelYourLuck setString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck]];
     [labelBet setString:[NSString stringWithFormat:@"BET: %d", [Common instance].coins * [Common instance].lines]];
     
-//    int lmoney;
-//    int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
-//    switch (t1) {
-//        case 0:
-//            lmoney = LEVEL_MONEY1;
-//            break;
-//        case 1:
-//            lmoney = LEVEL_MONEY2;
-//            break;
-//        case 2:
-//            lmoney = LEVEL_MONEY3;
-//            break;
-//        default:
-//            lmoney = LEVEL_MONEY3;
-//            break;
-//    }
-//
-//    [labelLevelMoney setString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney]];
-//    
-//    
-//    float p = [Common instance].levelwin > lmoney?lmoney:[Common instance].levelwin;
-//    float x = p * 810 / lmoney;
-//    level.position = ccp(-400 + x, 678);
-//
-//    int k = 0;
-//    for(int i = 0; i < FAME_LEVELS; i++)
-//        if([Common instance].famepoints < [[Common instance] getFames:i]) {
-//            k = i;
-//            break;
-//        }
-//
-//    [Common instance].famelevel1 = (k + 1);
-//    
-//    p = /*[Common instance].famepoints > 50?50:*/[Common instance].famepoints - (k>0?[[Common instance] getFames:(k-1)]:0);
-//    x = p * 160 / ([[Common instance] getFames:k] - (k>0?[[Common instance] getFames:(k-1)]:0));
-//    fame.position = ccp(-5 + x, 95);
-//    [labelFameLevel setString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints]];
-
-    
-//    if([Common instance].levelwin >= lmoney) {
-//        
-//        
-//        int j = CCRANDOM_0_1() * 7;
-//        j = 250 + 50*j;
-//
-//        [ygift setString:[NSString stringWithFormat:@"%d", j]];
-//        
-//        [Common instance].money += j;
-//        [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
-//
-//        complete.visible = YES;
-//        
-//        [menu1 setEnabled:YES];
-//        [menu setEnabled:NO];
-//        [menu1 setVisible:YES];
-//        ygift.visible = YES;
-////        [menu setVisible:NO];
-//
-//    }
 }
 
 - (void) speedPlus {
@@ -1058,15 +979,15 @@ static BonusLayer* bonlay;
     bon = !bon;
     
     if(bon) {
-        colorLayer.opacity = 0;
-        CCAction* action = [CCFadeTo actionWithDuration:0.1f opacity:180];
-        [colorLayer runAction:action];
-
-        menu.enabled = NO;
-        
-        bonlay.position = ccp(0, 0);
-        [bonlay show];
-        bonus = YES;
+//        colorLayer.opacity = 0;
+//        CCAction* action = [CCFadeTo actionWithDuration:0.1f opacity:180];
+//        [colorLayer runAction:action];
+//
+//        menu.enabled = NO;
+//        
+//        bonlay.position = ccp(0, 0);
+//        [bonlay show];
+//        bonus = YES;
     }
     else {
 
@@ -1076,6 +997,28 @@ static BonusLayer* bonlay;
         
     }
     
+    
+    if(1/*[Common instance].levelwin >= lmoney*/) {
+        
+        
+        int j = CCRANDOM_0_1() * 7;
+        j = 250 + 50*j;
+        
+        [ygift setString:[NSString stringWithFormat:@"%d", j]];
+        
+        [Common instance].money += j;
+        [labelMoney setString:[NSString stringWithFormat:@"%d", [Common instance].money]];
+        
+        complete.visible = YES;
+        
+        [menu1 setEnabled:YES];
+        [menu setEnabled:NO];
+        [menu1 setVisible:YES];
+        ygift.visible = YES;
+        //        [menu setVisible:NO];
+        
+    }
+
 }
 
 - (void) showComb {
@@ -1164,14 +1107,7 @@ if(droppedcomp.visible) {
 
 }
 
-// on "dealloc" you need to release all your retained objects
 - (void) dealloc {
-    
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
-	// cocos2d will automatically release all the children (Label)
-	
-	// don't forget to call "super dealloc"
     
     for(Combination* comb in combinations)
         [comb release];
