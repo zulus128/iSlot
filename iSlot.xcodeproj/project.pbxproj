@@ -31,6 +31,22 @@
 		9C117A2D16DCB08F000D287E /* WhileFonFame-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C117A2916DCB08F000D287E /* WhileFonFame-ipadhd.png */; };
 		9C117A2E16DCB08F000D287E /* WhileFonLevel-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C117A2A16DCB08F000D287E /* WhileFonLevel-ipadhd.png */; };
 		9C1C2A89171D0E830053038E /* InappLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1C2A88171D0E830053038E /* InappLayer.m */; };
+		9C1ED4A2175CA1C600BEFA7B /* FonAlert01-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4A0175CA1C600BEFA7B /* FonAlert01-ipad.png */; };
+		9C1ED4A3175CA1C600BEFA7B /* FonAlert02-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4A1175CA1C600BEFA7B /* FonAlert02-ipad.png */; };
+		9C1ED4A6175CA1D300BEFA7B /* FonAlert01-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4A4175CA1D300BEFA7B /* FonAlert01-ipadhd.png */; };
+		9C1ED4A7175CA1D300BEFA7B /* FonAlert02-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4A5175CA1D300BEFA7B /* FonAlert02-ipadhd.png */; };
+		9C1ED4AB175CA1E200BEFA7B /* No-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4A8175CA1E200BEFA7B /* No-ipad.png */; };
+		9C1ED4AC175CA1E200BEFA7B /* OK-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4A9175CA1E200BEFA7B /* OK-ipad.png */; };
+		9C1ED4AD175CA1E200BEFA7B /* Yes-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4AA175CA1E200BEFA7B /* Yes-ipad.png */; };
+		9C1ED4B1175CA1F000BEFA7B /* TouchNo-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4AE175CA1F000BEFA7B /* TouchNo-ipad.png */; };
+		9C1ED4B2175CA1F000BEFA7B /* TouchOK-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4AF175CA1F000BEFA7B /* TouchOK-ipad.png */; };
+		9C1ED4B3175CA1F000BEFA7B /* TouchYes-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4B0175CA1F000BEFA7B /* TouchYes-ipad.png */; };
+		9C1ED4B7175CA20000BEFA7B /* No-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4B4175CA20000BEFA7B /* No-ipadhd.png */; };
+		9C1ED4B8175CA20000BEFA7B /* OK-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4B5175CA20000BEFA7B /* OK-ipadhd.png */; };
+		9C1ED4B9175CA20000BEFA7B /* Yes-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4B6175CA20000BEFA7B /* Yes-ipadhd.png */; };
+		9C1ED4BD175CA21200BEFA7B /* TouchNo-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4BA175CA21200BEFA7B /* TouchNo-ipadhd.png */; };
+		9C1ED4BE175CA21200BEFA7B /* TouchOK-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4BB175CA21200BEFA7B /* TouchOK-ipadhd.png */; };
+		9C1ED4BF175CA21200BEFA7B /* TouchYes-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4BC175CA21200BEFA7B /* TouchYes-ipadhd.png */; };
 		9C38776A173775890004BCC7 /* SettingOff-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C387767173775890004BCC7 /* SettingOff-ipad.png */; };
 		9C38776B173775890004BCC7 /* SettingOn-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C387768173775890004BCC7 /* SettingOn-ipad.png */; };
 		9C38776C173775890004BCC7 /* SettingWindow-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C387769173775890004BCC7 /* SettingWindow-ipad.png */; };
@@ -510,6 +526,22 @@
 		9C117A2A16DCB08F000D287E /* WhileFonLevel-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhileFonLevel-ipadhd.png"; sourceTree = "<group>"; };
 		9C1C2A87171D0E830053038E /* InappLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InappLayer.h; sourceTree = "<group>"; };
 		9C1C2A88171D0E830053038E /* InappLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InappLayer.m; sourceTree = "<group>"; };
+		9C1ED4A0175CA1C600BEFA7B /* FonAlert01-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonAlert01-ipad.png"; sourceTree = "<group>"; };
+		9C1ED4A1175CA1C600BEFA7B /* FonAlert02-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonAlert02-ipad.png"; sourceTree = "<group>"; };
+		9C1ED4A4175CA1D300BEFA7B /* FonAlert01-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonAlert01-ipadhd.png"; sourceTree = "<group>"; };
+		9C1ED4A5175CA1D300BEFA7B /* FonAlert02-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonAlert02-ipadhd.png"; sourceTree = "<group>"; };
+		9C1ED4A8175CA1E200BEFA7B /* No-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "No-ipad.png"; sourceTree = "<group>"; };
+		9C1ED4A9175CA1E200BEFA7B /* OK-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OK-ipad.png"; sourceTree = "<group>"; };
+		9C1ED4AA175CA1E200BEFA7B /* Yes-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Yes-ipad.png"; sourceTree = "<group>"; };
+		9C1ED4AE175CA1F000BEFA7B /* TouchNo-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TouchNo-ipad.png"; sourceTree = "<group>"; };
+		9C1ED4AF175CA1F000BEFA7B /* TouchOK-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TouchOK-ipad.png"; sourceTree = "<group>"; };
+		9C1ED4B0175CA1F000BEFA7B /* TouchYes-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TouchYes-ipad.png"; sourceTree = "<group>"; };
+		9C1ED4B4175CA20000BEFA7B /* No-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "No-ipadhd.png"; sourceTree = "<group>"; };
+		9C1ED4B5175CA20000BEFA7B /* OK-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OK-ipadhd.png"; sourceTree = "<group>"; };
+		9C1ED4B6175CA20000BEFA7B /* Yes-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Yes-ipadhd.png"; sourceTree = "<group>"; };
+		9C1ED4BA175CA21200BEFA7B /* TouchNo-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TouchNo-ipadhd.png"; sourceTree = "<group>"; };
+		9C1ED4BB175CA21200BEFA7B /* TouchOK-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TouchOK-ipadhd.png"; sourceTree = "<group>"; };
+		9C1ED4BC175CA21200BEFA7B /* TouchYes-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TouchYes-ipadhd.png"; sourceTree = "<group>"; };
 		9C387767173775890004BCC7 /* SettingOff-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingOff-ipad.png"; sourceTree = "<group>"; };
 		9C387768173775890004BCC7 /* SettingOn-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingOn-ipad.png"; sourceTree = "<group>"; };
 		9C387769173775890004BCC7 /* SettingWindow-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingWindow-ipad.png"; sourceTree = "<group>"; };
@@ -1188,6 +1220,29 @@
 			name = Slots;
 			sourceTree = "<group>";
 		};
+		9C1ED49F175CA19300BEFA7B /* Confirms */ = {
+			isa = PBXGroup;
+			children = (
+				9C1ED4A0175CA1C600BEFA7B /* FonAlert01-ipad.png */,
+				9C1ED4A1175CA1C600BEFA7B /* FonAlert02-ipad.png */,
+				9C1ED4A4175CA1D300BEFA7B /* FonAlert01-ipadhd.png */,
+				9C1ED4A5175CA1D300BEFA7B /* FonAlert02-ipadhd.png */,
+				9C1ED4A8175CA1E200BEFA7B /* No-ipad.png */,
+				9C1ED4A9175CA1E200BEFA7B /* OK-ipad.png */,
+				9C1ED4AA175CA1E200BEFA7B /* Yes-ipad.png */,
+				9C1ED4AE175CA1F000BEFA7B /* TouchNo-ipad.png */,
+				9C1ED4AF175CA1F000BEFA7B /* TouchOK-ipad.png */,
+				9C1ED4B0175CA1F000BEFA7B /* TouchYes-ipad.png */,
+				9C1ED4B4175CA20000BEFA7B /* No-ipadhd.png */,
+				9C1ED4B5175CA20000BEFA7B /* OK-ipadhd.png */,
+				9C1ED4B6175CA20000BEFA7B /* Yes-ipadhd.png */,
+				9C1ED4BA175CA21200BEFA7B /* TouchNo-ipadhd.png */,
+				9C1ED4BB175CA21200BEFA7B /* TouchOK-ipadhd.png */,
+				9C1ED4BC175CA21200BEFA7B /* TouchYes-ipadhd.png */,
+			);
+			name = Confirms;
+			sourceTree = "<group>";
+		};
 		9C3877731737AB6B0004BCC7 /* Bonus */ = {
 			isa = PBXGroup;
 			children = (
@@ -1348,6 +1403,7 @@
 		9C70748C16C375800053C3F0 = {
 			isa = PBXGroup;
 			children = (
+				9C1ED49F175CA19300BEFA7B /* Confirms */,
 				DD84E94C174C450F0009EB16 /* Star */,
 				DD9709C91739673F0078FDC4 /* Shop */,
 				9C3877731737AB6B0004BCC7 /* Bonus */,
@@ -2441,6 +2497,22 @@
 				DD970A2A173967B40078FDC4 /* ShopLine21-ipad.png in Resources */,
 				DD84E94E174C45220009EB16 /* Star-ipad.png in Resources */,
 				DD84E950174C45330009EB16 /* Star-ipadhd.png in Resources */,
+				9C1ED4A2175CA1C600BEFA7B /* FonAlert01-ipad.png in Resources */,
+				9C1ED4A3175CA1C600BEFA7B /* FonAlert02-ipad.png in Resources */,
+				9C1ED4A6175CA1D300BEFA7B /* FonAlert01-ipadhd.png in Resources */,
+				9C1ED4A7175CA1D300BEFA7B /* FonAlert02-ipadhd.png in Resources */,
+				9C1ED4AB175CA1E200BEFA7B /* No-ipad.png in Resources */,
+				9C1ED4AC175CA1E200BEFA7B /* OK-ipad.png in Resources */,
+				9C1ED4AD175CA1E200BEFA7B /* Yes-ipad.png in Resources */,
+				9C1ED4B1175CA1F000BEFA7B /* TouchNo-ipad.png in Resources */,
+				9C1ED4B2175CA1F000BEFA7B /* TouchOK-ipad.png in Resources */,
+				9C1ED4B3175CA1F000BEFA7B /* TouchYes-ipad.png in Resources */,
+				9C1ED4B7175CA20000BEFA7B /* No-ipadhd.png in Resources */,
+				9C1ED4B8175CA20000BEFA7B /* OK-ipadhd.png in Resources */,
+				9C1ED4B9175CA20000BEFA7B /* Yes-ipadhd.png in Resources */,
+				9C1ED4BD175CA21200BEFA7B /* TouchNo-ipadhd.png in Resources */,
+				9C1ED4BE175CA21200BEFA7B /* TouchOK-ipadhd.png in Resources */,
+				9C1ED4BF175CA21200BEFA7B /* TouchYes-ipadhd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

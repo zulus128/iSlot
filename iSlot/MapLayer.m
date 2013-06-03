@@ -278,62 +278,62 @@ static MapLayer *layer;
         l1 = @"LockLevel.png";
         CCSprite *lock2_1 = [CCSprite spriteWithFile:l1];
         lock2_1.position = ccplock(23, 375);
-        lock2_1.tag = LOCK_TAG + 12;
+        lock2_1.tag = LOCKS_TAG + 12;
         [self addChild:lock2_1 z:309];
         CCSprite *lock3_1 = [CCSprite spriteWithFile:l1];
         lock3_1.position = ccplock(390, 490);
-        lock3_1.tag = LOCK_TAG + 13;
+        lock3_1.tag = LOCKS_TAG + 13;
         [self addChild:lock3_1 z:309];
         CCSprite *lock4_1 = [CCSprite spriteWithFile:l1];
         lock4_1.position = ccplock(785, 528);
-        lock4_1.tag = LOCK_TAG + 14;
+        lock4_1.tag = LOCKS_TAG + 14;
         [self addChild:lock4_1 z:309];
         CCSprite *lock5_1 = [CCSprite spriteWithFile:l1];
         lock5_1.position = ccplock(675, 263);
-        lock5_1.tag = LOCK_TAG + 15;
+        lock5_1.tag = LOCKS_TAG + 15;
         [self addChild:lock5_1 z:309];
 
         CCSprite *lock2_2 = [CCSprite spriteWithFile:l1];
         lock2_2.position = ccplock(1348, 228);
-        lock2_2.tag = LOCK_TAG + 22;
+        lock2_2.tag = LOCKS_TAG + 22;
         [self addChild:lock2_2 z:309];
         CCSprite *lock3_2 = [CCSprite spriteWithFile:l1];
         lock3_2.position = ccplock(1888, 170);
-        lock3_2.tag = LOCK_TAG + 23;
+        lock3_2.tag = LOCKS_TAG + 23;
         [self addChild:lock3_2 z:309];
         CCSprite *lock4_2 = [CCSprite spriteWithFile:l1];
         lock4_2.position = ccplock(1787, 470);
-        lock4_2.tag = LOCK_TAG + 24;
+        lock4_2.tag = LOCKS_TAG + 24;
         [self addChild:lock4_2 z:309];
         
         CCSprite *lock2_3 = [CCSprite spriteWithFile:l1];
         lock2_3.position = ccplock(2303, 233);
-        lock2_3.tag = LOCK_TAG + 32;
+        lock2_3.tag = LOCKS_TAG + 32;
         [self addChild:lock2_3 z:309];
         CCSprite *lock3_3 = [CCSprite spriteWithFile:l1];
         lock3_3.position = ccplock(2538, 306);
-        lock3_3.tag = LOCK_TAG + 33;
+        lock3_3.tag = LOCKS_TAG + 33;
         [self addChild:lock3_3 z:309];
         CCSprite *lock4_3 = [CCSprite spriteWithFile:l1];
         lock4_3.position = ccplock(2149, 507);
-        lock4_3.tag = LOCK_TAG + 34;
+        lock4_3.tag = LOCKS_TAG + 34;
         [self addChild:lock4_3 z:309];
         CCSprite *lock5_3 = [CCSprite spriteWithFile:l1];
         lock5_3.position = ccplock(2641, 543);
-        lock5_3.tag = LOCK_TAG + 35;
+        lock5_3.tag = LOCKS_TAG + 35;
         [self addChild:lock5_3 z:309];
         CCSprite *lock6_3 = [CCSprite spriteWithFile:l1];
         lock6_3.position = ccplock(2870, 324);
-        lock6_3.tag = LOCK_TAG + 36;
+        lock6_3.tag = LOCKS_TAG + 36;
         [self addChild:lock6_3 z:309];
         
         CCSprite *lock2_4 = [CCSprite spriteWithFile:l1];
         lock2_4.position = ccplock(3505, 215);
-        lock2_4.tag = LOCK_TAG + 42;
+        lock2_4.tag = LOCKS_TAG + 42;
         [self addChild:lock2_4 z:309];
         CCSprite *lock3_4 = [CCSprite spriteWithFile:l1];
         lock3_4.position = ccplock(3844, 463);
-        lock3_4.tag = LOCK_TAG + 43;
+        lock3_4.tag = LOCKS_TAG + 43;
         [self addChild:lock3_4 z:309];
 
         
@@ -492,7 +492,7 @@ static MapLayer *layer;
 
             aChildNode.isEnabled = (aChildNode.tag <= next);
             
-            CCNode* llock = [self getChildByTag:(aChildNode.tag + LOCK_TAG)];
+            CCNode* llock = [self getChildByTag:(aChildNode.tag + LOCKS_TAG)];
             llock.visible = !aChildNode.isEnabled;
             
             NSString* l1 = @"StarLevelNone.png";

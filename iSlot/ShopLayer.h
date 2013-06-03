@@ -16,16 +16,39 @@
 
 #define DSdelay 0.5f
 
+#define ConfDelay 0.3f
+
 @interface ShopLayer : CCLayerColor {
     
     CCSprite *background;
+    CCSprite *conffon;
+    CCSprite *conffon1;
     
-    CCMenu* menukeys;
+//    CCMenu* menukeys;
+    CCMenu* menuconf;
+    CCMenu* menuconf1;
+    CCMenu* menuconf2;
+    CCMenuItemSprite *itemyes;
+    CCMenuItemSprite *itemno;
+    CCMenuItemSprite *itemyes1;
+    CCMenuItemSprite *itemno1;
+    CCMenuItemSprite *itemok;
+    CCLabelTTF *labelConf;
+    CCLabelTTF *labelConf1;
+    CCLabelTTF *labelConf1_1;
+    CCLabelTTF *labelConf2;
+    CCLabelTTF *labelConf2_1;
+    CCLabelTTF *labelConf2_2;
+
     ShopSubLayer* ssl;
+
 }
 
 -(void)show;
 -(void)hide;
+-(void) showConf;
+-(void) showConf1;
+-(void) showConf2;
 
 @property (nonatomic, retain) CCLayer* player;
 

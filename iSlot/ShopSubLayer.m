@@ -11,6 +11,46 @@
 
 @implementation ShopSubLayer
 
+-(void) onConfirmed {
+    
+    int lines = [Common instance].linesBought;
+    int price = (lines - 2) * 250;
+    
+    [Common instance].money -= price;
+    [self.player refreshLabels];
+    
+    if(lines < LINES_CNT) {
+        
+        lines++;
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:[NSNumber numberWithInt:lines] forKey:@"linesBought"];
+        [userDefaults synchronize];
+        
+        [Common instance].linesBought = lines;
+        
+        int x = XXX + (lines % 3) * 237;
+        int y = YYY - (lines / 3) * 127;
+        
+        ll2.position = ccp(x - 18, y - 50);
+        
+        [lab1 setString:[NSString stringWithFormat:@"%d", (lines - 2) * 250]];
+        
+        lab1.position =  ccp(x - 18, y - 50);
+        
+        [itemshop setPosition:ccp(x, y)];
+        
+        int t = SHOPSUB_TAG + ((lines - 1) << 8);
+        CCSprite* s = (CCSprite*)[self getChildByTag:t];
+        if(s != nil)
+            s.visible = YES;
+        t = SHOPSUB_TAG + (lines << 16);
+        s = (CCSprite*)[self getChildByTag:t];
+        if(s != nil)
+            s.visible = NO;
+    }
+
+}
+
 -(void) addContent {
     
         self.touchEnabled = YES;
@@ -18,47 +58,26 @@
     CCSprite *spshop = [CCSprite spriteWithFile:@"ShopLine01.png"];
     CCSprite *spshop_t1 = [CCSprite spriteWithFile:@"ShopLine01.png"];
     itemshop = [CCMenuItemSprite itemWithNormalSprite:spshop selectedSprite:spshop_t1 block:^(id sender) {
-        NSLog(@"selected");
+        
+        NSLog(@"line selected");
         
         int lines = [Common instance].linesBought;
         int price = (lines - 2) * 250;
-
-        [Common instance].money -= price;
-        [self.player refreshLabels];
         
-        if(lines < LINES_CNT) {
+//        [self.shlayer showConf2];
 
-            lines++;
-            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-            [userDefaults setObject:[NSNumber numberWithInt:lines] forKey:@"linesBought"];
-            [userDefaults synchronize];
-            
-            [Common instance].linesBought = lines;
-            
-            int x = XXX + (lines % 3) * 237;
-            int y = YYY - (lines / 3) * 127;
-
-            ll2.position = ccp(x - 18, y - 50);
-            
-            [lab1 setString:[NSString stringWithFormat:@"%d", (lines - 2) * 250]];
-
-            lab1.position =  ccp(x - 18, y - 50);
-
-            [itemshop setPosition:ccp(x, y)];
-
-            int t = SHOPSUB_TAG + ((lines - 1) << 8);
-            CCSprite* s = (CCSprite*)[self getChildByTag:t];
-            if(s != nil)
-                s.visible = YES;
-            t = SHOPSUB_TAG + (lines << 16);
-            s = (CCSprite*)[self getChildByTag:t];
-            if(s != nil)
-                s.visible = NO;
-
-            
-        }
+        if(([Common instance].money - price) < 0)
+            [self.shlayer showConf1];
+        else
+            if(([Common instance].money - price) < 250)
+                [self.shlayer showConf2];
+        else
+            [self.shlayer showConf];
+        
+        
 
     }];
+    
     itemshop.opacity = 0;
 
     int lines = [Common instance].linesBought;
@@ -120,7 +139,7 @@
         
     }
     
-    CCMenu* menukeys = [CCMenu menuWithItems: itemshop, nil];
+    menukeys = [CCMenu menuWithItems: itemshop, nil];
     [self addChild: menukeys z:8];
     [menukeys setPosition:ccp(0, 0)];
 
@@ -168,6 +187,9 @@
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
+    if(blocked)
+        return;
+
     UITouch *touch =[touches anyObject];
     CGPoint point = [touch locationInView:[touch view]];
     point = [[CCDirector sharedDirector]convertToGL:point];
@@ -182,6 +204,9 @@
 
 -(void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     
+    if(blocked)
+        return;
+
     UITouch *touch =[touches anyObject];
     CGPoint point = [touch locationInView:[touch view]];
     point = [[CCDirector sharedDirector]convertToGL:point];
@@ -207,6 +232,9 @@
 
 -(void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     
+    if(blocked)
+        return;
+    
     //    NSLog(@"ccTouchesEnded");
     UITouch *touch =[touches anyObject];
     CGPoint point = [touch locationInView:[touch view]];
@@ -226,6 +254,19 @@
     CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.6f position:ccp(xx, yy)];
     [self runAction:[CCEaseOut actionWithAction:moveTo rate:1.7f]];
     
+}
+
+-(void)enable {
+    
+    blocked = NO;
+    menukeys.enabled = YES;
+}
+
+-(void)disable {
+
+    blocked = YES;
+    menukeys.enabled = NO;
+
 }
 
 @end
