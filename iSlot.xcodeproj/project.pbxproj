@@ -30,6 +30,7 @@
 		9C117A2C16DCB08F000D287E /* BlueFonLevel-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C117A2816DCB08F000D287E /* BlueFonLevel-ipadhd.png */; };
 		9C117A2D16DCB08F000D287E /* WhileFonFame-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C117A2916DCB08F000D287E /* WhileFonFame-ipadhd.png */; };
 		9C117A2E16DCB08F000D287E /* WhileFonLevel-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C117A2A16DCB08F000D287E /* WhileFonLevel-ipadhd.png */; };
+		9C16FB92175DC15500F872BF /* ConfirmLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16FB91175DC15500F872BF /* ConfirmLayer.m */; };
 		9C1C2A89171D0E830053038E /* InappLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1C2A88171D0E830053038E /* InappLayer.m */; };
 		9C1ED4A2175CA1C600BEFA7B /* FonAlert01-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4A0175CA1C600BEFA7B /* FonAlert01-ipad.png */; };
 		9C1ED4A3175CA1C600BEFA7B /* FonAlert02-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1ED4A1175CA1C600BEFA7B /* FonAlert02-ipad.png */; };
@@ -524,6 +525,8 @@
 		9C117A2816DCB08F000D287E /* BlueFonLevel-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlueFonLevel-ipadhd.png"; sourceTree = "<group>"; };
 		9C117A2916DCB08F000D287E /* WhileFonFame-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhileFonFame-ipadhd.png"; sourceTree = "<group>"; };
 		9C117A2A16DCB08F000D287E /* WhileFonLevel-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhileFonLevel-ipadhd.png"; sourceTree = "<group>"; };
+		9C16FB90175DC15500F872BF /* ConfirmLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmLayer.h; sourceTree = "<group>"; };
+		9C16FB91175DC15500F872BF /* ConfirmLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmLayer.m; sourceTree = "<group>"; };
 		9C1C2A87171D0E830053038E /* InappLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InappLayer.h; sourceTree = "<group>"; };
 		9C1C2A88171D0E830053038E /* InappLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InappLayer.m; sourceTree = "<group>"; };
 		9C1ED4A0175CA1C600BEFA7B /* FonAlert01-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonAlert01-ipad.png"; sourceTree = "<group>"; };
@@ -1466,6 +1469,8 @@
 				9C0A47F316C3A7CA00B23B2C /* GameLayer.m */,
 				9C1C2A87171D0E830053038E /* InappLayer.h */,
 				9C1C2A88171D0E830053038E /* InappLayer.m */,
+				9C16FB90175DC15500F872BF /* ConfirmLayer.h */,
+				9C16FB91175DC15500F872BF /* ConfirmLayer.m */,
 				DD970A2B17396A670078FDC4 /* ShopLayer.h */,
 				DD970A2C17396A670078FDC4 /* ShopLayer.m */,
 				DDC5F6E6173B7707008BBD2F /* ShopSubLayer.h */,
@@ -2646,6 +2651,7 @@
 				9CA945FF1737F21F00141E01 /* BonusLayer.m in Sources */,
 				DD970A2D17396A680078FDC4 /* ShopLayer.m in Sources */,
 				DDC5F6E8173B7707008BBD2F /* ShopSubLayer.m in Sources */,
+				9C16FB92175DC15500F872BF /* ConfirmLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
