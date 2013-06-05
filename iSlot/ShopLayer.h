@@ -18,6 +18,8 @@
 
 #define ConfDelay 0.3f
 
+@class  ConfirmLayer;
+
 @interface ShopLayer : CCLayerColor {
     
     CCSprite *background;
@@ -42,6 +44,7 @@
 
     ShopSubLayer* ssl;
 
+    ConfirmLayer* cnflay;
 }
 
 -(void)show;

@@ -8,6 +8,9 @@
 
 #import "ShopLayer.h"
 #import "Common.h"
+#import "ConfirmLayer.h"
+
+//static ConfirmLayer* cnflay;
 
 @implementation ShopLayer
 
@@ -210,6 +213,10 @@
         labelConf2_2.opacity = 0;
 		[self addChild: labelConf2_2 z:21];
 
+//        cnflay = [ConfirmLayer node];
+        cnflay = [ConfirmLayer layerWithColor:ccc4(0, 0, 0, 0)];
+        [self addChild:cnflay];
+
 	}
 	
 	return self;
@@ -260,45 +267,61 @@
 -(void) showConf {
     
     [ssl disable];
-    conffon.scale = 0.1f;
-    [conffon runAction:[CCFadeIn actionWithDuration:ConfDelay]];
-    [conffon runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
-    
-    itemyes.scale = 0.1f;
-    [itemyes runAction:[CCFadeIn actionWithDuration:ConfDelay]];
-    [itemyes runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
-    
-    itemno.scale = 0.1f;
-    [itemno runAction:[CCFadeIn actionWithDuration:ConfDelay]];
-    [itemno runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
-    
-    labelConf.scale = 0.1f;
-    [labelConf runAction:[CCFadeIn actionWithDuration:ConfDelay]];
-    [labelConf runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
+//    conffon.scale = 0.1f;
+//    [conffon runAction:[CCFadeIn actionWithDuration:ConfDelay]];
+//    [conffon runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
+//    
+//    itemyes.scale = 0.1f;
+//    [itemyes runAction:[CCFadeIn actionWithDuration:ConfDelay]];
+//    [itemyes runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
+//    
+//    itemno.scale = 0.1f;
+//    [itemno runAction:[CCFadeIn actionWithDuration:ConfDelay]];
+//    [itemno runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
+//    
+//    labelConf.scale = 0.1f;
+//    [labelConf runAction:[CCFadeIn actionWithDuration:ConfDelay]];
+//    [labelConf runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
     
     menuconf.enabled = YES;
+    
+    
+
 }
 
 -(void) showConf1 {
     
     [ssl disable];
-    conffon.scale = 0.1f;
-    [conffon runAction:[CCFadeIn actionWithDuration:ConfDelay]];
-    [conffon runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
-    
-    itemok.scale = 0.1f;
-    [itemok runAction:[CCFadeIn actionWithDuration:ConfDelay]];
-    [itemok runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
-    
-    labelConf1.scale = 0.1f;
-    [labelConf1 runAction:[CCFadeIn actionWithDuration:ConfDelay]];
-    [labelConf1 runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
-    
-    labelConf1_1.scale = 0.1f;
-    [labelConf1_1 runAction:[CCFadeIn actionWithDuration:ConfDelay]];
-    [labelConf1_1 runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
+//    conffon.scale = 0.1f;
+//    [conffon runAction:[CCFadeIn actionWithDuration:ConfDelay]];
+//    [conffon runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
+//    
+//    itemok.scale = 0.1f;
+//    [itemok runAction:[CCFadeIn actionWithDuration:ConfDelay]];
+//    [itemok runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
+//    
+//    labelConf1.scale = 0.1f;
+//    [labelConf1 runAction:[CCFadeIn actionWithDuration:ConfDelay]];
+//    [labelConf1 runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
+//    
+//    labelConf1_1.scale = 0.1f;
+//    [labelConf1_1 runAction:[CCFadeIn actionWithDuration:ConfDelay]];
+//    [labelConf1_1 runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
     
     menuconf1.enabled = YES;
+    
+    [cnflay show1];
+//    [cnflay runAction:[CCFadeTo actionWithDuration:ConfDelay opacity:255]];
+    cnflay.scale = 0.1f;
+    [cnflay runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
+
+    for ( CCNode* node in cnflay.children ) {
+            [ node runAction:[CCFadeIn actionWithDuration:ConfDelay] ];
+        if([node isKindOfClass:[CCMenu class]])
+            for ( CCMenuItemSprite* node1 in node.children )
+                [ node1 runAction:[CCFadeIn actionWithDuration:ConfDelay] ];
+
+    }
 }
 
 -(void) showConf2 {

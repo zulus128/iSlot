@@ -8,7 +8,9 @@
 
 #import "cocos2d.h"
 
-@interface ConfirmLayer : CCLayer {
+#define ConfDelay 0.3f
+
+@interface ConfirmLayer : CCLayerColor {
     
     CCSprite *conffon;
     CCSprite *conffon1;
@@ -29,5 +31,7 @@
     CCLabelTTF *labelConf2_2;
 
 }
+
+-(void) show1;
 
 @end
