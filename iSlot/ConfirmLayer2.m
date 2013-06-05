@@ -14,6 +14,11 @@
     
 	if( (self=[super initWithColor:color])) {
         
+        conffon1 = [CCSprite spriteWithFile:@"FonAlert02.png"];
+		conffon1.position = ccp(512, 384);
+        conffon1.opacity = 0;
+		[self addChild: conffon1 z:20];
+
         CCSprite *spno1 = [CCSprite spriteWithFile:@"No.png"];
         CCSprite *spno1_t1 = [CCSprite spriteWithFile:@"TouchNo.png"];
         itemno1 = [CCMenuItemSprite itemWithNormalSprite:spno1 selectedSprite:spno1_t1 block:^(id sender) {
@@ -23,7 +28,7 @@
             
         }];
         
-		itemno1.position = ccp(Xsh - 90, Ysh - 70);
+		itemno1.position = ccp(512 - 90, 384 - 70);
         itemno1.opacity = 0;
         
         CCSprite *spyes1 = [CCSprite spriteWithFile:@"Yes.png"];
@@ -49,11 +54,11 @@
         labelConf2.opacity = 0;
 		[self addChild: labelConf2 z:21];
         labelConf2_1 = [CCLabelTTF labelWithString:@"you have least 250 coins." fontName:@"Marker Felt" fontSize:44];
-		labelConf2_1.position =  ccp(Xsh , Ysh + 45);
+		labelConf2_1.position =  ccp(512 , 384 + 45);
         labelConf2_1.opacity = 0;
 		[self addChild: labelConf2_1 z:21];
         labelConf2_2 = [CCLabelTTF labelWithString:@"Continue shopping?" fontName:@"Marker Felt" fontSize:44];
-		labelConf2_2.position =  ccp(Xsh , Ysh + 0);
+		labelConf2_2.position =  ccp(512 , 384 + 0);
         labelConf2_2.opacity = 0;
 		[self addChild: labelConf2_2 z:21];
         

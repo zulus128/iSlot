@@ -28,6 +28,10 @@
         background.opacity = 0;
 		[self addChild: background];
         
+        ssl = [ShopSubLayer layerWithColor:ccc4(100, 20, 200, 0) width:775 height:1340];
+        ssl.position = ccp(125, -765);
+        [ssl addContent];
+        [self addChild:ssl];
         
         cnflay = [ConfirmLayer layerWithColor:ccc4(0, 0, 0, 0)];
         cnflay.sslayer = ssl;
