@@ -19,32 +19,36 @@
 #define ConfDelay 0.3f
 
 @class  ConfirmLayer;
+@class  ConfirmLayer1;
+@class  ConfirmLayer2;
 
 @interface ShopLayer : CCLayerColor {
     
     CCSprite *background;
-    CCSprite *conffon;
-    CCSprite *conffon1;
-    
-//    CCMenu* menukeys;
-    CCMenu* menuconf;
-    CCMenu* menuconf1;
-    CCMenu* menuconf2;
-    CCMenuItemSprite *itemyes;
-    CCMenuItemSprite *itemno;
-    CCMenuItemSprite *itemyes1;
-    CCMenuItemSprite *itemno1;
-    CCMenuItemSprite *itemok;
-    CCLabelTTF *labelConf;
-    CCLabelTTF *labelConf1;
-    CCLabelTTF *labelConf1_1;
-    CCLabelTTF *labelConf2;
-    CCLabelTTF *labelConf2_1;
-    CCLabelTTF *labelConf2_2;
+//    CCSprite *conffon;
+//    CCSprite *conffon1;
+//    
+////    CCMenu* menukeys;
+//    CCMenu* menuconf;
+//    CCMenu* menuconf1;
+//    CCMenu* menuconf2;
+//    CCMenuItemSprite *itemyes;
+//    CCMenuItemSprite *itemno;
+//    CCMenuItemSprite *itemyes1;
+//    CCMenuItemSprite *itemno1;
+//    CCMenuItemSprite *itemok;
+//    CCLabelTTF *labelConf;
+//    CCLabelTTF *labelConf1;
+//    CCLabelTTF *labelConf1_1;
+//    CCLabelTTF *labelConf2;
+//    CCLabelTTF *labelConf2_1;
+//    CCLabelTTF *labelConf2_2;
 
     ShopSubLayer* ssl;
 
     ConfirmLayer* cnflay;
+    ConfirmLayer1* cnflay1;
+    ConfirmLayer2* cnflay2;
 }
 
 -(void)show;

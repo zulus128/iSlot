@@ -9,6 +9,8 @@
 //#import "InappLayer.h"
 #import "cocos2d.h"
 
+#define ConfDelay 0.3f
+
 #define SPEED1 0.062f
 #define SLIDE_TYPES 11
 #define SLIDE_CNT 4

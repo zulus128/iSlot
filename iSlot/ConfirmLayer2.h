@@ -11,26 +11,17 @@
 #import "Common.h"
 
 
-@interface ConfirmLayer : CCLayerColor {
+@interface ConfirmLayer2 : CCLayerColor {
     
-    CCSprite *conffon;
     CCSprite *conffon1;
     
-    CCMenu* menuconf;
-    CCMenu* menuconf1;
     CCMenu* menuconf2;
-    CCMenuItemSprite *itemyes;
-    CCMenuItemSprite *itemno;
     CCMenuItemSprite *itemyes1;
     CCMenuItemSprite *itemno1;
-    CCMenuItemSprite *itemok;
-    CCLabelTTF *labelConf;
-    CCLabelTTF *labelConf1;
-    CCLabelTTF *labelConf1_1;
     CCLabelTTF *labelConf2;
     CCLabelTTF *labelConf2_1;
     CCLabelTTF *labelConf2_2;
-
+    
 }
 
 -(void) show1;

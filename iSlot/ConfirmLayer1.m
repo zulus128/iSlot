@@ -6,62 +6,53 @@
 //  Copyright (c) 2013 Zul. All rights reserved.
 //
 
-#import "ConfirmLayer.h"
+#import "ConfirmLayer1.h"
 
-@implementation ConfirmLayer
+@implementation ConfirmLayer1
 
 -(id) initWithColor:(ccColor4B)color {
     
 	if( (self=[super initWithColor:color])) {
         
-		conffon = [CCSprite spriteWithFile:@"FonAlert01.png"];
+        conffon = [CCSprite spriteWithFile:@"FonAlert01.png"];
 		conffon.position = ccp(512, 384);
         conffon.opacity = 0;
 		[self addChild: conffon z:20];
         
-        CCSprite *spno = [CCSprite spriteWithFile:@"No.png"];
-        CCSprite *spno_t1 = [CCSprite spriteWithFile:@"TouchNo.png"];
-        itemno = [CCMenuItemSprite itemWithNormalSprite:spno selectedSprite:spno_t1 block:^(id sender) {
+        CCSprite *spok = [CCSprite spriteWithFile:@"OK.png"];
+        CCSprite *spok_t1 = [CCSprite spriteWithFile:@"TouchOK.png"];
+        itemok = [CCMenuItemSprite itemWithNormalSprite:spok selectedSprite:spok_t1 block:^(id sender) {
             
             [self.sslayer enable];
             [self hide1];
             
         }];
+		itemok.position = ccp(512, 384 - 50);
+        itemok.opacity = 0;
         
-		itemno.position = ccp(512 - 90, 384 - 50);
-        itemno.opacity = 0;
-        
-        CCSprite *spyes = [CCSprite spriteWithFile:@"Yes.png"];
-        CCSprite *spyes_t1 = [CCSprite spriteWithFile:@"TouchYes.png"];
-        itemyes = [CCMenuItemSprite itemWithNormalSprite:spyes selectedSprite:spyes_t1 block:^(id sender) {
-            
-            [self.sslayer onConfirmed];
-            [self.sslayer enable];
-            [self hide1];
-
-        }];
-		itemyes.position = ccp(512 + 90, 384 - 50);
-        itemyes.opacity = 0;
-        
-        menuconf = [CCMenu menuWithItems: itemno, itemyes, nil];
-        [self addChild: menuconf z:21];
-        [menuconf setPosition:ccp(0, 0)];
+        menuconf1 = [CCMenu menuWithItems: itemok, nil];
+        [self addChild: menuconf1 z:21];
+        [menuconf1 setPosition:ccp(0, 0)];
         //        menuconf.opacity = 0;
-        menuconf.enabled = NO;
+        menuconf1.enabled = NO;
         
-        labelConf = [CCLabelTTF labelWithString:@"You want to buy Line?" fontName:@"Marker Felt" fontSize:44];
-		labelConf.position =  ccp(512 , 384 + 30);
-        labelConf.opacity = 0;
-		[self addChild: labelConf z:21];
-
+        labelConf1 = [CCLabelTTF labelWithString:@"You do not have" fontName:@"Marker Felt" fontSize:44];
+		labelConf1.position =  ccp(512 , 384 + 60);
+        labelConf1.opacity = 0;
+		[self addChild: labelConf1 z:21];
+        labelConf1_1 = [CCLabelTTF labelWithString:@"enough coins." fontName:@"Marker Felt" fontSize:44];
+		labelConf1_1.position =  ccp(512 , 384 + 10);
+        labelConf1_1.opacity = 0;
+		[self addChild: labelConf1_1 z:21];
+        
     }
     
     return self;
-
+    
 }
 
 - (void) show1 {
-
+    
     self.scale = 0.1f;
     [self runAction:[CCScaleTo actionWithDuration:ConfDelay scale:1.0f]];
     
@@ -76,9 +67,9 @@
         
         
     }
-
-    menuconf.enabled = YES;
-
+    
+    menuconf1.enabled = YES;
+    
 }
 
 - (void) hide1 {
@@ -97,7 +88,7 @@
         
     }
     
-    menuconf.enabled = NO;
+    menuconf1.enabled = NO;
     
 }
 
