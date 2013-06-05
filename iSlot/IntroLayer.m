@@ -9,7 +9,6 @@
 
 #import "IntroLayer.h"
 #import "GameLayer.h"
-#import "CCScrollLayer.h"
 #import "MapLayer.h"
 
 #import "InappLayer.h"
@@ -70,13 +69,14 @@ static ShopLayer* shoplay;
         CCLayer *layer1 = [self layerWithChapterNumber:1 screenSize:screenSize];
         [layers addObject:layer1];
 
-        CCScrollLayer *scroller = [[CCScrollLayer alloc] initWithLayers:layers
+        scroller = [[CCScrollLayer alloc] initWithLayers:layers
                                                             widthOffset:570];
         [scroller selectPage:0];
         scroller.showPagesIndicator = NO;
         [self addChild:scroller z:12];
         [scroller release];
 //        [layers release];
+
         
         labelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:@"Marker Felt" fontSize:44];
         labelMoney.color = ccc3(0, 0, 0);
@@ -196,6 +196,8 @@ static ShopLayer* shoplay;
                     ((CCMenu*)result).enabled = NO;
                 }
             }
+            scroller.touchEnabled = NO;
+
             
 		}];
         [iteminapp setPosition:ccp(443.5, 730)];
@@ -217,7 +219,8 @@ static ShopLayer* shoplay;
                     ((CCMenu*)result).enabled = NO;
                 }
             }
-            
+            scroller.touchEnabled = NO;
+
 		}];
         [iteminapp1 setPosition:ccp(975.5, 730)];
         
@@ -254,6 +257,7 @@ static ShopLayer* shoplay;
                     ((CCMenu*)result).enabled = NO;
                 }
             }
+            scroller.touchEnabled = NO;
 
             [shoplay show];
 
@@ -333,7 +337,8 @@ static ShopLayer* shoplay;
             }
         }
 
-    
+        scroller.touchEnabled = YES;
+
     }
 
 }
@@ -354,6 +359,7 @@ static ShopLayer* shoplay;
         }
     }
 
+    scroller.touchEnabled = YES;
 
 }
 

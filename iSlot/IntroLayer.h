@@ -10,6 +10,7 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
+#import "CCScrollLayer.h"
 
 #define MENU_TAG 111
 
@@ -31,6 +32,7 @@
     CCSprite* sett3;
     CCMenu* settmenu;
 
+    CCScrollLayer *scroller;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
