@@ -374,9 +374,9 @@ static ShopLayer* shoplay;
                                                                target:self
                                                              selector:@selector(onSelectChapter:)];
         image.tag = chapterNumber;
-        CCMenu *menu = [CCMenu menuWithItems: image, nil];
-        menu.tag = MENU_TAG;
-        [layer addChild: menu];
+        CCMenu *mmenu = [CCMenu menuWithItems: image, nil];
+        mmenu.tag = MENU_TAG;
+        [layer addChild: mmenu];
     
     return layer;
 }
