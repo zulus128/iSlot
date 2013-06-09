@@ -10,7 +10,7 @@
 
 @implementation Combination
 
-- (id)initWithLayer:(CCLayer *)lay sprite:(CCSprite*)s line:(int)l count:(int)cn  linePos:(NSArray*)lpos sprites:(NSArray*)sprs {
+- (id)initWithLayer:(CCLayer *)lay sprite:(CCSprite*)s line:(int)l count:(int)cn  linePos:(NSArray*)lpos sprites:(NSArray*)sprs atIndex:(int)ind {
     
     self = [super init];
     if (self) {
@@ -22,6 +22,7 @@
         linepos = lpos;
         sprites = [sprs copy];
         
+        atindex = ind;
 //        CGSize size = [[CCDirector sharedDirector] winSize];
 //        int y = size.height / 2 - 107;
 //        int x = size.width / 2 - 299;
@@ -54,16 +55,11 @@
 
 - (void) show {
     
-//    NSLog(@"show -------------");
     for(int i = 0; i < cnt; i++) {
      
-        CCSprite* s = (CCSprite*)[sprites objectAtIndex:i];
+        CCSprite* s = (CCSprite*)[sprites objectAtIndex:(i)];
         [s.parent reorderChild:s z:7];
-//        s.visible = NO;
-//        NSLog(@"add: %d", s.tag);
-
     }
-//    NSLog(@"-------------");
 
     sprite.position = ccp(513, 418);
 
@@ -73,25 +69,19 @@
 
     for(int i = 0; i < cnt; i++) {
         
-        int p = [[linepos objectAtIndex:i] intValue];
-        cube[i].position = ccp(x + (i * 150), y + ((p + 1) * 144));
+        int p = [[linepos objectAtIndex:(i + atindex)] intValue];
+        cube[i].position = ccp(x + ((i + atindex) * 150), y + ((p + 1) * 144));
     }
 
 }
 
 - (void) hide {
 
-//    NSLog(@"hide -------------");
-
     for(int i = 0; i < cnt; i++) {
         
         CCSprite* s = (CCSprite*)[sprites objectAtIndex:i];
         [s.parent reorderChild:s z:2];
-//        s.visible = YES;
-//        NSLog(@"add: %d", s.tag);
-
     }
-//    NSLog(@"-------------");
 
     for(int i = 0; i < cnt; i++) {
         

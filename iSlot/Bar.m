@@ -75,12 +75,26 @@
 
 - (int) getRandom:(int)pos {
 
+
     BOOL b;
     int j;
     do {
         b = YES;
-//        j = CCRANDOM_0_1() * SLIDE_TYPES;
         j = [[Common instance] getRnd];
+        
+        if([Common instance].curlevel == 19) { //first bonus level
+        
+            switch (j) {
+                case 0:
+                case 1:
+                case 6:
+                case 7:
+                case 8:
+                    b = NO;
+                    continue;
+            }
+        }
+        
         for(int i = 0; i < SLIDE_CNT; i++) {
             if(slide_num[i] == j) {
                 

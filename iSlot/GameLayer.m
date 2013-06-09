@@ -917,22 +917,6 @@ static BonusLayer* bonlay;
 //    NSLog(@"starFinished %d", [Common instance].famepoints);
     
     int lmoney = [self getLmoney];
-//    int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
-//    switch (t1) {
-//        case 0:
-//            lmoney = LEVEL_MONEY1;
-//            break;
-//        case 1:
-//            lmoney = LEVEL_MONEY2;
-//            break;
-//        case 2:
-//            lmoney = LEVEL_MONEY3;
-//            break;
-//        default:
-//            lmoney = LEVEL_MONEY3;
-//            break;
-//    }
-
     [labelLevelMoney setString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney]];
 
     float p = [Common instance].levelwin > lmoney?lmoney:[Common instance].levelwin;
@@ -1039,85 +1023,138 @@ static BonusLayer* bonlay;
     
 //    NSLog(@"---------checkLines");
 
+    BOOL bon2 = ([Common instance].curlevel == 29);// second bonus level
+    BOOL bon4 = ([Common instance].curlevel == 49);// second bonus level
+
     [Common instance].finished = 0;
     int winsum = 0;
     
     for(int i = 0; i < [Common instance].lines; i++) {
+//    for(int i = 5; i < 6; i++) {
 
-        NSMutableArray* arr = [NSMutableArray array];
+        for(int fpos = 0; fpos < (bon2?(BARS_CNT - 1):1); fpos++) {
 
-        int first = [bar[0] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]];
-//        [arr addObject:[bar[0] getSprite:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]]];
-        CCSprite* ss = [bar[0] getSprite:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]];
-//        NSLog(@"--- add: %d", ss.tag);
-        [arr addObject:ss];
+            NSMutableArray* arr = [NSMutableArray array];
 
-        int cnt = 1;
+//             NSLog(@"--fpos: %d", fpos);
 
-        for(int j = 1; j < BARS_CNT; j++) {
-        
-        int slide1 = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j]intValue]];
-//        [arr addObject:[bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]]];
-        CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
-//        NSLog(@"add: %d", ss.tag);
-        [arr addObject:ss];
-
-        if((slide1 == first) || (slide1 == 0 /*WILD*/))
-            cnt++;
-         else
-             if(first == 0) {
-                 cnt++;
-                 first = slide1;
-             }
-            else
-                break;
+//            int first = [bar[0] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]];
+//            CCSprite* ss = [bar[0] getSprite:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]];
+            int first = 0;
+            CCSprite* ss = 0;
+            if(bon4) {
             
-        }
-//        NSLog(@"first = %d, cnt = %d", first, cnt);
+                first = [bar[(BARS_CNT - 1)] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:(BARS_CNT - 1)] intValue]];
+                ss = [bar[(BARS_CNT - 1)] getSprite:[[[lines objectAtIndex:i] objectAtIndex:(BARS_CNT - 1)] intValue]];
+            }
+            else {
 
-        int mmoney = 0;
-        if(cnt > 1)
-            mmoney = [[[values objectAtIndex:first]objectAtIndex:(cnt - 2)] intValue];
-        
-        if(mmoney > 0) {
+                first = [bar[fpos] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:fpos] intValue]];
+                ss = [bar[fpos] getSprite:[[[lines objectAtIndex:i] objectAtIndex:fpos] intValue]];
+                
+            }
+    //        NSLog(@"--- add: %d", ss.tag);
+            [arr addObject:ss];
+//             NSLog(@"--fpos: %d first at fpos: %d", fpos, first);
 
-//            lineSprite[i].position = ccp(513, 418);
-            [Common instance].money += ( mmoney * [Common instance].coins );
-            
-            NSLog(@"Coins = %d, money = %d, slide = %d", [Common instance].coins, mmoney, first);
-            
-            float koeff = 1;
-            int n1 = [Common instance].curlevel / 10;
-            int n2 = [Common instance].curlevel - n1 * 10;
-            
-            if (n2 == 9) //bonus level
-                switch (n1) {
-                    case 1:
-                        koeff = 1.5f;
-                        break;
-                    case 2:
-                        koeff = 2.5f;
-                        break;
-                    case 3:
-                        koeff = 2.0f;
-                        break;
-                    case 4:
-                        koeff = 4.0f;
-                        break;
+
+            int cnt = 1;
+
+            if (bon4) {//fourth bonus level
+                for(int j = (BARS_CNT - 1); j >= (fpos + 1); j--) {
+                    
+                    int slide1 = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
+                    CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
+                    [arr addObject:ss];
+                    
+                    if((slide1 == first) || (slide1 == 0 /*WILD*/))
+                        cnt++;
+                    else
+                        if(first == 0) {
+                            cnt++;
+                            first = slide1;
+                        }
+                        else
+                            break;
                 }
+            }
+            else //not fourth bonus level
+            for(int j = (fpos + 1); j < BARS_CNT; j++) {
+            
+                int slide1 = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
+                CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
+                [arr addObject:ss];
 
-            int wsum = mmoney * [Common instance].coins;
-            int sum = wsum * koeff;
-            
-            NSLog(@"Winsum = %d, koeff for bonusl level = %f, sum = %d", wsum, koeff, sum);
-            winsum += sum;//mmoney * [Common instance].coins;
-            
-            [Common instance].famepoints += cnt;
-            [self refreshLabels];
+                if((slide1 == first) || (slide1 == 0 /*WILD*/))
+                    cnt++;
+                 else
+                     if(first == 0) {
+                         cnt++;
+                         first = slide1;
+                     }
+                    else
+                        break;
+            }
+           
 
-//            cnt = 3;//v
-            [combinations addObject:[[Combination alloc]initWithLayer:self sprite:lineSprite[i] line:i count:cnt linePos:[lines objectAtIndex:i] sprites:arr]];
             
+            int mmoney = 0;
+
+            
+            
+            
+            if(cnt > 1)
+                mmoney = [[[values objectAtIndex:first]objectAtIndex:(cnt - 2)] intValue];
+
+//            fpos = 1;
+//            cnt = 3;
+//            money = 1;
+
+            if(mmoney > 0) {
+
+//                NSLog(@"first = %d, cnt = %d, fpos = %d, i = %d", first, cnt, fpos, i);
+
+    //            lineSprite[i].position = ccp(513, 418);
+                [Common instance].money += ( mmoney * [Common instance].coins );
+                
+                NSLog(@"Coins = %d, money = %d, slide = %d", [Common instance].coins, mmoney, first);
+                
+                float koeff = 1;
+                int n1 = [Common instance].curlevel / 10;
+                int n2 = [Common instance].curlevel - n1 * 10;
+                
+                if (n2 == 9) //bonus level
+                    switch (n1) {
+                        case 1:
+                            koeff = 1.5f;
+                            break;
+                        case 2:
+                            koeff = 2.5f;
+                            break;
+                        case 3:
+                            koeff = 2.0f;
+                            break;
+                        case 4:
+                            koeff = 4.0f;
+                            break;
+                    }
+
+                int wsum = mmoney * [Common instance].coins;
+                int sum = wsum * koeff;
+                
+                NSLog(@"Winsum = %d, koeff for bonusl level = %f, sum = %d", wsum, koeff, sum);
+                winsum += sum;//mmoney * [Common instance].coins;
+                
+                [Common instance].famepoints += cnt;
+                [self refreshLabels];
+
+    //            cnt = 3;//v
+                [combinations addObject:[[Combination alloc]initWithLayer:self sprite:lineSprite[i] line:i count:cnt linePos:[lines objectAtIndex:i] sprites:arr atIndex:(bon4?(BARS_CNT - 1 - cnt - 1):fpos)]];
+             
+                break;
+            }
+            
+//            break;//ubrat
         }
         
     
