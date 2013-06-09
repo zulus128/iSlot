@@ -13,10 +13,12 @@
 #define     ccplevel(__X__, __Y__)   CGPointMake(__X__ + 115/2.f, 768 - (__Y__ + 111/2.f))
 #define     ccpstar(__X__, __Y__)   CGPointMake(__X__ + 139/2.f, 768 - (__Y__ + 64/2.f) - 74)
 #define     ccplock(__X__, __Y__)   CGPointMake(__X__ + 115/2.f, 768 - (__Y__ + 111/2.f) - 74)
+#define     ccpchech(__X__, __Y__)   CGPointMake(__X__ + 115/2.f + 16, 768 - (__Y__ + 111/2.f) - 74 - 14)
 
 #define MENU_TAG1 5111
 #define LOCKS_TAG 6000
 #define STARS_TAG 16000
+#define CHECH_TAG 100000
 
 static CCLabelTTF *labelMoney = nil;
 static CCLabelTTF *labelYourLuck = nil;

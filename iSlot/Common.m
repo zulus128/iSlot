@@ -148,12 +148,21 @@
 
 - (int) getStarsForLevel:(int) t {
 
+//    BOOL bonus = ((t - (t/10) * 10) == 9);
+//    if(bonus)
+//        return 0;
+    
     NSDictionary* d = [levels objectForKey:[NSString stringWithFormat:@"level%d", t]];
     NSNumber* n = [d objectForKey:@"stars"];
     return [n intValue];
 }
 
 - (void) increaseStarsForCurrentLevel {
+
+//    int t = self.curlevel;
+//    BOOL bonus = ((t - (t/10) * 10) == 9);
+//    if(bonus)
+//        return;
 
     NSDictionary* d = [levels objectForKey:[NSString stringWithFormat:@"level%d", self.curlevel]];
     NSNumber* n = [d objectForKey:@"stars"];
@@ -166,8 +175,17 @@
 }
 
 - (void) increaseLevel {
+
+    int t = self.curlevel;
+    BOOL bonus = ((t - (t/10) * 10) == 9);
+    if(bonus)
+        return;
+
+//    self.lastLevelPassed = 43;
+
+    if(self.lastLevelPassed < self.curlevel)
+        self.lastLevelPassed = self.curlevel;
     
-    self.lastLevelPassed = self.curlevel;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:[NSNumber numberWithInt:self.lastLevelPassed] forKey:@"lastLevelPassed"];
     [userDefaults synchronize];

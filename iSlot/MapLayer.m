@@ -263,13 +263,28 @@ static MapLayer *layer;
         CCMenuItemSprite *item6_3= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(level:)];
         item6_3.tag = 36;
         [item6_3 setPosition:ccplevel(2870, 324)];
-
+        
+        l1 = @"BonnusLevel.png";
+        CCMenuItemSprite *bonitem1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(bonlevel:)];
+        bonitem1.tag = 19;
+        [bonitem1 setPosition:ccplevel(900, 150)];
+        CCMenuItemSprite *bonitem2= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(bonlevel:)];
+        bonitem2.tag = 29;
+        [bonitem2 setPosition:ccplevel(2100, 310)];
+        CCMenuItemSprite *bonitem3= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(bonlevel:)];
+        bonitem3.tag = 39;
+        [bonitem3 setPosition:ccplevel(2810, 140)];
+        CCMenuItemSprite *bonitem4= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] target:self selector:@selector(bonlevel:)];
+        bonitem4.tag = 49;
+        [bonitem4 setPosition:ccplevel(3580, 510)];
+        
         menu = [CCMenu menuWithItems: item1_1, item1_2, item1_3, item1_4,
                         item2_1, item2_2, item2_3, item2_4,
                         item3_1, item3_2, item3_3, item3_4,
                         item4_1, item4_2, item4_3,
                         item5_1, item5_3,
                         item6_3,
+                        bonitem1, bonitem2, bonitem3, bonitem4,
                         nil];
         [self addChild: menu z:300];
         menu.tag = MENU_TAG1;
@@ -292,7 +307,7 @@ static MapLayer *layer;
         lock5_1.position = ccplock(675, 263);
         lock5_1.tag = LOCKS_TAG + 15;
         [self addChild:lock5_1 z:309];
-
+        
         CCSprite *lock2_2 = [CCSprite spriteWithFile:l1];
         lock2_2.position = ccplock(1348, 228);
         lock2_2.tag = LOCKS_TAG + 22;
@@ -335,7 +350,118 @@ static MapLayer *layer;
         lock3_4.position = ccplock(3844, 463);
         lock3_4.tag = LOCKS_TAG + 43;
         [self addChild:lock3_4 z:309];
-
+        
+        CCSprite *lockbon1 = [CCSprite spriteWithFile:l1];
+        lockbon1.position = ccplock(900, 150);
+        lockbon1.tag = LOCKS_TAG + 19;
+        [self addChild:lockbon1 z:309];
+        CCSprite *lockbon2 = [CCSprite spriteWithFile:l1];
+        lockbon2.position = ccplock(2100, 310);
+        lockbon2.tag = LOCKS_TAG + 29;
+        [self addChild:lockbon2 z:309];
+        CCSprite *lockbon3 = [CCSprite spriteWithFile:l1];
+        lockbon3.position = ccplock(2810, 140);
+        lockbon3.tag = LOCKS_TAG + 39;
+        [self addChild:lockbon3 z:309];
+        CCSprite *lockbon4 = [CCSprite spriteWithFile:l1];
+        lockbon4.position = ccplock(3580, 510);
+        lockbon4.tag = LOCKS_TAG + 49;
+        [self addChild:lockbon4 z:309];
+        
+        l1 = @"ChechLevel.png";
+        CCSprite *ch1_1 = [CCSprite spriteWithFile:l1];
+        ch1_1.position = ccpchech(177, 255);
+        ch1_1.tag = CHECH_TAG + 11;
+        [self addChild:ch1_1 z:309];
+        CCSprite *ch2_1 = [CCSprite spriteWithFile:l1];
+        ch2_1.position = ccpchech(23, 375);
+        ch2_1.tag = CHECH_TAG + 12;
+        [self addChild:ch2_1 z:309];
+        CCSprite *ch3_1 = [CCSprite spriteWithFile:l1];
+        ch3_1.position = ccpchech(390, 490);
+        ch3_1.tag = CHECH_TAG + 13;
+        [self addChild:ch3_1 z:309];
+        CCSprite *ch4_1 = [CCSprite spriteWithFile:l1];
+        ch4_1.position = ccpchech(785, 528);
+        ch4_1.tag = CHECH_TAG + 14;
+        [self addChild:ch4_1 z:309];
+        CCSprite *ch5_1 = [CCSprite spriteWithFile:l1];
+        ch5_1.position = ccpchech(675, 263);
+        ch5_1.tag = CHECH_TAG + 15;
+        [self addChild:ch5_1 z:309];
+        
+        CCSprite *ch1_2 = [CCSprite spriteWithFile:l1];
+        ch1_2.position = ccpchech(1130, 515);
+        ch1_2.tag = CHECH_TAG + 21;
+        [self addChild:ch1_2 z:309];
+        CCSprite *ch2_2 = [CCSprite spriteWithFile:l1];
+        ch2_2.position = ccpchech(1348, 228);
+        ch2_2.tag = CHECH_TAG + 22;
+        [self addChild:ch2_2 z:309];
+        CCSprite *ch3_2 = [CCSprite spriteWithFile:l1];
+        ch3_2.position = ccpchech(1888, 170);
+        ch3_2.tag = CHECH_TAG + 23;
+        [self addChild:ch3_2 z:309];
+        CCSprite *ch4_2 = [CCSprite spriteWithFile:l1];
+        ch4_2.position = ccpchech(1787, 470);
+        ch4_2.tag = CHECH_TAG + 24;
+        [self addChild:ch4_2 z:309];
+        
+        CCSprite *ch1_3 = [CCSprite spriteWithFile:l1];
+        ch1_3.position = ccpchech(2571, 98);
+        ch1_3.tag = CHECH_TAG + 31;
+        [self addChild:ch1_3 z:309];
+        CCSprite *ch2_3 = [CCSprite spriteWithFile:l1];
+        ch2_3.position = ccpchech(2303, 233);
+        ch2_3.tag = CHECH_TAG + 32;
+        [self addChild:ch2_3 z:309];
+        CCSprite *ch3_3 = [CCSprite spriteWithFile:l1];
+        ch3_3.position = ccpchech(2538, 306);
+        ch3_3.tag = CHECH_TAG + 33;
+        [self addChild:ch3_3 z:309];
+        CCSprite *ch4_3 = [CCSprite spriteWithFile:l1];
+        ch4_3.position = ccpchech(2149, 507);
+        ch4_3.tag = CHECH_TAG + 34;
+        [self addChild:ch4_3 z:309];
+        CCSprite *ch5_3 = [CCSprite spriteWithFile:l1];
+        ch5_3.position = ccpchech(2641, 543);
+        ch5_3.tag = CHECH_TAG + 35;
+        [self addChild:ch5_3 z:309];
+        CCSprite *ch6_3 = [CCSprite spriteWithFile:l1];
+        ch6_3.position = ccpchech(2870, 324);
+        ch6_3.tag = CHECH_TAG + 36;
+        [self addChild:ch6_3 z:309];
+        
+        CCSprite *ch1_4 = [CCSprite spriteWithFile:l1];
+        ch1_4.position = ccpchech(3167, 306);
+        ch1_4.tag = CHECH_TAG + 41;
+        [self addChild:ch1_4 z:309];
+        CCSprite *ch2_4 = [CCSprite spriteWithFile:l1];
+        ch2_4.position = ccpchech(3505, 215);
+        ch2_4.tag = CHECH_TAG + 42;
+        [self addChild:ch2_4 z:309];
+        CCSprite *ch3_4 = [CCSprite spriteWithFile:l1];
+        ch3_4.position = ccpchech(3844, 463);
+        ch3_4.tag = CHECH_TAG + 43;
+        [self addChild:ch3_4 z:309];
+        
+        CCSprite *chbon1 = [CCSprite spriteWithFile:l1];
+        chbon1.position = ccpchech(900, 150);
+        chbon1.tag = CHECH_TAG + 19;
+        [self addChild:chbon1 z:309];
+        CCSprite *chbon2 = [CCSprite spriteWithFile:l1];
+        chbon2.position = ccpchech(2100, 310);
+        chbon2.tag = CHECH_TAG + 29;
+        [self addChild:chbon2 z:309];
+        CCSprite *chbon3 = [CCSprite spriteWithFile:l1];
+        chbon3.position = ccpchech(2810, 140);
+        chbon3.tag = CHECH_TAG + 39;
+        [self addChild:chbon3 z:309];
+        CCSprite *chbon4 = [CCSprite spriteWithFile:l1];
+        chbon4.position = ccpchech(3580, 510);
+        chbon4.tag = CHECH_TAG + 49;
+        [self addChild:chbon4 z:309];
+        
         
         l1 = @"StarLevelNone.png";
         CCSprite *star1_1 = [CCSprite spriteWithFile:l1];
@@ -425,12 +551,25 @@ static MapLayer *layer;
 }
 
 -(void)level:(CCMenuItemSprite*)sender {
-
+    
     
     NSLog(@"level pressed %d", sender.tag);
+    
+    if([Common instance].curlevel == sender.tag)
+        return;
+    
     [Common instance].curlevel = sender.tag;
     [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+    
+}
 
+-(void)bonlevel:(CCMenuItemSprite*)sender {
+    
+    
+    NSLog(@"bonus level pressed %d", sender.tag);
+    [Common instance].curlevel = sender.tag;
+    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+    
 }
 
 - (void) afterShop {
@@ -466,8 +605,8 @@ static MapLayer *layer;
     
     int n = [Common instance].lastLevelPassed + 1;
     int next = n;
-    if(n > 44)
-        next = 44;
+    if(n > 43)
+        next = 49;
     if((n > 36) && (n < 41))
         next = 41;
     if((n > 24) && (n < 31))
@@ -490,13 +629,23 @@ static MapLayer *layer;
     for(CCMenuItemSprite *aChildNode in menu.children)
         if(aChildNode.tag > 10) {
 
-            aChildNode.isEnabled = (aChildNode.tag <= next);
+
+            int t1 = [[Common instance] getStarsForLevel:aChildNode.tag];
+
+            CCNode* chech = [self getChildByTag:(aChildNode.tag + CHECH_TAG)];
+            BOOL bonus = ((aChildNode.tag - (aChildNode.tag/10) * 10) == 9);
+            BOOL chvis = bonus?(t1 >= 1):(t1 >= 3);
+            chech.visible = chvis;
+
+            aChildNode.isEnabled = !chvis && (aChildNode.tag <= next);
             
             CCNode* llock = [self getChildByTag:(aChildNode.tag + LOCKS_TAG)];
-            llock.visible = !aChildNode.isEnabled;
+            llock.visible = (aChildNode.tag > next);//!aChildNode.isEnabled;
+            
+            if(bonus)
+                continue;
             
             NSString* l1 = @"StarLevelNone.png";
-            int t1 = [[Common instance] getStarsForLevel:aChildNode.tag];
             switch (t1) {
                 case 0:
                     l1 = @"StarLevelNone.png";
@@ -578,7 +727,8 @@ static MapLayer *layer;
 - (void) onEnter {
     
     [super onEnter];
-    
+    [Common instance].curlevel = -1;
+
     [self refreshLabels];
 }
 

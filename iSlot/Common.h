@@ -23,6 +23,24 @@
 #define DELAY4 3.5f
 #define DELAY5 4.0f
 
+#define BON1DELAY1 4.0f
+#define BON1DELAY2 3.5f
+#define BON1DELAY3 3.0f
+#define BON1DELAY4 2.5f
+#define BON1DELAY5 2.0f
+
+#define BON2DELAY1 2.5f
+#define BON2DELAY2 3.0f
+#define BON2DELAY3 3.5f
+#define BON2DELAY4 3.0f
+#define BON2DELAY5 2.5f
+
+#define BON4DELAY1 3.0f
+#define BON4DELAY2 3.0f
+#define BON4DELAY3 3.0f
+#define BON4DELAY4 3.0f
+#define BON4DELAY5 3.0f
+
 #define LINES_CNT 21
 
 #define RND0 2 //%

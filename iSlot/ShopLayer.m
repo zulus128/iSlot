@@ -29,7 +29,7 @@
 		[self addChild: background];
         
         ssl = [ShopSubLayer layerWithColor:ccc4(100, 20, 200, 0) width:775 height:1340];
-        ssl.position = ccp(125, -765);
+        ssl.position = ccp(10125, -765);
         [ssl addContent];
         [self addChild:ssl];
         

@@ -53,7 +53,7 @@
 
 -(void) addContent {
     
-        self.touchEnabled = YES;
+        self.touchEnabled = NO;
     
     CCSprite *spshop = [CCSprite spriteWithFile:@"ShopLine01.png"];
     CCSprite *spshop_t1 = [CCSprite spriteWithFile:@"ShopLine01.png"];
@@ -164,6 +164,8 @@
 //    for(CCNode *aChildNode in self.children)
 //        NSLog(@"tag %d, %d", aChildNode.tag, aChildNode.tag & 0xFF);
     
+    self.position = ccp(125, -765);
+
     for(CCNode *aChildNode in self.children)
         if((aChildNode.tag & 0xF) == SHOPSUB_TAG) {
         
@@ -172,6 +174,8 @@
         
     }
     
+    self.touchEnabled = YES;
+
 }
 
 - (void) hide {
@@ -182,7 +186,17 @@
         [aChildNode runAction:[CCFadeOut actionWithDuration:DSLdelay]];
         
     }
+
+    self.touchEnabled = NO;
+
+    [self performSelector:@selector(hide1) withObject:nil afterDelay:DSLdelay];
+
+}
+
+- (void) hide1 {
     
+    self.position = ccp(10125, -765);
+
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

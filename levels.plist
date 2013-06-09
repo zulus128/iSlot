@@ -27,6 +27,11 @@
 		<key>stars</key>
 		<integer>0</integer>
 	</dict>
+	<key>level19</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
 	<key>level21</key>
 	<dict>
 		<key>stars</key>
@@ -43,6 +48,11 @@
 		<integer>0</integer>
 	</dict>
 	<key>level24</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level29</key>
 	<dict>
 		<key>stars</key>
 		<integer>0</integer>
@@ -77,6 +87,11 @@
 		<key>stars</key>
 		<integer>0</integer>
 	</dict>
+	<key>level39</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
 	<key>level41</key>
 	<dict>
 		<key>stars</key>
@@ -88,6 +103,11 @@
 		<integer>0</integer>
 	</dict>
 	<key>level43</key>
+	<dict>
+		<key>stars</key>
+		<integer>0</integer>
+	</dict>
+	<key>level49</key>
 	<dict>
 		<key>stars</key>
 		<integer>0</integer>

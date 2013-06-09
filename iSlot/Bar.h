@@ -25,10 +25,13 @@
     int X;
     BOOL stop1;
     float delay;
+    float bondelay1;
+    float bondelay2;
+    float bondelay4;
     BOOL finished;
 }
 
-- (id)initWithLayer:(CCLayer *)lay X:(int)xx Y:(int)yy Delay:(float)del;
+- (id)initWithLayer:(CCLayer *)lay X:(int)xx Y:(int)yy Delay:(float)del BonDelay1:(float)del1 BonDelay2:(float)del2 BonDelay4:(float)del4;
 -(void) start;
 -(int) getSlideNum: (int)pos;
 -(CCSprite*) getSprite: (int)pos;

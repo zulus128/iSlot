@@ -10,7 +10,8 @@
 
 @implementation Bar
 
-- (id)initWithLayer:(CCLayer *)lay X:(int)xx Y:(int)yy Delay:(float)del {
+//- (id)initWithLayer:(CCLayer *)lay X:(int)xx Y:(int)yy Delay:(float)del {
+- (id)initWithLayer:(CCLayer *)lay X:(int)xx Y:(int)yy Delay:(float)del BonDelay1:(float)del1 BonDelay2:(float)del2 BonDelay4:(float)del4 {
     
     self = [super init];
     if (self) {
@@ -19,6 +20,9 @@
         X = xx;
         Y = yy;
         delay = del;
+        bondelay1 = del1;
+        bondelay2 = del2;
+        bondelay4 = del4;
 
         for(int i = 0; i < SLIDE_CNT; i++)
             slide_num[i] = -1;
@@ -127,7 +131,25 @@
 
     
     stop1 = false;
-    [self performSelector:@selector(stop1) withObject:nil afterDelay:delay];
+    
+    float dell = delay;
+    int n1 = [Common instance].curlevel / 10;
+    int n2 = [Common instance].curlevel - n1 * 10;
+    
+    if (n2 == 9) //bonus level
+        switch (n1) {
+            case 1:
+                dell = bondelay1;
+                break;
+            case 2:
+                dell = bondelay2;
+                break;
+            case 4:
+                dell = bondelay4;
+                break;
+        }
+
+    [self performSelector:@selector(stop1) withObject:nil afterDelay:dell];
     
 //    for(int i = 1; i < SLIDE_CNT; i++) {
     for(int i = (SLIDE_CNT - 1); i > 0; i--) {

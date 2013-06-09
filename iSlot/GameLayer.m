@@ -57,6 +57,22 @@ static BonusLayer* bonlay;
 
 -(int) getLmoney {
 
+    int n1 = [Common instance].curlevel / 10;
+    int n2 = [Common instance].curlevel - n1 * 10;
+
+    if (n2 == 9) //bonus level
+        switch (n1) {
+            case 1:
+                return 1500;
+            case 2:
+                return 2500;
+            case 3:
+                return 6000;
+            case 4:
+                return 20550;
+        }
+    
+    
     int t1 = [[Common instance] getStarsForLevel:[Common instance].curlevel];
     if(t1 > 2)
         t1 = 2;
@@ -80,17 +96,6 @@ static BonusLayer* bonlay;
         bonlay.player = self;
         shoplay.player = self;
         
-//        fames[0] = FAME_POINTS1;
-//        fames[1] = FAME_POINTS2;
-//        fames[2] = FAME_POINTS3;
-//        fames[3] = FAME_POINTS4;
-//        fames[4] = FAME_POINTS5;
-//        fames[5] = FAME_POINTS6;
-//        fames[6] = FAME_POINTS7;
-//        fames[7] = FAME_POINTS8;
-//        fames[8] = FAME_POINTS9;
-//        fames[9] = FAME_POINTS10;
-
         NSArray* line1 = [[NSArray alloc] initWithObjects:
                           [[NSNumber alloc] initWithInt:0],
                           [[NSNumber alloc] initWithInt:0],
@@ -587,11 +592,17 @@ static BonusLayer* bonlay;
         int y = size.height / 2 - 107;
         int x = size.width / 2 - 299;
 
-        bar[0] = [[Bar alloc] initWithLayer:self X:x Y:y Delay:DELAY1];
-        bar[1] = [[Bar alloc] initWithLayer:self X:(x + 150) Y:y Delay:DELAY2];
-        bar[2] = [[Bar alloc] initWithLayer:self X:(x + 300) Y:y Delay:DELAY3];
-        bar[3] = [[Bar alloc] initWithLayer:self X:(x + 450) Y:y Delay:DELAY4];
-        bar[4] = [[Bar alloc] initWithLayer:self X:(x + 600) Y:y Delay:DELAY5];
+//        bar[0] = [[Bar alloc] initWithLayer:self X:x Y:y Delay:DELAY1];
+//        bar[1] = [[Bar alloc] initWithLayer:self X:(x + 150) Y:y Delay:DELAY2];
+//        bar[2] = [[Bar alloc] initWithLayer:self X:(x + 300) Y:y Delay:DELAY3];
+//        bar[3] = [[Bar alloc] initWithLayer:self X:(x + 450) Y:y Delay:DELAY4];
+//        bar[4] = [[Bar alloc] initWithLayer:self X:(x + 600) Y:y Delay:DELAY5];
+        
+        bar[0] = [[Bar alloc] initWithLayer:self X:x Y:y Delay:DELAY1 BonDelay1:BON1DELAY1 BonDelay2:BON2DELAY1 BonDelay4:BON4DELAY1];
+        bar[1] = [[Bar alloc] initWithLayer:self X:(x + 150) Y:y Delay:DELAY2 BonDelay1:BON1DELAY2 BonDelay2:BON2DELAY2 BonDelay4:BON4DELAY2];
+        bar[2] = [[Bar alloc] initWithLayer:self X:(x + 300) Y:y Delay:DELAY3 BonDelay1:BON1DELAY3 BonDelay2:BON2DELAY3 BonDelay4:BON4DELAY3];
+        bar[3] = [[Bar alloc] initWithLayer:self X:(x + 450) Y:y Delay:DELAY4 BonDelay1:BON1DELAY4 BonDelay2:BON2DELAY4 BonDelay4:BON4DELAY4];
+        bar[4] = [[Bar alloc] initWithLayer:self X:(x + 600) Y:y Delay:DELAY5 BonDelay1:BON1DELAY5 BonDelay2:BON2DELAY5 BonDelay4:BON4DELAY5];
         
         CCSprite *spriteSpin = [CCSprite spriteWithFile:@"Spin.png"];
         CCSprite *spriteSpinSelected = [CCSprite spriteWithFile:@"TouchSpin.png"];
@@ -892,7 +903,7 @@ static BonusLayer* bonlay;
 
         int n1 = [Common instance].curlevel / 10;
         int n2 = [Common instance].curlevel - n1 * 10;
-        CCLabelTTF* title = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Level %d-%d", n1, n2] fontName:@"Marker Felt" fontSize:28];
+        CCLabelTTF* title = [CCLabelTTF labelWithString:(n2 == 9)?[NSString stringWithFormat:@"Bonus Level %d", n1]:[NSString stringWithFormat:@"Level %d-%d", n1, n2] fontName:@"Marker Felt" fontSize:28];
         [self addChild:title z:350];
         title.position = ccp(512, 650);
 
@@ -1064,18 +1075,42 @@ static BonusLayer* bonlay;
         }
 //        NSLog(@"first = %d, cnt = %d", first, cnt);
 
-        int money = 0;
+        int mmoney = 0;
         if(cnt > 1)
-            money = [[[values objectAtIndex:first]objectAtIndex:(cnt - 2)] intValue];
+            mmoney = [[[values objectAtIndex:first]objectAtIndex:(cnt - 2)] intValue];
         
-        if(money > 0) {
+        if(mmoney > 0) {
 
 //            lineSprite[i].position = ccp(513, 418);
-            [Common instance].money += ( money * [Common instance].coins );
+            [Common instance].money += ( mmoney * [Common instance].coins );
             
-            NSLog(@"Coins = %d, money = %d, slide = %d", [Common instance].coins, money, first);
-            NSLog(@"Bonus = %d", money * [Common instance].coins);
-            winsum += money * [Common instance].coins;
+            NSLog(@"Coins = %d, money = %d, slide = %d", [Common instance].coins, mmoney, first);
+            
+            float koeff = 1;
+            int n1 = [Common instance].curlevel / 10;
+            int n2 = [Common instance].curlevel - n1 * 10;
+            
+            if (n2 == 9) //bonus level
+                switch (n1) {
+                    case 1:
+                        koeff = 1.5f;
+                        break;
+                    case 2:
+                        koeff = 2.5f;
+                        break;
+                    case 3:
+                        koeff = 2.0f;
+                        break;
+                    case 4:
+                        koeff = 4.0f;
+                        break;
+                }
+
+            int wsum = mmoney * [Common instance].coins;
+            int sum = wsum * koeff;
+            
+            NSLog(@"Winsum = %d, koeff for bonusl level = %f, sum = %d", wsum, koeff, sum);
+            winsum += sum;//mmoney * [Common instance].coins;
             
             [Common instance].famepoints += cnt;
             [self refreshLabels];
@@ -1129,6 +1164,7 @@ static BonusLayer* bonlay;
     }
     
     int lmoney = [self getLmoney];
+//    if(1) {
     if([Common instance].levelwin >= lmoney) {
         
         
