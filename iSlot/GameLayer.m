@@ -1024,7 +1024,7 @@ static BonusLayer* bonlay;
 //    NSLog(@"---------checkLines");
 
     BOOL bon2 = ([Common instance].curlevel == 29);// second bonus level
-    BOOL bon4 = ([Common instance].curlevel == 49);// second bonus level
+    BOOL bon3 = ([Common instance].curlevel == 39);// third bonus level
 
     [Common instance].finished = 0;
     int winsum = 0;
@@ -1042,7 +1042,7 @@ static BonusLayer* bonlay;
 //            CCSprite* ss = [bar[0] getSprite:[[[lines objectAtIndex:i] objectAtIndex:0] intValue]];
             int first = 0;
             CCSprite* ss = 0;
-            if(bon4) {
+            if(bon3) {
             
                 first = [bar[(BARS_CNT - 1)] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:(BARS_CNT - 1)] intValue]];
                 ss = [bar[(BARS_CNT - 1)] getSprite:[[[lines objectAtIndex:i] objectAtIndex:(BARS_CNT - 1)] intValue]];
@@ -1053,43 +1053,48 @@ static BonusLayer* bonlay;
                 ss = [bar[fpos] getSprite:[[[lines objectAtIndex:i] objectAtIndex:fpos] intValue]];
                 
             }
-    //        NSLog(@"--- add: %d", ss.tag);
+//            NSLog(@"--- add: %d", ss.tag);
             [arr addObject:ss];
 //             NSLog(@"--fpos: %d first at fpos: %d", fpos, first);
 
 
             int cnt = 1;
 
-            if (bon4) {//fourth bonus level
-                for(int j = (BARS_CNT - 1); j >= (fpos + 1); j--) {
+            if (bon3) {//third bonus level
+                for(int j = (BARS_CNT - 2); j >= fpos; j--) {
                     
                     int slide1 = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
                     CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
-                    [arr addObject:ss];
-                    
-                    if((slide1 == first) || (slide1 == 0 /*WILD*/))
+
+//                    cnt++;
+                    if((slide1 == first) || (slide1 == 0 /*WILD*/)) {
                         cnt++;
+                        [arr addObject:ss];
+                    }
                     else
                         if(first == 0) {
                             cnt++;
+                            [arr addObject:ss];
                             first = slide1;
                         }
                         else
                             break;
                 }
             }
-            else //not fourth bonus level
+            else //not third bonus level
             for(int j = (fpos + 1); j < BARS_CNT; j++) {
             
                 int slide1 = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
                 CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
-                [arr addObject:ss];
 
-                if((slide1 == first) || (slide1 == 0 /*WILD*/))
+                if((slide1 == first) || (slide1 == 0 /*WILD*/)) {
                     cnt++;
+                    [arr addObject:ss];
+                }
                  else
                      if(first == 0) {
                          cnt++;
+                         [arr addObject:ss];
                          first = slide1;
                      }
                     else
@@ -1106,15 +1111,10 @@ static BonusLayer* bonlay;
             if(cnt > 1)
                 mmoney = [[[values objectAtIndex:first]objectAtIndex:(cnt - 2)] intValue];
 
-//            fpos = 1;
-//            cnt = 3;
-//            money = 1;
-
             if(mmoney > 0) {
 
 //                NSLog(@"first = %d, cnt = %d, fpos = %d, i = %d", first, cnt, fpos, i);
 
-    //            lineSprite[i].position = ccp(513, 418);
                 [Common instance].money += ( mmoney * [Common instance].coins );
                 
                 NSLog(@"Coins = %d, money = %d, slide = %d", [Common instance].coins, mmoney, first);
@@ -1148,9 +1148,24 @@ static BonusLayer* bonlay;
                 [Common instance].famepoints += cnt;
                 [self refreshLabels];
 
-    //            cnt = 3;//v
-                [combinations addObject:[[Combination alloc]initWithLayer:self sprite:lineSprite[i] line:i count:cnt linePos:[lines objectAtIndex:i] sprites:arr atIndex:(bon4?(BARS_CNT - 1 - cnt - 1):fpos)]];
-             
+                
+                if(bon3) {
+                    
+//                    NSLog(@"add object %@", arr);
+                    NSMutableArray* arr1 = [NSMutableArray array];
+                    for(int u = (arr.count - 1); u >= 0; u--) {
+                        
+//                        NSLog(@"u = %d, cnt = %d", u, arr.count);
+                        [arr1 addObject:[arr objectAtIndex:u]];
+                    }
+                    
+//                    NSLog(@"add object1 %@", arr1);
+                    [combinations addObject:[[Combination alloc]initWithLayer:self sprite:lineSprite[i] line:i count:cnt linePos:[lines objectAtIndex:i] sprites:arr1 atIndex:(BARS_CNT - cnt)]];
+
+                }
+                else {
+                [combinations addObject:[[Combination alloc]initWithLayer:self sprite:lineSprite[i] line:i count:cnt linePos:[lines objectAtIndex:i] sprites:arr atIndex:(fpos)]];
+                }
                 break;
             }
             
