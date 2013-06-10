@@ -166,18 +166,28 @@ static ShopLayer* shoplay;
         [itemsett setPosition:ccp(868, 71)];
         
         CCSprite *spfb = [CCSprite spriteWithFile:@"Facebook.png"];
+        CCSprite *lck = [CCSprite spriteWithFile:@"LockLevel.png"];
+        lck.position = ccp(36,22);
+        lck.scale = 0.5f;
+        [spfb addChild:lck];
         CCSprite *spfb_t1 = [CCSprite spriteWithFile:@"Facebook.png"];
 		CCMenuItemSprite *itemfb = [CCMenuItemSprite itemWithNormalSprite:spfb selectedSprite:spfb_t1 block:^(id sender) {
             
 		}];
         [itemfb setPosition:ccp(949, 103)];
+        itemfb.isEnabled = NO;
         
         CCSprite *sptwit = [CCSprite spriteWithFile:@"Twitter.png"];
+        CCSprite *lck1 = [CCSprite spriteWithFile:@"LockLevel.png"];
+        lck1.position = ccp(36,22);
+        lck1.scale = 0.5f;
+        [sptwit addChild:lck1];
         CCSprite *sptwit_t1 = [CCSprite spriteWithFile:@"Twitter.png"];
 		CCMenuItemSprite *itemtwit = [CCMenuItemSprite itemWithNormalSprite:sptwit selectedSprite:sptwit_t1 block:^(id sender) {
             
 		}];
         [itemtwit setPosition:ccp(949, 38)];
+        itemtwit.isEnabled = NO;
         
         CCSprite *spinapp = [CCSprite spriteWithFile:@"SlonInApp.png"];
         CCSprite *spinapp_t1 = [CCSprite spriteWithFile:@"TouchSlonInApp.png"];
@@ -367,7 +377,6 @@ static ShopLayer* shoplay;
                       screenSize:(CGSize)screenSize {
     
     CCLayer *layer = [[CCLayer alloc] init];
-//    [layer setScaleX:0.3f];
     NSString *s = chapterNumber == 1?@"PresentButton.png":@"FutureButton.png";
         CCMenuItemImage *image = [CCMenuItemImage itemFromNormalImage:s
                                                         selectedImage:s
@@ -377,6 +386,16 @@ static ShopLayer* shoplay;
         CCMenu *mmenu = [CCMenu menuWithItems: image, nil];
         mmenu.tag = MENU_TAG;
         [layer addChild: mmenu];
+    
+    if(chapterNumber == 1) {
+    
+        image.isEnabled = NO;
+        
+        CCSprite *spfb = [CCSprite spriteWithFile:@"LockLevel.png"];
+        spfb.position = ccp(520, 380);
+        [layer addChild:spfb];
+        
+    }
     
     return layer;
 }

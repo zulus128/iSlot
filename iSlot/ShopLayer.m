@@ -28,6 +28,18 @@
         background.opacity = 0;
 		[self addChild: background];
         
+        lck1 = [CCSprite spriteWithFile:@"LockLevel.png"];
+        lck1.position = ccp(380, 405);
+        lck1.scale = 0.5f;
+        lck1.opacity = 0;
+        [background addChild:lck1];
+        
+        lck = [CCSprite spriteWithFile:@"LockLevel.png"];
+        lck.position = ccp(610, 405);
+        lck.scale = 0.5f;
+        lck.opacity = 0;
+        [background addChild:lck];
+        
         ssl = [ShopSubLayer layerWithColor:ccc4(100, 20, 200, 0) width:775 height:1340];
         ssl.position = ccp(10125, -765);
         [ssl addContent];
@@ -57,7 +69,12 @@
 
     background.opacity = 0;
     [background runAction:[CCFadeIn actionWithDuration:DSdelay]];
-
+    
+    lck.opacity = 0;
+    [lck runAction:[CCFadeIn actionWithDuration:DSdelay]];
+    lck1.opacity = 0;
+    [lck1 runAction:[CCFadeIn actionWithDuration:DSdelay]];
+    
     [ssl show];
     
     ssl.player = self.player;
@@ -73,6 +90,9 @@
 //    menukeys.enabled = NO;
     
     [background runAction:[CCFadeOut actionWithDuration:DSdelay]];
+
+    [lck runAction:[CCFadeOut actionWithDuration:DSdelay]];
+    [lck1 runAction:[CCFadeOut actionWithDuration:DSdelay]];
 
     [ssl hide];
 }
