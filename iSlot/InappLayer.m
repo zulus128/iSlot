@@ -381,7 +381,7 @@
 		[menukeys setPosition:ccp(0, 0)];
         
         
-        [self setTab:0];
+//        [self setTab:0];
 	}
 	
 	return self;
@@ -485,12 +485,14 @@
 -(void)show {
     
     self.touchEnabled = YES;
+    showed = YES;
     NSLog(@"inlay show");
 
 }
 -(void)hide {
 
     self.touchEnabled = NO;
+    showed = NO;
     NSLog(@"inlay hide");
 
 }
@@ -502,7 +504,8 @@
     CGPoint point = [touch locationInView:[touch view]];
 //    NSLog(@"y = %f", point.y);
     if((point.y < (Yin - 255 - 108)) || (point.y > (Yin + 255 - 108)))
-        [self.player toTop];
+        if(showed)
+            [self.player toTop];
 }
 
 - (void) dealloc {

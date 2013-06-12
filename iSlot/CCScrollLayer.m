@@ -468,6 +468,9 @@ enum
 			offset -= marginOffset_ * offset / [[CCDirector sharedDirector] winSize].width;
 		else
 			offset = 0;
+        
+        NSLog(@"pos =%f", (desiredX - offset));
+        if(((desiredX - offset) < 0)&&((desiredX - offset) > -458))
 		lay.position = ccp(desiredX - offset, 0);
 //		self.position = ccp(desiredX - offset, 0);
 	}

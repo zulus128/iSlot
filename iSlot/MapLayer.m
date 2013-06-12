@@ -700,6 +700,13 @@ static MapLayer *layer;
         xx = -3072;
 //    NSLog(@"xx = %f", xx);
     self.position = ccp(xx, 0);
+    
+    
+    
+    
+    x0 = point.x;
+    xl0 = xx;
+
 }
 
 -(void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{

@@ -55,6 +55,9 @@
     int opened;
     
     CCMenu* menukeys;
+    CCMenuItemSprite *itemclo;
+
+    BOOL showed;
 }
 
 -(void)show;

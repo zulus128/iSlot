@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:iSlot.xcodeproj">
+      location = "self:Time Slots.xcodeproj">
    </FileRef>
 </Workspace>

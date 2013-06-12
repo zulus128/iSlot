@@ -127,6 +127,20 @@
         menukeys = [CCMenu menuWithItems: it1, it2, it3, it4, it5, it6, nil];
         [self addChild: menukeys z:8];
 		[menukeys setPosition:ccp(0, 0)];
+        
+        CCSprite *spclo = [CCSprite spriteWithFile:@"CloseinApp.png"];
+        CCSprite *spclo_t1 = [CCSprite spriteWithFile:@"TouchCloseinApp.png"];
+		itemclo = [CCMenuItemSprite itemWithNormalSprite:spclo selectedSprite:spclo_t1 block:^(id sender) {
+            
+            [self performSelector:@selector(end) withObject:nil afterDelay:0.0f];
+            
+		}];
+        [itemclo setPosition:ccp(842, 612)];
+        itemclo.opacity = 0;
+        
+        CCMenu* menu = [CCMenu menuWithItems: itemclo, nil];
+        [self addChild: menu z:7];
+		[menu setPosition:ccp(0, 0)];
 
 	}
 	
@@ -170,6 +184,8 @@
     menukeys.enabled = YES;
     self.touchEnabled = YES;
 
+    showed = YES;
+    
     fon.opacity = 0;
     [fon runAction:[CCFadeIn actionWithDuration:Ddelay]];
     k1.opacity = 0;
@@ -245,7 +261,10 @@
     [l4 runAction:[CCFadeIn actionWithDuration:Ddelay]];
     [l5 runAction:[CCFadeIn actionWithDuration:Ddelay]];
     [l6 runAction:[CCFadeIn actionWithDuration:Ddelay]];
-    
+
+    itemclo.opacity = 0;
+    [itemclo runAction:[CCFadeIn actionWithDuration:Ddelay]];
+
     [self updateChests];
 
 }
@@ -255,6 +274,8 @@
     menukeys.enabled = NO;
 
     self.touchEnabled = NO;
+    
+    showed = NO;
     
     [fon runAction:[CCFadeOut actionWithDuration:Ddelay]];
     [k1 runAction:[CCFadeOut actionWithDuration:Ddelay]];
@@ -288,7 +309,9 @@
     [l4 runAction:[CCFadeOut actionWithDuration:Ddelay]];
     [l5 runAction:[CCFadeOut actionWithDuration:Ddelay]];
     [l6 runAction:[CCFadeOut actionWithDuration:Ddelay]];
-    
+
+    [itemclo runAction:[CCFadeOut actionWithDuration:Ddelay]];
+
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -299,7 +322,8 @@
     NSLog(@"y = %f, x = %f", point.y, point.x);
     
     if((point.y < 144) || (point.y > 553) || (point.x < 182) || (point.x > 846))
-        [self.player toTop];
+        if(showed)
+            [self.player toTop];
 }
 
 @end

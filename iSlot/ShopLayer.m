@@ -34,6 +34,7 @@
         lck1.opacity = 0;
         [background addChild:lck1];
         
+        
         lck = [CCSprite spriteWithFile:@"LockLevel.png"];
         lck.position = ccp(610, 405);
         lck.scale = 0.5f;
@@ -57,6 +58,21 @@
         cnflay2.sslayer = ssl;
         [self addChild:cnflay2];
         
+        CCSprite *spclo = [CCSprite spriteWithFile:@"CloseinApp.png"];
+        CCSprite *spclo_t1 = [CCSprite spriteWithFile:@"TouchCloseinApp.png"];
+		itemclo = [CCMenuItemSprite itemWithNormalSprite:spclo selectedSprite:spclo_t1 block:^(id sender) {
+            
+            [self.player afterShop];
+            [self hide];
+            
+		}];
+        [itemclo setPosition:ccp(942, 658)];
+        itemclo.opacity = 0;
+
+        CCMenu* menu = [CCMenu menuWithItems: itemclo, nil];
+        [self addChild: menu z:7];
+		[menu setPosition:ccp(0, 0)];
+
 	}
 	
 	return self;
@@ -74,6 +90,9 @@
     [lck runAction:[CCFadeIn actionWithDuration:DSdelay]];
     lck1.opacity = 0;
     [lck1 runAction:[CCFadeIn actionWithDuration:DSdelay]];
+
+    itemclo.opacity = 0;
+    [itemclo runAction:[CCFadeIn actionWithDuration:DSdelay]];
     
     [ssl show];
     
@@ -82,6 +101,7 @@
 }
 
 -(void)hide {
+    
     
     if(![Common instance].shopVisible)
         return;
@@ -94,6 +114,8 @@
     [lck runAction:[CCFadeOut actionWithDuration:DSdelay]];
     [lck1 runAction:[CCFadeOut actionWithDuration:DSdelay]];
 
+    [itemclo runAction:[CCFadeOut actionWithDuration:DSdelay]];
+
     [ssl hide];
 }
 
@@ -103,7 +125,9 @@
     CGPoint point = [touch locationInView:[touch view]];
     //    NSLog(@"y = %f", point.y);
 
-    if((point.y < 111) || (point.y > 584) || (point.x < 79) || (point.x > 949)) {
+    if((point.y < 111) || (point.y > 584) || (point.x < 79) || (point.x > 949))
+    if([Common instance].shopVisible)
+    {
         
         [self.player afterShop];
         [self hide];

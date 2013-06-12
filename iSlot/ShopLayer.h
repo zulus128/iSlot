@@ -34,6 +34,9 @@
     
     CCSprite *lck;
     CCSprite *lck1;
+    CCMenuItemSprite *itemclo;
+    
+    BOOL showed;
 }
 
 -(void)show;

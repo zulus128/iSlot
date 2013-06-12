@@ -481,24 +481,9 @@ static BonusLayer* bonlay;
         
         int lmoney = [self getLmoney];
         
-//        switch (t1) {
-//            case 0:
-//                lmoney = LEVEL_MONEY1;
-//                break;
-//            case 1:
-//                lmoney = LEVEL_MONEY2;
-//                break;
-//            case 2:
-//                lmoney = LEVEL_MONEY3;
-//                break;
-//            default:
-//                lmoney = LEVEL_MONEY3;
-//                break;
-//        }
-
         labelLevelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney] fontName:@"Marker Felt" fontSize:24];
 		labelLevelMoney.position =  ccp( 910 , 677 );
-		[self addChild: labelLevelMoney z:100];
+		[self addChild: labelLevelMoney z:16];
         
 		labelFameLevel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints] fontName:@"Marker Felt" fontSize:18];
 		labelFameLevel.position =  ccp( 145 , 130 );
@@ -609,6 +594,7 @@ static BonusLayer* bonlay;
 		CCMenuItemSprite *item1 = [CCMenuItemSprite itemWithNormalSprite:spriteSpin selectedSprite:spriteSpinSelected block:^(id sender) {
             
 //            NSLog(@"Spin clicked! finished = %d", [Common instance].finished);
+            if([Common instance].coins * [Common instance].lines <= [Common instance].money)
             if(!info && [Common instance].finished <= 0) {
 
                 [menu setEnabled:NO];
@@ -732,7 +718,7 @@ static BonusLayer* bonlay;
 
         infoscene = [CCSprite spriteWithFile:@"FonInfo.png"];
         [infoscene setPosition:ccp(-512, 438)];
-        [self addChild: infoscene z:17];
+        [self addChild: infoscene z:560];
 
         for(int i = 0; i < SLIDE_TYPES; i++) {
             
@@ -742,7 +728,7 @@ static BonusLayer* bonlay;
             [slide[i] setScaleX: k/slide[0].contentSize.width];
             [slide[i] setScaleY: k/slide[0].contentSize.height];
             
-            [self addChild:slide[i] z:18];
+            [self addChild:slide[i] z:561];
         }
         slide[0].position = ccp(-889, 471);//WILD
         slide[1].position = ccp(-889, 301);//SCATTER
@@ -763,6 +749,11 @@ static BonusLayer* bonlay;
             if(!info) {
    
                 info = YES;
+                
+                colorLayer.opacity = 0;
+                CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+                [colorLayer runAction:action];
+
                 [infoscene runAction:[CCMoveBy actionWithDuration:0.3f position:ccp(1024,0)]];
                 for(int i = 0; i < SLIDE_TYPES; i++)
                     [slide[i] runAction:[CCMoveBy actionWithDuration:0.3f position:ccp(1024,0)]];
@@ -771,7 +762,7 @@ static BonusLayer* bonlay;
             
 		}];
         
-        [iteminfo setPosition:ccp(965, 623)];
+        [iteminfo setPosition:ccp(971, 623)];
 
         CCSprite *spback = [CCSprite spriteWithFile:@"SlotBack.png"];
         CCSprite *spback_t1 = [CCSprite spriteWithFile:@"TouchSlotBack.png"];
@@ -842,9 +833,13 @@ static BonusLayer* bonlay;
 		}];
         [itemshop setPosition:ccp(740, 730)];
 
-        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, itemback, item_lu1, item_lu2, iteminapp, iteminapp1, itemgc, itemshop, nil];
+        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, /*itemback, item_lu1, item_lu2,*/ iteminapp, iteminapp1, itemgc, itemshop, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
+
+        CCMenu* menuback = [CCMenu menuWithItems: itemback, nil];
+        [self addChild: menuback z:7];
+		[menuback setPosition:ccp(0, 0)];
 
         CCSprite *spmenu = [CCSprite spriteWithFile:@"ButtonMenu.png"];
         CCSprite *spmenu_t1 = [CCSprite spriteWithFile:@"TouchButtonMenu.png"];
@@ -904,7 +899,7 @@ static BonusLayer* bonlay;
         int n1 = [Common instance].curlevel / 10;
         int n2 = [Common instance].curlevel - n1 * 10;
         CCLabelTTF* title = [CCLabelTTF labelWithString:(n2 == 9)?[NSString stringWithFormat:@"Bonus Level %d", n1]:[NSString stringWithFormat:@"Level %d-%d", n1, n2] fontName:@"Marker Felt" fontSize:28];
-        [self addChild:title z:350];
+        [self addChild:title z:16];
         title.position = ccp(512, 650);
 
         [self refreshLabels];
@@ -1316,6 +1311,9 @@ static BonusLayer* bonlay;
         
         for(int i = 0; i < SLIDE_TYPES; i++)
             [slide[i] runAction:[CCMoveBy actionWithDuration:0.3f position:ccp(-1024,0)]];
+
+        CCAction* action = [CCFadeTo actionWithDuration:0.1f opacity:0];
+        [colorLayer runAction:action];
 
     }
 

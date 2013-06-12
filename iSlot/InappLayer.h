@@ -38,6 +38,7 @@
     
     int inapp;
     
+    BOOL showed;
 }
 
 //@property (nonatomic,readwrite) BOOL isKeys;

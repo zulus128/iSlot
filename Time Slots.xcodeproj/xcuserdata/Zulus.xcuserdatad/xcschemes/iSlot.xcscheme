@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9C70749416C375800053C3F0"
                BuildableName = "iSlot.app"
-               BlueprintName = "iSlot"
-               ReferencedContainer = "container:iSlot.xcodeproj">
+               BlueprintName = "Time Slots"
+               ReferencedContainer = "container:Time Slots.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9C70749416C375800053C3F0"
             BuildableName = "iSlot.app"
-            BlueprintName = "iSlot"
-            ReferencedContainer = "container:iSlot.xcodeproj">
+            BlueprintName = "Time Slots"
+            ReferencedContainer = "container:Time Slots.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9C70749416C375800053C3F0"
             BuildableName = "iSlot.app"
-            BlueprintName = "iSlot"
-            ReferencedContainer = "container:iSlot.xcodeproj">
+            BlueprintName = "Time Slots"
+            ReferencedContainer = "container:Time Slots.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +71,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9C70749416C375800053C3F0"
             BuildableName = "iSlot.app"
-            BlueprintName = "iSlot"
-            ReferencedContainer = "container:iSlot.xcodeproj">
+            BlueprintName = "Time Slots"
+            ReferencedContainer = "container:Time Slots.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
