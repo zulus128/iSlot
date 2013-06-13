@@ -682,6 +682,9 @@ static MapLayer *layer;
 
     x0 = point.x;
     xl0 = self.position.x;
+    
+    cTime = CACurrentMediaTime();
+
 }
 
 -(void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -701,11 +704,13 @@ static MapLayer *layer;
 //    NSLog(@"xx = %f", xx);
     self.position = ccp(xx, 0);
     
+//    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.001f position:ccp(xx, 0)];
+//    [self runAction:moveTo];
     
     
     
-    x0 = point.x;
-    xl0 = xx;
+//    x0 = point.x;
+//    xl0 = xx;
 
 }
 
@@ -716,7 +721,12 @@ static MapLayer *layer;
     CGPoint point = [touch locationInView:[touch view]];
     point = [[CCDirector sharedDirector]convertToGL:point];
 
-    float delta = (point.x - x0) * 2;
+
+    double cTime1 = CACurrentMediaTime();
+    double k = 0.25f/(cTime1 - cTime);
+    NSLog(@"cTime = %f, cTime1 = %f, /k = %f", cTime, cTime1, k);
+
+    float delta = (point.x - x0) * (1+k);
     float xx = xl0 + delta;
     if(xx > 0)
         xx = 0;
@@ -726,8 +736,11 @@ static MapLayer *layer;
 //    self.position = ccp(xx, 0);
    
     [self stopAllActions];
-    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.9f position:ccp(xx, 0)];
-    [self runAction:[CCEaseOut actionWithAction:moveTo rate:1.8f]];
+
+//    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.9f position:ccp(xx, 0)];
+//    [self runAction:[CCEaseOut actionWithAction:moveTo rate:1.8f]];
+    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:k position:ccp(xx, 0)];
+    [self runAction:[CCEaseOut actionWithAction:moveTo rate:1.8f * k]];
 
 }
 

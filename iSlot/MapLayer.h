@@ -28,6 +28,7 @@ static CCLabelTTF *labelKeys = nil;
     
     float x0;
     float xl0;
+    double cTime;
 
     CCMenu* menu;
     
