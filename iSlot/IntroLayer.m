@@ -278,6 +278,36 @@ static ShopLayer* shoplay;
         [self addChild: menu z:107];
 		[menu setPosition:ccp(0, 0)];
 
+        CCSprite *hint1 = [CCSprite spriteWithFile:@"1.png"];
+        CCSprite *hint1_t1 = [CCSprite spriteWithFile:@"1.png"];
+		CCMenuItemSprite *itemhint1 = [CCMenuItemSprite itemWithNormalSprite:hint1 selectedSprite:hint1_t1 block:^(id sender) {
+            NSLog(@"hint1");
+            ((CCNode*)sender).visible = NO;
+            
+		}];
+        [itemhint1 setPosition:ccp(845, 568)];
+        
+        CCSprite *hint2 = [CCSprite spriteWithFile:@"2.png"];
+        CCSprite *hint2_t1 = [CCSprite spriteWithFile:@"2.png"];
+		CCMenuItemSprite *itemhint2 = [CCMenuItemSprite itemWithNormalSprite:hint2 selectedSprite:hint2_t1 block:^(id sender) {
+            NSLog(@"hint2");
+            ((CCNode*)sender).visible = NO;
+            
+		}];
+        [itemhint2 setPosition:ccp(355, 559)];
+        CCSprite *hint3 = [CCSprite spriteWithFile:@"3.png"];
+        CCSprite *hint3_t1 = [CCSprite spriteWithFile:@"3.png"];
+		CCMenuItemSprite *itemhint3 = [CCMenuItemSprite itemWithNormalSprite:hint3 selectedSprite:hint3_t1 block:^(id sender) {
+            NSLog(@"hint3");
+            ((CCNode*)sender).visible = NO;
+            
+		}];
+        [itemhint3 setPosition:ccp(315, 230)];
+
+        CCMenu* hintmenu = [CCMenu menuWithItems: itemhint1, itemhint2, itemhint3, nil];
+        [self addChild: hintmenu z:1107];
+		[hintmenu setPosition:ccp(0, 0)];
+
 	}
 	
 	return self;
