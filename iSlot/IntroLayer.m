@@ -90,15 +90,28 @@ static ShopLayer* shoplay;
         
         labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:@"Marker Felt" fontSize:24];
 		labelYourLuck.position =  ccp( 637 , 720 );
-		[self addChild: labelYourLuck z:101];
+		[self addChild: labelYourLuck z:108];
 
         labelFameLevel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints] fontName:@"Marker Felt" fontSize:18];
 		labelFameLevel.position =  ccp( 145 , 110 );
 		[self addChild: labelFameLevel z:100];
 
-        CCSprite* yluck = [CCSprite spriteWithFile:@"Luck.png"];
-        [self addChild:yluck z:100];
-        yluck.position = ccp(633, 730);
+//        CCSprite* yluck = [CCSprite spriteWithFile:@"Luck.png"];
+//        [self addChild:yluck z:100];
+//        yluck.position = ccp(633, 730);
+
+        luck1 = [CCSprite spriteWithFile:@"listLuck01.png"];
+        luck1.position = ccp(634.5, 688);
+        luck1.opacity = 0;
+        [self addChild:luck1 z:100];
+        luck2 = [CCSprite spriteWithFile:@"listLuck02.png"];
+        luck2.position = ccp(634.5, 624);
+        luck2.opacity = 0;
+        [self addChild:luck2 z:100];
+        luck3 = [CCSprite spriteWithFile:@"listLuck03.png"];
+        luck3.position = ccp(634.5, 566);
+        luck3.opacity = 0;
+        [self addChild:luck3 z:100];
 
         CCSprite* fameback = [CCSprite spriteWithFile:@"WhileFonFame.png"];
         [self addChild:fameback z:13];
@@ -274,7 +287,30 @@ static ShopLayer* shoplay;
 		}];
         [itemshop setPosition:ccp(740, 730)];
         
-        menu = [CCMenu menuWithItems: itemsett, itemfb, itemtwit, iteminapp, iteminapp1, itemgc, itemshop, nil];
+        CCSprite *spluck = [CCSprite spriteWithFile:@"Luck.png"];
+        CCSprite *spluck_t1 = [CCSprite spriteWithFile:@"TouchLuck.png"];
+        CCMenuItemSprite *itemluck = [CCMenuItemSprite itemWithNormalSprite:spluck selectedSprite:spluck_t1 block:^(id sender) {
+            
+            //        NSLog(@"luck");
+            if(luck1.opacity > 0) {
+                
+                [luck1 runAction:[CCFadeOut actionWithDuration:Ldelay]];
+                [luck2 runAction:[CCFadeOut actionWithDuration:Ldelay]];
+                [luck3 runAction:[CCFadeOut actionWithDuration:Ldelay]];
+                
+            }
+            else {
+                
+                [luck1 runAction:[CCFadeIn actionWithDuration:Ldelay]];
+                [luck2 runAction:[CCFadeIn actionWithDuration:Ldelay]];
+                [luck3 runAction:[CCFadeIn actionWithDuration:Ldelay]];
+                
+            }
+            
+        }];
+        [itemluck setPosition:ccp(633, 730)];
+
+        menu = [CCMenu menuWithItems: itemsett, itemfb, itemtwit, iteminapp, iteminapp1, itemgc, itemshop, itemluck, nil];
         [self addChild: menu z:107];
 		[menu setPosition:ccp(0, 0)];
 

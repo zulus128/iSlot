@@ -13,6 +13,7 @@
 #import "CCScrollLayer.h"
 
 #define MENU_TAG 111
+#define Ldelay 0.5f
 
 // HelloWorldLayer
 @interface IntroLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate> {
@@ -33,6 +34,11 @@
     CCMenu* settmenu;
 
     CCScrollLayer *scroller;
+    
+    CCSprite *luck1;
+    CCSprite *luck2;
+    CCSprite *luck3;
+
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

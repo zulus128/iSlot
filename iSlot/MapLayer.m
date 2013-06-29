@@ -23,6 +23,10 @@ static CCLayerColor* colorLayer;
 static CCMenu* menu1;
 static MapLayer *layer;
 
+static CCSprite *luck1;
+static CCSprite *luck2;
+static CCSprite *luck3;
+
 @implementation MapLayer
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
@@ -48,6 +52,19 @@ static MapLayer *layer;
     CCSprite* top = [CCSprite spriteWithFile:@"UpBar.png"];
     top.position = ccp( 512, 730.5);
     [scene addChild:top z:5];
+    
+    luck1 = [CCSprite spriteWithFile:@"listLuck01.png"];
+    luck1.position = ccp(634.5, 688);
+    luck1.opacity = 0;
+    [scene addChild:luck1 z:6];
+    luck2 = [CCSprite spriteWithFile:@"listLuck02.png"];
+    luck2.position = ccp(634.5, 624);
+    luck2.opacity = 0;
+    [scene addChild:luck2 z:6];
+    luck3 = [CCSprite spriteWithFile:@"listLuck03.png"];
+    luck3.position = ccp(634.5, 566);
+    luck3.opacity = 0;
+    [scene addChild:luck3 z:6];
     
     CCSprite *spback = [CCSprite spriteWithFile:@"SlotBack.png"];
     CCSprite *spback_t1 = [CCSprite spriteWithFile:@"TouchSlotBack.png"];
@@ -121,17 +138,40 @@ static MapLayer *layer;
         menu1.enabled = NO;
         
         [shoplay show];
-
+        
     }];
     [itemshop setPosition:ccp(740, 730)];
+    
+    CCSprite *spluck = [CCSprite spriteWithFile:@"Luck.png"];
+    CCSprite *spluck_t1 = [CCSprite spriteWithFile:@"TouchLuck.png"];
+    CCMenuItemSprite *itemluck = [CCMenuItemSprite itemWithNormalSprite:spluck selectedSprite:spluck_t1 block:^(id sender) {
+        
+//        NSLog(@"luck");
+        if(luck1.opacity > 0) {
 
-    menu1 = [CCMenu menuWithItems: itemback, iteminapp, iteminapp1, itemgc, itemshop, nil];
+            [luck1 runAction:[CCFadeOut actionWithDuration:Ldelay]];
+            [luck2 runAction:[CCFadeOut actionWithDuration:Ldelay]];
+            [luck3 runAction:[CCFadeOut actionWithDuration:Ldelay]];
+
+        }
+        else {
+
+            [luck1 runAction:[CCFadeIn actionWithDuration:Ldelay]];
+            [luck2 runAction:[CCFadeIn actionWithDuration:Ldelay]];
+            [luck3 runAction:[CCFadeIn actionWithDuration:Ldelay]];
+            
+        }
+
+    }];
+    [itemluck setPosition:ccp(633, 730)];
+    
+    menu1 = [CCMenu menuWithItems: itemback, iteminapp, iteminapp1, itemgc, itemshop, itemluck, nil];
     [scene addChild: menu1 z:107];
     [menu1 setPosition:ccp(0, 0)];
     
-    CCSprite* yluck = [CCSprite spriteWithFile:@"Luck.png"];
-    [scene addChild:yluck z:100];
-    yluck.position = ccp(633, 730);
+//    CCSprite* yluck = [CCSprite spriteWithFile:@"Luck.png"];
+//    [scene addChild:yluck z:100];
+//    yluck.position = ccp(633, 730);
 
     
     labelMoney = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:@"Marker Felt" fontSize:44] retain];
@@ -196,6 +236,12 @@ static MapLayer *layer;
         arealock3.position = ccp(3544.5, 346);
         [self addChild:arealock3 z:316];
         
+        oreol = [CCSprite spriteWithFile:@"oreol.png"];
+//        oreol.position = ccp(-10000, -10000);
+        oreol.position = ccplevel(177, 255);
+        [self addChild:oreol z:298];
+        [self performSelector:@selector(orerot) withObject:nil afterDelay:0];
+
         
         NSString* l1 = @"Level01.png";
 //        CCMenuItemSprite *item1_1= [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:l1] selectedSprite:[CCSprite spriteWithFile:l1] block:^(id sender) { [self level]; }];
@@ -550,6 +596,15 @@ static MapLayer *layer;
 	return self;
 }
 
+-(void) orerot {
+    
+    oreol.rotation = oreol_rot;
+    oreol_rot += 12.8f;
+    
+    [self performSelector:@selector(orerot) withObject:nil afterDelay:0.1f];
+
+}
+
 -(void)level:(CCMenuItemSprite*)sender {
     
     
@@ -642,6 +697,11 @@ static MapLayer *layer;
             CCNode* llock = [self getChildByTag:(aChildNode.tag + LOCKS_TAG)];
             llock.visible = (aChildNode.tag > next);//!aChildNode.isEnabled;
             
+            if(aChildNode.tag == next) {
+                
+                oreol.position = ccp(aChildNode.position.x, aChildNode.position.y - 46 /*- 30*/);
+            }
+            
             if(bonus)
                 continue;
             
@@ -684,6 +744,9 @@ static MapLayer *layer;
     xl0 = self.position.x;
     
     cTime = CACurrentMediaTime();
+    
+//    aaa+=0.1f;
+//    NSLog(@"aaa = %f", aaa);
 
 }
 

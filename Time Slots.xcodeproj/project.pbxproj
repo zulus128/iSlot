@@ -504,6 +504,14 @@
 		DDC3409816C5ED7A00764535 /* TouchSlotBack-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC3408F16C5ED7A00764535 /* TouchSlotBack-ipadhd.png */; };
 		DDC3409916C5ED7A00764535 /* TouchSpin-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC3409016C5ED7A00764535 /* TouchSpin-ipadhd.png */; };
 		DDC3409C16C5F4CF00764535 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC3409B16C5F4CF00764535 /* Common.m */; };
+		DDC5D8FF177E78D200B53BC8 /* listLuck01-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D8FB177E78D200B53BC8 /* listLuck01-ipad.png */; };
+		DDC5D900177E78D200B53BC8 /* listLuck02-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D8FC177E78D200B53BC8 /* listLuck02-ipad.png */; };
+		DDC5D901177E78D200B53BC8 /* listLuck03-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D8FD177E78D200B53BC8 /* listLuck03-ipad.png */; };
+		DDC5D902177E78D200B53BC8 /* oreol-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D8FE177E78D200B53BC8 /* oreol-ipad.png */; };
+		DDC5D906177E78E900B53BC8 /* listLuck01-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D903177E78E900B53BC8 /* listLuck01-ipadhd.png */; };
+		DDC5D907177E78E900B53BC8 /* listLuck02-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D904177E78E900B53BC8 /* listLuck02-ipadhd.png */; };
+		DDC5D908177E78E900B53BC8 /* listLuck03-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D905177E78E900B53BC8 /* listLuck03-ipadhd.png */; };
+		DDC5D90A177EE79900B53BC8 /* oreol-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D909177EE79900B53BC8 /* oreol-ipadhd.png */; };
 		DDC5F6E8173B7707008BBD2F /* ShopSubLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC5F6E7173B7707008BBD2F /* ShopSubLayer.m */; };
 		DDCB38BE1764222F00F1D3B8 /* ChechLevel-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DDCB38BD1764222F00F1D3B8 /* ChechLevel-ipad.png */; };
 		DDCB38C01764223F00F1D3B8 /* ChechLevel-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DDCB38BF1764223F00F1D3B8 /* ChechLevel-ipadhd.png */; };
@@ -1171,6 +1179,14 @@
 		DDC3409016C5ED7A00764535 /* TouchSpin-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TouchSpin-ipadhd.png"; sourceTree = "<group>"; };
 		DDC3409A16C5F4CF00764535 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		DDC3409B16C5F4CF00764535 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		DDC5D8FB177E78D200B53BC8 /* listLuck01-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listLuck01-ipad.png"; sourceTree = "<group>"; };
+		DDC5D8FC177E78D200B53BC8 /* listLuck02-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listLuck02-ipad.png"; sourceTree = "<group>"; };
+		DDC5D8FD177E78D200B53BC8 /* listLuck03-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listLuck03-ipad.png"; sourceTree = "<group>"; };
+		DDC5D8FE177E78D200B53BC8 /* oreol-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oreol-ipad.png"; sourceTree = "<group>"; };
+		DDC5D903177E78E900B53BC8 /* listLuck01-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listLuck01-ipadhd.png"; sourceTree = "<group>"; };
+		DDC5D904177E78E900B53BC8 /* listLuck02-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listLuck02-ipadhd.png"; sourceTree = "<group>"; };
+		DDC5D905177E78E900B53BC8 /* listLuck03-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listLuck03-ipadhd.png"; sourceTree = "<group>"; };
+		DDC5D909177EE79900B53BC8 /* oreol-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oreol-ipadhd.png"; sourceTree = "<group>"; };
 		DDC5F6E6173B7707008BBD2F /* ShopSubLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopSubLayer.h; sourceTree = "<group>"; };
 		DDC5F6E7173B7707008BBD2F /* ShopSubLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopSubLayer.m; sourceTree = "<group>"; };
 		DDCB38BD1764222F00F1D3B8 /* ChechLevel-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChechLevel-ipad.png"; sourceTree = "<group>"; };
@@ -1447,6 +1463,7 @@
 		9C70748C16C375800053C3F0 = {
 			isa = PBXGroup;
 			children = (
+				DDC5D8FA177E77EA00B53BC8 /* 130625 */,
 				9C07C757176AC53200B4D6D9 /* Hints */,
 				9CDA434C176982A70054161D /* Default-Landscape~ipad.png */,
 				9CDA434A176981CD0054161D /* Default-Landscape@2x~ipad.png */,
@@ -2158,6 +2175,21 @@
 			name = Buttons;
 			sourceTree = "<group>";
 		};
+		DDC5D8FA177E77EA00B53BC8 /* 130625 */ = {
+			isa = PBXGroup;
+			children = (
+				DDC5D8FB177E78D200B53BC8 /* listLuck01-ipad.png */,
+				DDC5D8FC177E78D200B53BC8 /* listLuck02-ipad.png */,
+				DDC5D8FD177E78D200B53BC8 /* listLuck03-ipad.png */,
+				DDC5D8FE177E78D200B53BC8 /* oreol-ipad.png */,
+				DDC5D909177EE79900B53BC8 /* oreol-ipadhd.png */,
+				DDC5D903177E78E900B53BC8 /* listLuck01-ipadhd.png */,
+				DDC5D904177E78E900B53BC8 /* listLuck02-ipadhd.png */,
+				DDC5D905177E78E900B53BC8 /* listLuck03-ipadhd.png */,
+			);
+			name = 130625;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2576,6 +2608,14 @@
 				9C07C761176AC55100B4D6D9 /* 1-ipadhd.png in Resources */,
 				9C07C762176AC55100B4D6D9 /* 2-ipadhd.png in Resources */,
 				9C07C763176AC55100B4D6D9 /* 3-ipadhd.png in Resources */,
+				DDC5D8FF177E78D200B53BC8 /* listLuck01-ipad.png in Resources */,
+				DDC5D900177E78D200B53BC8 /* listLuck02-ipad.png in Resources */,
+				DDC5D901177E78D200B53BC8 /* listLuck03-ipad.png in Resources */,
+				DDC5D902177E78D200B53BC8 /* oreol-ipad.png in Resources */,
+				DDC5D906177E78E900B53BC8 /* listLuck01-ipadhd.png in Resources */,
+				DDC5D907177E78E900B53BC8 /* listLuck02-ipadhd.png in Resources */,
+				DDC5D908177E78E900B53BC8 /* listLuck03-ipadhd.png in Resources */,
+				DDC5D90A177EE79900B53BC8 /* oreol-ipadhd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

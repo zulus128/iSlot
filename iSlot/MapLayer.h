@@ -20,6 +20,8 @@
 #define STARS_TAG 16000
 #define CHECH_TAG 100000
 
+#define Ldelay 0.5f
+
 static CCLabelTTF *labelMoney = nil;
 static CCLabelTTF *labelYourLuck = nil;
 static CCLabelTTF *labelKeys = nil;
@@ -35,6 +37,10 @@ static CCLabelTTF *labelKeys = nil;
     CCSprite *arealock1;
     CCSprite *arealock2;
     CCSprite *arealock3;
+
+    CCSprite *oreol;
+    float oreol_rot;
+//    float aaa;
 }
 -(void) toTop;
 

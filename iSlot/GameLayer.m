@@ -553,10 +553,23 @@ static BonusLayer* bonlay;
         [self addChild:level z:4];
         level.position = ccp(-400, 678);
 
-        CCSprite* yluck = [CCSprite spriteWithFile:@"Luck.png"];
-        [self addChild:yluck z:7];
-        yluck.position = ccp(633, 730);
+//        CCSprite* yluck = [CCSprite spriteWithFile:@"Luck.png"];
+//        [self addChild:yluck z:7];
+//        yluck.position = ccp(633, 730);
         
+        luck1 = [CCSprite spriteWithFile:@"listLuck01.png"];
+        luck1.position = ccp(634.5, 688);
+        luck1.opacity = 0;
+        [self addChild:luck1 z:7];
+        luck2 = [CCSprite spriteWithFile:@"listLuck02.png"];
+        luck2.position = ccp(634.5, 624);
+        luck2.opacity = 0;
+        [self addChild:luck2 z:7];
+        luck3 = [CCSprite spriteWithFile:@"listLuck03.png"];
+        luck3.position = ccp(634.5, 566);
+        luck3.opacity = 0;
+        [self addChild:luck3 z:7];
+
         CCLabelTTF* luplus = [CCLabelTTF labelWithString:@"++" fontName:@"Marker Felt" fontSize:35];
         CCMenuItemLabel* item_lu1 = [CCMenuItemLabel itemWithLabel:luplus target:self selector:@selector(luckPlus)];
         CCLabelTTF* luminus = [CCLabelTTF labelWithString:@"--" fontName:@"Marker Felt" fontSize:35];
@@ -833,7 +846,30 @@ static BonusLayer* bonlay;
 		}];
         [itemshop setPosition:ccp(740, 730)];
 
-        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, /*itemback, item_lu1, item_lu2,*/ iteminapp, iteminapp1, itemgc, itemshop, nil];
+        CCSprite *spluck = [CCSprite spriteWithFile:@"Luck.png"];
+        CCSprite *spluck_t1 = [CCSprite spriteWithFile:@"TouchLuck.png"];
+        CCMenuItemSprite *itemluck = [CCMenuItemSprite itemWithNormalSprite:spluck selectedSprite:spluck_t1 block:^(id sender) {
+            
+            //        NSLog(@"luck");
+            if(luck1.opacity > 0) {
+                
+                [luck1 runAction:[CCFadeOut actionWithDuration:Ldelay]];
+                [luck2 runAction:[CCFadeOut actionWithDuration:Ldelay]];
+                [luck3 runAction:[CCFadeOut actionWithDuration:Ldelay]];
+                
+            }
+            else {
+                
+                [luck1 runAction:[CCFadeIn actionWithDuration:Ldelay]];
+                [luck2 runAction:[CCFadeIn actionWithDuration:Ldelay]];
+                [luck3 runAction:[CCFadeIn actionWithDuration:Ldelay]];
+                
+            }
+            
+        }];
+        [itemluck setPosition:ccp(633, 730)];
+
+        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, /*itemback, item_lu1, item_lu2,*/ iteminapp, iteminapp1, itemgc, itemshop, itemluck, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 

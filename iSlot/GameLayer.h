@@ -13,6 +13,7 @@
 
 #define STAR_STARTSCALE 0.5f
 #define STAR_ENDSCALE 1.5f
+#define Ldelay 0.5f
 
 @interface GameLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate> {
     
@@ -68,6 +69,10 @@
     
     BOOL bon;
     
+    CCSprite *luck1;
+    CCSprite *luck2;
+    CCSprite *luck3;
+
 
 }
 -(void) toTop;
