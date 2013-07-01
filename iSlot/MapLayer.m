@@ -599,7 +599,7 @@ static CCSprite *luck3;
 -(void) orerot {
     
     oreol.rotation = oreol_rot;
-    oreol_rot += 12.8f;
+    oreol_rot += 2;//12.8f;
     
     [self performSelector:@selector(orerot) withObject:nil afterDelay:0.1f];
 
@@ -699,7 +699,7 @@ static CCSprite *luck3;
             
             if(aChildNode.tag == next) {
                 
-                oreol.position = ccp(aChildNode.position.x, aChildNode.position.y - 46 /*- 30*/);
+                oreol.position = ccp(aChildNode.position.x, aChildNode.position.y - 46 - 40);
             }
             
             if(bonus)
