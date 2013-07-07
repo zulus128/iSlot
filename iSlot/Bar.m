@@ -90,7 +90,7 @@
 
         presetcnt++;
 
-        if([Common instance].randCombNow /*&& ((presetcnt + posline) > 8)*/) {
+        if([Common instance].randCombNow && (posline > -1000)) {
         
             j = [Common instance].randSlideType;
         }

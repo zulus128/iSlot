@@ -661,7 +661,7 @@ static BonusLayer* bonlay;
                         }
                     }
                 }while(!b);
-                [Common instance].randSlideType = 9;//j;
+                [Common instance].randSlideType = j;
                 
                 int randLine = CCRANDOM_0_1() * [Common instance].lines;
                 int randcnt = CCRANDOM_0_1() * 4 + 2;//from 2 to 5 slides in combination
@@ -683,7 +683,7 @@ static BonusLayer* bonlay;
                             pos = -1000;
                     
                     [bar[i] startWithPosInRandLine:pos];
-//                    NSLog(@"randline = %d, pos = %d, randcnt = %d", randLine, pos, randcnt);
+                    NSLog(@"randline = %d, pos = %d, randcnt = %d", randLine, pos, randcnt);
                 }
 
                 
