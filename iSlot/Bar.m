@@ -31,10 +31,12 @@
         for(int i = 0; i < SLIDE_TYPES; i++) {
 
             proto[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"slotStilistik01-%d.png", i]];
+//            proto[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"BlurslotStilistik01-%d.png", i]];
             proto[i].position = ccp(-5000, -5000);
             proto[i].tag = 1000 + i;
             [layer addChild:proto[i] z:2];
             
+//            blur[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"slotStilistik01-%d.png", i]];
             blur[i] = [CCSprite spriteWithFile:[NSString stringWithFormat:@"BlurslotStilistik01-%d.png", i]];
             blur[i].position = ccp(-5000, -5000);
             blur[i].tag = 2000 + i;
@@ -73,14 +75,46 @@
     return self;
 }
 
+- (void) presetComb {
+
+    preset = YES;
+}
+
 - (int) getRandom:(int)pos {
 
 
-    BOOL b;
-    int j;
+    BOOL b = YES;
+    int j = 0;
+    
+    if (preset) {
+
+        presetcnt++;
+
+        if([Common instance].randCombNow /*&& ((presetcnt + posline) > 8)*/) {
+        
+            j = [Common instance].randSlideType;
+        }
+        else
+            b = NO;
+        
+        if(presetcnt > 7)
+            stop1 = YES;
+
+    }
+    
     do {
+        
+        if(!preset || !b)
+            j = [[Common instance] getRnd];
+
+        
         b = YES;
-        j = [[Common instance] getRnd];
+
+        if(preset && (presetcnt < (6 + posline)) && (j ==[Common instance].randSlideType)) {
+            
+            b = NO;
+            continue;
+        }
         
         if([Common instance].curlevel == 19) { //first bonus level
         
@@ -104,6 +138,7 @@
         }
     }
     while (!b);
+    
     slide_num[pos] = j;
     return j;
 }
@@ -129,8 +164,10 @@
 
 }
 
--(void) start {
+//-(void) start {
+-(void) startWithPosInRandLine:(int)posinline {
 
+    posline = posinline;
     
     if(move_forward != nil) {
      
@@ -145,8 +182,12 @@
 
     
     stop1 = false;
+//    stop2 = false;
     
-    float dell = delay;
+    preset = NO;
+    presetcnt = 0;
+    
+    dell = delay;
     int n1 = [Common instance].curlevel / 10;
     int n2 = [Common instance].curlevel - n1 * 10;
     
@@ -164,6 +205,8 @@
         }
 
     [self performSelector:@selector(stop1) withObject:nil afterDelay:dell];
+
+//    [self performSelector:@selector(presetComb) withObject:nil afterDelay:(dell - SPEED1 * 3.5555f)];
     
 //    for(int i = 1; i < SLIDE_CNT; i++) {
     for(int i = (SLIDE_CNT - 1); i > 0; i--) {
@@ -180,6 +223,14 @@
 }
 
 -(void) stop1 {
+    
+//    stop2 = true;
+    [self presetComb];
+//    [self performSelector:@selector(stop3) withObject:nil afterDelay:[Common instance].speed * 4.9f];
+
+}
+
+-(void) stop3 {
     
     stop1 = true;
 }
@@ -277,6 +328,7 @@
     }
     [slide[0] runAction:seq_forward];
     
+
 }
 
 - (void) dealloc {

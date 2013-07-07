@@ -132,6 +132,8 @@
 @property (readwrite, assign) BOOL shopVisible;
 @property (readwrite, assign) int lastLevelPassed;
 
-//@property (readwrite, assign) int mapAreaUnlocked;
+@property (readwrite, assign) BOOL randCombNow;
+@property (readwrite, assign) int randSlideType;
+//@property (readwrite, assign) int randLine;
 
 @end

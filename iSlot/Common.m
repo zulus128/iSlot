@@ -90,7 +90,7 @@
         
         self.yourluck = 50;
 
-        self.money = 1000;
+        self.money = 100000;
         self.speed = SPEED1;
         self.coins = 1;
         self.lines = 3;
