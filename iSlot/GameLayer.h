@@ -79,6 +79,10 @@
     int randkoeff;
     int lkoeff;
     int lkoeffof;
+    
+    int combcnt3;
+    int combcnt4;
+    int combcnt5;
 }
 -(void) toTop;
 

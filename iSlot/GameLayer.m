@@ -640,14 +640,81 @@ static BonusLayer* bonlay;
                 [Common instance].money -= ([Common instance].coins * [Common instance].lines);
                 [self refreshLabels];
 
+                int randcnt = 2;
+                BOOL pre = NO;
+
+                if(lkoeff > 0) {
+                    
+                    int lmoney = [self getLmoney];
+                    float part = (float)lmoney / lkoeff;
+                    int interv = [Common instance].levelwin / part;
+                    float intervproc = [Common instance].levelwin / ((interv + 1) * part);
+
+                    NSLog(@"--- part = %f, interv = %d", part, interv);
+
+                    int cmbcnt = 3;
+    //                int cmbrand = 3;
+                    switch (lkoeff) {
+                        case 3:
+                            cmbcnt = combcnt3;
+                            
+                            break;
+                        case 4:
+                            cmbcnt = combcnt4;
+                            break;
+                        case 5:
+                            cmbcnt = combcnt5;
+                            break;
+                    }
+                    if((intervproc > 0.8) && (cmbcnt < (interv + 1))) {
+                        
+                        pre = YES;
+                        randcnt = lkoeff;
+                    }
+                    
+                    NSLog(@"----- pre = %d, intervproc = %f", pre, intervproc);
+                }
                 
                 int j = CCRANDOM_0_1() * 100;//%
                 int k = randkoeff * 10;
-                [Common instance].randCombNow = (j < k);
+                [Common instance].randCombNow = pre?YES:(j < k);
 
+
+                if(!pre) {
+                
+                    int rr = CCRANDOM_0_1() * 100;
+                    if(rr < 50)
+                        randcnt = 2;
+                    else if (rr < 80)
+                        randcnt = 3;
+                    else if (rr < 95)
+                        randcnt = 4;
+                    else
+                        randcnt = 5;
+                }
+                
                 BOOL b = YES;
                 do {
                     j = [[Common instance] getRnd];
+                    b = YES;
+                    
+                    if(randcnt == 2) {
+
+//                        NSLog(@"j = %d", j);
+                        switch (j) {
+                            case 1:
+                            case 2:
+                            case 3:
+                            case 4:
+                            case 5:
+                            case 9:
+                            case 10:
+                                b = NO;
+                                continue;
+                        }
+                        
+                    }
+                    
                     if([Common instance].curlevel == 19) { //first bonus level
                         
                         switch (j) {
@@ -664,7 +731,6 @@ static BonusLayer* bonlay;
                 [Common instance].randSlideType = j;
                 
                 int randLine = CCRANDOM_0_1() * [Common instance].lines;
-                int randcnt = CCRANDOM_0_1() * 4 + 2;//from 2 to 5 slides in combination
                 
                 [Common instance].finished = BARS_CNT * SLIDE_CNT;
 
@@ -683,7 +749,7 @@ static BonusLayer* bonlay;
                             pos = -1000;
                     
                     [bar[i] startWithPosInRandLine:pos];
-                    NSLog(@"randline = %d, pos = %d, randcnt = %d", randLine, pos, randcnt);
+//                    NSLog(@"randline = %d, pos = %d, randcnt = %d", randLine, pos, randcnt);
                 }
 
                 
@@ -1025,6 +1091,10 @@ static BonusLayer* bonlay;
     [labelFameLevel setString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints]];
 
 
+    combcnt3 = 0;
+    combcnt4 = 0;
+    combcnt5 = 0;
+
 }
 
 -(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
@@ -1130,94 +1200,6 @@ static BonusLayer* bonlay;
     [label setString:[NSString stringWithFormat:@"%.3f", [Common instance].speed]];
 }
 
-/*
-- (int) checkCombs {
-
-    BOOL bon2 = ([Common instance].curlevel == 29);// second bonus level
-    BOOL bon3 = ([Common instance].curlevel == 39);// third bonus level
-    
-    int combs = 0;
-
-    for(int i = 0; i < [Common instance].lines; i++) {
-
-        int cnt = 0;
-        int first = 0;
-        
-        for(int fpos = 0; fpos < (bon2?(BARS_CNT - 1):1); fpos++) {
-            
-//            NSMutableArray* arr = [NSMutableArray array];
-            
-            first = 0;
-            CCSprite* ss = 0;
-            if(bon3) {
-                
-                first = [bar[(BARS_CNT - 1)] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:(BARS_CNT - 1)] intValue]];
-                ss = [bar[(BARS_CNT - 1)] getSprite:[[[lines objectAtIndex:i] objectAtIndex:(BARS_CNT - 1)] intValue]];
-            }
-            else {
-                
-                first = [bar[fpos] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:fpos] intValue]];
-                ss = [bar[fpos] getSprite:[[[lines objectAtIndex:i] objectAtIndex:fpos] intValue]];
-                
-            }
-//            [arr addObject:ss];
-            
-            cnt = 1;
-            
-            if (bon3) {//third bonus level
-                for(int j = (BARS_CNT - 2); j >= fpos; j--) {
-                    
-                    int slide1 = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
-                    CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
-                    
-                    //                    cnt++;
-                    if((slide1 == first) || (slide1 == 0 )) {
-                        cnt++;
-//                        [arr addObject:ss];
-                    }
-                    else
-                        if(first == 0) {
-                            cnt++;
-//                            [arr addObject:ss];
-                            first = slide1;
-                        }
-                        else
-                            break;
-                }
-            }
-            else //not third bonus level
-                for(int j = (fpos + 1); j < BARS_CNT; j++) {
-                    
-                    int slide1 = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
-                    CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
-                    
-                    if((slide1 == first) || (slide1 == 0 )) {
-                        cnt++;
-//                        [arr addObject:ss];
-                    }
-                    else
-                        if(first == 0) {
-                            cnt++;
-//                            [arr addObject:ss];
-                            first = slide1;
-                        }
-                        else
-                            break;
-                }
-            
-        }
-        
-        int mmoney = 0;
-        if(cnt > 1)
-            mmoney = [[[values objectAtIndex:first]objectAtIndex:(cnt - 2)] intValue];
-
-        if(mmoney > 0)
-            combs++;
-    }
-
-    return combs;
-}
-*/
 - (void) checkLines {
     
 //    NSLog(@"---------checkLines");
@@ -1314,7 +1296,19 @@ static BonusLayer* bonlay;
             
             int mmoney = 0;
 
-            
+
+            switch (cnt) {
+                case 3:
+                    combcnt3 ++;
+                    break;
+                case 4:
+                    combcnt4 ++;
+                    break;
+                case 5:
+                    combcnt5 ++;
+                    break;
+                    
+            }
             
             
             if(cnt > 1)
@@ -1352,7 +1346,7 @@ static BonusLayer* bonlay;
                 int sum = wsum * koeff;
                 
                 NSLog(@"Winsum = %d, koeff for bonusl level = %f, sum = %d", wsum, koeff, sum);
-// must be uncomment               winsum += sum;//mmoney * [Common instance].coins;
+                winsum += sum;//mmoney * [Common instance].coins;
                 
                 [Common instance].famepoints += cnt;
                 [self refreshLabels];
