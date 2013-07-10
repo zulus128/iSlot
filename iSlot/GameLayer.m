@@ -649,6 +649,7 @@ static BonusLayer* bonlay;
                     float part = (float)lmoney / lkoeff;
                     int interv = [Common instance].levelwin / part;
                     float intervproc = [Common instance].levelwin / ((interv + 1) * part);
+//                    float intervproc = ([Common instance].levelwin - (interv * part)) / part;
 
                     NSLog(@"--- part = %f, interv = %d", part, interv);
 
@@ -657,7 +658,6 @@ static BonusLayer* bonlay;
                     switch (lkoeff) {
                         case 3:
                             cmbcnt = combcnt3;
-                            
                             break;
                         case 4:
                             cmbcnt = combcnt4;
@@ -666,7 +666,7 @@ static BonusLayer* bonlay;
                             cmbcnt = combcnt5;
                             break;
                     }
-                    if((intervproc > 0.8) && (cmbcnt < (interv + 1))) {
+                    if(((intervproc > 0.8) && (cmbcnt < (interv + 1))) || (interv > cmbcnt)) {
                         
                         pre = YES;
                         randcnt = lkoeff;
