@@ -134,6 +134,10 @@
 
 @property (readwrite, assign) BOOL randCombNow;
 @property (readwrite, assign) int randSlideType;
-//@property (readwrite, assign) int randLine;
+
+@property (readwrite, assign) int max4;
+@property (readwrite, assign) int max5;
+@property (readwrite, assign) int combcnt4;
+@property (readwrite, assign) int combcnt5;
 
 @end

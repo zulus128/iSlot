@@ -8,6 +8,8 @@
 
 #import "Bar.h"
 
+static int precnt;
+
 @implementation Bar
 
 //- (id)initWithLayer:(CCLayer *)lay X:(int)xx Y:(int)yy Delay:(float)del {
@@ -90,6 +92,7 @@
 
         presetcnt++;
 
+        
         if([Common instance].randCombNow && (posline > -1000)) {
         
             j = [Common instance].randSlideType;
@@ -97,8 +100,31 @@
         else
             b = NO;
         
-        if(presetcnt > 7)
-            stop1 = YES;
+        if(presetcnt > 7) {
+            
+            BOOL pr = YES;
+            
+            if([Common instance].combcnt5 >= [Common instance].max5) {
+                
+                int pcl = [layer preCheckLines];
+                if(pcl >= 1000)
+                    pr = NO;
+                
+            }
+
+            if(pr && ([Common instance].combcnt4 >= [Common instance].max4)) {
+                
+                int pcl = [layer preCheckLines];
+                int d = pcl / 1000;
+                int dd = pcl - d * 1000;
+                if(dd > 0)
+                    pr = NO;
+                
+            }
+            
+            
+            stop1 = pr;
+        }
 
     }
     
@@ -138,7 +164,33 @@
         }
     }
     while (!b);
-    
+
+//    if(preset){
+//        
+//        switch (presetcnt) {
+//            case 5:
+//                prearr[0] = j;
+//                break;
+//            case 6:
+//                prearr[1] = j;
+//                break;
+//            case 7: {
+//                prearr[2] = j;
+//                
+//                precnt++;
+//                
+//                if (precnt >= BARS_CNT) {
+//
+//                    NSLog(@"j = %d", j);
+//
+//                }
+//                break;
+//            }
+//        }
+////        NSLog(@"j = %d", j);
+////        j = 0;
+//    }
+
     slide_num[pos] = j;
     return j;
 }
@@ -167,6 +219,8 @@
 //-(void) start {
 -(void) startWithPosInRandLine:(int)posinline {
 
+    precnt = 0;
+    
     posline = posinline;
     
     if(move_forward != nil) {

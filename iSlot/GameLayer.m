@@ -581,14 +581,23 @@ static BonusLayer* bonlay;
         CCMenuItemLabel* item_lrand = [CCMenuItemLabel itemWithLabel:lrand target:self selector:@selector(lRand)];
         [item_lrand setPosition:ccp(69, 660)];
         
-        lkoef = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Minimum %d comb", lkoeff] fontName:@"Marker Felt" fontSize:15];
-        CCMenuItemLabel* item_lkoef = [CCMenuItemLabel itemWithLabel:lkoef target:self selector:@selector(lKoef)];
-        [item_lkoef setPosition:ccp(169, 660)];
+//        lkoef = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Minimum %d comb", lkoeff] fontName:@"Marker Felt" fontSize:15];
+//        CCMenuItemLabel* item_lkoef = [CCMenuItemLabel itemWithLabel:lkoef target:self selector:@selector(lKoef)];
+//        [item_lkoef setPosition:ccp(169, 660)];
+//        
+//        lkoeffof = 3;
+//        lkoefof = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"of %d images", lkoeffof] fontName:@"Marker Felt" fontSize:15];
+//        CCMenuItemLabel* item_lkoefof = [CCMenuItemLabel itemWithLabel:lkoefof target:self selector:@selector(lKoefof)];
+//        [item_lkoefof setPosition:ccp(255, 660)];
         
-        lkoeffof = 3;
-        lkoefof = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"of %d images", lkoeffof] fontName:@"Marker Felt" fontSize:15];
-        CCMenuItemLabel* item_lkoefof = [CCMenuItemLabel itemWithLabel:lkoefof target:self selector:@selector(lKoefof)];
-        [item_lkoefof setPosition:ccp(255, 660)];
+        lmax4 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Max %d of 4x comb", [Common instance].max4] fontName:@"Marker Felt" fontSize:15];
+        CCMenuItemLabel* item_lmax4 = [CCMenuItemLabel itemWithLabel:lmax4 target:self selector:@selector(lMax4)];
+        [item_lmax4 setPosition:ccp(169, 660)];
+        
+        lmax5 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Max %d of 5x comb", [Common instance].max5] fontName:@"Marker Felt" fontSize:15];
+        CCMenuItemLabel* item_lmax5 = [CCMenuItemLabel itemWithLabel:lmax5 target:self selector:@selector(lMax5)];
+        [item_lmax5 setPosition:ccp(300, 660)];
+        
         
         
         CCSprite* fameback = [CCSprite spriteWithFile:@"WhileFonFame.png"];
@@ -643,41 +652,39 @@ static BonusLayer* bonlay;
                 int randcnt = 2;
                 BOOL pre = NO;
 
-                if(lkoeff > 0) {
-                    
-                    int lmoney = [self getLmoney];
-                    float part = (float)lmoney / lkoeff;
-                    int interv = [Common instance].levelwin / part;
-                    float intervproc = [Common instance].levelwin / ((interv + 1) * part);
-//                    float intervproc = ([Common instance].levelwin - (interv * part)) / part;
-
-                    NSLog(@"--- part = %f, interv = %d", part, interv);
-
-                    int cmbcnt = 3;
-    //                int cmbrand = 3;
-                    switch (lkoeff) {
-                        case 3:
-                            cmbcnt = combcnt3;
-                            break;
-                        case 4:
-                            cmbcnt = combcnt4;
-                            break;
-                        case 5:
-                            cmbcnt = combcnt5;
-                            break;
-                    }
-                    if(((intervproc > 0.8) && (cmbcnt < (interv + 1))) || (interv > cmbcnt)) {
-                        
-                        pre = YES;
-                        randcnt = lkoeff;
-                    }
-                    
-                    NSLog(@"----- pre = %d, intervproc = %f", pre, intervproc);
-                }
+//                if(lkoeff > 0) {
+//                
+//                    int lmoney = [self getLmoney];
+//                    float part = (float)lmoney / lkoeff;
+//                    int interv = [Common instance].levelwin / part;
+//                    float intervproc = [Common instance].levelwin / ((interv + 1) * part);
+//
+//                    NSLog(@"--- part = %f, interv = %d", part, interv);
+//
+//                    int cmbcnt = 3;
+//                    switch (lkoeff) {
+//                        case 3:
+//                            cmbcnt = combcnt3;
+//                            break;
+//                        case 4:
+//                            cmbcnt = combcnt4;
+//                            break;
+//                        case 5:
+//                            cmbcnt = combcnt5;
+//                            break;
+//                    }
+//                    if(((intervproc > 0.8) && (cmbcnt < (interv + 1))) || (interv > cmbcnt)) {
+//                        
+//                        pre = YES;
+//                        randcnt = lkoeff;
+//                    }
+//                    
+//                    NSLog(@"----- pre = %d, intervproc = %f", pre, intervproc);
+//                }
                 
                 int j = CCRANDOM_0_1() * 100;//%
                 int k = randkoeff * 10;
-                [Common instance].randCombNow = pre?YES:(j < k);
+                [Common instance].randCombNow = YES; //vv pre?YES:(j < k);
 
 
                 if(!pre) {
@@ -692,6 +699,9 @@ static BonusLayer* bonlay;
                     else
                         randcnt = 5;
                 }
+                
+                
+                randcnt = 5;//vv
                 
                 BOOL b = YES;
                 do {
@@ -987,7 +997,7 @@ static BonusLayer* bonlay;
         }];
         [itemluck setPosition:ccp(633, 730)];
 
-        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, /*itemback, item_lu1, item_lu2,*/ iteminapp, iteminapp1, itemgc, itemshop, itemluck, item_lrand, item_lkoef, item_lkoefof, nil];
+        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, /*itemback, item_lu1, item_lu2,*/ iteminapp, iteminapp1, itemgc, itemshop, itemluck, item_lrand, /*item_lkoef, item_lkoefof,*/ item_lmax4, item_lmax5, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 
@@ -1091,9 +1101,9 @@ static BonusLayer* bonlay;
     [labelFameLevel setString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints]];
 
 
-    combcnt3 = 0;
-    combcnt4 = 0;
-    combcnt5 = 0;
+//    combcnt3 = 0;
+    [Common instance].combcnt4 = 0;
+    [Common instance].combcnt5 = 0;
 
 }
 
@@ -1164,23 +1174,41 @@ static BonusLayer* bonlay;
     
 }
 
-- (void) lKoef {
+- (void) lMax4 {
     
-    lkoeff ++;
-    if(lkoeff > 10)
-        lkoeff = 0;
+    [Common instance].max4 ++;
+    if([Common instance].max4 > 10)
+        [Common instance].max4 = 0;
     
-    [lkoef setString:[NSString stringWithFormat:@"Minimum %d comb", lkoeff]];
+    [lmax4 setString:[NSString stringWithFormat:@"Max %d of 4x comb", [Common instance].max4]];
 }
 
-- (void) lKoefof {
+- (void) lMax5 {
     
-    lkoeffof ++;
-    if(lkoeffof > 5)
-        lkoeffof = 3;
+    [Common instance].max5 ++;
+    if([Common instance].max5 > 10)
+        [Common instance].max5 = 0;
     
-    [lkoefof setString:[NSString stringWithFormat:@"of %d images", lkoeffof]];
+    [lmax5 setString:[NSString stringWithFormat:@"Max %d of 5x comb", [Common instance].max5]];
 }
+
+//- (void) lKoef {
+//    
+//    lkoeff ++;
+//    if(lkoeff > 10)
+//        lkoeff = 0;
+//    
+//    [lkoef setString:[NSString stringWithFormat:@"Minimum %d comb", lkoeff]];
+//}
+//
+//- (void) lKoefof {
+//    
+//    lkoeffof ++;
+//    if(lkoeffof > 5)
+//        lkoeffof = 3;
+//    
+//    [lkoefof setString:[NSString stringWithFormat:@"of %d images", lkoeffof]];
+//}
 
 - (void) speedPlus {
     
@@ -1200,15 +1228,101 @@ static BonusLayer* bonlay;
     [label setString:[NSString stringWithFormat:@"%.3f", [Common instance].speed]];
 }
 
+- (int) preCheckLines {
+
+    BOOL bon2 = ([Common instance].curlevel == 29);// second bonus level
+    BOOL bon3 = ([Common instance].curlevel == 39);// third bonus level
+    
+    int res = 0;
+    
+    for(int i = 0; i < [Common instance].lines; i++) {
+        
+        int cnt = 0;
+        
+        for(int fpos = 0; fpos < (bon2?(BARS_CNT - 1):1); fpos++) {
+            
+            NSMutableArray* arr = [NSMutableArray array];
+            
+            int first = 0;
+            CCSprite* ss = 0;
+            if(bon3) {
+                
+                first = [bar[(BARS_CNT - 1)] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:(BARS_CNT - 1)] intValue] - 1];
+                ss = [bar[(BARS_CNT - 1)] getSprite:[[[lines objectAtIndex:i] objectAtIndex:(BARS_CNT - 1)] intValue] - 1];
+            }
+            else {
+                
+                first = [bar[fpos] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:fpos] intValue] - 1];
+                ss = [bar[fpos] getSprite:[[[lines objectAtIndex:i] objectAtIndex:fpos] intValue] - 1];
+                
+            }
+            [arr addObject:ss];
+            
+            cnt = 1;
+            
+            if (bon3) {//third bonus level
+                for(int j = (BARS_CNT - 2); j >= fpos; j--) {
+                    
+                    int slide1 = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue] - 1];
+                    CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue] - 1];
+                    
+                    //                    cnt++;
+                    if((slide1 == first) || (slide1 == 0 /*WILD*/)) {
+                        cnt++;
+                        [arr addObject:ss];
+                    }
+                    else
+                        if(first == 0) {
+                            cnt++;
+                            [arr addObject:ss];
+                            first = slide1;
+                        }
+                        else
+                            break;
+                }
+            }
+            else //not third bonus level
+                for(int j = (fpos + 1); j < BARS_CNT; j++) {
+                    
+                    int slide1 = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue] - 1];
+                    CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue] - 1];
+                    
+                    if((slide1 == first) || (slide1 == 0 /*WILD*/)) {
+                        cnt++;
+                        [arr addObject:ss];
+                    }
+                    else
+                        if(first == 0) {
+                            cnt++;
+                            [arr addObject:ss];
+                            first = slide1;
+                        }
+                        else
+                            break;
+                }
+            
+        }
+        
+        if(cnt == 4)
+            res += 1000;
+        if(cnt == 5)
+            res += 1;
+    }
+
+//    NSLog(@"---------preCheckLines %d", res);
+    
+    return res;
+}
+
 - (void) checkLines {
     
 //    NSLog(@"---------checkLines");
     
     
-    
-//    [menu setEnabled:YES];
-//    [menu1 setEnabled:NO];
-//    return;
+    //vv
+    [menu setEnabled:YES];
+    [menu1 setEnabled:NO];
+    return;
 
     
     
@@ -1298,14 +1412,14 @@ static BonusLayer* bonlay;
 
 
             switch (cnt) {
-                case 3:
-                    combcnt3 ++;
-                    break;
+//                case 3:
+//                    combcnt3 ++;
+//                    break;
                 case 4:
-                    combcnt4 ++;
+                    [Common instance].combcnt4 ++;
                     break;
                 case 5:
-                    combcnt5 ++;
+                    [Common instance].combcnt5 ++;
                     break;
                     
             }

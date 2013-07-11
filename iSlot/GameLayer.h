@@ -74,20 +74,23 @@
     CCSprite *luck3;
 
     CCLabelTTF* lrand;
-    CCLabelTTF* lkoef;
-    CCLabelTTF* lkoefof;
+//    CCLabelTTF* lkoef;
+//    CCLabelTTF* lkoefof;
     int randkoeff;
     int lkoeff;
     int lkoeffof;
     
-    int combcnt3;
-    int combcnt4;
-    int combcnt5;
+//    int combcnt3;
+//    int combcnt4;
+//    int combcnt5;
+    
+    CCLabelTTF* lmax4;
+    CCLabelTTF* lmax5;
 }
 -(void) toTop;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
-//- (int) checkCombs;
+- (int) preCheckLines;
 
 @end
