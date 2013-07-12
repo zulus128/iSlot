@@ -94,5 +94,8 @@
 - (int) preCheckLines;
 
 - (Bar*) getBar:(int)n;
+- (int) getSlideWithBar:(int)b Line:(int)l Pos:(int)p;
+
+-(void) prolong;
 
 @end

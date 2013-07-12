@@ -684,7 +684,7 @@ static BonusLayer* bonlay;
                 
                 int j = CCRANDOM_0_1() * 100;//%
                 int k = randkoeff * 10;
-                [Common instance].randCombNow = YES; //vv pre?YES:(j < k);
+                [Common instance].randCombNow = pre?YES:(j < k);//vv
 
 
                 if(!pre) {
@@ -700,8 +700,13 @@ static BonusLayer* bonlay;
                         randcnt = 5;
                 }
                 
+                if((randcnt == 4) && ([Common instance].combcnt4 >= [Common instance].max4))
+                    [Common instance].randCombNow = NO;
                 
-                randcnt = 5;//vv
+                if((randcnt == 5) && ([Common instance].combcnt5 >= [Common instance].max5))
+                    [Common instance].randCombNow = NO;
+                
+//                randcnt = 4;//vv
                 
                 BOOL b = YES;
                 do {
@@ -1076,6 +1081,19 @@ static BonusLayer* bonlay;
     return bar[n];
 }
 
+- (int) getSlideWithBar:(int)b Line:(int)l Pos:(int)p {
+ 
+    return [bar[b] getPreSlideNum:[[[lines objectAtIndex:l] objectAtIndex:p] intValue]];
+
+}
+
+-(void) prolong {
+    
+    for(int i = 0; i < BARS_CNT; i++)
+        [bar[i] prolong];
+}
+
+
 -(void)starFinished {
     
 //    NSLog(@"starFinished %d", [Common instance].famepoints);
@@ -1325,9 +1343,9 @@ static BonusLayer* bonlay;
     
     
     //vv
-    [menu setEnabled:YES];
-    [menu1 setEnabled:NO];
-    return;
+//    [menu setEnabled:YES];
+//    [menu1 setEnabled:NO];
+//    return;
 
     
     

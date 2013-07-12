@@ -164,7 +164,7 @@ static int precnt;
         }
     }
     while (!b);
-
+/*
     if(preset){
         
         switch (presetcnt) {
@@ -179,10 +179,33 @@ static int precnt;
                 
                 precnt++;
                 
-                if (precnt >= BARS_CNT) {
-
-                    NSLog(@"j = %d", j);
-
+                if (precnt >= (BARS_CNT - 2)) {
+                    
+                    int pcl = [self preCheckLines];
+                    NSLog(@"lll = %d", pcl);
+                    
+                    
+                    if([Common instance].combcnt4 >= [Common instance].max4) {
+                        
+                        int d = pcl / 1000;
+                        int dd = pcl - d * 1000;
+                        if(dd > 0)
+                            [layer prolong];
+                        //presetcnt -= 3;
+                    }
+                }
+                if (precnt >= (BARS_CNT - 1)) {
+                    
+                    int pcl = [self preCheckLines];
+                    NSLog(@"lll = %d", pcl);
+                    
+                    
+                    if([Common instance].combcnt5 >= [Common instance].max5) {
+                        
+                        if(pcl > 0)
+                            [layer prolong];
+                        //presetcnt -= 3;
+                    }
                 }
                 break;
             }
@@ -190,15 +213,25 @@ static int precnt;
 //        NSLog(@"j = %d", j);
 //        j = 0;
     }
-
+*/
     slide_num[pos] = j;
     return j;
 }
 
+-(void) prolong {
+
+    presetcnt = 7;
+}
+
 -(int) getSlideNum: (int)pos {
     
-//    NSLog(@"pos = %d, slide = %d", pos, slide_num[1 + pos]);
+    //    NSLog(@"pos = %d, slide = %d", pos, slide_num[1 + pos]);
     return slide_num[1 + pos];
+}
+
+-(int) getPreSlideNum: (int)pos {
+    
+    return prearr[1 + pos];
 }
 
 -(CCSprite*) getSprite: (int)pos {
@@ -403,18 +436,19 @@ static int precnt;
 
 - (int) preCheckLines {
     
+    GameLayer* gl = (GameLayer*)layer;
+    int res = 0;
+    
     for(int i = 0; i < [Common instance].lines; i++) {
         
         int cnt = 1;
         int fpos = 0;
 
-        GameLayer* gl = (GameLayer*)layer;
-        int first = [[gl getBar:fpos] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:fpos] intValue]];
+        int first = [gl getSlideWithBar:fpos Line:i Pos:fpos];
 
                 for(int j = (fpos + 1); j < BARS_CNT; j++) {
                     
-                    int slide1 = [[gl getBar:j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
-                    CCSprite* ss = [[gl getBar:j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
+                    int slide1 = [gl getSlideWithBar:j Line:i Pos:j];
                     
                     if((slide1 == first) || (slide1 == 0 /*WILD*/)) {
                         cnt++;

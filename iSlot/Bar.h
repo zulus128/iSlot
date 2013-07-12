@@ -42,7 +42,9 @@
 - (id)initWithLayer:(CCLayer *)lay X:(int)xx Y:(int)yy Delay:(float)del BonDelay1:(float)del1 BonDelay2:(float)del2 BonDelay4:(float)del4;
 -(void) startWithPosInRandLine:(int)posinline;
 -(int) getSlideNum: (int)pos;
+-(int) getPreSlideNum: (int)pos;
 -(CCSprite*) getSprite: (int)pos;
+-(void) prolong;
 
 
 @end
