@@ -7,7 +7,7 @@
 //
 
 #import "Bar.h"
-
+#import "GameLayer.h"
 static int precnt;
 
 @implementation Bar
@@ -104,23 +104,23 @@ static int precnt;
             
             BOOL pr = YES;
             
-            if([Common instance].combcnt5 >= [Common instance].max5) {
-                
-                int pcl = [layer preCheckLines];
-                if(pcl >= 1000)
-                    pr = NO;
-                
-            }
-
-            if(pr && ([Common instance].combcnt4 >= [Common instance].max4)) {
-                
-                int pcl = [layer preCheckLines];
-                int d = pcl / 1000;
-                int dd = pcl - d * 1000;
-                if(dd > 0)
-                    pr = NO;
-                
-            }
+//            if([Common instance].combcnt5 >= [Common instance].max5) {
+//                
+//                int pcl = [layer preCheckLines];
+//                if(pcl >= 1000)
+//                    pr = NO;
+//                
+//            }
+//
+//            if(pr && ([Common instance].combcnt4 >= [Common instance].max4)) {
+//                
+//                int pcl = [layer preCheckLines];
+//                int d = pcl / 1000;
+//                int dd = pcl - d * 1000;
+//                if(dd > 0)
+//                    pr = NO;
+//                
+//            }
             
             
             stop1 = pr;
@@ -165,31 +165,31 @@ static int precnt;
     }
     while (!b);
 
-//    if(preset){
-//        
-//        switch (presetcnt) {
-//            case 5:
-//                prearr[0] = j;
-//                break;
-//            case 6:
-//                prearr[1] = j;
-//                break;
-//            case 7: {
-//                prearr[2] = j;
-//                
-//                precnt++;
-//                
-//                if (precnt >= BARS_CNT) {
-//
-//                    NSLog(@"j = %d", j);
-//
-//                }
-//                break;
-//            }
-//        }
-////        NSLog(@"j = %d", j);
-////        j = 0;
-//    }
+    if(preset){
+        
+        switch (presetcnt) {
+            case 5:
+                prearr[0] = j;
+                break;
+            case 6:
+                prearr[1] = j;
+                break;
+            case 7: {
+                prearr[2] = j;
+                
+                precnt++;
+                
+                if (precnt >= BARS_CNT) {
+
+                    NSLog(@"j = %d", j);
+
+                }
+                break;
+            }
+        }
+//        NSLog(@"j = %d", j);
+//        j = 0;
+    }
 
     slide_num[pos] = j;
     return j;
@@ -399,6 +399,45 @@ static int precnt;
     [move_forward release];
     [seq_forward release];
 	[super dealloc];
+}
+
+- (int) preCheckLines {
+    
+    for(int i = 0; i < [Common instance].lines; i++) {
+        
+        int cnt = 1;
+        int fpos = 0;
+
+        GameLayer* gl = (GameLayer*)layer;
+        int first = [[gl getBar:fpos] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:fpos] intValue]];
+
+                for(int j = (fpos + 1); j < BARS_CNT; j++) {
+                    
+                    int slide1 = [[gl getBar:j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
+                    CCSprite* ss = [[gl getBar:j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue]];
+                    
+                    if((slide1 == first) || (slide1 == 0 /*WILD*/)) {
+                        cnt++;
+                    }
+                    else
+                        if(first == 0) {
+                            cnt++;
+                            first = slide1;
+                        }
+                        else
+                            break;
+                }
+            
+        
+        if(cnt == 4)
+            res += 1000;
+        if(cnt == 5)
+            res += 1;
+    }
+    
+    //    NSLog(@"---------preCheckLines %d", res);
+    
+    return res;
 }
 
 @end

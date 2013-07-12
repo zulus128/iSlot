@@ -93,4 +93,6 @@
 +(CCScene *) scene;
 - (int) preCheckLines;
 
+- (Bar*) getBar:(int)n;
+
 @end

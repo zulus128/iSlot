@@ -1071,6 +1071,11 @@ static BonusLayer* bonlay;
 	return self;
 }
 
+- (Bar*) getBar:(int)n {
+    
+    return bar[n];
+}
+
 -(void)starFinished {
     
 //    NSLog(@"starFinished %d", [Common instance].famepoints);
@@ -1228,91 +1233,91 @@ static BonusLayer* bonlay;
     [label setString:[NSString stringWithFormat:@"%.3f", [Common instance].speed]];
 }
 
-- (int) preCheckLines {
-
-    BOOL bon2 = ([Common instance].curlevel == 29);// second bonus level
-    BOOL bon3 = ([Common instance].curlevel == 39);// third bonus level
-    
-    int res = 0;
-    
-    for(int i = 0; i < [Common instance].lines; i++) {
-        
-        int cnt = 0;
-        
-        for(int fpos = 0; fpos < (bon2?(BARS_CNT - 1):1); fpos++) {
-            
-            NSMutableArray* arr = [NSMutableArray array];
-            
-            int first = 0;
-            CCSprite* ss = 0;
-            if(bon3) {
-                
-                first = [bar[(BARS_CNT - 1)] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:(BARS_CNT - 1)] intValue] - 1];
-                ss = [bar[(BARS_CNT - 1)] getSprite:[[[lines objectAtIndex:i] objectAtIndex:(BARS_CNT - 1)] intValue] - 1];
-            }
-            else {
-                
-                first = [bar[fpos] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:fpos] intValue] - 1];
-                ss = [bar[fpos] getSprite:[[[lines objectAtIndex:i] objectAtIndex:fpos] intValue] - 1];
-                
-            }
-            [arr addObject:ss];
-            
-            cnt = 1;
-            
-            if (bon3) {//third bonus level
-                for(int j = (BARS_CNT - 2); j >= fpos; j--) {
-                    
-                    int slide1 = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue] - 1];
-                    CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue] - 1];
-                    
-                    //                    cnt++;
-                    if((slide1 == first) || (slide1 == 0 /*WILD*/)) {
-                        cnt++;
-                        [arr addObject:ss];
-                    }
-                    else
-                        if(first == 0) {
-                            cnt++;
-                            [arr addObject:ss];
-                            first = slide1;
-                        }
-                        else
-                            break;
-                }
-            }
-            else //not third bonus level
-                for(int j = (fpos + 1); j < BARS_CNT; j++) {
-                    
-                    int slide1 = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue] - 1];
-                    CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue] - 1];
-                    
-                    if((slide1 == first) || (slide1 == 0 /*WILD*/)) {
-                        cnt++;
-                        [arr addObject:ss];
-                    }
-                    else
-                        if(first == 0) {
-                            cnt++;
-                            [arr addObject:ss];
-                            first = slide1;
-                        }
-                        else
-                            break;
-                }
-            
-        }
-        
-        if(cnt == 4)
-            res += 1000;
-        if(cnt == 5)
-            res += 1;
-    }
-
-//    NSLog(@"---------preCheckLines %d", res);
-    
-    return res;
-}
+//- (int) preCheckLines {
+//
+//    BOOL bon2 = ([Common instance].curlevel == 29);// second bonus level
+//    BOOL bon3 = ([Common instance].curlevel == 39);// third bonus level
+//    
+//    int res = 0;
+//    
+//    for(int i = 0; i < [Common instance].lines; i++) {
+//        
+//        int cnt = 0;
+//        
+//        for(int fpos = 0; fpos < (bon2?(BARS_CNT - 1):1); fpos++) {
+//            
+//            NSMutableArray* arr = [NSMutableArray array];
+//            
+//            int first = 0;
+//            CCSprite* ss = 0;
+//            if(bon3) {
+//                
+//                first = [bar[(BARS_CNT - 1)] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:(BARS_CNT - 1)] intValue] - 1];
+//                ss = [bar[(BARS_CNT - 1)] getSprite:[[[lines objectAtIndex:i] objectAtIndex:(BARS_CNT - 1)] intValue] - 1];
+//            }
+//            else {
+//                
+//                first = [bar[fpos] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:fpos] intValue] - 1];
+//                ss = [bar[fpos] getSprite:[[[lines objectAtIndex:i] objectAtIndex:fpos] intValue] - 1];
+//                
+//            }
+//            [arr addObject:ss];
+//            
+//            cnt = 1;
+//            
+//            if (bon3) {//third bonus level
+//                for(int j = (BARS_CNT - 2); j >= fpos; j--) {
+//                    
+//                    int slide1 = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue] - 1];
+//                    CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue] - 1];
+//                    
+//                    //                    cnt++;
+//                    if((slide1 == first) || (slide1 == 0 /*WILD*/)) {
+//                        cnt++;
+//                        [arr addObject:ss];
+//                    }
+//                    else
+//                        if(first == 0) {
+//                            cnt++;
+//                            [arr addObject:ss];
+//                            first = slide1;
+//                        }
+//                        else
+//                            break;
+//                }
+//            }
+//            else //not third bonus level
+//                for(int j = (fpos + 1); j < BARS_CNT; j++) {
+//                    
+//                    int slide1 = [bar[j] getSlideNum:[[[lines objectAtIndex:i] objectAtIndex:j] intValue] - 1];
+//                    CCSprite* ss = [bar[j] getSprite:[[[lines objectAtIndex:i] objectAtIndex:j] intValue] - 1];
+//                    
+//                    if((slide1 == first) || (slide1 == 0 /*WILD*/)) {
+//                        cnt++;
+//                        [arr addObject:ss];
+//                    }
+//                    else
+//                        if(first == 0) {
+//                            cnt++;
+//                            [arr addObject:ss];
+//                            first = slide1;
+//                        }
+//                        else
+//                            break;
+//                }
+//            
+//        }
+//        
+//        if(cnt == 4)
+//            res += 1000;
+//        if(cnt == 5)
+//            res += 1;
+//    }
+//
+////    NSLog(@"---------preCheckLines %d", res);
+//    
+//    return res;
+//}
 
 - (void) checkLines {
     
