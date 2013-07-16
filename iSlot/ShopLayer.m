@@ -28,11 +28,17 @@
         background.opacity = 0;
 		[self addChild: background];
         
-        lck1 = [CCSprite spriteWithFile:@"LockLevel.png"];
-        lck1.position = ccp(380, 405);
-        lck1.scale = 0.5f;
-        lck1.opacity = 0;
-        [background addChild:lck1];
+		background1 = [CCSprite spriteWithFile:@"luckShopButton.png"];
+		background1.position = ccpshop1(162, 147, 480, 65);
+//        background1.opacity = 0;
+        background1.visible = NO;
+		[self addChild: background1];
+        
+//        lck1 = [CCSprite spriteWithFile:@"LockLevel.png"];
+//        lck1.position = ccp(380, 405);
+//        lck1.scale = 0.5f;
+//        lck1.opacity = 0;
+//        [background addChild:lck1];
         
         
         lck = [CCSprite spriteWithFile:@"LockLevel.png"];
@@ -45,6 +51,11 @@
         ssl.position = ccp(10125, -765);
         [ssl addContent];
         [self addChild:ssl];
+        
+        slsl = [ShopSubLayer layerWithColor:ccc4(100, 20, 200, 0) width:775 height:1340];
+        slsl.position = ccp(10125, -765);
+        [slsl addContent];
+//        [self addChild:slsl];
         
         cnflay = [ConfirmLayer layerWithColor:ccc4(0, 0, 0, 0)];
         cnflay.sslayer = ssl;
@@ -98,6 +109,10 @@
     
     ssl.player = self.player;
     ssl.shlayer = self;
+    
+    luck = NO;
+    background1.visible = NO;
+    background1.opacity = 255;
 }
 
 -(void)hide {
@@ -111,6 +126,9 @@
     
     [background runAction:[CCFadeOut actionWithDuration:DSdelay]];
 
+    if(luck)
+        [background1 runAction:[CCFadeOut actionWithDuration:DSdelay]];
+
     [lck runAction:[CCFadeOut actionWithDuration:DSdelay]];
     [lck1 runAction:[CCFadeOut actionWithDuration:DSdelay]];
 
@@ -123,16 +141,40 @@
     
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:[touch view]];
-    //    NSLog(@"y = %f", point.y);
+    
+//        NSLog(@"x = %f y = %f",point.x, point.y);
+
+    if((point.y < 194) && (point.y > 155) && (point.x < 626) && (point.x > 401))
+        if([Common instance].shopVisible) {
+
+            background1.visible = YES;
+            luck = YES;
+//            NSLog(@"luck = YES");
+//            [ssl hide];
+            [self removeChild:ssl];
+            [self addChild:slsl];
+        }
+    
+    if((point.y < 194) && (point.y > 155) && (point.x < 398) && (point.x > 170))
+        if([Common instance].shopVisible) {
+            
+            background1.visible = NO;
+            luck = NO;
+//            NSLog(@"luck = NO");
+//            [ssl show];
+            [self removeChild:slsl];
+            [self addChild:ssl];
+
+        }
 
     if((point.y < 111) || (point.y > 584) || (point.x < 79) || (point.x > 949))
-    if([Common instance].shopVisible)
-    {
-        
-        [self.player afterShop];
-        [self hide];
-
-    }
+        if([Common instance].shopVisible)
+        {
+            
+            [self.player afterShop];
+            [self hide];
+            
+        }
 
 }
 

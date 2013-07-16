@@ -20,24 +20,13 @@
 
 @class ShopLayer;
 
-@interface ShopSubLayer : CCLayerColor {
+@interface ShopLuckSubLayer : CCLayerColor {
     
-    float y0;
-    float yl0;
-    CCLabelTTF* lab1;
-    CCMenuItemSprite *itemshop;
-    CCSprite* ll2;
-    CCMenu* menukeys;
-    BOOL blocked;
 }
 
 -(void) addContent;
 -(void)show;
-//-(void)showImmediate;
 -(void)hide;
-//-(void)hideImmediate;
--(void)enable;
--(void)disable;
 -(void) onConfirmed;
 
 @property (nonatomic, retain) CCLayer* player;

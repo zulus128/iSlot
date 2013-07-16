@@ -8,11 +8,12 @@
 
 #import "cocos2d.h"
 #import "ShopSubLayer.h"
+#import "ShopLuckSubLayer.h"
 
 #define Xsh 1024 / 2.0f
 #define Ysh 768 / 2.0f + 54
 
-#define ccpshop(__X__, __Y__, sizeX, sizeY)   CGPointMake(__X__ + sizeX / 2.0f, Ysh + 510 / 2.0f - (__Y__ + sizeY / 2.0f))
+#define ccpshop1(__X__, __Y__, sizeX, sizeY)   CGPointMake(__X__ + sizeX / 2.0f, 768 - (__Y__ + sizeY / 2.0f))
 
 #define DSdelay 0.5f
 
@@ -25,8 +26,10 @@
 @interface ShopLayer : CCLayerColor {
     
     CCSprite *background;
+    CCSprite *background1;
 
     ShopSubLayer* ssl;
+    ShopLuckSubLayer* slsl;
 
     ConfirmLayer* cnflay;
     ConfirmLayer1* cnflay1;
@@ -37,6 +40,7 @@
     CCMenuItemSprite *itemclo;
     
     BOOL showed;
+    BOOL luck;
 }
 
 -(void)show;
