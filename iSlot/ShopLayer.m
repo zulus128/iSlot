@@ -48,14 +48,16 @@
         [background addChild:lck];
         
         ssl = [ShopSubLayer layerWithColor:ccc4(100, 20, 200, 0) width:775 height:1340];
+        [ssl retain];
         ssl.position = ccp(10125, -765);
         [ssl addContent];
         [self addChild:ssl];
         
-        slsl = [ShopSubLayer layerWithColor:ccc4(100, 20, 200, 0) width:775 height:1340];
-        slsl.position = ccp(10125, -765);
+        slsl = [ShopLuckSubLayer layerWithColor:ccc4(100, 20, 200, 0) width:775 height:1340];
+        [slsl retain];
+        slsl.position = ccp(0, 0);
         [slsl addContent];
-//        [self addChild:slsl];
+        [self addChild:slsl];
         
         cnflay = [ConfirmLayer layerWithColor:ccc4(0, 0, 0, 0)];
         cnflay.sslayer = ssl;
@@ -113,6 +115,11 @@
     luck = NO;
     background1.visible = NO;
     background1.opacity = 255;
+//    [self addChild:slsl];
+//    [self addChild:ssl];
+
+//    [slsl hide];
+
 }
 
 -(void)hide {
@@ -126,8 +133,11 @@
     
     [background runAction:[CCFadeOut actionWithDuration:DSdelay]];
 
-    if(luck)
+    if(luck) {
+
         [background1 runAction:[CCFadeOut actionWithDuration:DSdelay]];
+        [slsl hide];
+    }
 
     [lck runAction:[CCFadeOut actionWithDuration:DSdelay]];
     [lck1 runAction:[CCFadeOut actionWithDuration:DSdelay]];
@@ -150,9 +160,12 @@
             background1.visible = YES;
             luck = YES;
 //            NSLog(@"luck = YES");
-//            [ssl hide];
-            [self removeChild:ssl];
-            [self addChild:slsl];
+
+            [ssl hide];
+            [slsl show];
+
+//            [self removeChild:ssl];
+//            [self addChild:slsl];
         }
     
     if((point.y < 194) && (point.y > 155) && (point.x < 398) && (point.x > 170))
@@ -161,9 +174,12 @@
             background1.visible = NO;
             luck = NO;
 //            NSLog(@"luck = NO");
-//            [ssl show];
-            [self removeChild:slsl];
-            [self addChild:ssl];
+
+            [slsl hide];
+            [ssl show];
+
+//            [self removeChild:slsl];
+//            [self addChild:ssl];
 
         }
 
@@ -205,6 +221,10 @@
 -(void) dealloc {
     
 	[super dealloc];
+    
+    [ssl release];
+    [slsl release];
+    
 }
 
 
