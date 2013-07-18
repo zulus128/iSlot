@@ -673,6 +673,35 @@ static BonusLayer* bonlay;
 //                    NSLog(@"----- pre = %d, intervproc = %f", pre, intervproc);
 //                }
                 
+                if([Common instance].yourluck < 25)
+                    randkoeff = 1;
+                else
+                    if([Common instance].yourluck < 50)
+                        randkoeff = 2;
+                    else
+                        if([Common instance].yourluck < 70)
+                            randkoeff = 3;
+                        else
+                            if([Common instance].yourluck < 100)
+                                randkoeff = 4;
+                            else
+                                if([Common instance].yourluck < 130)
+                                    randkoeff = 5;
+                                else
+                                    if([Common instance].yourluck < 160)
+                                        randkoeff = 6;
+                                    else
+                                        if([Common instance].yourluck < 180)
+                                            randkoeff = 7;
+                                        else
+                                            if([Common instance].yourluck < 190)
+                                                randkoeff = 8;
+                                            else
+                                                if([Common instance].yourluck < 200)
+                                                    randkoeff = 9;
+                                                else
+                                                        randkoeff = 10;
+                
                 int j = CCRANDOM_0_1() * 100;//%
                 int k = randkoeff * 10;
                 [Common instance].randCombNow = pre?YES:(j < k);//vv
