@@ -111,6 +111,8 @@
     
     ssl.player = self.player;
     ssl.shlayer = self;
+    slsl.player = self.player;
+    slsl.shlayer = self;
     
     luck = NO;
     background1.visible = NO;
@@ -198,6 +200,7 @@
     
     [ssl disable];
     
+    [cnflay setText:@"You want to buy Line?"];
     [cnflay show1];
 
 }
@@ -211,11 +214,18 @@
 }
 
 -(void) showConf2 {
-
+    
     [ssl disable];
     
     [cnflay2 show1];
+    
+}
 
+-(void) showConfLuck {
+    
+    [cnflay setText:@"You want to buy Luck?"];
+    [cnflay show1];
+    
 }
 
 -(void) dealloc {

@@ -22,7 +22,8 @@
     CCMenuItemSprite* item5 = [CCMenuItemSprite itemWithNormalSprite:spluck5 selectedSprite:spluck5_t1 block:^(id sender) {
         
         NSLog(@"luck5 selected");
-        
+        [self.shlayer showConfLuck];
+
     }];
     label5 = [CCLabelTTF labelWithString:@"Luck: +5" fontName:@"Marker Felt" fontSize:20];
     label5.position =  ccp(140, 80);
@@ -252,7 +253,32 @@
     price50.tag = SHOPLUCK_TAG;
     [item50 addChild: price50 z:16];
 
-    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSNumber* n = [userDefaults valueForKey:@"luck5"];
+    fp5.visible = (n.intValue > 0);
+    frame5.visible = !(n.intValue > 0);
+    price5.visible = !(n.intValue > 0);
+    n = [userDefaults valueForKey:@"luck10"];
+    fp10.visible = (n.intValue > 0);
+    frame10.visible = !(n.intValue > 0);
+    price10.visible = !(n.intValue > 0);
+    n = [userDefaults valueForKey:@"luck20"];
+    fp20.visible = (n.intValue > 0);
+    frame20.visible = !(n.intValue > 0);
+    price20.visible = !(n.intValue > 0);
+    n = [userDefaults valueForKey:@"luck25"];
+    fp25.visible = (n.intValue > 0);
+    frame25.visible = !(n.intValue > 0);
+    price25.visible = !(n.intValue > 0);
+    n = [userDefaults valueForKey:@"luck35"];
+    fp35.visible = (n.intValue > 0);
+    frame35.visible = !(n.intValue > 0);
+    price35.visible = !(n.intValue > 0);
+    n = [userDefaults valueForKey:@"luck50"];
+    fp50.visible = (n.intValue > 0);
+    frame50.visible = !(n.intValue > 0);
+    price50.visible = !(n.intValue > 0);
+
     
     
     
@@ -286,10 +312,10 @@
                 if((aChild.tag & 0xF) == SHOPLUCK_TAG) {
                     
                     [aChild runAction:[CCFadeIn actionWithDuration:0.000f]];
-                    NSLog(@"show");
+//                    NSLog(@"show");
 
                     for(CCNode *aChild1 in aChild.children) {
-                        NSLog(@"show1");
+//                        NSLog(@"show1");
                         if((aChild1.tag & 0xF) == SHOPLUCK_TAG) {
                             
                             [aChild1 runAction:[CCFadeIn actionWithDuration:0.000f]];

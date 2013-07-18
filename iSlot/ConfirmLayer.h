@@ -35,6 +35,8 @@
 
 -(void) show1;
 
+-(void) setText:(NSString*)s;
+
 @property (nonatomic, retain) ShopSubLayer* sslayer;
 
 @end
