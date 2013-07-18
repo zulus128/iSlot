@@ -19,6 +19,51 @@
 @interface ShopLuckSubLayer : CCLayerColor {
    
     CCMenu* menukeys;
+    
+    CCLabelTTF* label5;
+    CCLabelTTF* label51;
+    CCLabelTTF* label52;
+    
+    CCLabelTTF* label10;
+    CCLabelTTF* label101;
+    CCLabelTTF* label102;
+    
+    CCLabelTTF* label20;
+    CCLabelTTF* label201;
+    CCLabelTTF* label202;
+    
+    CCLabelTTF* label25;
+    CCLabelTTF* label251;
+    CCLabelTTF* label252;
+    
+    CCLabelTTF* label35;
+    CCLabelTTF* label351;
+    CCLabelTTF* label352;
+    
+    CCLabelTTF* label50;
+    CCLabelTTF* label501;
+    CCLabelTTF* label502;
+    
+    CCSprite* fp5;
+    CCSprite* fp10;
+    CCSprite* fp20;
+    CCSprite* fp25;
+    CCSprite* fp35;
+    CCSprite* fp50;
+    
+    CCSprite* frame5;
+    CCSprite* frame10;
+    CCSprite* frame20;
+    CCSprite* frame25;
+    CCSprite* frame35;
+    CCSprite* frame50;
+
+    CCLabelTTF* price5;
+    CCLabelTTF* price10;
+    CCLabelTTF* price20;
+    CCLabelTTF* price25;
+    CCLabelTTF* price35;
+    CCLabelTTF* price50;
 
 }
 
