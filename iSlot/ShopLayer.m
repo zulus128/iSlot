@@ -199,7 +199,7 @@
 -(void) showConf {
     
     [ssl disable];
-    
+    cnflay.sslayer = ssl;
     [cnflay setText:@"You want to buy Line?"];
     [cnflay show1];
 
@@ -223,6 +223,7 @@
 
 -(void) showConfLuck {
     
+    cnflay.sslayer = slsl;
     [cnflay setText:@"You want to buy Luck?"];
     [cnflay show1];
     

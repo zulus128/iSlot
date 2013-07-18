@@ -7,11 +7,84 @@
 //
 
 #import "ShopLuckSubLayer.h"
+#import "Common.h"
 
 @implementation ShopLuckSubLayer
 
 -(void) onConfirmed {
     
+    NSLog(@"onConfirmed");
+    
+    NSString* sss = @"luck";
+    switch (type) {
+        case 5:
+            [Common instance].money -= 2000;
+            sss = @"luck5";
+            fp5.visible = YES;
+            frame5.visible = NO;
+            price5.visible = NO;
+            item5.isEnabled = NO;
+            break;
+            
+        case 10:
+            [Common instance].money -= 5000;
+            sss = @"luck10";
+            fp10.visible = YES;
+            frame10.visible = NO;
+            price10.visible = NO;
+            item10.isEnabled = NO;
+            break;
+            
+        case 20:
+            [Common instance].money -= 7000;
+            sss = @"luck20";
+            fp20.visible = YES;
+            frame20.visible = NO;
+            price20.visible = NO;
+            item20.isEnabled = NO;
+            break;
+            
+        case 25:
+            [Common instance].money -= 10000;
+            sss = @"luck25";
+            fp25.visible = YES;
+            frame25.visible = NO;
+            price25.visible = NO;
+            item25.isEnabled = NO;
+            break;
+            
+        case 35:
+            [Common instance].money -= 15000;
+            sss = @"luck35";
+            fp35.visible = YES;
+            frame35.visible = NO;
+            price35.visible = NO;
+            item35.isEnabled = NO;
+            break;
+            
+        case 50:
+            [Common instance].money -= 25000;
+            sss = @"luck50";
+            fp50.visible = YES;
+            frame50.visible = NO;
+            price50.visible = NO;
+            item50.isEnabled = NO;
+            break;
+            
+    }
+    [self.player refreshLabels];
+
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:[NSNumber numberWithInt:1] forKey:sss];
+    [userDefaults synchronize];
+
+}
+
+-(void)enable {
+    
+}
+
+-(void)disable {
     
 }
 
@@ -19,9 +92,10 @@
     
     CCSprite *spluck5 = [CCSprite spriteWithFile:@"itemLuck01.png"];
     CCSprite *spluck5_t1 = [CCSprite spriteWithFile:@"itemLuck01.png"];
-    CCMenuItemSprite* item5 = [CCMenuItemSprite itemWithNormalSprite:spluck5 selectedSprite:spluck5_t1 block:^(id sender) {
+    item5 = [CCMenuItemSprite itemWithNormalSprite:spluck5 selectedSprite:spluck5_t1 block:^(id sender) {
         
         NSLog(@"luck5 selected");
+        type = 5;
         [self.shlayer showConfLuck];
 
     }];
@@ -43,9 +117,11 @@
     
     CCSprite *spluck10 = [CCSprite spriteWithFile:@"itemLuck02.png"];
     CCSprite *spluck10_t1 = [CCSprite spriteWithFile:@"itemLuck02.png"];
-    CCMenuItemSprite* item10 = [CCMenuItemSprite itemWithNormalSprite:spluck10 selectedSprite:spluck10_t1 block:^(id sender) {
+    item10 = [CCMenuItemSprite itemWithNormalSprite:spluck10 selectedSprite:spluck10_t1 block:^(id sender) {
         
         NSLog(@"luck10 selected");
+        type = 10;
+        [self.shlayer showConfLuck];
         
     }];
     label10 = [CCLabelTTF labelWithString:@"Luck: +10" fontName:@"Marker Felt" fontSize:20];
@@ -67,9 +143,11 @@
     
     CCSprite *spluck20 = [CCSprite spriteWithFile:@"itemLuck03.png"];
     CCSprite *spluck20_t1 = [CCSprite spriteWithFile:@"itemLuck03.png"];
-    CCMenuItemSprite* item20 = [CCMenuItemSprite itemWithNormalSprite:spluck20 selectedSprite:spluck20_t1 block:^(id sender) {
+    item20 = [CCMenuItemSprite itemWithNormalSprite:spluck20 selectedSprite:spluck20_t1 block:^(id sender) {
         
         NSLog(@"luck20 selected");
+        type = 20;
+        [self.shlayer showConfLuck];
         
     }];
     label20 = [CCLabelTTF labelWithString:@"Luck: +20" fontName:@"Marker Felt" fontSize:20];
@@ -90,10 +168,12 @@
     
     CCSprite *spluck25 = [CCSprite spriteWithFile:@"itemLuck04.png"];
     CCSprite *spluck25_t1 = [CCSprite spriteWithFile:@"itemLuck04.png"];
-    CCMenuItemSprite* item25 = [CCMenuItemSprite itemWithNormalSprite:spluck25 selectedSprite:spluck25_t1 block:^(id sender) {
+    item25 = [CCMenuItemSprite itemWithNormalSprite:spluck25 selectedSprite:spluck25_t1 block:^(id sender) {
         
         NSLog(@"luck25 selected");
-        
+        type = 25;
+        [self.shlayer showConfLuck];
+
     }];
     label25 = [CCLabelTTF labelWithString:@"Luck: +25" fontName:@"Marker Felt" fontSize:20];
     label25.position =  ccp(140, 80);
@@ -113,10 +193,12 @@
     
     CCSprite *spluck35 = [CCSprite spriteWithFile:@"itemLuck05.png"];
     CCSprite *spluck35_t1 = [CCSprite spriteWithFile:@"itemLuck05.png"];
-    CCMenuItemSprite* item35 = [CCMenuItemSprite itemWithNormalSprite:spluck35 selectedSprite:spluck35_t1 block:^(id sender) {
+    item35 = [CCMenuItemSprite itemWithNormalSprite:spluck35 selectedSprite:spluck35_t1 block:^(id sender) {
         
         NSLog(@"luck35 selected");
-        
+        type = 35;
+        [self.shlayer showConfLuck];
+
     }];
     label35 = [CCLabelTTF labelWithString:@"Luck: +35" fontName:@"Marker Felt" fontSize:20];
     label35.position =  ccp(140, 80);
@@ -136,10 +218,12 @@
    
     CCSprite *spluck50 = [CCSprite spriteWithFile:@"itemLuck06.png"];
     CCSprite *spluck50_t1 = [CCSprite spriteWithFile:@"itemLuck06.png"];
-    CCMenuItemSprite* item50 = [CCMenuItemSprite itemWithNormalSprite:spluck50 selectedSprite:spluck50_t1 block:^(id sender) {
+    item50 = [CCMenuItemSprite itemWithNormalSprite:spluck50 selectedSprite:spluck50_t1 block:^(id sender) {
         
         NSLog(@"luck50 selected");
-        
+        type = 50;
+        [self.shlayer showConfLuck];
+
     }];
     label50 = [CCLabelTTF labelWithString:@"Luck: +50" fontName:@"Marker Felt" fontSize:20];
     label50.position =  ccp(140, 80);
@@ -258,26 +342,32 @@
     fp5.visible = (n.intValue > 0);
     frame5.visible = !(n.intValue > 0);
     price5.visible = !(n.intValue > 0);
+    item5.isEnabled = !(n.intValue > 0);
     n = [userDefaults valueForKey:@"luck10"];
     fp10.visible = (n.intValue > 0);
     frame10.visible = !(n.intValue > 0);
     price10.visible = !(n.intValue > 0);
+    item10.isEnabled = !(n.intValue > 0);
     n = [userDefaults valueForKey:@"luck20"];
     fp20.visible = (n.intValue > 0);
     frame20.visible = !(n.intValue > 0);
     price20.visible = !(n.intValue > 0);
+    item20.isEnabled = !(n.intValue > 0);
     n = [userDefaults valueForKey:@"luck25"];
     fp25.visible = (n.intValue > 0);
     frame25.visible = !(n.intValue > 0);
     price25.visible = !(n.intValue > 0);
+    item25.isEnabled = !(n.intValue > 0);
     n = [userDefaults valueForKey:@"luck35"];
     fp35.visible = (n.intValue > 0);
     frame35.visible = !(n.intValue > 0);
     price35.visible = !(n.intValue > 0);
+    item35.isEnabled = !(n.intValue > 0);
     n = [userDefaults valueForKey:@"luck50"];
     fp50.visible = (n.intValue > 0);
     frame50.visible = !(n.intValue > 0);
     price50.visible = !(n.intValue > 0);
+    item50.isEnabled = !(n.intValue > 0);
 
     
     
@@ -299,12 +389,15 @@
     [menukeys setPosition:ccp(0, 0)];
 
 
+    self.position = ccp(10000, 0);
 
 }
 
 
 - (void) show {
     
+    self.position = ccp(0, 0);
+
     for(CCNode *aChildNode in self.children)
         if((aChildNode.tag & 0xF) == SHOPLUCK_TAG) {
             
@@ -346,24 +439,32 @@
 //            [aChildNode runAction:[CCFadeOut actionWithDuration:DSLLdelay]];
             
         }
+    [self performSelector:@selector(hide1) withObject:nil afterDelay:DSLLdelay];
+    
 }
 
 - (void) hide1 {
     
-    for(CCNode *aChildNode in self.children)
-        if((aChildNode.tag & 0xF) == SHOPLUCK_TAG) {
-            
-            for(CCNode *aChild in aChildNode.children)
-                if((aChild.tag & 0xF) == SHOPLUCK_TAG) {
-                    
-                    [aChild runAction:[CCFadeOut actionWithDuration:0]];
-                    
-                }
-            
-            //            [aChildNode runAction:[CCFadeOut actionWithDuration:DSLLdelay]];
-            
-        }
+    self.position = ccp(10125, -765);
+    
 }
+
+//- (void) hide1 {
+//    
+//    for(CCNode *aChildNode in self.children)
+//        if((aChildNode.tag & 0xF) == SHOPLUCK_TAG) {
+//            
+//            for(CCNode *aChild in aChildNode.children)
+//                if((aChild.tag & 0xF) == SHOPLUCK_TAG) {
+//                    
+//                    [aChild runAction:[CCFadeOut actionWithDuration:0]];
+//                    
+//                }
+//            
+//            //            [aChildNode runAction:[CCFadeOut actionWithDuration:DSLLdelay]];
+//            
+//        }
+//}
 
 
 @end

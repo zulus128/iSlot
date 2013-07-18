@@ -143,6 +143,8 @@
     [self addChild: menukeys z:8];
     [menukeys setPosition:ccp(0, 0)];
 
+    self.position = ccp(125, -765);
+
 }
 
 - (void) visit {

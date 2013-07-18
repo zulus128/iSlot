@@ -65,13 +65,24 @@
     CCLabelTTF* price35;
     CCLabelTTF* price50;
 
+    int type;
+    
+
+    CCMenuItemSprite* item5;
+    CCMenuItemSprite* item10;
+    CCMenuItemSprite* item20;
+    CCMenuItemSprite* item25;
+    CCMenuItemSprite* item35;
+    CCMenuItemSprite* item50;
 }
 
 -(void) addContent;
 -(void)show;
 -(void)hide;
--(void)hide1;
+//-(void)hide1;
 -(void) onConfirmed;
+-(void)enable;
+-(void)disable;
 
 @property (nonatomic, retain) CCLayer* player;
 @property (nonatomic, retain) ShopLayer* shlayer;

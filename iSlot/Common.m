@@ -88,7 +88,7 @@
         fames[9] = FAME_POINTS10;
 
         
-        self.yourluck = 50;
+        self.yourluck = 10;
 
         self.money = 100000;
         self.speed = SPEED1;

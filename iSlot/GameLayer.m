@@ -577,18 +577,9 @@ static BonusLayer* bonlay;
         [item_lu1 setPosition:ccp(690, 725)];
         [item_lu2 setPosition:ccp(580, 725)];
 
-        lrand = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Random: %d", randkoeff] fontName:@"Marker Felt" fontSize:15];
-        CCMenuItemLabel* item_lrand = [CCMenuItemLabel itemWithLabel:lrand target:self selector:@selector(lRand)];
-        [item_lrand setPosition:ccp(69, 660)];
-        
-//        lkoef = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Minimum %d comb", lkoeff] fontName:@"Marker Felt" fontSize:15];
-//        CCMenuItemLabel* item_lkoef = [CCMenuItemLabel itemWithLabel:lkoef target:self selector:@selector(lKoef)];
-//        [item_lkoef setPosition:ccp(169, 660)];
-//        
-//        lkoeffof = 3;
-//        lkoefof = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"of %d images", lkoeffof] fontName:@"Marker Felt" fontSize:15];
-//        CCMenuItemLabel* item_lkoefof = [CCMenuItemLabel itemWithLabel:lkoefof target:self selector:@selector(lKoefof)];
-//        [item_lkoefof setPosition:ccp(255, 660)];
+//        lrand = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Random: %d", randkoeff] fontName:@"Marker Felt" fontSize:15];
+//        CCMenuItemLabel* item_lrand = [CCMenuItemLabel itemWithLabel:lrand target:self selector:@selector(lRand)];
+//        [item_lrand setPosition:ccp(69, 660)];
         
         lmax4 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Max %d of 4x comb", [Common instance].max4] fontName:@"Marker Felt" fontSize:15];
         CCMenuItemLabel* item_lmax4 = [CCMenuItemLabel itemWithLabel:lmax4 target:self selector:@selector(lMax4)];
@@ -1002,7 +993,7 @@ static BonusLayer* bonlay;
         }];
         [itemluck setPosition:ccp(633, 730)];
 
-        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, /*itemback, item_lu1, item_lu2,*/ iteminapp, iteminapp1, itemgc, itemshop, itemluck, item_lrand, /*item_lkoef, item_lkoefof,*/ item_lmax4, item_lmax5, nil];
+        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, /*itemback, item_lu1, item_lu2,*/ iteminapp, iteminapp1, itemgc, itemshop, itemluck, /*item_lrand, item_lkoef, item_lkoefof,*/ item_lmax4, item_lmax5, nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 

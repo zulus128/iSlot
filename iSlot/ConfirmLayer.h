@@ -37,6 +37,6 @@
 
 -(void) setText:(NSString*)s;
 
-@property (nonatomic, retain) ShopSubLayer* sslayer;
-
+//@property (nonatomic, retain) ShopSubLayer* sslayer;
+@property (nonatomic, retain) CCLayerColor * sslayer;
 @end
