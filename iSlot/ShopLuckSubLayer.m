@@ -16,10 +16,12 @@
     NSLog(@"onConfirmed");
     
     NSString* sss = @"luck";
+    int lu = 5;
     switch (type) {
         case 5:
             [Common instance].money -= 2000;
             sss = @"luck5";
+            lu = 5;
             fp5.visible = YES;
             frame5.visible = NO;
             price5.visible = NO;
@@ -29,6 +31,7 @@
         case 10:
             [Common instance].money -= 5000;
             sss = @"luck10";
+            lu = 10;
             fp10.visible = YES;
             frame10.visible = NO;
             price10.visible = NO;
@@ -38,6 +41,7 @@
         case 20:
             [Common instance].money -= 7000;
             sss = @"luck20";
+            lu = 20;
             fp20.visible = YES;
             frame20.visible = NO;
             price20.visible = NO;
@@ -47,6 +51,7 @@
         case 25:
             [Common instance].money -= 10000;
             sss = @"luck25";
+            lu = 25;
             fp25.visible = YES;
             frame25.visible = NO;
             price25.visible = NO;
@@ -56,6 +61,7 @@
         case 35:
             [Common instance].money -= 15000;
             sss = @"luck35";
+            lu = 35;
             fp35.visible = YES;
             frame35.visible = NO;
             price35.visible = NO;
@@ -65,6 +71,7 @@
         case 50:
             [Common instance].money -= 25000;
             sss = @"luck50";
+            lu = 50;
             fp50.visible = YES;
             frame50.visible = NO;
             price50.visible = NO;
@@ -72,10 +79,13 @@
             break;
             
     }
-    [self.player refreshLabels];
 
+    [Common instance].yourluck += lu;
+    [self.player refreshLabels];
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:[NSNumber numberWithInt:1] forKey:sss];
+    [userDefaults setObject:[NSNumber numberWithInt:[Common instance].yourluck] forKey:@"yourluck"];
     [userDefaults synchronize];
 
 }

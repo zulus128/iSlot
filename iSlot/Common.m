@@ -88,8 +88,20 @@
         fames[9] = FAME_POINTS10;
 
         
-        self.yourluck = 10;
+//        self.yourluck = 10;
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSNumber* n = [userDefaults valueForKey:@"yourluck"];
+        if(n.intValue > 0)
+            self.yourluck = n.intValue;
+        else {
+        
+            self.yourluck = 10;
 
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            [userDefaults setObject:[NSNumber numberWithInt:10] forKey:@"yourluck"];
+            [userDefaults synchronize];
+        }
+        
         self.money = 100000;
         self.speed = SPEED1;
         self.coins = 1;
@@ -99,8 +111,8 @@
         [self validateRnd];
         
 
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSNumber* n = [userDefaults valueForKey:@"linesBought"];
+//        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        n = [userDefaults valueForKey:@"linesBought"];
         self.linesBought = (n.intValue > 0)?n.intValue:3;
        
         NSNumber* n1 = [userDefaults valueForKey:@"lastLevelPassed"];

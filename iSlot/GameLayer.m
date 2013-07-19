@@ -1596,6 +1596,12 @@ static BonusLayer* bonlay;
         ygift.visible = YES;
         //        [menu setVisible:NO];
         
+        [Common instance].yourluck ++;
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:[NSNumber numberWithInt:[Common instance].yourluck] forKey:@"yourluck"];
+        [userDefaults synchronize];
+
+        
     }
 
 }
