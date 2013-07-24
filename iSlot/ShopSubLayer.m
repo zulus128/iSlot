@@ -197,7 +197,7 @@
 
 - (void) hide1 {
     
-    self.position = ccp(10125, -765);
+    self.position = ccp(10125, -10765);
 
 }
 

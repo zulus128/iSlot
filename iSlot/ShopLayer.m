@@ -49,8 +49,9 @@
         
         ssl = [ShopSubLayer layerWithColor:ccc4(100, 20, 200, 0) width:775 height:1340];
         [ssl retain];
-        ssl.position = ccp(10125, -765);
+        ssl.position = ccp(10125, -10765);
         [ssl addContent];
+        [ssl hide1];
         [self addChild:ssl];
         
         slsl = [ShopLuckSubLayer layerWithColor:ccc4(100, 20, 200, 0) width:775 height:1340];

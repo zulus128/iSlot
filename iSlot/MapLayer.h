@@ -7,6 +7,7 @@
 //
 
 #import <GameKit/GameKit.h>
+#import "CCScrollLayer.h"
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
@@ -42,6 +43,10 @@ static CCLabelTTF *labelKeys = nil;
     CCSprite *oreol;
     float oreol_rot;
 //    float aaa;
+    
+    NSMutableArray *layers;
+    CCScrollLayer *scroller;
+
 }
 -(void) toTop;
 

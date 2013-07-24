@@ -204,18 +204,61 @@ static CCSprite *luck3;
 	[[app navController] dismissModalViewControllerAnimated:YES];
 }
 
-//
--(id) init
-{
+//- (CCLayer*)layerWithChapterNumber:(int)chapterNumber
+//                        screenSize:(CGSize)screenSize {
+//    
+//    CCLayer *layer = [[CCLayer alloc] init];
+//    NSString *s = chapterNumber == 1?@"PresentButton.png":@"FutureButton.png";
+//    CCMenuItemImage *image = [CCMenuItemImage itemFromNormalImage:s
+//                                                    selectedImage:s
+//                                                           target:self
+//                                                         selector:@selector(onSelectChapter:)];
+//    image.tag = chapterNumber;
+//    CCMenu *mmenu = [CCMenu menuWithItems: image, nil];
+//    mmenu.tag = MENU_TAG;
+//    [layer addChild: mmenu];
+//    
+//    if(chapterNumber == 1) {
+//        
+//        image.isEnabled = NO;
+//        
+//        CCSprite *spfb = [CCSprite spriteWithFile:@"LockLevel.png"];
+//        spfb.position = ccp(520, 380);
+//        [layer addChild:spfb];
+//        
+//    }
+//    
+//    return layer;
+//}
+
+-(id) init {
+    
 	if( (self=[super init])) {
         
 //        CGSize screenSize = [CCDirector sharedDirector].winSize;
 
         self.touchEnabled = YES;
         
-        
+        CGSize screenSize = [CCDirector sharedDirector].winSize;
+
         inlay.player = self;
         shoplay.player = self;
+
+        
+//        layers = [[NSMutableArray alloc] init];
+//        CCLayer *layer = [self layerWithChapterNumber:0 screenSize:screenSize];
+//        [layers addObject:layer];
+//        CCLayer *layer1 = [self layerWithChapterNumber:1 screenSize:screenSize];
+//        [layers addObject:layer1];
+//        CCLayer *layer2 = [self layerWithChapterNumber:2 screenSize:screenSize];
+//        [layers addObject:layer2];
+//        
+//        scroller = [[CCScrollLayer alloc] initWithLayers:layers
+//                                             widthOffset:570];
+//        [scroller selectPage:0];
+//        scroller.showPagesIndicator = NO;
+//        [self addChild:scroller z:12];
+//        [scroller release];
 
         
         CCSprite *fon = [CCSprite spriteWithFile:@"FonMapLevel01_1.png"];
@@ -226,15 +269,15 @@ static CCSprite *luck3;
         fon1.position = ccp(3072, 346);
         [self addChild:fon1 z:6];
         
-        arealock1 = [CCSprite spriteWithFile:@"LockArea01.png"];
-        arealock1.position = ccp(1526, 346);
-        [self addChild:arealock1 z:316];
-        arealock2 = [CCSprite spriteWithFile:@"LockArea02.png"];
-        arealock2.position = ccp(2603.5, 346);
-        [self addChild:arealock2 z:316];
-        arealock3 = [CCSprite spriteWithFile:@"LockArea03.png"];
-        arealock3.position = ccp(3544.5, 346);
-        [self addChild:arealock3 z:316];
+//        arealock1 = [CCSprite spriteWithFile:@"LockArea01.png"];
+//        arealock1.position = ccp(1526, 346);
+//        [self addChild:arealock1 z:316];
+//        arealock2 = [CCSprite spriteWithFile:@"LockArea02.png"];
+//        arealock2.position = ccp(2603.5, 346);
+//        [self addChild:arealock2 z:316];
+//        arealock3 = [CCSprite spriteWithFile:@"LockArea03.png"];
+//        arealock3.position = ccp(3544.5, 346);
+//        [self addChild:arealock3 z:316];
         
         oreol = [CCSprite spriteWithFile:@"oreol.png"];
 //        oreol.position = ccp(-10000, -10000);
@@ -354,6 +397,10 @@ static CCSprite *luck3;
         lock5_1.tag = LOCKS_TAG + 15;
         [self addChild:lock5_1 z:309];
         
+        CCSprite *lock1_2 = [CCSprite spriteWithFile:l1];
+        lock1_2.position = ccplock(1130, 515);
+        lock1_2.tag = LOCKS_TAG + 21;
+        [self addChild:lock1_2 z:309];
         CCSprite *lock2_2 = [CCSprite spriteWithFile:l1];
         lock2_2.position = ccplock(1348, 228);
         lock2_2.tag = LOCKS_TAG + 22;
@@ -367,6 +414,10 @@ static CCSprite *luck3;
         lock4_2.tag = LOCKS_TAG + 24;
         [self addChild:lock4_2 z:309];
         
+        CCSprite *lock1_3 = [CCSprite spriteWithFile:l1];
+        lock1_3.position = ccplock(2571, 98);
+        lock1_3.tag = LOCKS_TAG + 31;
+        [self addChild:lock1_3 z:309];
         CCSprite *lock2_3 = [CCSprite spriteWithFile:l1];
         lock2_3.position = ccplock(2303, 233);
         lock2_3.tag = LOCKS_TAG + 32;
@@ -388,6 +439,10 @@ static CCSprite *luck3;
         lock6_3.tag = LOCKS_TAG + 36;
         [self addChild:lock6_3 z:309];
         
+        CCSprite *lock1_4 = [CCSprite spriteWithFile:l1];
+        lock1_4.position = ccplock(3167, 306);
+        lock1_4.tag = LOCKS_TAG + 41;
+        [self addChild:lock1_4 z:309];
         CCSprite *lock2_4 = [CCSprite spriteWithFile:l1];
         lock2_4.position = ccplock(3505, 215);
         lock2_4.tag = LOCKS_TAG + 42;
