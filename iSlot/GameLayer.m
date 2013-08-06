@@ -1576,8 +1576,8 @@ static BonusLayer* bonlay;
     }
     
     int lmoney = [self getLmoney];
-    if(1) {
-//    if([Common instance].levelwin >= lmoney) {
+//    if(1) {
+    if([Common instance].levelwin >= lmoney) {
     
         
         int j = CCRANDOM_0_1() * 7;
