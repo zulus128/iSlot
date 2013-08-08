@@ -36,6 +36,8 @@
 
 //        srand(time(NULL));
         
+        self.lucks = [NSMutableArray array];
+        
         NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString* docpath = [sp objectAtIndex: 0];
         prof_file = [[docpath stringByAppendingPathComponent:@"levels.plist"] retain];

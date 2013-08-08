@@ -293,17 +293,13 @@ static ShopLayer* shoplay;
             
             //        NSLog(@"luck");
             if(luck1.opacity > 0) {
-                
-                [luck1 runAction:[CCFadeOut actionWithDuration:Ldelay]];
-                [luck2 runAction:[CCFadeOut actionWithDuration:Ldelay]];
-                [luck3 runAction:[CCFadeOut actionWithDuration:Ldelay]];
+
+                [self hideLuckList];
                 
             }
             else {
                 
-                [luck1 runAction:[CCFadeIn actionWithDuration:Ldelay]];
-                [luck2 runAction:[CCFadeIn actionWithDuration:Ldelay]];
-                [luck3 runAction:[CCFadeIn actionWithDuration:Ldelay]];
+                [self showLuckList];
                 
             }
             
@@ -347,6 +343,22 @@ static ShopLayer* shoplay;
 	}
 	
 	return self;
+}
+
+- (void) showLuckList {
+ 
+    [luck1 runAction:[CCFadeIn actionWithDuration:Ldelay]];
+    [luck2 runAction:[CCFadeIn actionWithDuration:Ldelay]];
+    [luck3 runAction:[CCFadeIn actionWithDuration:Ldelay]];
+
+}
+
+- (void) hideLuckList {
+    
+    [luck1 runAction:[CCFadeOut actionWithDuration:Ldelay]];
+    [luck2 runAction:[CCFadeOut actionWithDuration:Ldelay]];
+    [luck3 runAction:[CCFadeOut actionWithDuration:Ldelay]];
+
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

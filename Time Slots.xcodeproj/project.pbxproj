@@ -21,6 +21,8 @@
 		9C046772171D423C00BAC30D /* KeysFon-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C04676D171D423C00BAC30D /* KeysFon-ipadhd.png */; };
 		9C046775171D424900BAC30D /* TouchBuyNow-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C046773171D424900BAC30D /* TouchBuyNow-ipadhd.png */; };
 		9C046776171D424900BAC30D /* TouchCloseinApp-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C046774171D424900BAC30D /* TouchCloseinApp-ipadhd.png */; };
+		9C0524FC17B353F70062B8F1 /* fonListLuck-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0524FB17B353F70062B8F1 /* fonListLuck-ipad.png */; };
+		9C0524FE17B354100062B8F1 /* fonListLuck-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0524FD17B354100062B8F1 /* fonListLuck-ipadhd.png */; };
 		9C07C75B176AC54000B4D6D9 /* 1-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C07C758176AC54000B4D6D9 /* 1-ipad.png */; };
 		9C07C75C176AC54000B4D6D9 /* 2-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C07C759176AC54000B4D6D9 /* 2-ipad.png */; };
 		9C07C75D176AC54000B4D6D9 /* 3-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C07C75A176AC54000B4D6D9 /* 3-ipad.png */; };
@@ -543,6 +545,8 @@
 		9C04676D171D423C00BAC30D /* KeysFon-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KeysFon-ipadhd.png"; sourceTree = "<group>"; };
 		9C046773171D424900BAC30D /* TouchBuyNow-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TouchBuyNow-ipadhd.png"; sourceTree = "<group>"; };
 		9C046774171D424900BAC30D /* TouchCloseinApp-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TouchCloseinApp-ipadhd.png"; sourceTree = "<group>"; };
+		9C0524FB17B353F70062B8F1 /* fonListLuck-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fonListLuck-ipad.png"; sourceTree = "<group>"; };
+		9C0524FD17B354100062B8F1 /* fonListLuck-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fonListLuck-ipadhd.png"; sourceTree = "<group>"; };
 		9C07C758176AC54000B4D6D9 /* 1-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-ipad.png"; sourceTree = "<group>"; };
 		9C07C759176AC54000B4D6D9 /* 2-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-ipad.png"; sourceTree = "<group>"; };
 		9C07C75A176AC54000B4D6D9 /* 3-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3-ipad.png"; sourceTree = "<group>"; };
@@ -1255,6 +1259,13 @@
 			name = inapp;
 			sourceTree = "<group>";
 		};
+		9C0524FA17B349BE0062B8F1 /* 130805 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = 130805;
+			sourceTree = "<group>";
+		};
 		9C07C757176AC53200B4D6D9 /* Hints */ = {
 			isa = PBXGroup;
 			children = (
@@ -1497,6 +1508,7 @@
 		9C70748C16C375800053C3F0 = {
 			isa = PBXGroup;
 			children = (
+				9C0524FA17B349BE0062B8F1 /* 130805 */,
 				9C31DC4B1794FE3200711682 /* luck */,
 				DDC5D8FA177E77EA00B53BC8 /* 130625 */,
 				9C07C757176AC53200B4D6D9 /* Hints */,
@@ -2215,11 +2227,13 @@
 		DDC5D8FA177E77EA00B53BC8 /* 130625 */ = {
 			isa = PBXGroup;
 			children = (
+				9C0524FB17B353F70062B8F1 /* fonListLuck-ipad.png */,
 				DDC5D8FB177E78D200B53BC8 /* listLuck01-ipad.png */,
 				DDC5D8FC177E78D200B53BC8 /* listLuck02-ipad.png */,
 				DDC5D8FD177E78D200B53BC8 /* listLuck03-ipad.png */,
 				DDC5D8FE177E78D200B53BC8 /* oreol-ipad.png */,
 				DDC5D909177EE79900B53BC8 /* oreol-ipadhd.png */,
+				9C0524FD17B354100062B8F1 /* fonListLuck-ipadhd.png */,
 				DDC5D903177E78E900B53BC8 /* listLuck01-ipadhd.png */,
 				DDC5D904177E78E900B53BC8 /* listLuck02-ipadhd.png */,
 				DDC5D905177E78E900B53BC8 /* listLuck03-ipadhd.png */,
@@ -2661,6 +2675,8 @@
 				9C31DC651794FE5C00711682 /* itemLuck05-ipadhd.png in Resources */,
 				9C31DC661794FE5C00711682 /* itemLuck06-ipadhd.png in Resources */,
 				9C31DC671794FE5C00711682 /* luckShopButton-ipadhd.png in Resources */,
+				9C0524FC17B353F70062B8F1 /* fonListLuck-ipad.png in Resources */,
+				9C0524FE17B354100062B8F1 /* fonListLuck-ipadhd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

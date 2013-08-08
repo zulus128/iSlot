@@ -140,4 +140,6 @@
 @property (readwrite, assign) int combcnt4;
 @property (readwrite, assign) int combcnt5;
 
+@property (nonatomic, retain) NSMutableArray* lucks;
+
 @end

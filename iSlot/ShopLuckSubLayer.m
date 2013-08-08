@@ -13,7 +13,7 @@
 
 -(void) onConfirmed {
     
-    NSLog(@"onConfirmed");
+//    NSLog(@"onConfirmed");
     
     NSString* sss = @"luck";
     int lu = 5;
@@ -26,6 +26,7 @@
             frame5.visible = NO;
             price5.visible = NO;
             item5.isEnabled = NO;
+            [[Common instance].lucks addObject:[NSNumber numberWithInt:5]];
             break;
             
         case 10:
@@ -36,6 +37,7 @@
             frame10.visible = NO;
             price10.visible = NO;
             item10.isEnabled = NO;
+            [[Common instance].lucks addObject:[NSNumber numberWithInt:10]];
             break;
             
         case 20:
@@ -46,6 +48,7 @@
             frame20.visible = NO;
             price20.visible = NO;
             item20.isEnabled = NO;
+            [[Common instance].lucks addObject:[NSNumber numberWithInt:20]];
             break;
             
         case 25:
@@ -56,6 +59,7 @@
             frame25.visible = NO;
             price25.visible = NO;
             item25.isEnabled = NO;
+            [[Common instance].lucks addObject:[NSNumber numberWithInt:25]];
             break;
             
         case 35:
@@ -66,6 +70,7 @@
             frame35.visible = NO;
             price35.visible = NO;
             item35.isEnabled = NO;
+            [[Common instance].lucks addObject:[NSNumber numberWithInt:35]];
             break;
             
         case 50:
@@ -76,6 +81,7 @@
             frame50.visible = NO;
             price50.visible = NO;
             item50.isEnabled = NO;
+            [[Common instance].lucks addObject:[NSNumber numberWithInt:50]];
             break;
             
     }
