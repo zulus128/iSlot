@@ -300,7 +300,10 @@ static ShopLayer* shoplay;
             else {
                 
                 [self showLuckList];
-                
+                NSArray* arr = [Common instance].lucks;
+                for(NSNumber* n in arr){
+                    
+                }
             }
             
         }];
