@@ -68,6 +68,8 @@ static ShopLayer* shoplay;
         [layers addObject:layer];
         CCLayer *layer1 = [self layerWithChapterNumber:1 screenSize:screenSize];
         [layers addObject:layer1];
+        CCLayer *layer2 = [self layerWithChapterNumber:2 screenSize:screenSize];
+        [layers addObject:layer2];
 
         scroller = [[CCScrollLayer alloc] initWithLayers:layers
                                                             widthOffset:570];
@@ -572,7 +574,19 @@ static ShopLayer* shoplay;
                       screenSize:(CGSize)screenSize {
     
     CCLayer *layer = [[CCLayer alloc] init];
-    NSString *s = chapterNumber == 1?@"PresentButton.png":@"FutureButton.png";
+//    NSString *s = chapterNumber == 1?@"PresentButton.png":@"FutureButton.png";
+    NSString* s;
+    switch (chapterNumber) {
+        case 0:
+            s = @"FutureButton.png";
+            break;
+        case 1:
+            s = @"PresentButton.png";
+            break;
+        case 2:
+            s = @"XXcButton.png";
+            break;
+    }
         CCMenuItemImage *image = [CCMenuItemImage itemFromNormalImage:s
                                                         selectedImage:s
                                                                target:self

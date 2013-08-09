@@ -400,6 +400,12 @@
 		9CE9511716D74E9200746DFF /* BlurslotStilistik01-8-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE9510C16D74E9200746DFF /* BlurslotStilistik01-8-ipadhd.png */; };
 		9CE9511816D74E9200746DFF /* BlurslotStilistik01-9-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE9510D16D74E9200746DFF /* BlurslotStilistik01-9-ipadhd.png */; };
 		9CE9511916D74E9200746DFF /* BlurslotStilistik01-10-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE9510E16D74E9200746DFF /* BlurslotStilistik01-10-ipadhd.png */; };
+		9CEDC5C417B50B1D00E1FDCB /* XXcButton-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CEDC5C317B50B1D00E1FDCB /* XXcButton-ipadhd.png */; };
+		9CEDC5C617B50B3F00E1FDCB /* XXcButton-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CEDC5C517B50B3F00E1FDCB /* XXcButton-ipad.png */; };
+		9CEDC5C917B50E9700E1FDCB /* buttonBayCoins-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CEDC5C717B50E9700E1FDCB /* buttonBayCoins-ipad.png */; };
+		9CEDC5CA17B50E9700E1FDCB /* buttonCancel-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CEDC5C817B50E9700E1FDCB /* buttonCancel-ipad.png */; };
+		9CEDC5CD17B50EB600E1FDCB /* buttonBayCoins-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CEDC5CB17B50EB600E1FDCB /* buttonBayCoins-ipadhd.png */; };
+		9CEDC5CE17B50EB600E1FDCB /* buttonCancel-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CEDC5CC17B50EB600E1FDCB /* buttonCancel-ipadhd.png */; };
 		9CF5CE6C16DDD86A002F1B11 /* Facebook-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF5CE6016DDD86A002F1B11 /* Facebook-ipad.png */; };
 		9CF5CE6D16DDD86A002F1B11 /* FonBack-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF5CE6116DDD86A002F1B11 /* FonBack-ipad.png */; };
 		9CF5CE6E16DDD86A002F1B11 /* FonMainMenu-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF5CE6216DDD86A002F1B11 /* FonMainMenu-ipad.png */; };
@@ -1096,6 +1102,12 @@
 		9CE9510C16D74E9200746DFF /* BlurslotStilistik01-8-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlurslotStilistik01-8-ipadhd.png"; sourceTree = "<group>"; };
 		9CE9510D16D74E9200746DFF /* BlurslotStilistik01-9-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlurslotStilistik01-9-ipadhd.png"; sourceTree = "<group>"; };
 		9CE9510E16D74E9200746DFF /* BlurslotStilistik01-10-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlurslotStilistik01-10-ipadhd.png"; sourceTree = "<group>"; };
+		9CEDC5C317B50B1D00E1FDCB /* XXcButton-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "XXcButton-ipadhd.png"; sourceTree = "<group>"; };
+		9CEDC5C517B50B3F00E1FDCB /* XXcButton-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "XXcButton-ipad.png"; sourceTree = "<group>"; };
+		9CEDC5C717B50E9700E1FDCB /* buttonBayCoins-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonBayCoins-ipad.png"; sourceTree = "<group>"; };
+		9CEDC5C817B50E9700E1FDCB /* buttonCancel-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonCancel-ipad.png"; sourceTree = "<group>"; };
+		9CEDC5CB17B50EB600E1FDCB /* buttonBayCoins-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonBayCoins-ipadhd.png"; sourceTree = "<group>"; };
+		9CEDC5CC17B50EB600E1FDCB /* buttonCancel-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonCancel-ipadhd.png"; sourceTree = "<group>"; };
 		9CF5CE6016DDD86A002F1B11 /* Facebook-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Facebook-ipad.png"; sourceTree = "<group>"; };
 		9CF5CE6116DDD86A002F1B11 /* FonBack-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonBack-ipad.png"; sourceTree = "<group>"; };
 		9CF5CE6216DDD86A002F1B11 /* FonMainMenu-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonMainMenu-ipad.png"; sourceTree = "<group>"; };
@@ -1339,12 +1351,16 @@
 				9C1ED4A8175CA1E200BEFA7B /* No-ipad.png */,
 				9C1ED4A9175CA1E200BEFA7B /* OK-ipad.png */,
 				9C1ED4AA175CA1E200BEFA7B /* Yes-ipad.png */,
+				9CEDC5C717B50E9700E1FDCB /* buttonBayCoins-ipad.png */,
+				9CEDC5C817B50E9700E1FDCB /* buttonCancel-ipad.png */,
 				9C1ED4AE175CA1F000BEFA7B /* TouchNo-ipad.png */,
 				9C1ED4AF175CA1F000BEFA7B /* TouchOK-ipad.png */,
 				9C1ED4B0175CA1F000BEFA7B /* TouchYes-ipad.png */,
 				9C1ED4B4175CA20000BEFA7B /* No-ipadhd.png */,
 				9C1ED4B5175CA20000BEFA7B /* OK-ipadhd.png */,
 				9C1ED4B6175CA20000BEFA7B /* Yes-ipadhd.png */,
+				9CEDC5CB17B50EB600E1FDCB /* buttonBayCoins-ipadhd.png */,
+				9CEDC5CC17B50EB600E1FDCB /* buttonCancel-ipadhd.png */,
 				9C1ED4BA175CA21200BEFA7B /* TouchNo-ipadhd.png */,
 				9C1ED4BB175CA21200BEFA7B /* TouchOK-ipadhd.png */,
 				9C1ED4BC175CA21200BEFA7B /* TouchYes-ipadhd.png */,
@@ -2076,6 +2092,7 @@
 				9CF5CE7C16DDD9E6002F1B11 /* FonMainMenu-ipadhd.png */,
 				9CF5CE7D16DDD9E6002F1B11 /* FutureButton-ipadhd.png */,
 				9CF5CE7E16DDD9E6002F1B11 /* PresentButton-ipadhd.png */,
+				9CEDC5C317B50B1D00E1FDCB /* XXcButton-ipadhd.png */,
 				9CF5CE7F16DDD9E6002F1B11 /* Setting-ipadhd.png */,
 				9CF5CE8016DDD9E6002F1B11 /* StarNone-ipadhd.png */,
 				9CF5CE8116DDD9E6002F1B11 /* StarOne-ipadhd.png */,
@@ -2090,6 +2107,7 @@
 				9CF5CE6216DDD86A002F1B11 /* FonMainMenu-ipad.png */,
 				9CF5CE6316DDD86A002F1B11 /* FutureButton-ipad.png */,
 				9CF5CE6416DDD86A002F1B11 /* PresentButton-ipad.png */,
+				9CEDC5C517B50B3F00E1FDCB /* XXcButton-ipad.png */,
 				9CF5CE6516DDD86A002F1B11 /* Setting-ipad.png */,
 				9CF5CE6616DDD86A002F1B11 /* StarNone-ipad.png */,
 				9CF5CE6716DDD86A002F1B11 /* StarOne-ipad.png */,
@@ -2725,6 +2743,12 @@
 				9CCF7C1517B4F6720089ED39 /* itemListLuck04-ipadhd.png in Resources */,
 				9CCF7C1617B4F6720089ED39 /* itemListLuck05-ipadhd.png in Resources */,
 				9CCF7C1717B4F6720089ED39 /* itemListLuck06-ipadhd.png in Resources */,
+				9CEDC5C417B50B1D00E1FDCB /* XXcButton-ipadhd.png in Resources */,
+				9CEDC5C617B50B3F00E1FDCB /* XXcButton-ipad.png in Resources */,
+				9CEDC5C917B50E9700E1FDCB /* buttonBayCoins-ipad.png in Resources */,
+				9CEDC5CA17B50E9700E1FDCB /* buttonCancel-ipad.png in Resources */,
+				9CEDC5CD17B50EB600E1FDCB /* buttonBayCoins-ipadhd.png in Resources */,
+				9CEDC5CE17B50EB600E1FDCB /* buttonCancel-ipadhd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

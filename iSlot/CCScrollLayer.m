@@ -173,10 +173,13 @@ enum
 		l.position = ccp(  (i * (self.contentSize.width - self.pagesWidthOffset)), 0  );
         
         
-        CCSprite* stars = [CCSprite spriteWithFile:@"StarNone.png"];
-        stars.position = ccp( 975 - DISTANCE, 170);
-        [l addChild:stars z:12];
+        if(i < 2) {
 
+            CCSprite* stars = [CCSprite spriteWithFile:@"StarNone.png"];
+            stars.position = ccp( 975 - DISTANCE, 170);
+            [l addChild:stars z:12];
+        }
+        
 		if (!l.parent)
 //			[self addChild:l z:11];
             [lay addChild:l z:11];
@@ -469,8 +472,8 @@ enum
 		else
 			offset = 0;
         
-        NSLog(@"pos =%f", (desiredX - offset));
-        if(((desiredX - offset) < 0)&&((desiredX - offset) > -458))
+//        NSLog(@"pos =%f", (desiredX - offset));
+        if(((desiredX - offset) < 0)&&((desiredX - offset) > -911))//-458
 		lay.position = ccp(desiredX - offset, 0);
 //		self.position = ccp(desiredX - offset, 0);
 	}

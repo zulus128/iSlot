@@ -109,7 +109,7 @@
             [userDefaults synchronize];
         }
         
-        self.money = 100000;
+        self.money = 00000;
         self.speed = SPEED1;
         self.coins = 1;
         self.lines = 3;
