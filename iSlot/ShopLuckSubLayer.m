@@ -92,6 +92,7 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:[NSNumber numberWithInt:1] forKey:sss];
     [userDefaults setObject:[NSNumber numberWithInt:[Common instance].yourluck] forKey:@"yourluck"];
+    [userDefaults setObject:[Common instance].lucks forKey:@"lucksarray"];
     [userDefaults synchronize];
 
 }

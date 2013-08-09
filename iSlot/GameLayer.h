@@ -14,6 +14,8 @@
 #define STAR_STARTSCALE 0.5f
 #define STAR_ENDSCALE 1.5f
 #define Ldelay 0.5f
+#define LUCK_TAG 20000
+#define LUCK_TAG1 223
 
 @interface GameLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate> {
     
@@ -70,7 +72,7 @@
     BOOL bon;
     
     CCSprite *luck1;
-    CCSprite *luck2;
+//    CCSprite *luck2;
     CCSprite *luck3;
 
     CCLabelTTF* lrand;
@@ -86,6 +88,9 @@
     
     CCLabelTTF* lmax4;
     CCLabelTTF* lmax5;
+    
+    int tt;
+
 }
 -(void) toTop;
 

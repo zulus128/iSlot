@@ -103,14 +103,17 @@ static ShopLayer* shoplay;
         luck1 = [CCSprite spriteWithFile:@"listLuck01.png"];
         luck1.position = ccp(634.5, 688);
         luck1.opacity = 0;
+        luck1.tag = LUCK_TAG1;
         [self addChild:luck1 z:100];
-        luck2 = [CCSprite spriteWithFile:@"listLuck02.png"];
-        luck2.position = ccp(634.5, 624);
-        luck2.opacity = 0;
-        [self addChild:luck2 z:100];
+//        luck2 = [CCSprite spriteWithFile:@"listLuck02.png"];
+//        luck2.position = ccp(634.5, 624);
+//        luck2.opacity = 0;
+//        luck2.tag = LUCK_TAG1;
+//        [self addChild:luck2 z:100];
         luck3 = [CCSprite spriteWithFile:@"listLuck03.png"];
         luck3.position = ccp(634.5, 566);
         luck3.opacity = 0;
+        luck3.tag = LUCK_TAG1;
         [self addChild:luck3 z:100];
 
         CCSprite* fameback = [CCSprite spriteWithFile:@"WhileFonFame.png"];
@@ -300,10 +303,6 @@ static ShopLayer* shoplay;
             else {
                 
                 [self showLuckList];
-                NSArray* arr = [Common instance].lucks;
-                for(NSNumber* n in arr){
-                    
-                }
             }
             
         }];
@@ -349,19 +348,134 @@ static ShopLayer* shoplay;
 }
 
 - (void) showLuckList {
- 
-    [luck1 runAction:[CCFadeIn actionWithDuration:Ldelay]];
-    [luck2 runAction:[CCFadeIn actionWithDuration:Ldelay]];
-    [luck3 runAction:[CCFadeIn actionWithDuration:Ldelay]];
 
+    float yfrm = 640;
+    NSArray* arr = [Common instance].lucks;
+    tt = LUCK_TAG;
+    
+    if(arr.count == 0) {
+
+        CCSprite* frm = [CCSprite spriteWithFile:@"fonListLuck.png"];
+        frm.position = ccp(634.5, yfrm - 10);
+        frm.opacity = 0;
+        frm.tag = tt++;
+        [self addChild:frm z:98];
+        
+        CCSprite* lck2 = [CCSprite spriteWithFile:@"listLuck02.png" /*rect:CGRectMake(634.5, yfrm, 209, 67)*/];
+        lck2.position = ccp(634.5, yfrm);
+//        [lck2 setScaleY: 67/lck2.contentSize.height];
+        lck2.opacity = 0;
+        lck2.tag = tt++;
+        [self addChild:lck2 z:99];
+
+        CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"No Luck" fontName:@"Marker Felt" fontSize:24];
+        label51.position =  ccp(635, yfrm - 6);
+        label51.color = ccc3(0, 0, 0);
+        label51.tag = tt++;
+        [self addChild: label51 z:98];
+
+        yfrm -= 81;
+    }
+    else
+    for(NSNumber* n in arr){
+
+        CCSprite* frm = [CCSprite spriteWithFile:@"fonItemListLuck.png"];
+        frm.position = ccp(634.5, yfrm);
+        frm.opacity = 0;
+        frm.tag = tt++;
+        [self addChild:frm z:98];
+        
+        CCSprite* lck2 = [CCSprite spriteWithFile:@"listLuck02.png" /*rect:CGRectMake(634.5, yfrm, 209, 67)*/];
+        lck2.position = ccp(634.5, yfrm);
+        [lck2 setScaleY: 67/lck2.contentSize.height];
+        lck2.opacity = 0;
+        lck2.tag = tt++;
+        [self addChild:lck2 z:99];
+
+        NSString* sss = @"itemListLuck01.png";
+        NSString* sss1 = @"30 minutes";
+        switch (n.intValue) {
+            case 5:
+                sss = @"itemListLuck01.png";
+                sss1 = @"30 minutes";
+                break;
+            case 10:
+                sss = @"itemListLuck02.png";
+                sss1 = @"60 minutes";
+                break;
+            case 20:
+                sss = @"itemListLuck03.png";
+                sss1 = @"180 minutes";
+                break;
+            case 25:
+                sss = @"itemListLuck04.png";
+                sss1 = @"360 minutes";
+                break;
+            case 35:
+                sss = @"itemListLuck05.png";
+                sss1 = @"720 minutes";
+                break;
+            case 50:
+                sss = @"itemListLuck06.png";
+                sss1 = @"1440 minutes";
+                break;
+        }
+
+        CCSprite* lft = [CCSprite spriteWithFile:sss];
+        lft.position = ccp(589, yfrm);
+        lft.opacity = 0;
+        lft.tag = tt++;
+        [self addChild:lft z:98];
+
+        float x = 670;
+        int f = 16;
+        CCLabelTTF* label5 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Luck: +%d", n.intValue] fontName:@"Marker Felt" fontSize:f];
+        label5.position =  ccp(x, yfrm + 15);
+        label5.color = ccc3(0, 0, 0);
+        label5.tag = tt++;
+        [self addChild: label5 z:98];
+        CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"Duration:" fontName:@"Marker Felt" fontSize:f];
+        label51.position =  ccp(x, yfrm - 5);
+        label51.color = ccc3(0, 0, 0);
+        label51.tag = tt++;
+        [self addChild: label51 z:98];
+        CCLabelTTF* label52 = [CCLabelTTF labelWithString:sss1 fontName:@"Marker Felt" fontSize:f];
+        label52.position =  ccp(x, yfrm - 20);
+        label52.color = ccc3(0, 0, 0);
+        label52.tag = tt++;
+        [self addChild: label52 z:98];
+
+
+        yfrm -= 67;
+    }
+
+    luck3.position = ccp(634.5, yfrm + 30);
+
+    int cnt = 0;
+    for(CCNode *aChildNode in self.children)
+        if((aChildNode.tag >= LUCK_TAG) || (aChildNode.tag == LUCK_TAG1)) {
+            [aChildNode runAction:[CCFadeIn actionWithDuration:Ldelay]];
+            cnt++;
+        }
+    NSLog(@"cnt show = %d", cnt);
+    
 }
 
 - (void) hideLuckList {
-    
-    [luck1 runAction:[CCFadeOut actionWithDuration:Ldelay]];
-    [luck2 runAction:[CCFadeOut actionWithDuration:Ldelay]];
-    [luck3 runAction:[CCFadeOut actionWithDuration:Ldelay]];
 
+    for(CCNode *aChildNode in self.children)
+        if((aChildNode.tag >= LUCK_TAG) || (aChildNode.tag == LUCK_TAG1))
+            [aChildNode runAction:[CCFadeOut actionWithDuration:Ldelay]];
+
+    [self performSelector:@selector(hideLuckList1) withObject:nil afterDelay:Ldelay * 2];
+
+}
+
+- (void) hideLuckList1 {
+
+    for(int i = LUCK_TAG; i < tt; i++)
+        [self removeChildByTag:i cleanup:YES];
+    
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

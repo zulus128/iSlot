@@ -23,6 +23,8 @@
 #define CHECH_TAG 100000
 
 #define Ldelay 0.5f
+#define LUCK_TAG2 200000
+#define LUCK_TAG1 223
 
 static CCLabelTTF *labelMoney = nil;
 static CCLabelTTF *labelYourLuck = nil;
@@ -46,6 +48,7 @@ static CCLabelTTF *labelKeys = nil;
     
     NSMutableArray *layers;
     CCScrollLayer *scroller;
+
 
 }
 -(void) toTop;

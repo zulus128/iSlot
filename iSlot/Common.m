@@ -37,8 +37,11 @@
 //        srand(time(NULL));
         
         self.lucks = [NSMutableArray array];
-        [self.lucks addObject:[NSNumber numberWithInt:35]];
-        [self.lucks addObject:[NSNumber numberWithInt:5]];
+//        [self.lucks addObject:[NSNumber numberWithInt:35]];
+//        [self.lucks addObject:[NSNumber numberWithInt:5]];
+//        [self.lucks addObject:[NSNumber numberWithInt:50]];
+
+        self.lucks = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"lucksarray"]];
 
         NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString* docpath = [sp objectAtIndex: 0];
