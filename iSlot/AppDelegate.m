@@ -148,18 +148,30 @@
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ stopAnimation];
+    
+    NSLog(@"---applicationDidEnterBackground");
+    [[Common instance] storeTime];
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ startAnimation];
+
+    NSLog(@"---applicationWillEnterForeground");
+    [[Common instance] restoreTime];
 }
 
 // application will be killed
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-	CC_DIRECTOR_END();
+
+    NSLog(@"---applicationWillTerminate");
+    [[Common instance] storeTime];
+    
+    CC_DIRECTOR_END();
+    
+
 }
 
 // purge memory

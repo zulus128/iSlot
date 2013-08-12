@@ -344,6 +344,14 @@ static ShopLayer* shoplay;
         [self addChild: hintmenu z:1107];
 		[hintmenu setPosition:ccp(0, 0)];
 
+//        NSLog(@"sch--------");
+        [self unscheduleAllSelectors];
+        [self scheduleUpdate];
+        [self schedule:@selector(timer) interval:1.0f];
+        
+        
+//        NSTimer* timer1 = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timer) userInfo:nil repeats:YES];
+
 	}
 	
 	return self;
@@ -381,6 +389,46 @@ static ShopLayer* shoplay;
     else
     for(NSNumber* n in arr){
 
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSNumber* nu;
+        NSString* sss = @"itemListLuck01.png";
+        NSString* sss1 = @"30 minutes";
+        switch (n.intValue) {
+            case 5:
+                sss = @"itemListLuck01.png";
+                nu = [userDefaults valueForKey:@"luck5"];
+                sss1 = [NSString stringWithFormat:@"%d minutes", nu.intValue / 60];
+                break;
+            case 10:
+                sss = @"itemListLuck02.png";
+                nu = [userDefaults valueForKey:@"luck10"];
+                sss1 = [NSString stringWithFormat:@"%d minutes", nu.intValue / 60];
+                break;
+            case 20:
+                sss = @"itemListLuck03.png";
+                nu = [userDefaults valueForKey:@"luck20"];
+                sss1 = [NSString stringWithFormat:@"%d minutes", nu.intValue / 60];
+                break;
+            case 25:
+                sss = @"itemListLuck04.png";
+                nu = [userDefaults valueForKey:@"luck25"];
+                sss1 = [NSString stringWithFormat:@"%d minutes", nu.intValue / 60];
+                break;
+            case 35:
+                sss = @"itemListLuck05.png";
+                nu = [userDefaults valueForKey:@"luck35"];
+                sss1 = [NSString stringWithFormat:@"%d minutes", nu.intValue / 60];
+                break;
+            case 50:
+                sss = @"itemListLuck06.png";
+                nu = [userDefaults valueForKey:@"luck50"];
+                sss1 = [NSString stringWithFormat:@"%d minutes", nu.intValue / 60];
+                break;
+        }
+        if( nu.intValue <=0 )
+            continue;
+
         CCSprite* frm = [CCSprite spriteWithFile:@"fonItemListLuck.png"];
         frm.position = ccp(634.5, yfrm);
         frm.opacity = 0;
@@ -393,35 +441,6 @@ static ShopLayer* shoplay;
         lck2.opacity = 0;
         lck2.tag = tt++;
         [self addChild:lck2 z:99];
-
-        NSString* sss = @"itemListLuck01.png";
-        NSString* sss1 = @"30 minutes";
-        switch (n.intValue) {
-            case 5:
-                sss = @"itemListLuck01.png";
-                sss1 = @"30 minutes";
-                break;
-            case 10:
-                sss = @"itemListLuck02.png";
-                sss1 = @"60 minutes";
-                break;
-            case 20:
-                sss = @"itemListLuck03.png";
-                sss1 = @"180 minutes";
-                break;
-            case 25:
-                sss = @"itemListLuck04.png";
-                sss1 = @"360 minutes";
-                break;
-            case 35:
-                sss = @"itemListLuck05.png";
-                sss1 = @"720 minutes";
-                break;
-            case 50:
-                sss = @"itemListLuck06.png";
-                sss1 = @"1440 minutes";
-                break;
-        }
 
         CCSprite* lft = [CCSprite spriteWithFile:sss];
         lft.position = ccp(589, yfrm);
@@ -640,6 +659,13 @@ static ShopLayer* shoplay;
     
 }
 
+- (void) timer {
+    
+//    NSLog(@"timer1");
+
+    [[Common instance] reduceTimeLuck];
+
+}
 
 - (void) onEnter {
     

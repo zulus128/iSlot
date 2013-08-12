@@ -104,6 +104,8 @@
 
     NSString* prof_file;
     NSMutableDictionary* levels;
+    
+    int tim;
 }
 
 + (Common*) instance;
@@ -114,6 +116,10 @@
 - (int) getStarsForLevel:(int) t;
 - (void) increaseStarsForCurrentLevel;
 - (void) increaseLevel;
+- (void) reduceTimeLuck;
+- (void) storeTime;
+- (void) restoreTime;
+- (void) invalidateTimeLuck;
 
 @property (readwrite, assign) int curlevel;
 //@property (readwrite, assign) int curarea;

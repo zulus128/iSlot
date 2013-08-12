@@ -17,6 +17,7 @@
     
     NSString* sss = @"luck";
     int lu = 5;
+    int sec = 0;
     switch (type) {
         case 5:
             [Common instance].money -= 2000;
@@ -26,6 +27,7 @@
             frame5.visible = NO;
             price5.visible = NO;
             item5.isEnabled = NO;
+            sec = 1800;
             [[Common instance].lucks addObject:[NSNumber numberWithInt:5]];
             break;
             
@@ -37,6 +39,7 @@
             frame10.visible = NO;
             price10.visible = NO;
             item10.isEnabled = NO;
+            sec = 3600;
             [[Common instance].lucks addObject:[NSNumber numberWithInt:10]];
             break;
             
@@ -48,6 +51,7 @@
             frame20.visible = NO;
             price20.visible = NO;
             item20.isEnabled = NO;
+            sec = 10800;
             [[Common instance].lucks addObject:[NSNumber numberWithInt:20]];
             break;
             
@@ -59,6 +63,7 @@
             frame25.visible = NO;
             price25.visible = NO;
             item25.isEnabled = NO;
+            sec = 21600;
             [[Common instance].lucks addObject:[NSNumber numberWithInt:25]];
             break;
             
@@ -70,6 +75,7 @@
             frame35.visible = NO;
             price35.visible = NO;
             item35.isEnabled = NO;
+            sec = 43200;
             [[Common instance].lucks addObject:[NSNumber numberWithInt:35]];
             break;
             
@@ -81,6 +87,7 @@
             frame50.visible = NO;
             price50.visible = NO;
             item50.isEnabled = NO;
+            sec = 86400;
             [[Common instance].lucks addObject:[NSNumber numberWithInt:50]];
             break;
             
@@ -90,7 +97,7 @@
     [self.player refreshLabels];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:[NSNumber numberWithInt:1] forKey:sss];
+    [userDefaults setObject:[NSNumber numberWithInt:sec] forKey:sss];
     [userDefaults setObject:[NSNumber numberWithInt:[Common instance].yourluck] forKey:@"yourluck"];
     [userDefaults setObject:[Common instance].lucks forKey:@"lucksarray"];
     [userDefaults synchronize];

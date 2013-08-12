@@ -42,6 +42,7 @@
     CCSprite *luck3;
 
     int tt;
+    int tim;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
