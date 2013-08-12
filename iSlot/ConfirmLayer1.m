@@ -19,18 +19,41 @@
         conffon.opacity = 0;
 		[self addChild: conffon z:20];
         
-        CCSprite *spok = [CCSprite spriteWithFile:@"OK.png"];
-        CCSprite *spok_t1 = [CCSprite spriteWithFile:@"TouchOK.png"];
+//        CCSprite *spok = [CCSprite spriteWithFile:@"OK.png"];
+//        CCSprite *spok_t1 = [CCSprite spriteWithFile:@"TouchOK.png"];
+//        itemok = [CCMenuItemSprite itemWithNormalSprite:spok selectedSprite:spok_t1 block:^(id sender) {
+//            
+//            [self.sslayer enable];
+//            [self hide1];
+//            
+//        }];
+//		itemok.position = ccp(512, 384 - 50);
+//        itemok.opacity = 0;
+        
+        CCSprite *spok = [CCSprite spriteWithFile:@"buttonCancel.png"];
+        CCSprite *spok_t1 = [CCSprite spriteWithFile:@"buttonCancelTouch.png"];
         itemok = [CCMenuItemSprite itemWithNormalSprite:spok selectedSprite:spok_t1 block:^(id sender) {
             
             [self.sslayer enable];
             [self hide1];
             
         }];
-		itemok.position = ccp(512, 384 - 50);
+		itemok.position = ccp(412, 384 - 50);
         itemok.opacity = 0;
         
-        menuconf1 = [CCMenu menuWithItems: itemok, nil];
+        CCSprite *spbuy = [CCSprite spriteWithFile:@"buttonBayCoins.png"];
+        CCSprite *spbuy_t1 = [CCSprite spriteWithFile:@"buttonBayCoinsTouch.png"];
+        itembuy = [CCMenuItemSprite itemWithNormalSprite:spbuy selectedSprite:spbuy_t1 block:^(id sender) {
+            
+            [self.sslayer onBuyCoins];
+            [self.sslayer enable];
+            [self hide1];
+            
+        }];
+		itembuy.position = ccp(612, 384 - 50);
+        itembuy.opacity = 0;
+        
+        menuconf1 = [CCMenu menuWithItems: itemok, itembuy, nil];
         [self addChild: menuconf1 z:21];
         [menuconf1 setPosition:ccp(0, 0)];
         //        menuconf.opacity = 0;

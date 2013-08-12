@@ -211,21 +211,7 @@ static ShopLayer* shoplay;
         CCSprite *spinapp_t1 = [CCSprite spriteWithFile:@"TouchSlonInApp.png"];
 		CCMenuItemSprite *iteminapp = [CCMenuItemSprite itemWithNormalSprite:spinapp selectedSprite:spinapp_t1 block:^(id sender) {
             
-            [inlay setTab:0];
-            [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
-            colorLayer.opacity = 0;
-            CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
-            [colorLayer runAction:action];
-            menu.enabled = NO;
-            for(CCLayer* l in layers) {
-
-                CCNode* result = [l getChildByTag:MENU_TAG];
-                if(result != nil) {
-                    ((CCMenu*)result).enabled = NO;
-                }
-            }
-            scroller.touchEnabled = NO;
-
+            [self showSlon];
             
 		}];
         [iteminapp setPosition:ccp(443.5, 730)];
@@ -357,6 +343,25 @@ static ShopLayer* shoplay;
 	return self;
 }
 
+- (void) showSlon {
+    
+    [inlay setTab:0];
+    [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
+    colorLayer.opacity = 0;
+    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+    [colorLayer runAction:action];
+    menu.enabled = NO;
+    for(CCLayer* l in layers) {
+        
+        CCNode* result = [l getChildByTag:MENU_TAG];
+        if(result != nil) {
+            ((CCMenu*)result).enabled = NO;
+        }
+    }
+    scroller.touchEnabled = NO;
+
+}
+
 - (void) showLuckList {
 
     float yfrm = 640;
@@ -437,7 +442,7 @@ static ShopLayer* shoplay;
         
         CCSprite* lck2 = [CCSprite spriteWithFile:@"listLuck02.png" /*rect:CGRectMake(634.5, yfrm, 209, 67)*/];
         lck2.position = ccp(634.5, yfrm);
-        [lck2 setScaleY: 67/lck2.contentSize.height];
+//        [lck2 setScaleY: 67/lck2.contentSize.height];
         lck2.opacity = 0;
         lck2.tag = tt++;
         [self addChild:lck2 z:99];

@@ -946,13 +946,7 @@ static BonusLayer* bonlay;
 		CCMenuItemSprite *iteminapp = [CCMenuItemSprite itemWithNormalSprite:spinapp selectedSprite:spinapp_t1 block:^(id sender) {
             
             
-            [inlay setTab:0];
-            [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
-            colorLayer.opacity = 0;
-            CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
-            [colorLayer runAction:action];
-            menu.enabled = NO;
-
+            [self showSlon];
             
 		}];
         [iteminapp setPosition:ccp(443.5, 730)];
@@ -1097,6 +1091,18 @@ static BonusLayer* bonlay;
 	}
 	return self;
 }
+
+- (void) showSlon {
+
+    [inlay setTab:0];
+    [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
+    colorLayer.opacity = 0;
+    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+    [colorLayer runAction:action];
+    menu.enabled = NO;
+
+}
+
 - (void) showLuckList {
     
     float yfrm = 640;

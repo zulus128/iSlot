@@ -83,17 +83,7 @@ static CCScene *scene;
     CCSprite *spinapp_t1 = [CCSprite spriteWithFile:@"TouchSlonInApp.png"];
     CCMenuItemSprite *iteminapp = [CCMenuItemSprite itemWithNormalSprite:spinapp selectedSprite:spinapp_t1 block:^(id sender) {
     
-        [inlay setTab:0];
-        [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
-        colorLayer.opacity = 0;
-        CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
-        [colorLayer runAction:action];
-        menu1.enabled = NO;
-        CCNode* result = [layer getChildByTag:MENU_TAG1];
-        if(result != nil) {
-            ((CCMenu*)result).enabled = NO;
-        }
-
+        [self showSlon];
 
     }];
     [iteminapp setPosition:ccp(443.5, 730)];
@@ -195,6 +185,36 @@ static CCScene *scene;
     [scene addChild: shoplay z:556];
 
 	return scene;
+}
+
++ (void) showSlon {
+    
+    [inlay setTab:0];
+    [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
+    colorLayer.opacity = 0;
+    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+    [colorLayer runAction:action];
+    menu1.enabled = NO;
+    CCNode* result = [layer getChildByTag:MENU_TAG1];
+    if(result != nil) {
+        ((CCMenu*)result).enabled = NO;
+    }
+    
+}
+
+- (void) showSlon {
+    
+    [inlay setTab:0];
+    [inlay runAction:[CCMoveTo actionWithDuration:0.3f position:ccp(0,0)]];
+    colorLayer.opacity = 0;
+    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+    [colorLayer runAction:action];
+    menu1.enabled = NO;
+    CCNode* result = [layer getChildByTag:MENU_TAG1];
+    if(result != nil) {
+        ((CCMenu*)result).enabled = NO;
+    }
+    
 }
 
 + (void) showLuckList {

@@ -17,6 +17,7 @@
     
     CCMenu* menuconf1;
     CCMenuItemSprite *itemok;
+    CCMenuItemSprite *itembuy;
     CCLabelTTF *labelConf1;
     CCLabelTTF *labelConf1_1;
     

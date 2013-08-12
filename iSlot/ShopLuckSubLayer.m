@@ -120,6 +120,10 @@
         
         NSLog(@"luck5 selected");
         type = 5;
+
+        if(([Common instance].money - 2000) < 0)
+            [self.shlayer showConf1];
+        else
         [self.shlayer showConfLuck];
 
     }];
@@ -145,7 +149,11 @@
         
         NSLog(@"luck10 selected");
         type = 10;
-        [self.shlayer showConfLuck];
+
+        if(([Common instance].money - 5000) < 0)
+            [self.shlayer showConf1];
+        else
+       [self.shlayer showConfLuck];
         
     }];
     label10 = [CCLabelTTF labelWithString:@"Luck: +10" fontName:@"Marker Felt" fontSize:20];
@@ -171,6 +179,9 @@
         
         NSLog(@"luck20 selected");
         type = 20;
+        if(([Common instance].money - 7000) < 0)
+            [self.shlayer showConf1];
+        else
         [self.shlayer showConfLuck];
         
     }];
@@ -196,6 +207,9 @@
         
         NSLog(@"luck25 selected");
         type = 25;
+        if(([Common instance].money - 10000) < 0)
+            [self.shlayer showConf1];
+        else
         [self.shlayer showConfLuck];
 
     }];
@@ -221,7 +235,10 @@
         
         NSLog(@"luck35 selected");
         type = 35;
-        [self.shlayer showConfLuck];
+        if(([Common instance].money - 15000) < 0)
+            [self.shlayer showConf1];
+        else
+      [self.shlayer showConfLuck];
 
     }];
     label35 = [CCLabelTTF labelWithString:@"Luck: +35" fontName:@"Marker Felt" fontSize:20];
@@ -246,7 +263,10 @@
         
         NSLog(@"luck50 selected");
         type = 50;
-        [self.shlayer showConfLuck];
+        if(([Common instance].money - 25000) < 0)
+            [self.shlayer showConf1];
+        else
+      [self.shlayer showConfLuck];
 
     }];
     label50 = [CCLabelTTF labelWithString:@"Luck: +50" fontName:@"Marker Felt" fontSize:20];

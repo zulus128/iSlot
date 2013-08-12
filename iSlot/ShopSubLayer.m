@@ -11,6 +11,13 @@
 
 @implementation ShopSubLayer
 
+-(void) onBuyCoins {
+    
+    [self.player afterShop];
+    [self.shlayer hide];
+    [self.player showSlon];
+}
+
 -(void) onConfirmed {
     
     int lines = [Common instance].linesBought;
