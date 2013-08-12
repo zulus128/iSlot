@@ -115,6 +115,8 @@
     slsl.player = self.player;
     slsl.shlayer = self;
     
+    [slsl refresh];
+    
     luck = NO;
     background1.visible = NO;
     background1.opacity = 255;

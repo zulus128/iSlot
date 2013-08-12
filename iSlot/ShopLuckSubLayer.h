@@ -83,6 +83,7 @@
 -(void) onConfirmed;
 -(void)enable;
 -(void)disable;
+-(void) refresh;
 
 @property (nonatomic, retain) CCLayer* player;
 @property (nonatomic, retain) ShopLayer* shlayer;

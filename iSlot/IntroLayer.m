@@ -663,7 +663,8 @@ static ShopLayer* shoplay;
     
 //    NSLog(@"timer1");
 
-    [[Common instance] reduceTimeLuck];
+    if([[Common instance] reduceTimeLuck])
+        [self refreshLabels];
 
 }
 

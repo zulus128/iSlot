@@ -1011,7 +1011,8 @@ static CCScene *scene;
     
 //    NSLog(@"timer2");
     
-    [[Common instance] reduceTimeLuck];
+    if([[Common instance] reduceTimeLuck])
+        [self refreshLabels];
     
 }
 

@@ -1841,7 +1841,8 @@ if(droppedcomp.visible) {
     
 //    NSLog(@"timer3");
     
-    [[Common instance] reduceTimeLuck];
+    if([[Common instance] reduceTimeLuck])
+        [self refreshLabels];
     
 }
 

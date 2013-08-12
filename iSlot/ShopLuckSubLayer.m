@@ -361,6 +361,32 @@
     price50.tag = SHOPLUCK_TAG;
     [item50 addChild: price50 z:16];
 
+
+    [self refresh];
+    
+    
+    
+    item5.opacity = 0;
+    item10.opacity = 0;
+    item20.opacity = 0;
+    item25.opacity = 0;
+    item35.opacity = 0;
+    item50.opacity = 0;
+
+    menukeys = [CCMenu menuWithItems: item5, item10, item20, item25, item35, item50, nil];
+    [self addChild: menukeys z:8];
+    
+    menukeys.tag = SHOPLUCK_TAG;
+    
+    [menukeys setPosition:ccp(0, 0)];
+
+
+    self.position = ccp(10000, 0);
+
+}
+
+-(void) refresh {
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSNumber* n = [userDefaults valueForKey:@"luck5"];
     fp5.visible = (n.intValue > 0);
@@ -392,28 +418,8 @@
     frame50.visible = !(n.intValue > 0);
     price50.visible = !(n.intValue > 0);
     item50.isEnabled = !(n.intValue > 0);
-
     
     
-    
-    
-    
-    item5.opacity = 0;
-    item10.opacity = 0;
-    item20.opacity = 0;
-    item25.opacity = 0;
-    item35.opacity = 0;
-    item50.opacity = 0;
-
-    menukeys = [CCMenu menuWithItems: item5, item10, item20, item25, item35, item50, nil];
-    [self addChild: menukeys z:8];
-    
-    menukeys.tag = SHOPLUCK_TAG;
-    
-    [menukeys setPosition:ccp(0, 0)];
-
-
-    self.position = ccp(10000, 0);
 
 }
 

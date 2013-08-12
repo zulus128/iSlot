@@ -219,32 +219,49 @@
 //}
 
 
-- (void) reduceTimeLuck {
+- (BOOL) reduceTimeLuck {
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSNumber* n = [userDefaults valueForKey:@"luck5"];
-    if(n.intValue > 0)
+    BOOL b = NO;
+    if(n.intValue > 0) {
         [userDefaults setObject:[NSNumber numberWithInt:(n.intValue - 1)] forKey:@"luck5"];
+//        NSLog(@"remain %d sec", n.intValue);
+        b = YES;
+    }
     n = [userDefaults valueForKey:@"luck10"];
-    if(n.intValue > 0)
+    if(n.intValue > 0) {
         [userDefaults setObject:[NSNumber numberWithInt:(n.intValue - 1)] forKey:@"luck10"];
+        b = YES;
+    }
     n = [userDefaults valueForKey:@"luck20"];
-    if(n.intValue > 0)
+    if(n.intValue > 0) {
         [userDefaults setObject:[NSNumber numberWithInt:(n.intValue - 1)] forKey:@"luck20"];
+        b = YES;
+    }
     n = [userDefaults valueForKey:@"luck25"];
-    if(n.intValue > 0)
+    if(n.intValue > 0) {
         [userDefaults setObject:[NSNumber numberWithInt:(n.intValue - 1)] forKey:@"luck25"];
+        b = YES;
+    }
     n = [userDefaults valueForKey:@"luck35"];
-    if(n.intValue > 0)
+    if(n.intValue > 0) {
         [userDefaults setObject:[NSNumber numberWithInt:(n.intValue - 1)] forKey:@"luck35"];
+        b = YES;
+    }
     n = [userDefaults valueForKey:@"luck50"];
-    if(n.intValue > 0)
+    if(n.intValue > 0) {
         [userDefaults setObject:[NSNumber numberWithInt:(n.intValue - 1)] forKey:@"luck50"];
+        b = YES;
+    }
+    BOOL bbb = NO;
+    if(b) {
     
-    [userDefaults synchronize];
+        [userDefaults synchronize];
+        bbb = [self invalidateTimeLuck];
+    }
 
-    [self invalidateTimeLuck];
-
+    return bbb;
 }
 
 - (void) storeTime {
@@ -271,7 +288,7 @@
 
     NSNumber* n = [userDefaults valueForKey:@"luck5"];
     if(n.intValue > 0)
-//        [userDefaults setObject:[NSNumber numberWithInt:(/*n.intValue + time*/-1000)] forKey:@"luck5"];
+//        [userDefaults setObject:[NSNumber numberWithInt:(/*n.intValue + time*/20)] forKey:@"luck5"];
         [userDefaults setObject:[NSNumber numberWithInt:(n.intValue + time)] forKey:@"luck5"];
     n = [userDefaults valueForKey:@"luck10"];
     if(n.intValue > 0)
@@ -291,16 +308,17 @@
     
     [userDefaults synchronize];
 
-    [self invalidateTimeLuck];
+//    [self invalidateTimeLuck];
 }
 
-- (void) invalidateTimeLuck {
+- (BOOL) invalidateTimeLuck {
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSNumber* nu;
-    int lu = 0;
     NSMutableArray* fordel = [NSMutableArray array];
-    for(NSNumber* n in self.lucks)
+    for(NSNumber* n in self.lucks) {
+
+        int lu = 0;
         switch (n.intValue) {
             case 5:
                 nu = [userDefaults valueForKey:@"luck5"];
@@ -347,12 +365,23 @@
         }
     
     self.yourluck -= lu;
-    [self.lucks removeObjectsInArray:fordel];
+    }
+
+    BOOL b = NO;
+    if(fordel.count > 0) {
+//        NSLog(@"before: %@", self.lucks);
+//        NSLog(@"remove lucks: %@", fordel);
+        [self.lucks removeObjectsInArray:fordel];
+//        NSLog(@"after: %@", self.lucks);
+        b = YES;
+    }
+    
     [userDefaults setObject:[NSNumber numberWithInt:self.yourluck] forKey:@"yourluck"];
     [userDefaults setObject:self.lucks forKey:@"lucksarray"];
     
     [userDefaults synchronize];
 
+    return b;
 }
 
 - (void) dealloc {

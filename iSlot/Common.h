@@ -116,10 +116,10 @@
 - (int) getStarsForLevel:(int) t;
 - (void) increaseStarsForCurrentLevel;
 - (void) increaseLevel;
-- (void) reduceTimeLuck;
+- (BOOL) reduceTimeLuck;
 - (void) storeTime;
 - (void) restoreTime;
-- (void) invalidateTimeLuck;
+- (BOOL) invalidateTimeLuck;
 
 @property (readwrite, assign) int curlevel;
 //@property (readwrite, assign) int curarea;
