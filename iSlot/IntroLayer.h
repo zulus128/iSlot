@@ -38,7 +38,7 @@
     CCScrollLayer *scroller;
     
     CCSprite *luck1;
-//    CCSprite *luck2;
+    CCSprite *luck2;
     CCSprite *luck3;
 
     int tt;

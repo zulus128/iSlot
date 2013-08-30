@@ -72,7 +72,7 @@
     BOOL bon;
     
     CCSprite *luck1;
-//    CCSprite *luck2;
+    CCSprite *luck2;
     CCSprite *luck3;
 
     CCLabelTTF* lrand;

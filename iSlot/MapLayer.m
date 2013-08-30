@@ -24,7 +24,7 @@ static CCMenu* menu1;
 static MapLayer *layer;
 
 static CCSprite *luck1;
-//static CCSprite *luck2;
+static CCSprite *luck2;
 static CCSprite *luck3;
 static int tt;
 static CCScene *scene;
@@ -60,10 +60,11 @@ static CCScene *scene;
     luck1.opacity = 0;
     luck1.tag = LUCK_TAG1;
     [scene addChild:luck1 z:100];
-//    luck2 = [CCSprite spriteWithFile:@"listLuck02.png"];
-//    luck2.position = ccp(634.5, 624);
-//    luck2.opacity = 0;
-//    [scene addChild:luck2 z:6];
+    luck2 = [CCSprite spriteWithFile:@"listLuck02.png"];
+    luck2.position = ccp(634.5, 624);
+    luck2.opacity = 0;
+    luck2.tag = LUCK_TAG1;
+    [scene addChild:luck2 z:100];
     luck3 = [CCSprite spriteWithFile:@"listLuck03.png"];
     luck3.position = ccp(634.5, 566);
     luck3.opacity = 0;
@@ -226,27 +227,33 @@ static CCScene *scene;
     if(arr.count == 0) {
         
         CCSprite* frm = [CCSprite spriteWithFile:@"fonListLuck.png"];
-        frm.position = ccp(634.5, yfrm - 10);
+        frm.position = ccp(634.5, 664.5 - 36 + 8);
+        //        [frm setScaleX: 169/170];
+        [frm setScaleY: 71.0f/frm.contentSize.height];
         frm.opacity = 0;
         frm.tag = tt++;
         [scene addChild:frm z:98];
         
-        CCSprite* lck2 = [CCSprite spriteWithFile:@"listLuck02.png" /*rect:CGRectMake(634.5, yfrm, 209, 67)*/];
-        lck2.position = ccp(634.5, yfrm);
-        //        [lck2 setScaleY: 67/lck2.contentSize.height];
-        lck2.opacity = 0;
-        lck2.tag = tt++;
-        [scene addChild:lck2 z:99];
+        //        CCSprite* lck2 = [CCSprite spriteWithFile:@"listLuck02.png" /*rect:CGRectMake(634.5, yfrm, 209, 67)*/];
+        //        lck2.position = ccp(634.5, 664.5 - 22.0);
+        //        [lck2 setScaleY: 45/lck2.contentSize.height];
+        //        lck2.opacity = 0;
+        //        lck2.tag = tt++;
+        //        [self addChild:lck2 z:99];
+        
+        [luck2 setScaleY: 45 / 67.0f];
+        luck2.position = ccp(634.5, 642.5);
+        luck3.position = ccp(634.5, 664.5 - 45 - 16.5);
         
         CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"No Luck" fontName:@"Marker Felt" fontSize:24];
-        label51.position =  ccp(635, yfrm - 6);
+        label51.position =  ccp(635, 664.5 - 22.5);
         label51.color = ccc3(0, 0, 0);
         label51.tag = tt++;
         [scene addChild: label51 z:98];
         
         yfrm -= 81;
     }
-    else
+    else {
         for(NSNumber* n in arr){
             
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -294,12 +301,12 @@ static CCScene *scene;
             frm.tag = tt++;
             [scene addChild:frm z:98];
             
-            CCSprite* lck2 = [CCSprite spriteWithFile:@"listLuck02.png" /*rect:CGRectMake(634.5, yfrm, 209, 67)*/];
-            lck2.position = ccp(634.5, yfrm);
-            [lck2 setScaleY: 67/lck2.contentSize.height];
-            lck2.opacity = 0;
-            lck2.tag = tt++;
-            [scene addChild:lck2 z:99];
+//            CCSprite* lck2 = [CCSprite spriteWithFile:@"listLuck02.png" /*rect:CGRectMake(634.5, yfrm, 209, 67)*/];
+//            lck2.position = ccp(634.5, yfrm);
+//            [lck2 setScaleY: 67/lck2.contentSize.height];
+//            lck2.opacity = 0;
+//            lck2.tag = tt++;
+//            [scene addChild:lck2 z:99];
             
             CCSprite* lft = [CCSprite spriteWithFile:sss];
             lft.position = ccp(589, yfrm);
@@ -329,7 +336,13 @@ static CCScene *scene;
             yfrm -= 67;
         }
     
-    luck3.position = ccp(634.5, yfrm + 30);
+        float sc = (45 + 67 * (arr.count - 1)) / 67.0f;
+        [luck2 setScaleY: sc];
+        luck2.position = ccp(634.5, 642.5 - 33.5 * (arr.count - 1));
+        
+        //    luck2.position = ccp(634.5, 642.5 );
+        luck3.position = ccp(634.5, yfrm + 30);
+    }
     
     int cnt = 0;
     for(CCNode *aChildNode in scene.children)

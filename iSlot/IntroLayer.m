@@ -107,11 +107,11 @@ static ShopLayer* shoplay;
         luck1.opacity = 0;
         luck1.tag = LUCK_TAG1;
         [self addChild:luck1 z:100];
-//        luck2 = [CCSprite spriteWithFile:@"listLuck02.png"];
-//        luck2.position = ccp(634.5, 624);
-//        luck2.opacity = 0;
-//        luck2.tag = LUCK_TAG1;
-//        [self addChild:luck2 z:100];
+        luck2 = [CCSprite spriteWithFile:@"listLuck02.png"];
+        luck2.position = ccp(634.5, 642.5);
+        luck2.opacity = 0;
+        luck2.tag = LUCK_TAG1;
+        [self addChild:luck2 z:100];
         luck3 = [CCSprite spriteWithFile:@"listLuck03.png"];
         luck3.position = ccp(634.5, 566);
         luck3.opacity = 0;
@@ -371,27 +371,33 @@ static ShopLayer* shoplay;
     if(arr.count == 0) {
 
         CCSprite* frm = [CCSprite spriteWithFile:@"fonListLuck.png"];
-        frm.position = ccp(634.5, yfrm - 10);
+        frm.position = ccp(634.5, 664.5 - 36 + 8);
+//        [frm setScaleX: 169/170];
+        [frm setScaleY: 71.0f/frm.contentSize.height];
         frm.opacity = 0;
         frm.tag = tt++;
         [self addChild:frm z:98];
         
-        CCSprite* lck2 = [CCSprite spriteWithFile:@"listLuck02.png" /*rect:CGRectMake(634.5, yfrm, 209, 67)*/];
-        lck2.position = ccp(634.5, yfrm);
-//        [lck2 setScaleY: 67/lck2.contentSize.height];
-        lck2.opacity = 0;
-        lck2.tag = tt++;
-        [self addChild:lck2 z:99];
+//        CCSprite* lck2 = [CCSprite spriteWithFile:@"listLuck02.png" /*rect:CGRectMake(634.5, yfrm, 209, 67)*/];
+//        lck2.position = ccp(634.5, 664.5 - 22.0);
+//        [lck2 setScaleY: 45/lck2.contentSize.height];
+//        lck2.opacity = 0;
+//        lck2.tag = tt++;
+//        [self addChild:lck2 z:99];
+
+        [luck2 setScaleY: 45 / 67.0f];
+        luck2.position = ccp(634.5, 642.5);
+        luck3.position = ccp(634.5, 664.5 - 45 - 16.5);
 
         CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"No Luck" fontName:@"Marker Felt" fontSize:24];
-        label51.position =  ccp(635, yfrm - 6);
+        label51.position =  ccp(635, 664.5 - 22.5);
         label51.color = ccc3(0, 0, 0);
         label51.tag = tt++;
         [self addChild: label51 z:98];
 
         yfrm -= 81;
     }
-    else
+    else {
     for(NSNumber* n in arr){
 
         
@@ -440,12 +446,12 @@ static ShopLayer* shoplay;
         frm.tag = tt++;
         [self addChild:frm z:98];
         
-        CCSprite* lck2 = [CCSprite spriteWithFile:@"listLuck02.png" /*rect:CGRectMake(634.5, yfrm, 209, 67)*/];
-        lck2.position = ccp(634.5, yfrm);
-//        [lck2 setScaleY: 67/lck2.contentSize.height];
-        lck2.opacity = 0;
-        lck2.tag = tt++;
-        [self addChild:lck2 z:99];
+//        CCSprite* lck2 = [CCSprite spriteWithFile:@"listLuck02.png" /*rect:CGRectMake(634.5, yfrm, 209, 67)*/];
+//        lck2.position = ccp(634.5, yfrm);
+////        [lck2 setScaleY: 67/lck2.contentSize.height];
+//        lck2.opacity = 0;
+//        lck2.tag = tt++;
+//        [self addChild:lck2 z:99];
 
         CCSprite* lft = [CCSprite spriteWithFile:sss];
         lft.position = ccp(589, yfrm);
@@ -474,9 +480,15 @@ static ShopLayer* shoplay;
 
         yfrm -= 67;
     }
+        
+        float sc = (45 + 67 * (arr.count - 1)) / 67.0f;
+        [luck2 setScaleY: sc];
+        luck2.position = ccp(634.5, 642.5 - 33.5 * (arr.count - 1));
 
-    luck3.position = ccp(634.5, yfrm + 30);
-
+//    luck2.position = ccp(634.5, 642.5 );
+        luck3.position = ccp(634.5, yfrm + 30);
+    }
+    
     int cnt = 0;
     for(CCNode *aChildNode in self.children)
         if((aChildNode.tag >= LUCK_TAG) || (aChildNode.tag == LUCK_TAG1)) {
