@@ -43,6 +43,7 @@
 
     int tt;
     int tim;
+    float yfrm;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

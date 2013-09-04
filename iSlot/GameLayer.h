@@ -90,6 +90,7 @@
     CCLabelTTF* lmax5;
     
     int tt;
+    float yfrm;
 
 }
 -(void) toTop;

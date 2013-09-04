@@ -29,6 +29,7 @@
 static CCLabelTTF *labelMoney = nil;
 static CCLabelTTF *labelYourLuck = nil;
 static CCLabelTTF *labelKeys = nil;
+static float yfrm = 0;
 
 @interface MapLayer : CCLayer  <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate> {
     
@@ -48,6 +49,7 @@ static CCLabelTTF *labelKeys = nil;
     
     NSMutableArray *layers;
     CCScrollLayer *scroller;
+
 
 
 }

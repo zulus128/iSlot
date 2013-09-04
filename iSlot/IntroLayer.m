@@ -364,7 +364,7 @@ static ShopLayer* shoplay;
 
 - (void) showLuckList {
 
-    float yfrm = 640;
+    yfrm = 640;
     NSArray* arr = [Common instance].lucks;
     tt = LUCK_TAG;
     
@@ -378,13 +378,6 @@ static ShopLayer* shoplay;
         frm.tag = tt++;
         [self addChild:frm z:98];
         
-//        CCSprite* lck2 = [CCSprite spriteWithFile:@"listLuck02.png" /*rect:CGRectMake(634.5, yfrm, 209, 67)*/];
-//        lck2.position = ccp(634.5, 664.5 - 22.0);
-//        [lck2 setScaleY: 45/lck2.contentSize.height];
-//        lck2.opacity = 0;
-//        lck2.tag = tt++;
-//        [self addChild:lck2 z:99];
-
         [luck2 setScaleY: 45 / 67.0f];
         luck2.position = ccp(634.5, 642.5);
         luck3.position = ccp(634.5, 664.5 - 45 - 16.5);
@@ -395,46 +388,98 @@ static ShopLayer* shoplay;
         label51.tag = tt++;
         [self addChild: label51 z:98];
 
-        yfrm -= 81;
+        yfrm -= 44;
     }
     else {
-    for(NSNumber* n in arr){
-
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         NSNumber* nu;
+        NSMutableArray* arr1 = [NSMutableArray array];
+        NSMutableArray* arr2 = [NSMutableArray arrayWithArray:arr];
+        while (arr2.count > 0) {
+            int min = 1e10;
+            int ind = 0;
+            for(int i = 0; i < arr2.count; i++){
+                
+                NSNumber* n = [arr2 objectAtIndex:i];
+                switch (n.intValue) {
+                    case 5:
+                        nu = [userDefaults valueForKey:@"luck5"];
+                        break;
+                    case 10:
+                        nu = [userDefaults valueForKey:@"luck10"];
+                        break;
+                    case 20:
+                        nu = [userDefaults valueForKey:@"luck20"];
+                        break;
+                    case 25:
+                        nu = [userDefaults valueForKey:@"luck25"];
+                        break;
+                    case 35:
+                        nu = [userDefaults valueForKey:@"luck35"];
+                        break;
+                    case 50:
+                        nu = [userDefaults valueForKey:@"luck50"];
+                        break;
+                }
+                
+                if(nu.intValue < min) {
+                    
+                    min = nu.intValue;
+                    ind = i;
+                }
+            }
+            
+            [arr1 addObject:[arr2 objectAtIndex:ind]];
+            [arr2 removeObjectAtIndex:ind];
+        }
+
         NSString* sss = @"itemListLuck01.png";
-        NSString* sss1 = @"30 minutes";
+        NSString* sss1 = @"---";
+        for(NSNumber* n in arr1){
+        
         switch (n.intValue) {
             case 5:
                 sss = @"itemListLuck01.png";
                 nu = [userDefaults valueForKey:@"luck5"];
-                sss1 = [NSString stringWithFormat:@"%d minutes", nu.intValue / 60];
+                int mins = nu.intValue / 60;
+                int hrs = mins / 60;
+                sss1 = [NSString stringWithFormat:@"%d %@", (hrs > 0)?hrs:mins, (hrs > 0)?@"hour":@"minutes"];
                 break;
             case 10:
                 sss = @"itemListLuck02.png";
                 nu = [userDefaults valueForKey:@"luck10"];
-                sss1 = [NSString stringWithFormat:@"%d minutes", nu.intValue / 60];
+                mins = nu.intValue / 60;
+                hrs = mins / 60;
+                sss1 = [NSString stringWithFormat:@"%d %@", (hrs > 0)?hrs:mins, (hrs > 0)?@"hour":@"minutes"];
                 break;
             case 20:
                 sss = @"itemListLuck03.png";
                 nu = [userDefaults valueForKey:@"luck20"];
-                sss1 = [NSString stringWithFormat:@"%d minutes", nu.intValue / 60];
+                mins = nu.intValue / 60;
+                hrs = mins / 60;
+                sss1 = [NSString stringWithFormat:@"%d %@", (hrs > 0)?hrs:mins, (hrs > 0)?@"hour":@"minutes"];
                 break;
             case 25:
                 sss = @"itemListLuck04.png";
                 nu = [userDefaults valueForKey:@"luck25"];
-                sss1 = [NSString stringWithFormat:@"%d minutes", nu.intValue / 60];
+                mins = nu.intValue / 60;
+                hrs = mins / 60;
+                sss1 = [NSString stringWithFormat:@"%d %@", (hrs > 0)?hrs:mins, (hrs > 0)?@"hour":@"minutes"];
                 break;
             case 35:
                 sss = @"itemListLuck05.png";
                 nu = [userDefaults valueForKey:@"luck35"];
-                sss1 = [NSString stringWithFormat:@"%d minutes", nu.intValue / 60];
+                mins = nu.intValue / 60;
+                hrs = mins / 60;
+                sss1 = [NSString stringWithFormat:@"%d %@", (hrs > 0)?hrs:mins, (hrs > 0)?@"hour":@"minutes"];
                 break;
             case 50:
                 sss = @"itemListLuck06.png";
                 nu = [userDefaults valueForKey:@"luck50"];
-                sss1 = [NSString stringWithFormat:@"%d minutes", nu.intValue / 60];
+                mins = nu.intValue / 60;
+                hrs = mins / 60;
+                sss1 = [NSString stringWithFormat:@"%d %@", (hrs > 0)?hrs:mins, (hrs > 0)?@"hour":@"minutes"];
                 break;
         }
         if( nu.intValue <=0 )
@@ -511,6 +556,10 @@ static ShopLayer* shoplay;
 
 - (void) hideLuckList1 {
 
+    luck1.opacity = 0;
+    luck2.opacity = 0;
+    luck3.opacity = 0;
+    
     for(int i = LUCK_TAG; i < tt; i++)
         [self removeChildByTag:i cleanup:YES];
     
@@ -522,18 +571,24 @@ static ShopLayer* shoplay;
     CGPoint point = [touch locationInView:[touch view]];
     point = [[CCDirector sharedDirector]convertToGL:point];
 
-//    NSLog(@"touch %f, %f", point.x, point.y);
+//    NSLog(@"touch %f, %f, %f", point.x, point.y, yfrm);
     float x = point.x;
     float y = point.y;
     
     if(settmenu.enabled)
-    if((x < 610) || (x > 927) || (y < 114) || (y > 350)) {
-        
-        [sett1 runAction:[CCFadeOut actionWithDuration:0.5f]];
-        [settmenu runAction:[CCFadeOut actionWithDuration:0.5f]];
-        settmenu.enabled = NO;
+        if((x < 610) || (x > 927) || (y < 114) || (y > 350)) {
+            
+            [sett1 runAction:[CCFadeOut actionWithDuration:0.5f]];
+            [settmenu runAction:[CCFadeOut actionWithDuration:0.5f]];
+            settmenu.enabled = NO;
+            
+        }
 
-    }
+    if(luck1.opacity > 0)
+        if(!((x > 540) && (x < 727) && (y > yfrm))) {
+            
+            [self hideLuckList];
+        }
 }
 
 -(void)musicMute:(id)sender {
@@ -671,6 +726,9 @@ static ShopLayer* shoplay;
 - (void)onSelectChapter:(CCMenuItemImage *)sender {
     
 //    [[CCDirector sharedDirector] pushScene:[GameLayer scene]];
+
+    if(luck1.opacity > 0)
+        [self hideLuckList1];
 
     [[CCDirector sharedDirector] pushScene:[MapLayer scene]];
     
