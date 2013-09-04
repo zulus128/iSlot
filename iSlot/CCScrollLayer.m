@@ -107,7 +107,7 @@ enum
         
         polosa = [CCSprite spriteWithFile:@"TimeName.png"];
         [lay addChild:polosa z:6];
-        polosa.position = ccp(848.5, 70.5);
+        polosa.position = ccp(848.5 + 80, 70.5);
         
         CCSprite* back = [CCSprite spriteWithFile:@"FonMainMenu.png"];
         back.position = ccp( 512, 384);
