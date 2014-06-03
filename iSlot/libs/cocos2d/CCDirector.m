@@ -133,6 +133,11 @@ static CCDirector *_sharedDirector = nil;
 	return [super alloc];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    
+    return YES;
+}
+
 - (id) init
 {
 	if( (self=[super init] ) ) {

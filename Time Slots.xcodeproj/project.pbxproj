@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8424FCCD193D787300EBD382 /* 100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCC2193D787300EBD382 /* 100x100.png */; };
+		8424FCCE193D787300EBD382 /* 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCC3193D787300EBD382 /* 144x144.png */; };
+		8424FCCF193D787300EBD382 /* 152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCC4193D787300EBD382 /* 152x152.png */; };
+		8424FCD0193D787300EBD382 /* 29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCC5193D787300EBD382 /* 29x29.png */; };
+		8424FCD1193D787300EBD382 /* 40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCC6193D787300EBD382 /* 40x40.png */; };
+		8424FCD2193D787300EBD382 /* 50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCC7193D787300EBD382 /* 50x50.png */; };
+		8424FCD3193D787300EBD382 /* 512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCC8193D787300EBD382 /* 512x512.png */; };
+		8424FCD4193D787300EBD382 /* 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCC9193D787300EBD382 /* 58x58.png */; };
+		8424FCD5193D787300EBD382 /* 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCCA193D787300EBD382 /* 72x72.png */; };
+		8424FCD6193D787300EBD382 /* 76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCCB193D787300EBD382 /* 76x76.png */; };
+		8424FCD7193D787300EBD382 /* 80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCCC193D787300EBD382 /* 80x80.png */; };
+		8424FCDB193D78B900EBD382 /* army.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCD9193D78B900EBD382 /* army.png */; };
+		8424FCDC193D78B900EBD382 /* armyhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCDA193D78B900EBD382 /* armyhd.png */; };
 		9C046760171D421500BAC30D /* BuyNow-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C04675B171D421500BAC30D /* BuyNow-ipad.png */; };
 		9C046761171D421500BAC30D /* Check-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C04675C171D421500BAC30D /* Check-ipad.png */; };
 		9C046762171D421500BAC30D /* CloseinApp-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C04675D171D421500BAC30D /* CloseinApp-ipad.png */; };
@@ -557,6 +570,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8424FCC2193D787300EBD382 /* 100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 100x100.png; sourceTree = "<group>"; };
+		8424FCC3193D787300EBD382 /* 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 144x144.png; sourceTree = "<group>"; };
+		8424FCC4193D787300EBD382 /* 152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 152x152.png; sourceTree = "<group>"; };
+		8424FCC5193D787300EBD382 /* 29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29x29.png; sourceTree = "<group>"; };
+		8424FCC6193D787300EBD382 /* 40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40x40.png; sourceTree = "<group>"; };
+		8424FCC7193D787300EBD382 /* 50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 50x50.png; sourceTree = "<group>"; };
+		8424FCC8193D787300EBD382 /* 512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 512x512.png; sourceTree = "<group>"; };
+		8424FCC9193D787300EBD382 /* 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58x58.png; sourceTree = "<group>"; };
+		8424FCCA193D787300EBD382 /* 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 72x72.png; sourceTree = "<group>"; };
+		8424FCCB193D787300EBD382 /* 76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 76x76.png; sourceTree = "<group>"; };
+		8424FCCC193D787300EBD382 /* 80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80x80.png; sourceTree = "<group>"; };
+		8424FCD9193D78B900EBD382 /* army.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = army.png; sourceTree = "<group>"; };
+		8424FCDA193D78B900EBD382 /* armyhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = armyhd.png; sourceTree = "<group>"; };
 		9C04675B171D421500BAC30D /* BuyNow-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BuyNow-ipad.png"; sourceTree = "<group>"; };
 		9C04675C171D421500BAC30D /* Check-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check-ipad.png"; sourceTree = "<group>"; };
 		9C04675D171D421500BAC30D /* CloseinApp-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CloseinApp-ipad.png"; sourceTree = "<group>"; };
@@ -1290,6 +1316,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8424FCC1193D787300EBD382 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				8424FCC2193D787300EBD382 /* 100x100.png */,
+				8424FCC3193D787300EBD382 /* 144x144.png */,
+				8424FCC4193D787300EBD382 /* 152x152.png */,
+				8424FCC5193D787300EBD382 /* 29x29.png */,
+				8424FCC6193D787300EBD382 /* 40x40.png */,
+				8424FCC7193D787300EBD382 /* 50x50.png */,
+				8424FCC8193D787300EBD382 /* 512x512.png */,
+				8424FCC9193D787300EBD382 /* 58x58.png */,
+				8424FCCA193D787300EBD382 /* 72x72.png */,
+				8424FCCB193D787300EBD382 /* 76x76.png */,
+				8424FCCC193D787300EBD382 /* 80x80.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		8424FCD8193D787F00EBD382 /* army */ = {
+			isa = PBXGroup;
+			children = (
+				8424FCD9193D78B900EBD382 /* army.png */,
+				8424FCDA193D78B900EBD382 /* armyhd.png */,
+			);
+			name = army;
+			sourceTree = "<group>";
+		};
 		9C04675A171D41A100BAC30D /* inapp */ = {
 			isa = PBXGroup;
 			children = (
@@ -1561,6 +1614,8 @@
 		9C70748C16C375800053C3F0 = {
 			isa = PBXGroup;
 			children = (
+				8424FCD8193D787F00EBD382 /* army */,
+				8424FCC1193D787300EBD382 /* icons */,
 				9C31DC4B1794FE3200711682 /* luck */,
 				DDC5D8FA177E77EA00B53BC8 /* 130625 */,
 				9C07C757176AC53200B4D6D9 /* Hints */,
@@ -2424,6 +2479,7 @@
 				DDC3408516C5ED5100764535 /* TouchSlonInApp-ipad.png in Resources */,
 				DDC3408616C5ED5100764535 /* TouchSlotBack-ipad.png in Resources */,
 				DDC3408716C5ED5100764535 /* TouchSpin-ipad.png in Resources */,
+				8424FCD5193D787300EBD382 /* 72x72.png in Resources */,
 				DDC3409116C5ED7A00764535 /* TouchGameCenter-ipadhd.png in Resources */,
 				DDC3409216C5ED7A00764535 /* TouchInfo-ipadhd.png in Resources */,
 				DDC3409316C5ED7A00764535 /* TouchLuck-ipadhd.png in Resources */,
@@ -2435,6 +2491,7 @@
 				DDC3409916C5ED7A00764535 /* TouchSpin-ipadhd.png in Resources */,
 				9C3AAB3616CB3E5400D4EF6D /* Line01-ipad.png in Resources */,
 				9C3AAB3716CB3E5400D4EF6D /* Line02-ipad.png in Resources */,
+				8424FCD4193D787300EBD382 /* 58x58.png in Resources */,
 				9C3AAB3816CB3E5400D4EF6D /* Line03-ipad.png in Resources */,
 				9C3AAB3916CB3E5400D4EF6D /* Line04-ipad.png in Resources */,
 				9C3AAB3A16CB3E5400D4EF6D /* Line05-ipad.png in Resources */,
@@ -2454,6 +2511,7 @@
 				9C3AAB4816CB3E5400D4EF6D /* Line19-ipad.png in Resources */,
 				9C3AAB4916CB3E5400D4EF6D /* Line20-ipad.png in Resources */,
 				9C3AAB4A16CB3E5400D4EF6D /* Line21-ipad.png in Resources */,
+				8424FCD1193D787300EBD382 /* 40x40.png in Resources */,
 				9C3AAB6016CB3E6400D4EF6D /* CubeLine01-ipad.png in Resources */,
 				9C3AAB6116CB3E6400D4EF6D /* CubeLine02-ipad.png in Resources */,
 				9C3AAB6216CB3E6400D4EF6D /* CubeLine03-ipad.png in Resources */,
@@ -2464,6 +2522,8 @@
 				9C3AAB6716CB3E6400D4EF6D /* CubeLine08-ipad.png in Resources */,
 				9C3AAB6816CB3E6400D4EF6D /* CubeLine09-ipad.png in Resources */,
 				9C3AAB6916CB3E6400D4EF6D /* CubeLine10-ipad.png in Resources */,
+				8424FCD2193D787300EBD382 /* 50x50.png in Resources */,
+				8424FCD7193D787300EBD382 /* 80x80.png in Resources */,
 				9C3AAB6A16CB3E6400D4EF6D /* CubeLine11-ipad.png in Resources */,
 				9C3AAB6B16CB3E6400D4EF6D /* CubeLine12-ipad.png in Resources */,
 				9C3AAB6C16CB3E6400D4EF6D /* CubeLine13-ipad.png in Resources */,
@@ -2471,6 +2531,7 @@
 				9C3AAB6E16CB3E6400D4EF6D /* CubeLine15-ipad.png in Resources */,
 				9C3AAB6F16CB3E6400D4EF6D /* CubeLine16-ipad.png in Resources */,
 				9C3AAB7016CB3E6400D4EF6D /* CubeLine17-ipad.png in Resources */,
+				8424FCD0193D787300EBD382 /* 29x29.png in Resources */,
 				9C3AAB7116CB3E6400D4EF6D /* CubeLine18-ipad.png in Resources */,
 				9C3AAB7216CB3E6400D4EF6D /* CubeLine19-ipad.png in Resources */,
 				9C3AAB7316CB3E6400D4EF6D /* CubeLine20-ipad.png in Resources */,
@@ -2526,6 +2587,7 @@
 				9CE950FF16D74E8300746DFF /* BlurslotStilistik01-6-ipad.png in Resources */,
 				9CE9510016D74E8300746DFF /* BlurslotStilistik01-7-ipad.png in Resources */,
 				9CE9510116D74E8300746DFF /* BlurslotStilistik01-8-ipad.png in Resources */,
+				8424FCDC193D78B900EBD382 /* armyhd.png in Resources */,
 				9CE9510216D74E8300746DFF /* BlurslotStilistik01-9-ipad.png in Resources */,
 				9CE9510316D74E8300746DFF /* BlurslotStilistik01-10-ipad.png in Resources */,
 				9CE9510F16D74E9200746DFF /* BlurslotStilistik01-0-ipadhd.png in Resources */,
@@ -2542,6 +2604,7 @@
 				DDCBFE0916D9FAF3004DBEF5 /* FonInfo-ipad.png in Resources */,
 				DDCBFE0A16D9FAF3004DBEF5 /* FonInfo-ipadhd.png in Resources */,
 				9C117A2316DCB081000D287E /* BlueFonFame-ipad.png in Resources */,
+				8424FCCD193D787300EBD382 /* 100x100.png in Resources */,
 				9C117A2416DCB081000D287E /* BlueFonLevel-ipad.png in Resources */,
 				9C117A2516DCB081000D287E /* WhileFonFame-ipad.png in Resources */,
 				9C117A2616DCB081000D287E /* WhileFonLevel-ipad.png in Resources */,
@@ -2553,6 +2616,8 @@
 				9CF5CE6D16DDD86A002F1B11 /* FonBack-ipad.png in Resources */,
 				9CF5CE6E16DDD86A002F1B11 /* FonMainMenu-ipad.png in Resources */,
 				9CF5CE6F16DDD86A002F1B11 /* FutureButton-ipad.png in Resources */,
+				8424FCCF193D787300EBD382 /* 152x152.png in Resources */,
+				8424FCD3193D787300EBD382 /* 512x512.png in Resources */,
 				9CF5CE7016DDD86A002F1B11 /* PresentButton-ipad.png in Resources */,
 				9CF5CE7116DDD86A002F1B11 /* Setting-ipad.png in Resources */,
 				9CF5CE7216DDD86A002F1B11 /* StarNone-ipad.png in Resources */,
@@ -2607,6 +2672,7 @@
 				DD4A870016EFFBB700E72FDA /* FonMapLevel01_1-ipadhd.png in Resources */,
 				DD4A870116EFFBB700E72FDA /* FonMapLevel01_2-ipadhd.png in Resources */,
 				9CAD298816F18B7B00E38F5D /* ButtonMenu-ipad.png in Resources */,
+				8424FCDB193D78B900EBD382 /* army.png in Resources */,
 				9CAD298916F18B7B00E38F5D /* TouchButtonMenu-ipad.png in Resources */,
 				9CAD298A16F18B7B00E38F5D /* WinView-ipad.png in Resources */,
 				9CAD298E16F18B8A00E38F5D /* ButtonMenu-ipadhd.png in Resources */,
@@ -2616,6 +2682,7 @@
 				9C046760171D421500BAC30D /* BuyNow-ipad.png in Resources */,
 				9C046761171D421500BAC30D /* Check-ipad.png in Resources */,
 				9C046762171D421500BAC30D /* CloseinApp-ipad.png in Resources */,
+				8424FCCE193D787300EBD382 /* 144x144.png in Resources */,
 				9C046763171D421500BAC30D /* CoinsFon-ipad.png in Resources */,
 				9C046764171D421500BAC30D /* KeysFon-ipad.png in Resources */,
 				9C046767171D422600BAC30D /* TouchBuyNow-ipad.png in Resources */,
@@ -2699,6 +2766,7 @@
 				9C1ED4A3175CA1C600BEFA7B /* FonAlert02-ipad.png in Resources */,
 				9C1ED4A6175CA1D300BEFA7B /* FonAlert01-ipadhd.png in Resources */,
 				9C1ED4A7175CA1D300BEFA7B /* FonAlert02-ipadhd.png in Resources */,
+				8424FCD6193D787300EBD382 /* 76x76.png in Resources */,
 				9C1ED4AB175CA1E200BEFA7B /* No-ipad.png in Resources */,
 				9C1ED4AC175CA1E200BEFA7B /* OK-ipad.png in Resources */,
 				9C1ED4AD175CA1E200BEFA7B /* Yes-ipad.png in Resources */,
@@ -2966,7 +3034,7 @@
 				GCC_PREFIX_HEADER = iSlot/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"iSlot/libs/kazmath/include\"";
 				INFOPLIST_FILE = iSlot/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
@@ -2986,7 +3054,7 @@
 				GCC_PREFIX_HEADER = iSlot/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"iSlot/libs/kazmath/include\"";
 				INFOPLIST_FILE = iSlot/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
