@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9C70749416C375800053C3F0"
-               BuildableName = "Time Slots.app"
+               BuildableName = "Historic Slots.app"
                BlueprintName = "Historic Slots"
                ReferencedContainer = "container:Historic Slots.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9C70749416C375800053C3F0"
-            BuildableName = "Time Slots.app"
+            BuildableName = "Historic Slots.app"
             BlueprintName = "Historic Slots"
             ReferencedContainer = "container:Historic Slots.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9C70749416C375800053C3F0"
-            BuildableName = "Time Slots.app"
+            BuildableName = "Historic Slots.app"
             BlueprintName = "Historic Slots"
             ReferencedContainer = "container:Historic Slots.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9C70749416C375800053C3F0"
-            BuildableName = "Time Slots.app"
+            BuildableName = "Historic Slots.app"
             BlueprintName = "Historic Slots"
             ReferencedContainer = "container:Historic Slots.xcodeproj">
          </BuildableReference>
