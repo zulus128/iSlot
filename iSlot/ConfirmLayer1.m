@@ -59,11 +59,11 @@
         //        menuconf.opacity = 0;
         menuconf1.enabled = NO;
         
-        labelConf1 = [CCLabelTTF labelWithString:@"You do not have" fontName:@"Marker Felt" fontSize:44];
+        labelConf1 = [CCLabelTTF labelWithString:@"You do not have" fontName:MAINFONT fontSize:44];
 		labelConf1.position =  ccp(512 , 384 + 60);
         labelConf1.opacity = 0;
 		[self addChild: labelConf1 z:21];
-        labelConf1_1 = [CCLabelTTF labelWithString:@"enough coins." fontName:@"Marker Felt" fontSize:44];
+        labelConf1_1 = [CCLabelTTF labelWithString:@"enough coins." fontName:MAINFONT fontSize:44];
 		labelConf1_1.position =  ccp(512 , 384 + 10);
         labelConf1_1.opacity = 0;
 		[self addChild: labelConf1_1 z:21];

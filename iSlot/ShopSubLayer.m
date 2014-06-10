@@ -134,7 +134,7 @@
             ll2.tag = SHOPSUB_TAG;
             [self addChild: ll2 z:5];
             
-            lab1 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", (lines - 2) * 250] fontName:@"Marker Felt" fontSize:40];
+            lab1 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", (lines - 2) * 250] fontName:MAINFONT fontSize:40];
             lab1.position =  ccp(x - 18, y - 50);
             lab1.opacity = 0;
             lab1.tag = SHOPSUB_TAG;

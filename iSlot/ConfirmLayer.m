@@ -49,7 +49,7 @@
         //        menuconf.opacity = 0;
         menuconf.enabled = NO;
         
-        labelConf = [CCLabelTTF labelWithString:@"???" fontName:@"Marker Felt" fontSize:44];
+        labelConf = [CCLabelTTF labelWithString:@"???" fontName:MAINFONT fontSize:44];
 		labelConf.position =  ccp(512 , 384 + 30);
         labelConf.opacity = 0;
 		[self addChild: labelConf z:21];

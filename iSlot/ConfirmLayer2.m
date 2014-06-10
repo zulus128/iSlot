@@ -49,15 +49,15 @@
         //        menuconf.opacity = 0;
         menuconf2.enabled = NO;
         
-        labelConf2 = [CCLabelTTF labelWithString:@"After the purchase ensures" fontName:@"Marker Felt" fontSize:44];
+        labelConf2 = [CCLabelTTF labelWithString:@"After the purchase ensures" fontName:MAINFONT fontSize:44];
 		labelConf2.position =  ccp(512 , 384 + 90);
         labelConf2.opacity = 0;
 		[self addChild: labelConf2 z:21];
-        labelConf2_1 = [CCLabelTTF labelWithString:@"you have least 250 coins." fontName:@"Marker Felt" fontSize:44];
+        labelConf2_1 = [CCLabelTTF labelWithString:@"you have least 250 coins." fontName:MAINFONT fontSize:44];
 		labelConf2_1.position =  ccp(512 , 384 + 45);
         labelConf2_1.opacity = 0;
 		[self addChild: labelConf2_1 z:21];
-        labelConf2_2 = [CCLabelTTF labelWithString:@"Continue shopping?" fontName:@"Marker Felt" fontSize:44];
+        labelConf2_2 = [CCLabelTTF labelWithString:@"Continue shopping?" fontName:MAINFONT fontSize:44];
 		labelConf2_2.position =  ccp(512 , 384 + 0);
         labelConf2_2.opacity = 0;
 		[self addChild: labelConf2_2 z:21];

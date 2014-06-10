@@ -7,6 +7,7 @@
 //
 
 #import <GameKit/GameKit.h>
+#import "GameCenterManager.h"
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
@@ -18,7 +19,7 @@
 #define Ldelay 0.5f
 
 // HelloWorldLayer
-@interface IntroLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate> {
+@interface IntroLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate, GameCenterManagerDelegate> {
     
     CCLabelTTF *labelMoney;
     CCLabelTTF *labelKeys;
@@ -50,5 +51,16 @@
 +(CCScene *) scene;
 - (void) toTop;
 - (void) refreshLabels;
+
+@property (nonatomic, retain) GameCenterManager *gameCenterManager;
+@property (nonatomic, assign) int64_t currentScore;
+@property (nonatomic, retain) NSString* cachedHighestScore;
+@property (nonatomic, retain) UIView* resetAchievementsView;
+@property (nonatomic, retain) UIView* gameButtonView;
+@property (nonatomic, retain) NSString* personalBestScoreDescription;
+@property (nonatomic, retain) NSString* personalBestScoreString;
+@property (nonatomic, retain) NSString* leaderboardHighScoreDescription;
+@property (nonatomic, retain) NSString* leaderboardHighScoreString;
+@property (nonatomic, retain) NSString* currentLeaderBoard;
 
 @end

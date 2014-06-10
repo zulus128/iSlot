@@ -468,11 +468,11 @@ static BonusLayer* bonlay;
         combinations = [[NSMutableArray alloc] init];
         
         
-		labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:@"Marker Felt" fontSize:24];
+		labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:MAINFONT fontSize:24];
 		labelYourLuck.position =  ccp( 637 , 720 );
 		[self addChild: labelYourLuck z:100];
         
-        labelBet = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"BET: %d", [Common instance].coins * [Common instance].lines] fontName:@"Marker Felt" fontSize:34];
+        labelBet = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"BET: %d", [Common instance].coins * [Common instance].lines] fontName:MAINFONT fontSize:34];
 		labelBet.position =  ccp( 510 , 37 );
 		[self addChild: labelBet z:100];
 
@@ -481,50 +481,50 @@ static BonusLayer* bonlay;
         
         int lmoney = [self getLmoney];
         
-        labelLevelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney] fontName:@"Marker Felt" fontSize:24];
+        labelLevelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney] fontName:MAINFONT fontSize:24];
 		labelLevelMoney.position =  ccp( 910 , 677 );
 		[self addChild: labelLevelMoney z:16];
         
-		labelFameLevel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints] fontName:@"Marker Felt" fontSize:18];
+		labelFameLevel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints] fontName:MAINFONT fontSize:18];
 		labelFameLevel.position =  ccp( 145 , 130 );
 		[self addChild: labelFameLevel z:100];
 
-		CCLabelTTF* lastwin = [CCLabelTTF labelWithString:@"LAST WIN" fontName:@"Marker Felt" fontSize:34];
+		CCLabelTTF* lastwin = [CCLabelTTF labelWithString:@"LAST WIN" fontName:MAINFONT fontSize:34];
 		lastwin.position =  ccp( 510 , 160 );
 		[self addChild: lastwin z:100];
 
-		CCLabelTTF* coinslab = [CCLabelTTF labelWithString:@"Coins" fontName:@"Marker Felt" fontSize:20];
+		CCLabelTTF* coinslab = [CCLabelTTF labelWithString:@"Coins" fontName:MAINFONT fontSize:20];
 		coinslab.position =  ccp( 315 , 170 );
 		[self addChild: coinslab z:100];
         
-		CCLabelTTF* lineslab = [CCLabelTTF labelWithString:@"Lines" fontName:@"Marker Felt" fontSize:20];
+		CCLabelTTF* lineslab = [CCLabelTTF labelWithString:@"Lines" fontName:MAINFONT fontSize:20];
 		lineslab.position =  ccp( 710 , 170 );
 		[self addChild: lineslab z:100];
         
-		lastw = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].lastwin] fontName:@"Marker Felt" fontSize:34];
+		lastw = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].lastwin] fontName:MAINFONT fontSize:34];
 		lastw.position =  ccp( 510 , 110 );
 		[self addChild: lastw z:100];
         
-		label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.3f", [Common instance].speed] fontName:@"Marker Felt" fontSize:24];
+		label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.3f", [Common instance].speed] fontName:MAINFONT fontSize:24];
 		label.position =  ccp( size.width /2 , 40 );
 //		[self addChild: label z:100];
 
-        labelCoins = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].coins] fontName:@"Marker Felt" fontSize:44];
+        labelCoins = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].coins] fontName:MAINFONT fontSize:44];
         labelCoins.color = ccc3(0, 0, 0);
         labelCoins.position =  ccp( 320 , 80 );
         [self addChild: labelCoins z:10];
         
-        labelLines = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].lines] fontName:@"Marker Felt" fontSize:44];
+        labelLines = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].lines] fontName:MAINFONT fontSize:44];
         labelLines.color = ccc3(0, 0, 0);
         labelLines.position =  ccp( 710 , 80 );
         [self addChild: labelLines z:10];
 
-        labelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:@"Marker Felt" fontSize:44];
+        labelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:MAINFONT fontSize:44];
         labelMoney.color = ccc3(0, 0, 0);
         labelMoney.position =  ccp( 300 , 730 );
         [self addChild: labelMoney z:10];
 
-        labelKeys = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:@"Marker Felt" fontSize:44];
+        labelKeys = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:MAINFONT fontSize:44];
         labelKeys.color = ccc3(0, 0, 0);
         labelKeys.position =  ccp( 900 , 730 );
         [self addChild: labelKeys z:13];
@@ -573,22 +573,22 @@ static BonusLayer* bonlay;
         luck3.tag = LUCK_TAG1;
         [self addChild:luck3 z:100];
 
-        CCLabelTTF* luplus = [CCLabelTTF labelWithString:@"++" fontName:@"Marker Felt" fontSize:35];
+        CCLabelTTF* luplus = [CCLabelTTF labelWithString:@"++" fontName:MAINFONT fontSize:35];
         CCMenuItemLabel* item_lu1 = [CCMenuItemLabel itemWithLabel:luplus target:self selector:@selector(luckPlus)];
-        CCLabelTTF* luminus = [CCLabelTTF labelWithString:@"--" fontName:@"Marker Felt" fontSize:35];
+        CCLabelTTF* luminus = [CCLabelTTF labelWithString:@"--" fontName:MAINFONT fontSize:35];
         CCMenuItemLabel* item_lu2 = [CCMenuItemLabel itemWithLabel:luminus target:self selector:@selector(luckMinus)];
         [item_lu1 setPosition:ccp(690, 725)];
         [item_lu2 setPosition:ccp(580, 725)];
 
-//        lrand = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Random: %d", randkoeff] fontName:@"Marker Felt" fontSize:15];
+//        lrand = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Random: %d", randkoeff] fontName:MAINFONT fontSize:15];
 //        CCMenuItemLabel* item_lrand = [CCMenuItemLabel itemWithLabel:lrand target:self selector:@selector(lRand)];
 //        [item_lrand setPosition:ccp(69, 660)];
         
-        lmax4 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Max %d of 4x comb", [Common instance].max4] fontName:@"Marker Felt" fontSize:15];
+        lmax4 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Max %d of 4x comb", [Common instance].max4] fontName:MAINFONT fontSize:15];
         CCMenuItemLabel* item_lmax4 = [CCMenuItemLabel itemWithLabel:lmax4 target:self selector:@selector(lMax4)];
         [item_lmax4 setPosition:ccp(169, 660)];
         
-        lmax5 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Max %d of 5x comb", [Common instance].max5] fontName:@"Marker Felt" fontSize:15];
+        lmax5 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Max %d of 5x comb", [Common instance].max5] fontName:MAINFONT fontSize:15];
         CCMenuItemLabel* item_lmax5 = [CCMenuItemLabel itemWithLabel:lmax5 target:self selector:@selector(lMax5)];
         [item_lmax5 setPosition:ccp(300, 660)];
         
@@ -811,9 +811,9 @@ static BonusLayer* bonlay;
         
         [item1 setPosition:ccp(879.5f, 92.5f)];
         
-        CCLabelTTF* labelplus = [CCLabelTTF labelWithString:@"++++" fontName:@"Marker Felt" fontSize:35];
+        CCLabelTTF* labelplus = [CCLabelTTF labelWithString:@"++++" fontName:MAINFONT fontSize:35];
         CCMenuItemLabel* item2 = [CCMenuItemLabel itemWithLabel:labelplus target:self selector:@selector(speedPlus)];
-        CCLabelTTF* labelminus = [CCLabelTTF labelWithString:@"----" fontName:@"Marker Felt" fontSize:35];
+        CCLabelTTF* labelminus = [CCLabelTTF labelWithString:@"----" fontName:MAINFONT fontSize:35];
         CCMenuItemLabel* item3 = [CCMenuItemLabel itemWithLabel:labelminus target:self selector:@selector(speedMinus)];
         [item2 setPosition:ccp(size.width / 2 - 70, 40)];
         [item3 setPosition:ccp(size.width / 2 + 70, 40)];
@@ -1051,7 +1051,7 @@ static BonusLayer* bonlay;
         [self addChild:complete z:1300];
         complete.position = ccp(512, 384);
 
-        ygift = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", 0] fontName:@"Marker Felt" fontSize:48];
+        ygift = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", 0] fontName:MAINFONT fontSize:48];
 		ygift.position =  ccp( 512 , 340 );
         ygift.visible = NO;
 		[self addChild: ygift z:1400];
@@ -1067,7 +1067,7 @@ static BonusLayer* bonlay;
         [self addChild:droppedcomp z:500];
         droppedcomp.position = ccp(514.5, 219);
         
-        dropped_lab = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Dropped %d Combinations", 0] fontName:@"Marker Felt" fontSize:30];
+        dropped_lab = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Dropped %d Combinations", 0] fontName:MAINFONT fontSize:30];
 		dropped_lab.position =  ccp( 514.5 , 219 );
         dropped_lab.visible = NO;
 		[self addChild: dropped_lab z:501];
@@ -1079,7 +1079,7 @@ static BonusLayer* bonlay;
 
         int n1 = [Common instance].curlevel / 10;
         int n2 = [Common instance].curlevel - n1 * 10;
-        CCLabelTTF* title = [CCLabelTTF labelWithString:(n2 == 9)?[NSString stringWithFormat:@"Bonus Level %d", n1]:[NSString stringWithFormat:@"Level %d-%d", n1, n2] fontName:@"Marker Felt" fontSize:28];
+        CCLabelTTF* title = [CCLabelTTF labelWithString:(n2 == 9)?[NSString stringWithFormat:@"Bonus Level %d", n1]:[NSString stringWithFormat:@"Level %d-%d", n1, n2] fontName:MAINFONT fontSize:28];
         [self addChild:title z:16];
         title.position = ccp(512, 650);
 
@@ -1124,7 +1124,7 @@ static BonusLayer* bonlay;
         luck2.position = ccp(634.5, 642.5);
         luck3.position = ccp(634.5, 664.5 - 45 - 16.5);
         
-        CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"No Luck" fontName:@"Marker Felt" fontSize:24];
+        CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"No Luck" fontName:MAINFONT fontSize:24];
         label51.position =  ccp(635, 664.5 - 22.5);
         label51.color = ccc3(0, 0, 0);
         label51.tag = tt++;
@@ -1240,17 +1240,17 @@ static BonusLayer* bonlay;
             
             float x = 670;
             int f = 16;
-            CCLabelTTF* label5 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Luck: +%d", n.intValue] fontName:@"Marker Felt" fontSize:f];
+            CCLabelTTF* label5 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Luck: +%d", n.intValue] fontName:MAINFONT fontSize:f];
             label5.position =  ccp(x, yfrm + 15);
             label5.color = ccc3(0, 0, 0);
             label5.tag = tt++;
             [self addChild: label5 z:98];
-            CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"Duration:" fontName:@"Marker Felt" fontSize:f];
+            CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"Duration:" fontName:MAINFONT fontSize:f];
             label51.position =  ccp(x, yfrm - 5);
             label51.color = ccc3(0, 0, 0);
             label51.tag = tt++;
             [self addChild: label51 z:98];
-            CCLabelTTF* label52 = [CCLabelTTF labelWithString:sss1 fontName:@"Marker Felt" fontSize:f];
+            CCLabelTTF* label52 = [CCLabelTTF labelWithString:sss1 fontName:MAINFONT fontSize:f];
             label52.position =  ccp(x, yfrm - 20);
             label52.color = ccc3(0, 0, 0);
             label52.tag = tt++;

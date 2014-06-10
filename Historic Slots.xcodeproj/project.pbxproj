@@ -396,8 +396,6 @@
 		9CD1704D16DF2C6A00B33099 /* CCScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1704C16DF2C6A00B33099 /* CCScrollLayer.m */; };
 		9CDA434B176981CD0054161D /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDA434A176981CD0054161D /* Default-Landscape@2x~ipad.png */; };
 		9CDA434D176982A70054161D /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDA434C176982A70054161D /* Default-Landscape~ipad.png */; };
-		9CE3EBC51768808000D0FD34 /* iconiPad-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE3EBC41768808000D0FD34 /* iconiPad-ipad.png */; };
-		9CE3EBC71768808800D0FD34 /* iconiPad-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE3EBC61768808800D0FD34 /* iconiPad-ipadhd.png */; };
 		9CE950F916D74E8300746DFF /* BlurslotStilistik01-0-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE950EE16D74E8300746DFF /* BlurslotStilistik01-0-ipad.png */; };
 		9CE950FA16D74E8300746DFF /* BlurslotStilistik01-1-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE950EF16D74E8300746DFF /* BlurslotStilistik01-1-ipad.png */; };
 		9CE950FB16D74E8300746DFF /* BlurslotStilistik01-2-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE950F016D74E8300746DFF /* BlurslotStilistik01-2-ipad.png */; };
@@ -465,6 +463,8 @@
 		DD4C42D416E9CDE600FA4756 /* CCLayerPanZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4C42D316E9CDE600FA4756 /* CCLayerPanZoom.m */; };
 		DD84E94E174C45220009EB16 /* Star-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD84E94D174C45220009EB16 /* Star-ipad.png */; };
 		DD84E950174C45330009EB16 /* Star-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD84E94F174C45330009EB16 /* Star-ipadhd.png */; };
+		DD8BA34E194758BD00F536B1 /* DIOGENES.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD8BA34D194758BD00F536B1 /* DIOGENES.ttf */; };
+		DD8BA3511947621800F536B1 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8BA3501947621800F536B1 /* GameCenterManager.m */; };
 		DD9709CD173967560078FDC4 /* FonPrice-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709CA173967560078FDC4 /* FonPrice-ipad.png */; };
 		DD9709CE173967560078FDC4 /* FonShopLine-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709CB173967560078FDC4 /* FonShopLine-ipad.png */; };
 		DD9709CF173967560078FDC4 /* LockShop-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9709CC173967560078FDC4 /* LockShop-ipad.png */; };
@@ -1124,8 +1124,6 @@
 		9CD1704C16DF2C6A00B33099 /* CCScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScrollLayer.m; sourceTree = "<group>"; };
 		9CDA434A176981CD0054161D /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		9CDA434C176982A70054161D /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		9CE3EBC41768808000D0FD34 /* iconiPad-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconiPad-ipad.png"; sourceTree = "<group>"; };
-		9CE3EBC61768808800D0FD34 /* iconiPad-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconiPad-ipadhd.png"; sourceTree = "<group>"; };
 		9CE950EE16D74E8300746DFF /* BlurslotStilistik01-0-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlurslotStilistik01-0-ipad.png"; sourceTree = "<group>"; };
 		9CE950EF16D74E8300746DFF /* BlurslotStilistik01-1-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlurslotStilistik01-1-ipad.png"; sourceTree = "<group>"; };
 		9CE950F016D74E8300746DFF /* BlurslotStilistik01-2-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlurslotStilistik01-2-ipad.png"; sourceTree = "<group>"; };
@@ -1196,6 +1194,9 @@
 		DD4C42D316E9CDE600FA4756 /* CCLayerPanZoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLayerPanZoom.m; sourceTree = "<group>"; };
 		DD84E94D174C45220009EB16 /* Star-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star-ipad.png"; sourceTree = "<group>"; };
 		DD84E94F174C45330009EB16 /* Star-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star-ipadhd.png"; sourceTree = "<group>"; };
+		DD8BA34D194758BD00F536B1 /* DIOGENES.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIOGENES.ttf; sourceTree = "<group>"; };
+		DD8BA34F1947621800F536B1 /* GameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterManager.h; sourceTree = "<group>"; };
+		DD8BA3501947621800F536B1 /* GameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterManager.m; sourceTree = "<group>"; };
 		DD9709CA173967560078FDC4 /* FonPrice-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonPrice-ipad.png"; sourceTree = "<group>"; };
 		DD9709CB173967560078FDC4 /* FonShopLine-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FonShopLine-ipad.png"; sourceTree = "<group>"; };
 		DD9709CC173967560078FDC4 /* LockShop-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LockShop-ipad.png"; sourceTree = "<group>"; };
@@ -1641,6 +1642,7 @@
 		9C70748C16C375800053C3F0 = {
 			isa = PBXGroup;
 			children = (
+				DD8BA34C194758AC00F536B1 /* font */,
 				84195A08193DC8630015AA6B /* sceleton+spin */,
 				8424FCD8193D787F00EBD382 /* army */,
 				8424FCC1193D787300EBD382 /* icons */,
@@ -1649,8 +1651,6 @@
 				9C07C757176AC53200B4D6D9 /* Hints */,
 				9CDA434C176982A70054161D /* Default-Landscape~ipad.png */,
 				9CDA434A176981CD0054161D /* Default-Landscape@2x~ipad.png */,
-				9CE3EBC61768808800D0FD34 /* iconiPad-ipadhd.png */,
-				9CE3EBC41768808000D0FD34 /* iconiPad-ipad.png */,
 				9C1ED49F175CA19300BEFA7B /* Confirms */,
 				DD84E94C174C450F0009EB16 /* Star */,
 				DD9709C91739673F0078FDC4 /* Shop */,
@@ -1738,6 +1738,8 @@
 				9CD1704C16DF2C6A00B33099 /* CCScrollLayer.m */,
 				DD4C42D216E9CDE600FA4756 /* CCLayerPanZoom.h */,
 				DD4C42D316E9CDE600FA4756 /* CCLayerPanZoom.m */,
+				DD8BA34F1947621800F536B1 /* GameCenterManager.h */,
+				DD8BA3501947621800F536B1 /* GameCenterManager.m */,
 				9C7074AB16C375800053C3F0 /* Resources */,
 				9C7074C316C375800053C3F0 /* libs */,
 				9C70763416C375830053C3F0 /* Supporting Files */,
@@ -2257,6 +2259,14 @@
 			name = Star;
 			sourceTree = "<group>";
 		};
+		DD8BA34C194758AC00F536B1 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				DD8BA34D194758BD00F536B1 /* DIOGENES.ttf */,
+			);
+			name = font;
+			sourceTree = "<group>";
+		};
 		DD9709C91739673F0078FDC4 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
@@ -2676,6 +2686,7 @@
 				9C68CE3916E7012A00D9BD0A /* Level01-ipad.png in Resources */,
 				9C68CE3A16E7012A00D9BD0A /* Level02-ipad.png in Resources */,
 				9C68CE3B16E7012A00D9BD0A /* Level03-ipad.png in Resources */,
+				DD8BA34E194758BD00F536B1 /* DIOGENES.ttf in Resources */,
 				9C68CE3C16E7012A00D9BD0A /* Level04-ipad.png in Resources */,
 				9C68CE3D16E7012A00D9BD0A /* Level05-ipad.png in Resources */,
 				9C68CE3E16E7012A00D9BD0A /* Level06-ipad.png in Resources */,
@@ -2815,8 +2826,6 @@
 				9C1ED4BF175CA21200BEFA7B /* TouchYes-ipadhd.png in Resources */,
 				DDCB38BE1764222F00F1D3B8 /* ChechLevel-ipad.png in Resources */,
 				DDCB38C01764223F00F1D3B8 /* ChechLevel-ipadhd.png in Resources */,
-				9CE3EBC51768808000D0FD34 /* iconiPad-ipad.png in Resources */,
-				9CE3EBC71768808800D0FD34 /* iconiPad-ipadhd.png in Resources */,
 				9CDA434B176981CD0054161D /* Default-Landscape@2x~ipad.png in Resources */,
 				9CDA434D176982A70054161D /* Default-Landscape~ipad.png in Resources */,
 				9C07C75B176AC54000B4D6D9 /* 1-ipad.png in Resources */,
@@ -2955,6 +2964,7 @@
 				9C70759C16C375820053C3F0 /* CCTransitionProgress.m in Sources */,
 				9C7075A016C375820053C3F0 /* cocos2d.m in Sources */,
 				9C7075A716C375820053C3F0 /* CCDirectorIOS.m in Sources */,
+				DD8BA3511947621800F536B1 /* GameCenterManager.m in Sources */,
 				9C7075AA16C375820053C3F0 /* CCES2Renderer.m in Sources */,
 				9C7075AE16C375820053C3F0 /* CCGLView.m in Sources */,
 				9C7075B216C375820053C3F0 /* CCTouchDispatcher.m in Sources */,

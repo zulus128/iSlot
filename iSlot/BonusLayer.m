@@ -64,7 +64,7 @@
 //        it1.opacity = 0;
         it1.tag = 3;
 //        [it1 retain];
-        l1 = [CCLabelTTF labelWithString:@"3" fontName:@"Marker Felt" fontSize:fsize];
+        l1 = [CCLabelTTF labelWithString:@"3" fontName:MAINFONT fontSize:fsize];
 		l1.position =  ccpbon( 515, 281, 60, 38 );
 		[self addChild: l1 z:10];
         l1.opacity = 0;
@@ -75,7 +75,7 @@
         [it2 setPosition:ccpbon(330, 282, 119, 125)];
 //        it2.opacity = 0;
         it2.tag = 2;
-        l2 = [CCLabelTTF labelWithString:@"2" fontName:@"Marker Felt" fontSize:fsize];
+        l2 = [CCLabelTTF labelWithString:@"2" fontName:MAINFONT fontSize:fsize];
 		l2.position =  ccpbon( 390, 384, 60, 38 );
 		[self addChild: l2 z:10];
         l2.opacity = 0;
@@ -86,7 +86,7 @@
         [it3 setPosition:ccpbon(570, 282, 119, 125)];
 //        it3.opacity = 0;
         it3.tag = 2;
-        l3 = [CCLabelTTF labelWithString:@"2" fontName:@"Marker Felt" fontSize:fsize];
+        l3 = [CCLabelTTF labelWithString:@"2" fontName:MAINFONT fontSize:fsize];
 		l3.position =  ccpbon( 630, 384, 60, 38 );
 		[self addChild: l3 z:10];
         l3.opacity = 0;
@@ -97,7 +97,7 @@
         [it4 setPosition:ccpbon(208, 376, 119, 125)];
 //        it4.opacity = 0;
         it4.tag = 1;
-        l4 = [CCLabelTTF labelWithString:@"1" fontName:@"Marker Felt" fontSize:fsize];
+        l4 = [CCLabelTTF labelWithString:@"1" fontName:MAINFONT fontSize:fsize];
 		l4.position =  ccpbon( 267, 476, 60, 38 );
 		[self addChild: l4 z:10];
         l4.opacity = 0;
@@ -108,7 +108,7 @@
         [it5 setPosition:ccpbon(452, 376, 119, 125)];
 //        it5.opacity = 0;
         it5.tag = 1;
-        l5 = [CCLabelTTF labelWithString:@"1" fontName:@"Marker Felt" fontSize:fsize];
+        l5 = [CCLabelTTF labelWithString:@"1" fontName:MAINFONT fontSize:fsize];
 		l5.position =  ccpbon( 511, 476, 60, 38 );
 		[self addChild: l5 z:10];
         l5.opacity = 0;
@@ -119,7 +119,7 @@
         [it6 setPosition:ccpbon(696, 376, 119, 125)];
 //        it6.opacity = 0;
         it6.tag = 1;
-        l6 = [CCLabelTTF labelWithString:@"1" fontName:@"Marker Felt" fontSize:fsize];
+        l6 = [CCLabelTTF labelWithString:@"1" fontName:MAINFONT fontSize:fsize];
 		l6.position =  ccpbon( 755, 476, 60, 38 );
 		[self addChild: l6 z:10];
         l6.opacity = 0;

@@ -32,7 +32,7 @@
 #import "Support/CGPointExtension.h"
 
 static NSUInteger _globalFontSize = kCCItemSize;
-static NSString *_globalFontName = @"Marker Felt";
+static NSString *_globalFontName = MAINFONT;
 static BOOL _globalFontNameRelease = NO;
 
 

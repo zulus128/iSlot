@@ -164,17 +164,17 @@ static CCScene *scene;
 //    yluck.position = ccp(633, 730);
 
     
-    labelMoney = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:@"Marker Felt" fontSize:44] retain];
+    labelMoney = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:MAINFONT fontSize:44] retain];
     labelMoney.color = ccc3(0, 0, 0);
     labelMoney.position =  ccp( 300 , 730 );
     [scene addChild: labelMoney z:413];
     
-    labelKeys = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:@"Marker Felt" fontSize:44]retain];
+    labelKeys = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:MAINFONT fontSize:44]retain];
     labelKeys.color = ccc3(0, 0, 0);
     labelKeys.position =  ccp( 900 , 730 );
     [scene addChild: labelKeys z:413];
 
-    labelYourLuck = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:@"Marker Felt" fontSize:24]retain];
+    labelYourLuck = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:MAINFONT fontSize:24]retain];
     labelYourLuck.position =  ccp( 637 , 720 );
     [scene addChild: labelYourLuck z:413];
 
@@ -238,7 +238,7 @@ static CCScene *scene;
         luck2.position = ccp(634.5, 642.5);
         luck3.position = ccp(634.5, 664.5 - 45 - 16.5);
         
-        CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"No Luck" fontName:@"Marker Felt" fontSize:24];
+        CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"No Luck" fontName:MAINFONT fontSize:24];
         label51.position =  ccp(635, 664.5 - 22.5);
         label51.color = ccc3(0, 0, 0);
         label51.tag = tt++;
@@ -361,17 +361,17 @@ static CCScene *scene;
             
             float x = 670;
             int f = 16;
-            CCLabelTTF* label5 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Luck: +%d", n.intValue] fontName:@"Marker Felt" fontSize:f];
+            CCLabelTTF* label5 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Luck: +%d", n.intValue] fontName:MAINFONT fontSize:f];
             label5.position =  ccp(x, yfrm + 15);
             label5.color = ccc3(0, 0, 0);
             label5.tag = tt++;
             [scene addChild: label5 z:98];
-            CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"Duration:" fontName:@"Marker Felt" fontSize:f];
+            CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"Duration:" fontName:MAINFONT fontSize:f];
             label51.position =  ccp(x, yfrm - 5);
             label51.color = ccc3(0, 0, 0);
             label51.tag = tt++;
             [scene addChild: label51 z:98];
-            CCLabelTTF* label52 = [CCLabelTTF labelWithString:sss1 fontName:@"Marker Felt" fontSize:f];
+            CCLabelTTF* label52 = [CCLabelTTF labelWithString:sss1 fontName:MAINFONT fontSize:f];
             label52.position =  ccp(x, yfrm - 20);
             label52.color = ccc3(0, 0, 0);
             label52.tag = tt++;

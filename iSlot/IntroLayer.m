@@ -49,6 +49,27 @@ static ShopLayer* shoplay;
 {
 	if( (self=[super init])) {
 
+//        for (NSString *familyName in [UIFont familyNames]) {
+//            
+//            for (NSString *fontName in [UIFont fontNamesForFamilyName:familyName]) {
+//                
+//                NSLog(@"%@", fontName);
+//                
+//            }
+//            
+//        }
+        
+        if([GameCenterManager isGameCenterAvailable])
+        {
+            self.gameCenterManager= [[[GameCenterManager alloc] init] autorelease];
+            [self.gameCenterManager setDelegate: self];
+            [self.gameCenterManager authenticateLocalUser];
+            
+            
+            //                [self updateCurrentScore];
+            
+        }
+
         CGSize screenSize = [CCDirector sharedDirector].winSize;
         
         self.touchEnabled = YES;
@@ -80,21 +101,21 @@ static ShopLayer* shoplay;
 //        [layers release];
 
         
-        labelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:@"Marker Felt" fontSize:44];
+        labelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:MAINFONT fontSize:44];
         labelMoney.color = ccc3(0, 0, 0);
         labelMoney.position =  ccp( 300 , 730 );
         [self addChild: labelMoney z:13];
         
-        labelKeys = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:@"Marker Felt" fontSize:44];
+        labelKeys = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:MAINFONT fontSize:44];
         labelKeys.color = ccc3(0, 0, 0);
         labelKeys.position =  ccp( 900 , 730 );
         [self addChild: labelKeys z:13];
         
-        labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:@"Marker Felt" fontSize:24];
+        labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:MAINFONT fontSize:24];
 		labelYourLuck.position =  ccp( 637 , 720 );
 		[self addChild: labelYourLuck z:108];
 
-        labelFameLevel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints] fontName:@"Marker Felt" fontSize:18];
+        labelFameLevel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints] fontName:MAINFONT fontSize:18];
 		labelFameLevel.position =  ccp( 145 , 110 );
 		[self addChild: labelFameLevel z:100];
 
@@ -242,17 +263,18 @@ static ShopLayer* shoplay;
         CCSprite *spgc_t1 = [CCSprite spriteWithFile:@"TouchGameCenter.png"];
 		CCMenuItemSprite *itemgc = [CCMenuItemSprite itemWithNormalSprite:spgc selectedSprite:spgc_t1 block:^(id sender) {
             
-            //            GKGameCenterViewController *leaderboardViewController = [[GKGameCenterViewController alloc] init];
-            //            leaderboardViewController.gameCenterDelegate = self;
+//            GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
+//			leaderboardViewController.leaderboardDelegate = self;
+//			
+//			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+//			
+//			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
+//			
+//			[leaderboardViewController release];
             
-            GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
-			leaderboardViewController.leaderboardDelegate = self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
-			
-			[leaderboardViewController release];
+            
+            [self showLeaderboard];
+            
 		}];
         [itemgc setPosition:ccp(525, 730)];
         
@@ -343,6 +365,23 @@ static ShopLayer* shoplay;
 	return self;
 }
 
+- (void) showLeaderboard;
+{
+            GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
+			leaderboardController.leaderboardDelegate = self;
+
+	if (leaderboardController != NULL)
+	{
+		leaderboardController.category = self.currentLeaderBoard;
+		leaderboardController.timeScope = GKLeaderboardTimeScopeAllTime;
+		leaderboardController.leaderboardDelegate = self;
+//		[self presentModalViewController: leaderboardController animated: YES];
+        AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+        [[app navController] presentModalViewController:leaderboardController animated:YES];
+
+	}
+}
+
 - (void) showSlon {
     
     [inlay setTab:0];
@@ -382,7 +421,7 @@ static ShopLayer* shoplay;
         luck2.position = ccp(634.5, 642.5);
         luck3.position = ccp(634.5, 664.5 - 45 - 16.5);
 
-        CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"No Luck" fontName:@"Marker Felt" fontSize:24];
+        CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"No Luck" fontName:MAINFONT fontSize:24];
         label51.position =  ccp(635, 664.5 - 22.5);
         label51.color = ccc3(0, 0, 0);
         label51.tag = tt++;
@@ -506,17 +545,17 @@ static ShopLayer* shoplay;
 
         float x = 670;
         int f = 16;
-        CCLabelTTF* label5 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Luck: +%d", n.intValue] fontName:@"Marker Felt" fontSize:f];
+        CCLabelTTF* label5 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Luck: +%d", n.intValue] fontName:MAINFONT fontSize:f];
         label5.position =  ccp(x, yfrm + 15);
         label5.color = ccc3(0, 0, 0);
         label5.tag = tt++;
         [self addChild: label5 z:98];
-        CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"Duration:" fontName:@"Marker Felt" fontSize:f];
+        CCLabelTTF* label51 = [CCLabelTTF labelWithString:@"Duration:" fontName:MAINFONT fontSize:f];
         label51.position =  ccp(x, yfrm - 5);
         label51.color = ccc3(0, 0, 0);
         label51.tag = tt++;
         [self addChild: label51 z:98];
-        CCLabelTTF* label52 = [CCLabelTTF labelWithString:sss1 fontName:@"Marker Felt" fontSize:f];
+        CCLabelTTF* label52 = [CCLabelTTF labelWithString:sss1 fontName:MAINFONT fontSize:f];
         label52.position =  ccp(x, yfrm - 20);
         label52.color = ccc3(0, 0, 0);
         label52.tag = tt++;
