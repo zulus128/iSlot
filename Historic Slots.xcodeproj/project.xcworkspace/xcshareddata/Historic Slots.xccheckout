@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>54E0AC3F-2D9A-4E13-80AA-0399DA5DCD37</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Historic Slots</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4E8B9F65-D6EA-4A7E-8368-300CBF182AB6</key>
+		<string>http://github.com/zulus128/iSlot.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Historic Slots.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4E8B9F65-D6EA-4A7E-8368-300CBF182AB6</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://github.com/zulus128/iSlot.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4E8B9F65-D6EA-4A7E-8368-300CBF182AB6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4E8B9F65-D6EA-4A7E-8368-300CBF182AB6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iSlot</string>
+		</dict>
+	</array>
+</dict>
+</plist>
