@@ -166,16 +166,17 @@ static CCScene *scene;
     
     labelMoney = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:MAINFONT fontSize:44] retain];
     labelMoney.color = ccc3(0, 0, 0);
-    labelMoney.position =  ccp( 300 , 730 );
+    labelMoney.position =  ccp( 300 , 730 - MONEY_Y_CORRECTION);
     [scene addChild: labelMoney z:413];
     
     labelKeys = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:MAINFONT fontSize:44]retain];
     labelKeys.color = ccc3(0, 0, 0);
-    labelKeys.position =  ccp( 900 , 730 );
+    labelKeys.position =  ccp( 900 , 730 - MONEY_Y_CORRECTION);
     [scene addChild: labelKeys z:413];
 
     labelYourLuck = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:MAINFONT fontSize:24]retain];
     labelYourLuck.position =  ccp( 637 , 720 );
+    labelYourLuck.color = BEJ_COLOR;
     [scene addChild: labelYourLuck z:413];
 
     

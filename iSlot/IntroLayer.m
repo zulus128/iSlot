@@ -103,16 +103,17 @@ static ShopLayer* shoplay;
         
         labelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:MAINFONT fontSize:44];
         labelMoney.color = ccc3(0, 0, 0);
-        labelMoney.position =  ccp( 300 , 730 );
+        labelMoney.position =  ccp( 300 , 730 - MONEY_Y_CORRECTION);
         [self addChild: labelMoney z:13];
         
         labelKeys = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:MAINFONT fontSize:44];
         labelKeys.color = ccc3(0, 0, 0);
-        labelKeys.position =  ccp( 900 , 730 );
+        labelKeys.position =  ccp( 900 , 730 - MONEY_Y_CORRECTION);
         [self addChild: labelKeys z:13];
         
         labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:MAINFONT fontSize:24];
 		labelYourLuck.position =  ccp( 637 , 720 );
+        labelYourLuck.color = BEJ_COLOR;
 		[self addChild: labelYourLuck z:108];
 
         labelFameLevel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints] fontName:MAINFONT fontSize:18];

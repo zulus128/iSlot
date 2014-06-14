@@ -470,10 +470,12 @@ static BonusLayer* bonlay;
         
 		labelYourLuck = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d%%", [Common instance].yourluck] fontName:MAINFONT fontSize:24];
 		labelYourLuck.position =  ccp( 637 , 720 );
+        labelYourLuck.color = BEJ_COLOR;
 		[self addChild: labelYourLuck z:100];
         
         labelBet = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"BET: %d", [Common instance].coins * [Common instance].lines] fontName:MAINFONT fontSize:34];
-		labelBet.position =  ccp( 510 , 37 );
+        labelBet.color = BOR_COLOR;
+		labelBet.position =  ccp( 510 , 37 - MONEY_Y_CORRECTION );
 		[self addChild: labelBet z:100];
 
         [Common instance].levelwin = 0;
@@ -482,27 +484,33 @@ static BonusLayer* bonlay;
         int lmoney = [self getLmoney];
         
         labelLevelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney] fontName:MAINFONT fontSize:24];
-		labelLevelMoney.position =  ccp( 910 , 677 );
+		labelLevelMoney.position =  ccp( 880 , 680 );
+        labelLevelMoney.color = BEJ_COLOR;
 		[self addChild: labelLevelMoney z:16];
         
 		labelFameLevel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Level of fame: %d. Points: %d", [Common instance].famelevel1, [Common instance].famepoints] fontName:MAINFONT fontSize:18];
 		labelFameLevel.position =  ccp( 145 , 130 );
+        labelFameLevel.color = BOR_COLOR;
 		[self addChild: labelFameLevel z:100];
 
 		CCLabelTTF* lastwin = [CCLabelTTF labelWithString:@"LAST WIN" fontName:MAINFONT fontSize:34];
-		lastwin.position =  ccp( 510 , 160 );
+		lastwin.position =  ccp( 510 , 160 - MONEY_Y_CORRECTION);
+        lastwin.color = BOR_COLOR;
 		[self addChild: lastwin z:100];
 
 		CCLabelTTF* coinslab = [CCLabelTTF labelWithString:@"Coins" fontName:MAINFONT fontSize:20];
 		coinslab.position =  ccp( 315 , 170 );
+        coinslab.color = BEJ_COLOR;
 		[self addChild: coinslab z:100];
         
 		CCLabelTTF* lineslab = [CCLabelTTF labelWithString:@"Lines" fontName:MAINFONT fontSize:20];
 		lineslab.position =  ccp( 710 , 170 );
+        lineslab.color = BEJ_COLOR;
 		[self addChild: lineslab z:100];
         
 		lastw = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].lastwin] fontName:MAINFONT fontSize:34];
 		lastw.position =  ccp( 510 , 110 );
+        lastw.color = BOR_COLOR;
 		[self addChild: lastw z:100];
         
 		label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.3f", [Common instance].speed] fontName:MAINFONT fontSize:24];
@@ -510,32 +518,34 @@ static BonusLayer* bonlay;
 //		[self addChild: label z:100];
 
         labelCoins = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].coins] fontName:MAINFONT fontSize:44];
-        labelCoins.color = ccc3(0, 0, 0);
+        labelCoins.color = BEJ_COLOR;
         labelCoins.position =  ccp( 320 , 80 );
         [self addChild: labelCoins z:10];
         
         labelLines = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].lines] fontName:MAINFONT fontSize:44];
-        labelLines.color = ccc3(0, 0, 0);
+        labelLines.color = BEJ_COLOR;
         labelLines.position =  ccp( 710 , 80 );
         [self addChild: labelLines z:10];
 
         labelMoney = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].money] fontName:MAINFONT fontSize:44];
         labelMoney.color = ccc3(0, 0, 0);
-        labelMoney.position =  ccp( 300 , 730 );
+        labelMoney.position =  ccp( 300 , 730 - MONEY_Y_CORRECTION);
         [self addChild: labelMoney z:10];
 
         labelKeys = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [Common instance].keys] fontName:MAINFONT fontSize:44];
         labelKeys.color = ccc3(0, 0, 0);
-        labelKeys.position =  ccp( 900 , 730 );
+        labelKeys.position =  ccp( 900 , 730 - MONEY_Y_CORRECTION);
         [self addChild: labelKeys z:13];
 
         CCSprite* back = [CCSprite spriteWithFile:@"FonSlot01.png"];
         [self addChild:back z:5];
         back.position = ccp( size.width / 2, size.height / 2);
 
-        CCSprite* levelback = [CCSprite spriteWithFile:@"WhileFonLevel.png"];
+//        CCSprite* levelback = [CCSprite spriteWithFile:@"WhileFonLevel.png"];
+        CCSprite* levelback = [CCSprite spriteWithFile:@"LineCombination.png"];
         [self addChild:levelback z:3];
-        levelback.position = ccp(410, 678);
+        levelback.scaleX = 1.2f;
+        levelback.position = ccp(500, 650);
         
         star = [CCSprite spriteWithFile:@"Star.png"];
         [self addChild:star z:333];
@@ -551,7 +561,7 @@ static BonusLayer* bonlay;
 
         level = [CCSprite spriteWithFile:@"BlueFonLevel.png"];
         [self addChild:level z:4];
-        level.position = ccp(-400, 678);
+        level.position = ccp(LEVELBAR_X, LEVELBAR_Y);
 
 //        CCSprite* yluck = [CCSprite spriteWithFile:@"Luck.png"];
 //        [self addChild:yluck z:7];
@@ -579,6 +589,8 @@ static BonusLayer* bonlay;
         CCMenuItemLabel* item_lu2 = [CCMenuItemLabel itemWithLabel:luminus target:self selector:@selector(luckMinus)];
         [item_lu1 setPosition:ccp(690, 725)];
         [item_lu2 setPosition:ccp(580, 725)];
+//        [self addChild:luplus z:100];
+//        [self addChild:luminus z:100];
 
 //        lrand = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Random: %d", randkoeff] fontName:MAINFONT fontSize:15];
 //        CCMenuItemLabel* item_lrand = [CCMenuItemLabel itemWithLabel:lrand target:self selector:@selector(lRand)];
@@ -592,8 +604,6 @@ static BonusLayer* bonlay;
         CCMenuItemLabel* item_lmax5 = [CCMenuItemLabel itemWithLabel:lmax5 target:self selector:@selector(lMax5)];
         [item_lmax5 setPosition:ccp(300, 660)];
         
-        
-        
         CCSprite* fameback = [CCSprite spriteWithFile:@"WhileFonFame.png"];
         [self addChild:fameback z:3];
         fameback.position = ccp(155, 95);
@@ -605,20 +615,16 @@ static BonusLayer* bonlay;
         int y = size.height / 2 - 107;
         int x = size.width / 2 - 299;
 
-//        bar[0] = [[Bar alloc] initWithLayer:self X:x Y:y Delay:DELAY1];
-//        bar[1] = [[Bar alloc] initWithLayer:self X:(x + 150) Y:y Delay:DELAY2];
-//        bar[2] = [[Bar alloc] initWithLayer:self X:(x + 300) Y:y Delay:DELAY3];
-//        bar[3] = [[Bar alloc] initWithLayer:self X:(x + 450) Y:y Delay:DELAY4];
-//        bar[4] = [[Bar alloc] initWithLayer:self X:(x + 600) Y:y Delay:DELAY5];
-        
         bar[0] = [[Bar alloc] initWithLayer:self X:x Y:y Delay:DELAY1 BonDelay1:BON1DELAY1 BonDelay2:BON2DELAY1 BonDelay4:BON4DELAY1];
         bar[1] = [[Bar alloc] initWithLayer:self X:(x + 150) Y:y Delay:DELAY2 BonDelay1:BON1DELAY2 BonDelay2:BON2DELAY2 BonDelay4:BON4DELAY2];
         bar[2] = [[Bar alloc] initWithLayer:self X:(x + 300) Y:y Delay:DELAY3 BonDelay1:BON1DELAY3 BonDelay2:BON2DELAY3 BonDelay4:BON4DELAY3];
         bar[3] = [[Bar alloc] initWithLayer:self X:(x + 450) Y:y Delay:DELAY4 BonDelay1:BON1DELAY4 BonDelay2:BON2DELAY4 BonDelay4:BON4DELAY4];
         bar[4] = [[Bar alloc] initWithLayer:self X:(x + 600) Y:y Delay:DELAY5 BonDelay1:BON1DELAY5 BonDelay2:BON2DELAY5 BonDelay4:BON4DELAY5];
         
-        CCSprite *spriteSpin = [CCSprite spriteWithFile:@"Spin.png"];
-        CCSprite *spriteSpinSelected = [CCSprite spriteWithFile:@"TouchSpin.png"];
+//        CCSprite *spriteSpin = [CCSprite spriteWithFile:@"Spin.png"];
+//        CCSprite *spriteSpinSelected = [CCSprite spriteWithFile:@"TouchSpin.png"];
+        spriteSpin = [CCSprite spriteWithFile:@"spin-1.png"];
+        CCSprite *spriteSpinSelected = [CCSprite spriteWithFile:@"spin-2.png"];
 		CCMenuItemSprite *item1 = [CCMenuItemSprite itemWithNormalSprite:spriteSpin selectedSprite:spriteSpinSelected block:^(id sender) {
             
 //            NSLog(@"Spin clicked! finished = %d", [Common instance].finished);
@@ -626,6 +632,7 @@ static BonusLayer* bonlay;
             if(!info && [Common instance].finished <= 0) {
 
                 [menu setEnabled:NO];
+
 
                 dropped_lab.visible = NO;
                 droppedcomp.visible = NO;
@@ -646,36 +653,6 @@ static BonusLayer* bonlay;
                 int randcnt = 2;
                 BOOL pre = NO;
 
-//                if(lkoeff > 0) {
-//                
-//                    int lmoney = [self getLmoney];
-//                    float part = (float)lmoney / lkoeff;
-//                    int interv = [Common instance].levelwin / part;
-//                    float intervproc = [Common instance].levelwin / ((interv + 1) * part);
-//
-//                    NSLog(@"--- part = %f, interv = %d", part, interv);
-//
-//                    int cmbcnt = 3;
-//                    switch (lkoeff) {
-//                        case 3:
-//                            cmbcnt = combcnt3;
-//                            break;
-//                        case 4:
-//                            cmbcnt = combcnt4;
-//                            break;
-//                        case 5:
-//                            cmbcnt = combcnt5;
-//                            break;
-//                    }
-//                    if(((intervproc > 0.8) && (cmbcnt < (interv + 1))) || (interv > cmbcnt)) {
-//                        
-//                        pre = YES;
-//                        randcnt = lkoeff;
-//                    }
-//                    
-//                    NSLog(@"----- pre = %d, intervproc = %f", pre, intervproc);
-//                }
-                
                 if([Common instance].yourluck < 25)
                     randkoeff = 1;
                 else
@@ -790,6 +767,9 @@ static BonusLayer* bonlay;
 //                    NSLog(@"randline = %d, pos = %d, randcnt = %d", randLine, pos, randcnt);
                 }
 
+                [self skel_open];
+                [self performSelector:@selector(skel_close) withObject:nil afterDelay:SKEL_DELAY];
+
                 
                 [Common instance].famepoints ++;
                 [self refreshLabels];
@@ -809,7 +789,7 @@ static BonusLayer* bonlay;
             
 		}];
         
-        [item1 setPosition:ccp(879.5f, 92.5f)];
+        [item1 setPosition:ccp(910, 92)];
         
         CCLabelTTF* labelplus = [CCLabelTTF labelWithString:@"++++" fontName:MAINFONT fontSize:35];
         CCMenuItemLabel* item2 = [CCMenuItemLabel itemWithLabel:labelplus target:self selector:@selector(speedPlus)];
@@ -1014,7 +994,7 @@ static BonusLayer* bonlay;
         }];
         [itemluck setPosition:ccp(633, 730)];
 
-        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, /*itemback, item_lu1, item_lu2,*/ iteminapp, iteminapp1, itemgc, itemshop, itemluck, /*item_lrand, item_lkoef, item_lkoefof,*/ item_lmax4, item_lmax5, nil];
+        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, /*itemback, */item_lu1, item_lu2, iteminapp, iteminapp1, itemgc, itemshop, itemluck, /*item_lrand, item_lkoef, item_lkoefof, item_lmax4, item_lmax5,*/ nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 
@@ -1081,8 +1061,26 @@ static BonusLayer* bonlay;
         int n2 = [Common instance].curlevel - n1 * 10;
         CCLabelTTF* title = [CCLabelTTF labelWithString:(n2 == 9)?[NSString stringWithFormat:@"Bonus Level %d", n1]:[NSString stringWithFormat:@"Level %d-%d", n1, n2] fontName:MAINFONT fontSize:28];
         [self addChild:title z:16];
-        title.position = ccp(512, 650);
+        title.color = BEJ_COLOR;
+        title.position = ccp(512, 680);
 
+        skel1 = [CCSprite spriteWithFile:@"skeleton-1.png"];
+        [self addChild:skel1 z:6];
+        skel1.position = ccp(850, 140);
+        skel2 = [CCSprite spriteWithFile:@"skeleton-2.png"];
+        [self addChild:skel2 z:6];
+        skel2.position = ccp(850, 140);
+        skel2.visible = NO;
+        
+//        spin1 = [CCSprite spriteWithFile:@"spin-1.png"];
+//        [self addChild:spin1 z:50];
+//        spin1.position = ccp(850, 140);
+        spin2 = [CCSprite spriteWithFile:@"spin-2.png"];
+        [self addChild:spin2 z:50];
+        spin2.position = ccp(910, 92);
+        spin2.visible = NO;
+        
+        
         [self refreshLabels];
         
         [self unscheduleAllSelectors];
@@ -1091,6 +1089,26 @@ static BonusLayer* bonlay;
 
 	}
 	return self;
+}
+
+- (void) skel_open {
+    
+    skel2.visible = YES;
+    skel1.visible = NO;
+    
+    spriteSpin.visible = NO;
+    spin2.visible = YES;
+    
+}
+
+- (void) skel_close {
+    
+    skel1.visible = YES;
+    skel2.visible = NO;
+
+    spriteSpin.visible = YES;
+    spin2.visible = NO;
+    
 }
 
 - (void) showSlon {
@@ -1326,8 +1344,9 @@ static BonusLayer* bonlay;
     [labelLevelMoney setString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney]];
 
     float p = [Common instance].levelwin > lmoney?lmoney:[Common instance].levelwin;
+//    float p = lmoney;
     float x = p * 810 / lmoney;
-    level.position = ccp(-400 + x, 678);
+    level.position = ccp(LEVELBAR_X + x, LEVELBAR_Y);
     
 
     int k = 0;

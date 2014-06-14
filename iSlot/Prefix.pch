@@ -15,3 +15,8 @@
 
 #define MAINFONT @"Diogenes"
 //#define MAINFONT @"Marker Felt"
+
+#define MONEY_Y_CORRECTION 5
+
+#define BEJ_COLOR ccc3(0xed, 0xec, 0xc6)
+#define BOR_COLOR ccc3(0x47, 0x10, 0x0d)

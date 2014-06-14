@@ -17,6 +17,10 @@
 #define LUCK_TAG 20000
 #define LUCK_TAG1 223
 
+#define SKEL_DELAY 1.0f
+#define LEVELBAR_X -300
+#define LEVELBAR_Y 650
+
 @interface GameLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate> {
     
 //    int fames[FAME_LEVELS];
@@ -92,6 +96,11 @@
     int tt;
     float yfrm;
 
+    CCSprite* skel1;
+    CCSprite* skel2;
+//    CCSprite* spin1;
+    CCSprite* spin2;
+    CCSprite *spriteSpin;
 }
 -(void) toTop;
 
