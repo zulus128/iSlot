@@ -495,6 +495,7 @@ static CCScene *scene;
         
         CCSprite *fon1 = [CCSprite spriteWithFile:@"FonMapLevel01_2.png"];
         fon1.position = ccp(3072, 346);
+        [fon1 setOpacity: 127];
         [self addChild:fon1 z:6];
         
 //        arealock1 = [CCSprite spriteWithFile:@"LockArea01.png"];
@@ -982,7 +983,7 @@ static CCScene *scene;
             BOOL chvis = bonus?(t1 >= 1):(t1 >= 3);
             chech.visible = chvis;
 
-            aChildNode.isEnabled = !chvis && (aChildNode.tag <= next);
+            aChildNode.isEnabled = YES;//!chvis && (aChildNode.tag <= next); //todel
             
             CCNode* llock = [self getChildByTag:(aChildNode.tag + LOCKS_TAG)];
             llock.visible = (aChildNode.tag > next);//!aChildNode.isEnabled;

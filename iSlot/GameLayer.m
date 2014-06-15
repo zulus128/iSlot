@@ -994,7 +994,7 @@ static BonusLayer* bonlay;
         }];
         [itemluck setPosition:ccp(633, 730)];
 
-        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, /*itemback, */item_lu1, item_lu2, iteminapp, iteminapp1, itemgc, itemshop, itemluck, /*item_lrand, item_lkoef, item_lkoefof, item_lmax4, item_lmax5,*/ nil];
+        menu = [CCMenu menuWithItems: item1, /*item2, item3,*/ itempl1, itempl2, itemmn1, itemmn2, iteminfo, /*itemback,*/ item_lu1, item_lu2, iteminapp, iteminapp1, itemgc, itemshop, itemluck, /*item_lrand, item_lkoef, item_lkoefof, item_lmax4, item_lmax5,*/ nil];
         [self addChild: menu z:7];
 		[menu setPosition:ccp(0, 0)];
 
@@ -1338,7 +1338,7 @@ static BonusLayer* bonlay;
 
 -(void)starFinished {
     
-//    NSLog(@"starFinished %d", [Common instance].famepoints);
+    NSLog(@"starFinished %d", [Common instance].famepoints);
     
     int lmoney = [self getLmoney];
     [labelLevelMoney setString:[NSString stringWithFormat:@"%d / %d", [Common instance].levelwin, lmoney]];
@@ -1371,6 +1371,10 @@ static BonusLayer* bonlay;
     [Common instance].combcnt4 = 0;
     [Common instance].combcnt5 = 0;
 
+    if([Common instance].money < 1) {
+        
+        NSLog(@"Game Over");
+    }
 }
 
 -(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
@@ -1690,6 +1694,13 @@ static BonusLayer* bonlay;
                     
             }
             
+            if(cnt > 4) {
+                
+                bigwin.opacity = 0;
+                bigwin.visible = YES;
+                [bigwin runAction:[CCFadeIn actionWithDuration:0.5f]];
+            }
+
             
             if(cnt > 1)
                 mmoney = [[[values objectAtIndex:first]objectAtIndex:(cnt - 2)] intValue];
@@ -1770,33 +1781,36 @@ static BonusLayer* bonlay;
     }
     
     if(combinations.count > 3) {
-
+        
         [dropped_lab setString:[NSString stringWithFormat:@"Dropped %d Combinations", combinations.count]];
         dropped_lab.visible = YES;
         droppedcomp.visible = YES;
     }
     
+    
 
     bon = !bon;
-    
-    if(bon) {
-//        colorLayer.opacity = 0;
-//        CCAction* action = [CCFadeTo actionWithDuration:0.1f opacity:180];
-//        [colorLayer runAction:action];
-//
-//        menu.enabled = NO;
-//        
-//        bonlay.position = ccp(0, 0);
-//        [bonlay show];
-//        bonus = YES;
-    }
-    else {
+    int jbon = CCRANDOM_0_1() * 100;
 
+    if(jbon < 30) {
+        
+        colorLayer.opacity = 0;
+        CCAction* action = [CCFadeTo actionWithDuration:0.1f opacity:180];
+        [colorLayer runAction:action];
+
+        menu.enabled = NO;
+        
+        bonlay.position = ccp(0, 0);
+        [bonlay show];
+        bonus = YES;
+    }
+//    else {
+//
 //        bigwin.opacity = 0;
 //        bigwin.visible = YES;
 //        [bigwin runAction:[CCFadeIn actionWithDuration:0.5f]];
-        
-    }
+//        
+//    }
     
     int lmoney = [self getLmoney];
 //    if(1) {
