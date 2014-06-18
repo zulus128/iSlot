@@ -1,6 +1,9 @@
 //
 // Prefix header for all source files of the 'Test' target in the 'Test' project
 //
+//http://www.raywenderlich.com/ru/24095/in-app-%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B8-%D0%BF%D0%BE%D0%B4-ios-6-1
+//https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/StoreKitGuide/Introduction.html
+//
 
 #import <Availability.h>
 

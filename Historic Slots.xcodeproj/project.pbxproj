@@ -16,6 +16,8 @@
 		84195A16193DC9050015AA6B /* spin-1-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 84195A0E193DC9050015AA6B /* spin-1-ipadhd.png */; };
 		84195A17193DC9050015AA6B /* spin-2-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 84195A0F193DC9050015AA6B /* spin-2-ipad.png */; };
 		84195A18193DC9050015AA6B /* spin-2-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 84195A10193DC9050015AA6B /* spin-2-ipadhd.png */; };
+		841CB2A31951E01C00EC5AC4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841CB2A21951E01C00EC5AC4 /* StoreKit.framework */; };
+		841CB2A61951E09300EC5AC4 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 841CB2A51951E09300EC5AC4 /* IAPHelper.m */; };
 		8424FCCD193D787300EBD382 /* 100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCC2193D787300EBD382 /* 100x100.png */; };
 		8424FCCE193D787300EBD382 /* 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCC3193D787300EBD382 /* 144x144.png */; };
 		8424FCCF193D787300EBD382 /* 152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 8424FCC4193D787300EBD382 /* 152x152.png */; };
@@ -605,6 +607,9 @@
 		84195A0E193DC9050015AA6B /* spin-1-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spin-1-ipadhd.png"; sourceTree = "<group>"; };
 		84195A0F193DC9050015AA6B /* spin-2-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spin-2-ipad.png"; sourceTree = "<group>"; };
 		84195A10193DC9050015AA6B /* spin-2-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spin-2-ipadhd.png"; sourceTree = "<group>"; };
+		841CB2A21951E01C00EC5AC4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		841CB2A41951E09300EC5AC4 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
+		841CB2A51951E09300EC5AC4 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		8424FCC2193D787300EBD382 /* 100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 100x100.png; sourceTree = "<group>"; };
 		8424FCC3193D787300EBD382 /* 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 144x144.png; sourceTree = "<group>"; };
 		8424FCC4193D787300EBD382 /* 152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 152x152.png; sourceTree = "<group>"; };
@@ -1355,6 +1360,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841CB2A31951E01C00EC5AC4 /* StoreKit.framework in Frameworks */,
 				9C70749916C375800053C3F0 /* QuartzCore.framework in Frameworks */,
 				9C70749B16C375800053C3F0 /* OpenGLES.framework in Frameworks */,
 				9C70749D16C375800053C3F0 /* OpenAL.framework in Frameworks */,
@@ -1727,6 +1733,7 @@
 		9C70749716C375800053C3F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				841CB2A21951E01C00EC5AC4 /* StoreKit.framework */,
 				9C70749816C375800053C3F0 /* QuartzCore.framework */,
 				9C70749A16C375800053C3F0 /* OpenGLES.framework */,
 				9C70749C16C375800053C3F0 /* OpenAL.framework */,
@@ -1743,6 +1750,8 @@
 		9C7074AA16C375800053C3F0 /* iSlot */ = {
 			isa = PBXGroup;
 			children = (
+				841CB2A41951E09300EC5AC4 /* IAPHelper.h */,
+				841CB2A51951E09300EC5AC4 /* IAPHelper.m */,
 				849C2F9B19515B7D00F88851 /* GameoverLayer.h */,
 				849C2F9A19515B7D00F88851 /* GameoverLayer.m */,
 				9C70763816C375830053C3F0 /* AppDelegate.h */,
@@ -3107,6 +3116,7 @@
 				DDC3409C16C5F4CF00764535 /* Common.m in Sources */,
 				9C7FE26B16D34BB0000ED31C /* Combination.m in Sources */,
 				9CD1704A16DF15ED00B33099 /* CCMenuAdvanced.m in Sources */,
+				841CB2A61951E09300EC5AC4 /* IAPHelper.m in Sources */,
 				9CD1704D16DF2C6A00B33099 /* CCScrollLayer.m in Sources */,
 				9C68CE6E16E705F200D9BD0A /* MapLayer.m in Sources */,
 				DD4C42D416E9CDE600FA4756 /* CCLayerPanZoom.m in Sources */,
