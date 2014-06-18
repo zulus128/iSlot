@@ -14,7 +14,7 @@
 @interface ConfirmLayer : CCLayerColor {
     
     CCSprite *conffon;
-    CCSprite *conffon1;
+//    CCSprite *conffon1;
     
     CCMenu* menuconf;
     CCMenu* menuconf1;

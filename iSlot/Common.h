@@ -120,6 +120,7 @@
 - (void) storeTime;
 - (void) restoreTime;
 - (BOOL) invalidateTimeLuck;
+- (void) resetGame;
 
 @property (readwrite, assign) int curlevel;
 //@property (readwrite, assign) int curarea;

@@ -15,6 +15,7 @@
 #import "ShopLayer.h"
 
 #import "AppDelegate.h"
+#import "GameoverLayer.h"
 
 static ShopLayer* shoplay;
 
@@ -91,6 +92,10 @@ static BonusLayer* bonlay;
 
         colorLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 0)];
         [self addChild:colorLayer z:555];
+        
+        govlay = [GameoverLayer layerWithColor:ccc4(0, 0, 0, 0)];
+        govlay.sslayer = self;
+        [self addChild:govlay z:555];
         
         inlay.player = self;
         bonlay.player = self;
@@ -628,9 +633,17 @@ static BonusLayer* bonlay;
 		CCMenuItemSprite *item1 = [CCMenuItemSprite itemWithNormalSprite:spriteSpin selectedSprite:spriteSpinSelected block:^(id sender) {
             
 //            NSLog(@"Spin clicked! finished = %d", [Common instance].finished);
-            if([Common instance].coins * [Common instance].lines <= [Common instance].money)
             if(!info && [Common instance].finished <= 0) {
 
+                if([Common instance].money < 1) {
+                    
+//                    NSLog(@"Game Over");
+                    [govlay show1];
+                    
+                }
+
+                if([Common instance].coins * [Common instance].lines <= [Common instance].money) {
+                
                 [menu setEnabled:NO];
 
 
@@ -786,7 +799,7 @@ static BonusLayer* bonlay;
                 [star runAction:op];
                 [star runAction:zoom];
             }
-            
+            }
 		}];
         
         [item1 setPosition:ccp(910, 92)];
@@ -965,13 +978,7 @@ static BonusLayer* bonlay;
         CCSprite *spshop_t1 = [CCSprite spriteWithFile:@"TouchShop.png"];
 		CCMenuItemSprite *itemshop = [CCMenuItemSprite itemWithNormalSprite:spshop selectedSprite:spshop_t1 block:^(id sender) {
             
-            colorLayer.opacity = 0;
-            CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
-            [colorLayer runAction:action];
-            menu.enabled = NO;
-            
-//            shoplay.position = ccp(0, 0);
-            [shoplay show];
+            [self showShop];
 
 		}];
         [itemshop setPosition:ccp(740, 730)];
@@ -1089,6 +1096,17 @@ static BonusLayer* bonlay;
 
 	}
 	return self;
+}
+
+- (void) showShop {
+    
+    colorLayer.opacity = 0;
+    CCAction* action = [CCFadeTo actionWithDuration:0.3f opacity:180];
+    [colorLayer runAction:action];
+    menu.enabled = NO;
+    
+    //            shoplay.position = ccp(0, 0);
+    [shoplay show];
 }
 
 - (void) skel_open {
@@ -1371,10 +1389,12 @@ static BonusLayer* bonlay;
     [Common instance].combcnt4 = 0;
     [Common instance].combcnt5 = 0;
 
-    if([Common instance].money < 1) {
-        
-        NSLog(@"Game Over");
-    }
+//    if([Common instance].money < 1) {
+//        
+//        NSLog(@"Game Over");
+//        [govlay show1];
+//
+//    }
 }
 
 -(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController

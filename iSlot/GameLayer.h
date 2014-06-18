@@ -21,12 +21,15 @@
 #define LEVELBAR_X -300
 #define LEVELBAR_Y 650
 
+@class GameoverLayer;
+
 @interface GameLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate> {
     
 //    int fames[FAME_LEVELS];
 
     CCLayerColor* colorLayer;
-
+    
+    GameoverLayer* govlay;
     
     CCLabelTTF *label;
     CCLabelTTF *lastw;
@@ -102,6 +105,10 @@
     CCSprite* spin2;
     CCSprite *spriteSpin;
 }
+
+- (void) showShop;
+- (void) showSlon;
+
 -(void) toTop;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

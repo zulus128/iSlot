@@ -20,3 +20,6 @@
 
 #define BEJ_COLOR ccc3(0xed, 0xec, 0xc6)
 #define BOR_COLOR ccc3(0x47, 0x10, 0x0d)
+
+#define INITIAL_MONEY 1
+#define INITIAL_LUCK 10
